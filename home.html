@@ -1,0 +1,2422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ENpower | Nurturing Future Creators</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --primary-purple: #652b7d;
+            --primary-yellow: #facc48;
+            --light-purple: #8b4ca0;
+            --dark-purple: #4a1f5a;
+            --light-yellow: #fcd96a;
+            --dark-yellow: #e8b730;
+            --bg-light: #faf8fb;
+            --bg-dark: #1e1022;
+            --text-dark: #1e1022;
+            --text-light: #f8f5f8;
+        }
+
+        * {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Particle Animation */
+        .particle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 20px rgba(101, 43, 125, 0.4);
+        }
+
+        /* Material Icons Styling */
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: 'liga';
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(101, 43, 125, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .logo-box {
+            width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-box:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            font-weight: 500;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-purple);
+        }
+
+        /* Dropdown Styles */
+        .dropdown-menu {
+            border: 1px solid rgba(101, 43, 125, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown-item {
+            padding: 0.7rem 1.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(101, 43, 125, 0.08);
+            color: var(--primary-purple);
+        }
+
+        .dropdown-toggle::after {
+            margin-left: 0.5rem;
+        }
+
+        /* Better spacing for navbar items */
+        .navbar-nav .nav-item {
+            margin: 0 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding-top: 8rem;
+            padding-bottom: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        #hero-bg-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(101, 43, 125, 0.08), transparent 70%);
+            z-index: 0;
+        }
+
+        .badge-custom {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: rgba(101, 43, 125, 0.1);
+            color: var(--primary-purple);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-headline {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        .future-creators-text {
+            color: var(--primary-purple);
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .btn-hero-primary {
+            background: var(--primary-purple);
+            color: white;
+            font-weight: 700;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(101, 43, 125, 0.4);
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-hero-primary:hover {
+            transform: scale(1.05);
+            background: var(--dark-purple);
+            color: white;
+        }
+
+        .btn-hero-secondary {
+            background: white;
+            color: var(--text-dark);
+            font-weight: 700;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: 1px solid #ddd;
+            transition: all 0.3s;
+        }
+
+        .btn-hero-secondary:hover {
+            background: #f8f8f8;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: -5rem;
+            right: -5rem;
+            width: 24rem;
+            height: 24rem;
+            background: rgba(101, 43, 125, 0.2);
+            border-radius: 50%;
+            filter: blur(100px);
+        }
+
+        .hero-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            transform: rotate(1deg);
+        }
+
+        .hero-image img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(101, 43, 125, 0.4), transparent);
+        }
+
+        .floating-card {
+            position: absolute;
+            bottom: -1.5rem;
+            left: -1.5rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+            max-width: 240px;
+            border: 1px solid rgba(101, 43, 125, 0.1);
+        }
+
+        .floating-card-icon {
+            width: 40px;
+            height: 40px;
+            background: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        /* Alliance Banner */
+        .alliance-banner {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f0f0f0;
+            margin-bottom: 6rem;
+        }
+
+        .alliance-logo {
+            width: 64px;
+            height: 64px;
+            background: #f8f8f8;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem;
+        }
+
+        .alliance-logo img {
+            width: 100%;
+        }
+
+        .alliance-link {
+            color: var(--primary-purple);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .alliance-link:hover {
+            color: var(--dark-purple);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 5rem 0;
+            background: rgba(101, 43, 125, 0.05);
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(101, 43, 125, 0.05);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            border-color: rgba(101, 43, 125, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Stories Section */
+        .stories-section {
+            padding: 6rem 0;
+            overflow: hidden;
+        }
+
+        .story-card {
+            min-width: 400px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .story-image {
+            height: 16rem;
+            overflow: hidden;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .story-card:hover .story-image img {
+            transform: scale(1.1);
+        }
+
+        .story-badge {
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            background: rgba(101, 43, 125, 0.1);
+            color: var(--primary-purple);
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Philosophy Section */
+        .philosophy-section {
+            padding: 6rem 0;
+        }
+
+        .skill-item {
+            padding: 1rem;
+            border-radius: 12px;
+            border-left: 4px solid;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-item-active {
+            border-color: var(--primary-purple);
+            background: rgba(101, 43, 125, 0.05);
+        }
+
+        .skill-item-inactive {
+            border-color: #ddd;
+            background: #f8f8f8;
+        }
+
+        .skill-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .skill-number-active {
+            background: var(--primary-purple);
+            color: white;
+        }
+
+        .skill-number-inactive {
+            background: #ddd;
+            color: #999;
+        }
+
+        /* Diagram */
+        .diagram-container {
+            position: relative;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .diagram-glow {
+            position: absolute;
+            inset: 0;
+            background: rgba(101, 43, 125, 0.05);
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+
+        .diagram-center {
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+            background: var(--primary-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-weight: 700;
+            box-shadow: 0 10px 40px rgba(101, 43, 125, 0.4);
+            z-index: 10;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .orbit {
+            position: absolute;
+            border: 2px dashed rgba(101, 43, 125, 0.2);
+            border-radius: 50%;
+        }
+
+        .orbit-outer {
+            width: 100%;
+            height: 100%;
+            animation: spin 20s linear infinite;
+        }
+
+        .orbit-inner {
+            width: 70%;
+            height: 70%;
+            animation: spin-reverse 15s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin-reverse {
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        .orbit-icon {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orbit-icon .material-icons {
+            color: var(--primary-purple);
+        }
+
+        /* Ecosystem Cards - Soft Blob Design */
+        .ecosystem-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #faf8fc 0%, #f5f0f9 100%);
+        }
+
+        .ecosystem-card-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 0.5rem;
+            /* flex-wrap: wrap; */
+            margin-top: 4rem;
+            padding: 0 1rem;
+        }
+
+        .eco-card {
+            flex: 0 1 320px;
+            max-width: 340px;
+            background: linear-gradient(145deg, #f7f2fb 0%, #fef9ff 100%);
+            padding: 3rem 2.5rem 2.5rem;
+            border-radius: 45% 55% 60% 40% / 50% 60% 40% 50%;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(101, 43, 125, 0.08),
+                0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(101, 43, 125, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eco-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(101, 43, 125, 0.03) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .eco-card:hover::before {
+            opacity: 1;
+        }
+
+        .eco-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            border-radius: 50% 50% 55% 45% / 55% 45% 55% 45%;
+            box-shadow: 0 16px 48px rgba(101, 43, 125, 0.15),
+                0 4px 16px rgba(0, 0, 0, 0.08);
+            border-color: rgba(101, 43, 125, 0.12);
+        }
+
+        .eco-card:nth-child(1) {
+            border-radius: 48% 52% 58% 42% / 45% 55% 45% 55%;
+        }
+
+        .eco-card:nth-child(2) {
+            border-radius: 52% 48% 45% 55% / 58% 42% 58% 42%;
+        }
+
+        .eco-card:nth-child(3) {
+            border-radius: 45% 55% 52% 48% / 52% 48% 52% 48%;
+        }
+
+        .eco-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e5c9ff 0%, #d9b7ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            box-shadow: 0 4px 12px rgba(101, 43, 125, 0.2),
+                inset 0 2px 4px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .eco-card:hover .eco-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 6px 16px rgba(101, 43, 125, 0.3),
+                inset 0 2px 4px rgba(255, 255, 255, 0.6);
+        }
+
+        .eco-icon .material-icons {
+            font-size: 28px;
+            color: #652b7d;
+            transition: transform 0.3s ease;
+        }
+
+        .eco-card:hover .eco-icon .material-icons {
+            transform: scale(1.1);
+        }
+
+        .eco-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e1022;
+            letter-spacing: -0.3px;
+        }
+
+        .eco-card p {
+            font-size: 0.95rem;
+            color: #5a5a5a;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 991px) {
+            .ecosystem-card-wrapper {
+                gap: 2.5rem;
+            }
+
+            .eco-card {
+                flex: 0 1 300px;
+                max-width: 320px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ecosystem-section {
+                padding: 4rem 0;
+            }
+
+            .ecosystem-card-wrapper {
+                gap: 2rem;
+                margin-top: 3rem;
+            }
+
+            .eco-card {
+                flex: 0 1 280px;
+                max-width: 300px;
+                padding: 2.5rem 2rem 2rem;
+            }
+
+            .eco-icon {
+                width: 52px;
+                height: 52px;
+                margin-bottom: 1.2rem;
+            }
+
+            .eco-icon .material-icons {
+                font-size: 26px;
+            }
+
+            .eco-card h3 {
+                font-size: 1.15rem;
+            }
+
+            .eco-card p {
+                font-size: 0.88rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .eco-card {
+                flex: 0 1 260px;
+                max-width: 280px;
+            }
+        }
+
+        /* CSR Section */
+        .csr-section {
+            padding: 6rem 0;
+            background: #1a1a1a;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .csr-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: rgba(101, 43, 125, 0.3);
+            color: var(--primary-yellow);
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .csr-image {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .csr-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .csr-grid-left {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding-top: 3rem;
+        }
+
+        .csr-grid-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .csr-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, #1a1a1a, transparent, transparent);
+            pointer-events: none;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(101, 43, 125, 0.05), rgba(101, 43, 125, 0.1), transparent);
+            padding: 5rem 3rem;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(101, 43, 125, 0.1);
+            text-align: center;
+        }
+
+        .cta-glow-1 {
+            position: absolute;
+            top: -6rem;
+            right: -6rem;
+            width: 16rem;
+            height: 16rem;
+            background: rgba(101, 43, 125, 0.2);
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+
+        .cta-glow-2 {
+            position: absolute;
+            bottom: -6rem;
+            left: -6rem;
+            width: 16rem;
+            height: 16rem;
+            background: rgba(101, 43, 125, 0.1);
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+
+        .btn-cta-primary {
+            background: var(--primary-purple);
+            color: white;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(101, 43, 125, 0.4);
+            transition: all 0.3s;
+        }
+
+        .btn-cta-primary:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-cta-secondary {
+            background: white;
+            color: var(--text-dark);
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            border: 1px solid #ddd;
+            transition: all 0.3s;
+        }
+
+        .btn-cta-secondary:hover {
+            background: #f8f8f8;
+        }
+
+        .btn-cta-dark {
+            background: #1a1a1a;
+            color: white;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .btn-cta-dark:hover {
+            background: #000;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            border-top: 1px solid #f0f0f0;
+            padding: 5rem 0 2.5rem;
+        }
+
+        .footer-logo {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-purple);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .footer-social {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .footer-social:hover {
+            background: var(--primary-purple);
+            color: white;
+        }
+
+        .footer-link {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-purple);
+        }
+
+        .newsletter-input {
+            flex: 1;
+            background: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            padding: 0.6rem 1.2rem;
+        }
+
+        .newsletter-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-purple);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+        }
+
+        /* Horizontal Scroll */
+        .horizontal-scroll-section {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding-bottom: 3rem;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .horizontal-scroll-section::-webkit-scrollbar {
+            display: none;
+        }
+
+        .horizontal-scroll-section {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .snap-center {
+            scroll-snap-align: center;
+        }
+
+        /* Navigation Buttons */
+        .nav-arrow {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            background: white;
+            cursor: pointer;
+        }
+
+        .nav-arrow:hover {
+            background: var(--primary-purple);
+            color: white;
+            border-color: var(--primary-purple);
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .hero-headline {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-headline {
+                font-size: 2rem;
+            }
+
+            .story-card {
+                min-width: 320px;
+            }
+        }
+
+        /* Architecture Scroll Section Styles */
+        @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;800&display=swap");
+
+        .arch-container {
+            max-width: 1440px;
+            padding: 2rem;
+        }
+
+        .arch-spacer {
+            width: 100%;
+            height: 30vh;
+        }
+
+        .arch {
+            display: flex;
+            gap: 60px;
+            justify-content: space-between;
+            max-width: 1100px;
+            margin-inline: auto;
+        }
+
+        .arch__left {
+            display: flex;
+            flex-direction: column;
+            min-width: 300px;
+        }
+
+        .arch__left .arch__info {
+            max-width: 356px;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+        .arch__left .arch__info h2.header {
+            font-family: Outfit, sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -0.84px;
+        }
+
+        .arch__left .arch__info p.desc {
+            color: rgba(18, 18, 18, 0.8);
+            font-size: 18px;
+            letter-spacing: -0.54px;
+            margin-block: 6px 28px;
+            line-height: normal;
+        }
+
+        .arch__left .arch__info a.link {
+            text-decoration: none;
+            padding: 16px 18px;
+            color: inherit;
+            border-radius: 40px;
+            display: flex;
+            gap: 4px;
+            width: fit-content;
+            align-items: center;
+        }
+
+        .arch__right {
+            flex-shrink: 1;
+            height: 100vh;
+            width: 100%;
+            max-width: 540px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .arch__right .img-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            height: 400px;
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .arch__right .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        @media (max-width: 900px) {
+            .arch {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .arch {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .arch__left,
+            .arch__right {
+                display: contents;
+            }
+
+            .arch__right {
+                height: auto;
+                max-width: 100%;
+            }
+
+            .arch__right .img-wrapper {
+                position: static;
+                transform: none;
+                height: 360px;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .arch__left .arch__info {
+                height: auto;
+                padding: 20px 0;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .arch {
+                gap: 12px;
+            }
+
+            .arch-container {
+                padding: 10px;
+            }
+
+            .arch__right .img-wrapper {
+                border-radius: 10px;
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/enpower-logo.svg" alt="Enpower Logo" class="logo-box" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="labsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Labs
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="labsDropdown">
+                            <li><a class="dropdown-item" href="#">Composite Skills Lab</a></li>
+                            <li><a class="dropdown-item" href="#">Future Skills Lab</a></li>
+                            <li><a class="dropdown-item" href="#">Tech Innovation Lab</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">IFT</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Teacher Training</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Impact Programs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div id="hero-particles"></div>
+        <div id="hero-bg-glow"></div>
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 position-relative" style="z-index: 10;">
+                    <div class="badge-custom">
+                        <span class="material-icons">stars</span>
+                        India's Largest Entrepreneurial Platform
+                    </div>
+                    <h1 class="hero-headline">
+                        Nurturing a Generation of <span class="future-creators-text">Future Creators</span>
+                    </h1>
+                    <p class="hero-description">
+                        Empowering students with the entrepreneurial mindset and 21st-century skills to lead the future.
+                        We
+                        bridge the gap between academic learning and real-world impact.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <button class="btn btn-hero-primary hero-btn">
+                            Explore Future Skill Labs
+                            <span class="material-icons">arrow_forward</span>
+                        </button>
+                        <button class="btn btn-hero-secondary hero-btn">
+                            Book a Readiness Call
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image-wrapper">
+                        <div class="hero-glow"></div>
+                        <div class="hero-image">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXaA7h45AjSWvNNmvuQk65sGjs20YLurx6VzZ8Erg4MRuM_FJd4VFjXmjdgXQ6HSOavYgYaDO5X1Ix020RyaDS9hJN05W9M_6-l752j4j7JmgO2VQM5mUqi_sZN_oRqwVmJuTzGmhJFrTckrOKRO7Sdr0d81sLBlMicvDX7p_BV_kRsNZPS4sHpTbFoPllgKRo2Kz5Czc8k1nD8Xw5J0hnoq1SEYSFT9uQxsNpqhYarF_XetBnR1dU9-vIsjfTDC6-TVCjyc2Np8Ui"
+                                alt="Students collaborating on a creative project in a modern lab" />
+                            <div class="hero-overlay"></div>
+                        </div>
+                        <div class="floating-card">
+                            <div class="d-flex gap-3 align-items-center mb-3">
+                                <div class="floating-card-icon">
+                                    <span class="material-icons">check</span>
+                                </div>
+                                <div class="fw-bold">Skill Certified</div>
+                            </div>
+                            <p class="small text-secondary mb-0">12,000+ students certified in Creative Problem Solving
+                                this year.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tata Alliance Banner -->
+    <section class="container">
+        <div class="alliance-banner">
+            <div class="row align-items-center g-4">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="alliance-logo">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5qej2gnLaqfJbUfp6XiKn_CZ1N2hBq6SQYevps5tqnMOJdhzZy_QJqbXdDCfdABaZ6in98sBwrkHYePwWtxO0CjrIKzpJLYOSLiVlB6fgm168xhygT52Fo_NP15XGMKs37ysJVx62yF-_r4i7VgWDoR_H-Uu6cu2SPrpv69K7hEmzBOum2kpNZguQ598MwiFfeNkxL0COiVgJLP7L9pjZLa9zw6eN9Ivmr4dSl5mBximWhPYM_AwMhS43hyKbSEXLE760Kh4D0V1G"
+                                alt="Tata ClassEdge logo" />
+                        </div>
+                        <div>
+                            <h3 class="h5 fw-bold mb-1">Strategic Alliance</h3>
+                            <p class="small text-secondary mb-0">A global partnership with Tata ClassEdge driving
+                                innovation.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1 text-center d-none d-md-block">
+                    <div style="width: 1px; height: 50px; background: #ddd; margin: 0 auto;"></div>
+                </div>
+                <div class="col-md-5">
+                    <p class="small fst-italic text-secondary mb-0">
+                        "Together, we are redesigning the educational landscape to create future-ready leaders for the
+                        global economy."
+                    </p>
+                </div>
+                <div class="col-md-2 text-md-end">
+                    <a href="#" class="alliance-link">
+                        Read Story
+                        <span class="material-icons" style="font-size: 0.9rem;">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card">
+                        <div class="stat-number">7+</div>
+                        <div class="stat-label">States</div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card">
+                        <div class="stat-number">680+</div>
+                        <div class="stat-label">Schools/Institutes</div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card">
+                        <div class="stat-number">180000+</div>
+                        <div class="stat-label">Students</div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card">
+                        <div class="stat-number">145+</div>
+                        <div class="stat-label">Thinking Coaches</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Transformation Stories -->
+    <section class="stories-section">
+        <div class="container mb-5">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-8">
+                    <h2 class="h1 fw-bold mb-3">Student Transformation Stories</h2>
+                    <p class="text-secondary mb-0">Real impact, real world ventures by young minds.</p>
+                </div>
+                <div class="col-md-4 text-md-end d-flex justify-content-md-end gap-2">
+                    <button class="nav-arrow" id="story-prev">
+                        <span class="material-icons">chevron_left</span>
+                    </button>
+                    <button class="nav-arrow" id="story-next">
+                        <span class="material-icons">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="horizontal-scroll-section" id="stories-scroll">
+                <!-- Story 1 -->
+                <div class="story-card snap-center">
+                    <div class="story-image">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5WvaIrI8OUm9oVbDsjxYoi68DG0vDMQqplG3sS3euP2JFCvO0jwFH54c8bEfZ2Q8cnOd_rqL0RAded98WwOEBsjFtupIfYshSbOlP-Zs1704vaxMro9X--6SHCUxEyq9hmcT20gBqKBBtzkKVWgOXdgheWq-xWEMGwSj0MB_RRiDOTxNGGEtOgj5l2dzyf2or-a4-XLWuF1pMJjJIp59jG10SKJLjCqxOBJzqIiIae6zlJSPGtUC5IzNJrn4QmpU3LxYQOAkZ7Lm-"
+                            alt="Young student entrepreneur presenting a prototype" />
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="h5 fw-bold mb-1">Arav Mehta</h3>
+                                <p class="small mb-0" style="color: var(--primary-purple); font-weight: 500;">Grade 9,
+                                    Mumbai</p>
+                            </div>
+                            <span class="story-badge">Social Impact</span>
+                        </div>
+                        <p class="text-secondary fst-italic mb-4">
+                            "ENpower taught me that an idea is only as good as the problem it solves. My start-up for
+                            local recycling grew from a classroom project."
+                        </p>
+                        <div class="pt-3 border-top">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold">Eco-Sort Initiative</span>
+                                <span class="small text-secondary">Raised ₹2L in funding</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 2 -->
+                <div class="story-card snap-center">
+                    <div class="story-image">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBebR9GbphC1lKj1vexOHs53Rp-hY_7sXv8MaxILehXw6o6o1mN85rjsUk9qL_V0aExPr21Ok7olFkpJIfyA1ltDQ8mSvaV9dhyI3_lpVZc2Sw9xLk5S3rEFUYxRrVnayBnRb87-iwC4Z6tU9KW3bb1sfhcGIIh1f4vz8W6JKtA_PD4UPydepWtym-__jgXTfpQpAJm7N75k9CvQonk1McHY7i_RWyBYnuaNu5o2tno4xzIL9MnOcD9B2BU4oAfWwH-ohYsYnALer78"
+                            alt="Group of students brainstorming with sticky notes" />
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="h5 fw-bold mb-1">Riya Kapoor</h3>
+                                <p class="small mb-0" style="color: var(--primary-purple); font-weight: 500;">Grade 11,
+                                    Delhi</p>
+                            </div>
+                            <span class="story-badge">Tech Innovation</span>
+                        </div>
+                        <p class="text-secondary fst-italic mb-4">
+                            "Building a prototype was intimidating until I understood the design thinking process. Now
+                            I'm coding for change."
+                        </p>
+                        <div class="pt-3 border-top">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold">Code-Green App</span>
+                                <span class="small text-secondary">Top 10 Global Finalist</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 3 -->
+                <div class="story-card snap-center">
+                    <div class="story-image">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN91c44fIY0kmetYw0e2jMCWswpUBiFiTlFwjiDt-gR2J5ehu0rJhpRDmfnQ4ZJ1Bk10xLyRkfpCcCPErIWGDKFTLuWlDMStEdMeINSTJWvVfXc06Uy_jXSG9713YZCSt438skr6TVo8ZOMqspSXgBuVakcGIU4zaNDH_rCjj0V7bdrEMN5TY9-HdeGGXcIUfSN_2wgNLX_KFJq7UYPRn6EsI3vsOZ674ZN1hkef_3I1gXiNnWPQgSXFVdgmED6PqnEF-2c4drZJhu"
+                            alt="Enthusiastic students receiving an award" />
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="h5 fw-bold mb-1">Siddharth Rai</h3>
+                                <p class="small mb-0" style="color: var(--primary-purple); font-weight: 500;">Grade 10,
+                                    Bengaluru</p>
+                            </div>
+                            <span class="story-badge">Agri-Tech</span>
+                        </div>
+                        <p class="text-secondary fst-italic mb-4">
+                            "Connecting with industry mentors through ENpower's ecosystem changed my entire perspective
+                            on careers in agriculture."
+                        </p>
+                        <div class="pt-3 border-top">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold">Hydro-Smart Kits</span>
+                                <span class="small text-secondary">Patent Pending</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 4 -->
+                <div class="story-card snap-center">
+                    <div class="story-image">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXaA7h45AjSWvNNmvuQk65sGjs20YLurx6VzZ8Erg4MRuM_FJd4VFjXmjdgXQ6HSOavYgYaDO5X1Ix020RyaDS9hJN05W9M_6-l752j4j7JmgO2VQM5mUqi_sZN_oRqwVmJuTzGmhJFrTckrOKRO7Sdr0d81sLBlMicvDX7p_BV_kRsNZPS4sHpTbFoPllgKRo2Kz5Czc8k1nD8Xw5J0hnoq1SEYSFT9uQxsNpqhYarF_XetBnR1dU9-vIsjfTDC6-TVCjyc2Np8Ui"
+                            alt="Student working on creative project" />
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="h5 fw-bold mb-1">Priya Sharma</h3>
+                                <p class="small mb-0" style="color: var(--primary-purple); font-weight: 500;">Grade 12,
+                                    Pune</p>
+                            </div>
+                            <span class="story-badge">EdTech</span>
+                        </div>
+                        <p class="text-secondary fst-italic mb-4">
+                            "From struggling with public speaking to pitching my EdTech solution to investors. ENpower
+                            gave me the confidence and skills."
+                        </p>
+                        <div class="pt-3 border-top">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold">LearnBridge Platform</span>
+                                <span class="small text-secondary">5000+ Users</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 5 -->
+                <div class="story-card snap-center">
+                    <div class="story-image">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBebR9GbphC1lKj1vexOHs53Rp-hY_7sXv8MaxILehXw6o6o1mN85rjsUk9qL_V0aExPr21Ok7olFkpJIfyA1ltDQ8mSvaV9dhyI3_lpVZc2Sw9xLk5S3rEFUYxRrVnayBnRb87-iwC4Z6tU9KW3bb1sfhcGIIh1f4vz8W6JKtA_PD4UPydepWtym-__jgXTfpQpAJm7N75k9CvQonk1McHY7i_RWyBYnuaNu5o2tno4xzIL9MnOcD9B2BU4oAfWwH-ohYsYnALer78"
+                            alt="Team collaboration session" />
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="h5 fw-bold mb-1">Arjun Patel</h3>
+                                <p class="small mb-0" style="color: var(--primary-purple); font-weight: 500;">Grade 11,
+                                    Ahmedabad</p>
+                            </div>
+                            <span class="story-badge">FinTech</span>
+                        </div>
+                        <p class="text-secondary fst-italic mb-4">
+                            "Learning financial literacy and entrepreneurship together opened my eyes to real-world
+                            problem solving."
+                        </p>
+                        <div class="pt-3 border-top">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold">Youth Banking App</span>
+                                <span class="small text-secondary">Incubated</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 6 -->
+                <div class="story-card snap-center">
+                    <div class="story-image">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKm79QRfmcvVr_My3LEgoX-mMSANe4cx2MXk434ulE1ku_yL-5nz1aRqbibCe8D6N-zl05s6ra3xY7fU5yzNwyzScr0Ujwc72b2Fw2Teyg-MWbpGv5fhzVGQdOkUFJKB3sHfiJ3tXo3K4428OjuzFAw_PnHcrXuq8l9VQPuzg6WQeRxIoaRIkwP88_D269hHRevjmzmrxvSJC4oB-0BkO2PWJPOgTLtFXSrVHUurjv7fb9IKBJubYz4U-HWb0ATbVe7YrU4vjYNA5u"
+                            alt="Student presenting to audience" />
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="h5 fw-bold mb-1">Neha Singh</h3>
+                                <p class="small mb-0" style="color: var(--primary-purple); font-weight: 500;">Grade 10,
+                                    Kolkata</p>
+                            </div>
+                            <span class="story-badge">Healthcare</span>
+                        </div>
+                        <p class="text-secondary fst-italic mb-4">
+                            "My healthcare innovation started as a class assignment. Now it's helping rural communities
+                            access medical information."
+                        </p>
+                        <div class="pt-3 border-top">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold">HealthConnect</span>
+                                <span class="small text-secondary">10+ Villages Served</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         THE ENPOWER PHILOSOPHY - ROTATING CIRCULAR FRAMEWORK
+    ========================================= -->
+    <style>
+    /* Philosophy Section Styles */
+    .philosophy-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f8f5fc 0%, #ffffff 100%);
+        overflow: hidden;
+        position: relative;
+    }
+
+    .philosophy-section::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(101, 43, 125, 0.03) 1px, transparent 1px);
+        background-size: 30px 30px;
+        z-index: 0;
+    }
+
+    .philosophy-container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .philosophy-content {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Left Content Area */
+    .philosophy-left {
+        flex: 1;
+        max-width: 600px;
+    }
+
+    /* Right Circle Framework */
+    .philosophy-right {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        min-height: 650px;
+    }
+
+    .circle-framework {
+        position: relative;
+        width: 550px;
+        height: 550px;
+    }
+
+    /* Main Colored Ring SVG */
+    .colored-ring-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 550px;
+        height: 550px;
+    }
+
+    /* Center Circle with Image */
+    .center-circle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 8px solid white;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+    }
+
+    .center-circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Rotating Orbit Container */
+    .rotating-orbit {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 420px;
+        height: 420px;
+    }
+
+    /* Orbit Icons */
+    .orbit-icon {
+        position: absolute;
+        width: 65px;
+        height: 65px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+        z-index: 20;
+        border: 4px solid white;
+    }
+
+    .orbit-icon:hover {
+        transform: scale(1.1);
+        box-shadow: 0 12px 35px rgba(101, 43, 125, 0.3);
+    }
+
+    .orbit-icon .material-icons {
+        font-size: 30px;
+        color: #652b7d;
+        transition: color 0.3s ease;
+    }
+
+    /* Navigation Arrows */
+    .nav-arrow-circle {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        z-index: 25;
+    }
+
+    .nav-arrow-circle:hover {
+        background: #652b7d;
+        transform: scale(1.1);
+    }
+
+    .nav-arrow-circle:hover .material-icons {
+        color: white;
+    }
+
+    .nav-arrow-circle .material-icons {
+        font-size: 28px;
+        color: #652b7d;
+        transition: color 0.3s ease;
+    }
+
+    .nav-arrow-left {
+        left: -60px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .nav-arrow-right {
+        right: -60px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+        .philosophy-content {
+            gap: 40px;
+        }
+
+        .circle-framework {
+            width: 500px;
+            height: 500px;
+        }
+
+        .rotating-orbit {
+            width: 420px;
+            height: 420px;
+        }
+
+        .segments-container {
+            width: 440px;
+            height: 440px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .philosophy-content {
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .philosophy-left {
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .philosophy-list li {
+            text-align: left;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .philosophy-title {
+            font-size: 32px;
+        }
+
+        .circle-framework {
+            width: 400px;
+            height: 400px;
+        }
+
+        .rotating-orbit {
+            width: 340px;
+            height: 340px;
+        }
+
+        .segments-container {
+            width: 360px;
+            height: 360px;
+        }
+
+        .center-circle {
+            width: 140px;
+            height: 140px;
+        }
+
+        .center-circle-text {
+            font-size: 13px;
+        }
+
+        .orbit-icon {
+            width: 60px;
+            height: 60px;
+        }
+
+        .orbit-icon .material-icons {
+            font-size: 28px;
+        }
+
+        .outer-ring-1 {
+            width: 480px;
+            height: 480px;
+        }
+
+        .outer-ring-2 {
+            width: 520px;
+            height: 520px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .philosophy-right {
+            min-height: 450px;
+        }
+
+        .circle-framework {
+            width: 320px;
+            height: 320px;
+        }
+
+        .rotating-orbit {
+            width: 280px;
+            height: 280px;
+        }
+
+        .segments-container {
+            width: 300px;
+            height: 300px;
+        }
+
+        .center-circle {
+            width: 110px;
+            height: 110px;
+        }
+
+        .center-circle-text {
+            font-size: 11px;
+        }
+
+        .orbit-icon {
+            width: 50px;
+            height: 50px;
+            border-width: 2px;
+        }
+
+        .orbit-icon .material-icons {
+            font-size: 24px;
+        }
+
+        .outer-ring-1 {
+            width: 380px;
+            height: 380px;
+        }
+
+        .outer-ring-2 {
+            width: 420px;
+            height: 420px;
+        }
+    }
+    </style>
+
+    <!-- HTML Section -->
+    <section class="philosophy-section">
+        <div class="philosophy-container">
+            <div class="philosophy-content">
+
+                <!-- Left Content Area -->
+                <div class="philosophy-left">
+                    <h2 class="h1 fw-bold mb-4">The ENpower Philosophy</h2>
+                    <p class="text-secondary mb-4" style="font-size: 1.1rem; line-height: 1.7;">
+                        The future of work is evolving faster than education systems can adapt. Automation, AI, and
+                        climate transitions are reshaping careers and yet most students today are still being prepared
+                        for jobs that may not exist tomorrow.<br /><br />
+                        Global frameworks by the OECD, World Economic Forum, UNICEF, alongside India's NEP
+                        2020, consistently highlight the urgent need for future-skills education including 21st-century
+                        life skills, STEM application, innovative thinking, and entrepreneurial mindset. What's missing is
+                        not the intent - it's integration.
+                    </p>
+                    <!-- <div>
+                        <div class="skill-item skill-item-active">
+                            <div class="skill-number skill-number-active">01</div>
+                            <span class="fw-bold">Creative Problem Solving</span>
+                        </div>
+                        <div class="skill-item skill-item-inactive">
+                            <div class="skill-number skill-number-inactive">02</div>
+                            <span class="fw-bold">Empathy &amp; User-Centricity</span>
+                        </div>
+                        <div class="skill-item skill-item-inactive">
+                            <div class="skill-number skill-number-inactive">03</div>
+                            <span class="fw-bold">Risk Management &amp; Resilience</span>
+                        </div>
+                    </div> -->
+                </div>
+
+                <!-- Right Circle Framework -->
+                <div class="philosophy-right">
+                    <div class="circle-framework">
+
+                        <!-- Colored Ring with 5 Equal Segments (72° each) -->
+                        <svg class="colored-ring-container" viewBox="0 0 550 550">
+                            <defs>
+                                <!-- Donut mask for ring shape -->
+                                <mask id="donutMask">
+                                    <circle cx="275" cy="275" r="275" fill="white"/>
+                                    <circle cx="275" cy="275" r="150" fill="black"/>
+                                </mask>
+                            </defs>
+
+                            <!-- Ring segments with 5 different colors (exactly 72° each) -->
+                            <g mask="url(#donutMask)">
+                                <!-- Segment 1: Yellow (0° to 72°) -->
+                                <path d="M 275,275 L 275,0 A 275,275 0 0,1 460,88 Z" fill="#FCC842" />
+
+                                <!-- Segment 2: Dark Purple (72° to 144°) -->
+                                <path d="M 275,275 L 460,88 A 275,275 0 0,1 460,462 Z" fill="#5B1B6D" />
+
+                                <!-- Segment 3: Purple (144° to 216°) -->
+                                <path d="M 275,275 L 460,462 A 275,275 0 0,1 275,550 Z" fill="#7B2D8E" />
+
+                                <!-- Segment 4: Magenta/Pink (216° to 288°) -->
+                                <path d="M 275,275 L 275,550 A 275,275 0 0,1 90,462 Z" fill="#C1458E" />
+
+                                <!-- Segment 5: Light Purple (288° to 360°) -->
+                                <path d="M 275,275 L 90,462 A 275,275 0 0,1 90,88 Z" fill="#9B6BA8" />
+                            </g>
+                        </svg>
+
+                        <!-- Center Circle with Image -->
+                        <div class="center-circle">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXaA7h45AjSWvNNmvuQk65sGjs20YLurx6VzZ8Erg4MRuM_FJd4VFjXmjdgXQ6HSOavYgYaDO5X1Ix020RyaDS9hJN05W9M_6-l752j4j7JmgO2VQM5mUqi_sZN_oRqwVmJuTzGmhJFrTckrOKRO7Sdr0d81sLBlMicvDX7p_BV_kRsNZPS4sHpTbFoPllgKRo2Kz5Czc8k1nD8Xw5J0hnoq1SEYSFT9uQxsNpqhYarF_XetBnR1dU9-vIsjfTDC6-TVCjyc2Np8Ui"
+                                 alt="Students collaborating in lab" />
+                        </div>
+
+                        <!-- Navigation Arrows -->
+                        <div class="nav-arrow-circle nav-arrow-left">
+                            <span class="material-icons">chevron_left</span>
+                        </div>
+                        <div class="nav-arrow-circle nav-arrow-right">
+                            <span class="material-icons">chevron_right</span>
+                        </div>
+
+                        <!-- Rotating Orbit with Icons (5 icons evenly spaced at 72 degrees) -->
+                        <div class="rotating-orbit" id="rotatingOrbit">
+                            <!-- Icon 1: Top - 0 degrees (psychology) -->
+                            <div class="orbit-icon" style="top: -32px; left: 50%; transform: translateX(-50%);">
+                                <span class="material-icons">psychology</span>
+                            </div>
+
+                            <!-- Icon 2: Top-right - 72 degrees (menu_book) -->
+                            <div class="orbit-icon" style="top: 62px; right: 27px;">
+                                <span class="material-icons">menu_book</span>
+                            </div>
+
+                            <!-- Icon 3: Bottom-right - 144 degrees (analytics) -->
+                            <div class="orbit-icon" style="bottom: 62px; right: 27px;">
+                                <span class="material-icons">analytics</span>
+                            </div>
+
+                            <!-- Icon 4: Bottom-left - 216 degrees (lightbulb) -->
+                            <div class="orbit-icon" style="bottom: 62px; left: 27px;">
+                                <span class="material-icons">lightbulb</span>
+                            </div>
+
+                            <!-- Icon 5: Top-left - 288 degrees (groups) -->
+                            <div class="orbit-icon" style="top: 62px; left: 27px;">
+                                <span class="material-icons">groups</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+    // ========================================
+    // PHILOSOPHY SECTION - ROTATING COLORED RING
+    // ========================================
+
+    // Initialize GSAP rotation on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const coloredRing = document.querySelector('.colored-ring-container');
+
+        // Rotate only the colored ring, icons stay fixed
+        gsap.to(coloredRing, {
+            rotation: 360,
+            duration: 40,
+            ease: "none",
+            repeat: -1,
+            transformOrigin: "center center"
+        });
+    });
+    </script>
+
+    <!-- Ecosystem Cards -->
+    <section class="ecosystem-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="h1 fw-bold mb-3">ENpower Engagements</h2>
+                <p class="text-secondary">
+                    One ecosystem. Multiple pathways. Designed for future readiness.<br />
+                    At <b>ENpower</b>, future skills are delivered through <b>integrated engagements within schools</b>, ensuring students become confident <b>Thinkers, Creators & Leaders</b>.
+                </p>
+            </div>
+
+            <div class="ecosystem-card-wrapper">
+
+                <!-- Future Skills Lab -->
+                <div class="eco-card">
+                    <div class="eco-icon">
+                        <span class="material-icons">psychology</span>
+                    </div>
+                    <h3>Future Skills Lab</h3>
+                    <p>
+                        India's first Integrated Future-Skills Ecosystem for schools.<br />
+                        Transforming Your School Into A Future-Skills Ecosystem enabling every child to grow.
+                    </p>
+                </div>
+
+                <!-- Composite Skills Lab -->
+                <div class="eco-card">
+                    <div class="eco-icon">
+                        <span class="material-icons">auto_awesome</span>
+                    </div>
+                    <h3>Composite Skills Lab</h3>
+                    <p>
+                        One-stop Solution For CSL & Kaushal Bodh Implementation.<br />
+                        ENpower's Composite Skill Lab transforms CBSE's CSL & Kaushal Bodh mandate.
+                    </p>
+                </div>
+
+                <!-- Tech Innovation Labs -->
+                <div class="eco-card">
+                    <div class="eco-icon">
+                        <span class="material-icons">groups</span>
+                    </div>
+                    <h3>Tech Innovation Labs</h3>
+                    <p>
+                        Transforming Traditional STEM Learning With Design Thinking & Entrepreneurship.
+                    </p>
+                </div>
+
+                <!-- India’s Future Tycoons -->
+                <div class="eco-card">
+                    <div class="eco-icon">
+                        <span class="material-icons">auto_awesome</span>
+                    </div>
+                    <h3>India's Future Tycoons</h3>
+                    <p>
+                        India's first-ever entrepreneurship search and mentorship platform for young adults(13-18).
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Scroll Section -->
+    <div class="arch-container">
+        <div class="text-center mb-5" style="padding-top: 4rem;">
+            <h2 class="h1 fw-bold mb-3">Training & Certificates</h2>
+        </div>
+
+        <div class="arch">
+            <div class="arch__left">
+                <div class="arch__info" id="green-arch">
+                    <div class="content">
+                        <h2 class="header">Green Cityscape</h2>
+                        <p class="desc">Vibrant streets with vertical gardens and solar buildings. This oasis thrives on
+                            renewable energy, smart transport, and green spaces for biodiversity.</p>
+                        <a class="link" href="#" style="background-color: #D5FF37">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                                <path fill="#121212"
+                                    d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+                            </svg> <span>Learn More</span></a>
+                    </div>
+                </div>
+
+                <div class="arch__info" id="blue-arch">
+                    <div class="content">
+                        <h2 class="header">Blue Urban Oasis</h2>
+                        <p class="desc">Avenues with azure facades and eco-structures. This hub uses clean energy, smart
+                            transit, and parks for urban wildlife.</p>
+                        <a class="link" href="#" style="background-color: #7DD6FF">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                                <path fill="#121212"
+                                    d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+                            </svg> <span>Learn More</span></a>
+                    </div>
+                </div>
+
+                <div class="arch__info" id="pink-arch">
+                    <div class="content">
+                        <h2 class="header">Fluid Architecture</h2>
+                        <p class="desc">Desert refuge with fluid architecture and glowing interiors. This sanctuary
+                            harnesses solar power, sustainable design, and natural harmony for resilient living.</p>
+                        <a class="link" href="#" style="background-color: #FFA0B0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                                <path fill="#121212"
+                                    d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+                            </svg> <span>Learn More</span></a>
+                    </div>
+                </div>
+
+                <div class="arch__info" id="orange-arch">
+                    <div class="content">
+                        <h2 class="header">Martian Arches</h2>
+                        <p class="desc">Ethereal structures arc over tranquil waters, bathed in the glow of a setting
+                            Martian sun. This desolate beauty showcases the stark, captivating landscape of the red planet.
+                        </p>
+                        <a class="link" href="#" style="background-color: #FFA17B">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                                <path fill="#121212"
+                                    d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+                            </svg> <span>Learn More</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arch__right">
+                <div class="img-wrapper" data-index="4">
+                    <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/cu8978xjlsjjpjk52ta0.webp"
+                        alt="Green Architecture">
+                </div>
+
+                <div class="img-wrapper" data-index="3">
+                    <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/trh7c8ufv1dqfrofdytd.webp"
+                        alt="Blue Architecture">
+                </div>
+
+                <div class="img-wrapper" data-index="2">
+                    <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/aw6qwur0pggp5r03whjq.webp"
+                        alt="Pink Architecture">
+                </div>
+
+                <div class="img-wrapper" data-index="1">
+                    <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/sqwn8u84zd1besgl0zpd.webp"
+                        alt="Orange Architecture">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="arch-spacer"></div>
+
+    </div>
+
+    <!-- CSR Snapshot -->
+    <section class="csr-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 order-2 order-lg-1 position-relative">
+                    <div class="csr-grid">
+                        <div class="csr-grid-left">
+                            <img class="csr-image"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKm79QRfmcvVr_My3LEgoX-mMSANe4cx2MXk434ulE1ku_yL-5nz1aRqbibCe8D6N-zl05s6ra3xY7fU5yzNwyzScr0Ujwc72b2Fw2Teyg-MWbpGv5fhzVGQdOkUFJKB3sHfiJ3tXo3K4428OjuzFAw_PnHcrXuq8l9VQPuzg6WQeRxIoaRIkwP88_D269hHRevjmzmrxvSJC4oB-0BkO2PWJPOgTLtFXSrVHUurjv7fb9IKBJubYz4U-HWb0ATbVe7YrU4vjYNA5u"
+                                alt="Children in rural school learning together" style="aspect-ratio: 1;" />
+                            <img class="csr-image"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxKzD--D2rFsnpCnzZLOcH_VzpBtc7oITM_VTnr2RQN81U2FWPUPGa2OikncYOYwXdcHbc8iLjHxQCTxGJ5A5Wp3xWCiubNFQIBbFdp7garu72QBY4s342cFnYozkuqMtcr8lKd8q3gcSj7VhErk6QcppSRE4kSxhRhtDKZaUZ6-14CzNIN3A6Z-M7UB98S-A4XQp1qzbwKufavTy_Ij1QwD_s6ohkZefnjfvfP_fTaxvSnUU5yfV42v7Hxys18KhlHikDSYelrffI"
+                                alt="Teacher helping students in an outdoor classroom" style="aspect-ratio: 3/4;" />
+                        </div>
+                        <div class="csr-grid-right">
+                            <img class="csr-image"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP6B0SsQoUtOZlPpFwnVbgJPRnr8YdURLUbZOojX7V-2bpNBBdopLnIMpPmonb2YryCTkJgPFUuEq4-hHMR-GcVgeYur4Ig5k6uTrFxBNHaSDgWMOLzruUUFwWENyLK853Ma5PF0KOZIqZ2d1faU0_QNJIrFLf3KEbVwUra-HEqV5j6wkCkT6Am_DRZFWqC058ihJtBN55acSKuMWujdVifeqvfvFYlPfyRSEkMpzBUQ2a0v9efDSoSfFIBOaQiNogDGBug077NsVP"
+                                alt="Library full of books and young readers" style="aspect-ratio: 3/4;" />
+                            <img class="csr-image"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQV1j9pw_dzg9AmwUJacb-m_Mv87O_GdlrOZButxIssodPsKm7_EAjd4hFQU_ecAknmsCDty-J-JoLkiDKzFPOuKgzhHhtvhWCzuKs-oyDwrWYvBpQ4Ftqk9Spb_5NOQquYjVZNLb92IFS0yYDrjJxjxvuCRsUQDGgDBIXUBuYRN77JYoSEmLf-iAezg-8YLATVxuhhX6cn7iW0HSlEazrW-ymTxjOpFet8SX8o6yxm-a-JldOIOTagiGUoef9gL98_28hQW9X-26B"
+                                alt="Group of diverse students working on a project" style="aspect-ratio: 1;" />
+                        </div>
+                    </div>
+                    <div class="csr-overlay"></div>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 position-relative" style="z-index: 10;">
+                    <div class="csr-badge">Our CSR Impact</div>
+                    <h2 class="h1 fw-bold mb-4">Democratizing Innovation</h2>
+                    <p class="mb-4" style="font-size: 1.1rem; line-height: 1.7; color: #ccc;">
+                        Through our CSR initiatives, we bring the same quality of entrepreneurial education to
+                        underserved
+                        communities. We believe genius is distributed equally, but opportunity is not.
+                    </p>
+                    <div class="row g-4 mb-4">
+                        <div class="col-6">
+                            <div class="h2 fw-bold mb-1">45k+</div>
+                            <div class="small text-uppercase" style="color: #999; letter-spacing: 1.5px;">Rural Students
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="h2 fw-bold mb-1">120+</div>
+                            <div class="small text-uppercase" style="color: #999; letter-spacing: 1.5px;">Govt Schools
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline-light btn-lg"
+                        style="border-width: 2px; border-radius: 50px; padding: 1rem 2rem; font-weight: 700;">
+                        Partner With Us
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-glow-1"></div>
+                <div class="cta-glow-2"></div>
+                <h2 class="h1 fw-bold mb-4 position-relative" style="z-index: 10;">Ready to Build a Future-Ready School?
+                </h2>
+                <p class="text-secondary mb-5 mx-auto position-relative" style="max-width: 600px; z-index: 10;">
+                    Join 680+ schools in transforming the educational experience for your students. Book a discovery
+                    call
+                    today to see our labs in action.
+                </p>
+                <div class="d-flex flex-wrap justify-content-center gap-3 position-relative" style="z-index: 10;">
+                    <button class="btn btn-cta-primary">Start Integration</button>
+                    <button class="btn btn-cta-secondary">Download Brochure</button>
+                    <button class="btn btn-cta-dark">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5 mb-5">
+                <div class="col-md-3">
+                    <div class="d-flex align-items-center gap-2 mb-4">
+                        <div class="footer-logo">
+                            <span class="material-icons">rocket_launch</span>
+                        </div>
+                        <span class="h5 fw-bold mb-0">ENpower</span>
+                    </div>
+                    <p class="small text-secondary mb-4">
+                        Empowering the next generation of innovators, entrepreneurs, and leaders with 21st-century
+                        skills.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="footer-social">
+                            <span class="material-icons">language</span>
+                        </a>
+                        <a href="#" class="footer-social">
+                            <span class="material-icons">share</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h4 class="h6 fw-bold mb-4">Programs</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><a href="#" class="footer-link small">Future Skill Labs</a></li>
+                        <li class="mb-3"><a href="#" class="footer-link small">Junior Tycoons</a></li>
+                        <li class="mb-3"><a href="#" class="footer-link small">Idea To Product</a></li>
+                        <li class="mb-3"><a href="#" class="footer-link small">School Partnerships</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h4 class="h6 fw-bold mb-4">Company</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><a href="#" class="footer-link small">About Us</a></li>
+                        <li class="mb-3"><a href="#" class="footer-link small">Impact Stories</a></li>
+                        <li class="mb-3"><a href="#" class="footer-link small">Careers</a></li>
+                        <li class="mb-3"><a href="#" class="footer-link small">Media Kit</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-5">
+                    <h4 class="h6 fw-bold mb-4">Newsletter</h4>
+                    <p class="small text-secondary mb-3">Stay updated with the latest in student entrepreneurship.</p>
+                    <div class="d-flex gap-2">
+                        <input type="email" class="newsletter-input" placeholder="Email address" />
+                        <button class="newsletter-btn">
+                            <span class="material-icons">send</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-4 border-top">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <p class="small text-secondary mb-0">© 2024 ENpower Education. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <a href="#" class="footer-link small me-4">Privacy Policy</a>
+                        <a href="#" class="footer-link small me-4">Terms of Service</a>
+                        <a href="#" class="footer-link small">Cookie Settings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Hero Animations
+        const heroTl = gsap.timeline();
+        heroTl.from(".hero-headline", { y: 100, opacity: 0, duration: 1.2, ease: "power4.out" })
+            .to(".future-creators-text", { color: "#652b7d", yoyo: true }, "-=0.5");
+
+        // Hero buttons fade in animation (separate from timeline)
+        gsap.from(".hero-btn", { opacity: 0, duration: 1, ease: "power2.out", delay: 0.1 });
+
+        // Micro-particles for Hero
+        const container = document.getElementById('hero-particles');
+        for (let i = 0; i < 20; i++) {
+            let p = document.createElement('div');
+            p.className = 'particle';
+            p.style.width = p.style.height = Math.random() * 5 + 'px';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = Math.random() * 100 + '%';
+            container.appendChild(p);
+            gsap.to(p, { y: -100, x: '+=50', opacity: 0, duration: 5 + Math.random() * 5, repeat: -1, delay: Math.random() * 5 });
+        }
+
+        // 2. Alliance Card
+        gsap.from(".alliance-banner", {
+            scrollTrigger: { trigger: ".alliance-banner", start: "top 80%" },
+            opacity: 0, filter: "blur(10px)", y: 50, duration: 1, ease: "power2.out"
+        });
+
+        // 3. Impact Stats Counting
+        document.querySelectorAll('.stat-number').forEach(stat => {
+            const originalText = stat.innerText;
+            const val = parseFloat(originalText.replace(/[+,]/g, ''));
+            const suffix = originalText.includes('+') ? '+' : '';
+
+            gsap.from(stat, {
+                scrollTrigger: { trigger: stat, start: "top 90%" },
+                innerText: 0,
+                duration: 2,
+                ease: "power2.out",
+                snap: { innerText: 1 },
+                onUpdate: function () {
+                    const currentVal = Math.ceil(this.targets()[0].innerText);
+                    // Format number with commas
+                    const formattedNum = currentVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    this.targets()[0].innerText = formattedNum + suffix;
+                }
+            });
+        });
+
+        // 4. Ecosystem Circles Stagger
+        // gsap.from(".ecosystem-circle", {
+        //     scrollTrigger: { trigger: ".ecosystem-section", start: "top 80%" },
+        //     scale: 0, opacity: 0, stagger: 0.2, duration: 0.8, ease: "back.out(1.7)"
+        // });
+
+        // 5. CSR Clip-path reveal
+        gsap.from(".csr-grid img", {
+            scrollTrigger: { trigger: ".csr-section", start: "top 70%" },
+            clipPath: "inset(100% 0 0 0)", stagger: 0.2, duration: 1.5, ease: "power4.out"
+        });
+
+        // 6. Story Cards Horizontal Scroll Navigation
+        const storiesScroll = document.getElementById('stories-scroll');
+        const storyPrev = document.getElementById('story-prev');
+        const storyNext = document.getElementById('story-next');
+
+        if (storiesScroll && storyPrev && storyNext) {
+            storyNext.addEventListener('click', () => {
+                const scrollAmount = storiesScroll.clientWidth * 0.8;
+                storiesScroll.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+
+            storyPrev.addEventListener('click', () => {
+                const scrollAmount = storiesScroll.clientWidth * 0.8;
+                storiesScroll.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // ========================================
+        // ARCHITECTURE SCROLL SECTION ANIMATIONS
+        // ========================================
+
+        // Set z-index for images
+        document.querySelectorAll(".arch__right .img-wrapper").forEach((element) => {
+            const order = element.getAttribute("data-index");
+            if (order !== null) {
+                element.style.zIndex = order;
+            }
+        });
+
+        // Mobile layout handler (only handle order)
+        function handleMobileLayout() {
+            const isMobile = window.matchMedia("(max-width: 768px)").matches;
+            const leftItems = gsap.utils.toArray(".arch__left .arch__info");
+            const rightItems = gsap.utils.toArray(".arch__right .img-wrapper");
+
+            if (isMobile) {
+                // Interleave items using order
+                leftItems.forEach((item, i) => {
+                    item.style.order = i * 2;
+                });
+                rightItems.forEach((item, i) => {
+                    item.style.order = i * 2 + 1;
+                });
+            } else {
+                // Clear order for desktop
+                leftItems.forEach((item) => {
+                    item.style.order = "";
+                });
+                rightItems.forEach((item) => {
+                    item.style.order = "";
+                });
+            }
+        }
+
+        // Debounce resize for performance
+        let resizeTimeout;
+        window.addEventListener("resize", () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(handleMobileLayout, 100);
+        });
+
+        // Run on initial load
+        handleMobileLayout();
+
+        const imgs = gsap.utils.toArray(".img-wrapper img");
+        const bgColors = ["#EDF9FF", "#FFECF2", "#FFE8DB"];
+
+        // GSAP Animation with Media Query
+        ScrollTrigger.matchMedia({
+            "(min-width: 769px)": function () {
+                const mainTimeline = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".arch",
+                        start: "top top",
+                        end: "bottom bottom",
+                        pin: ".arch__right",
+                        scrub: 1,
+                        anticipatePin: 1
+                    }
+                });
+
+                gsap.set(imgs, {
+                    clipPath: "inset(0)",
+                    objectPosition: "0px 0%"
+                });
+
+                imgs.forEach((_, index) => {
+                    const currentImage = imgs[index];
+                    const nextImage = imgs[index + 1] ? imgs[index + 1] : null;
+
+                    const sectionTimeline = gsap.timeline();
+
+                    if (nextImage) {
+                        sectionTimeline
+                            .to(
+                                currentImage,
+                                {
+                                    clipPath: "inset(0px 0px 100%)",
+                                    objectPosition: "0px 60%",
+                                    duration: 1.5,
+                                    ease: "none"
+                                },
+                                0
+                            )
+                            .to(
+                                nextImage,
+                                {
+                                    objectPosition: "0px 40%",
+                                    duration: 1.5,
+                                    ease: "none"
+                                },
+                                0
+                            );
+                    }
+
+                    mainTimeline.add(sectionTimeline);
+                });
+            },
+            "(max-width: 768px)": function () {
+                gsap.set(imgs, {
+                    objectPosition: "0px 60%"
+                });
+
+                imgs.forEach((image) => {
+                    gsap.to(image, {
+                        objectPosition: "0px 30%",
+                        scrollTrigger: {
+                            trigger: image,
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: 1
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
