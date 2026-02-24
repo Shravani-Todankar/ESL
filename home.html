@@ -105,9 +105,9 @@
             justify-content: center;
         }
 
-        .logo-box:hover {
+        /* .logo-box:hover {
             transform: scale(1.05);
-        }
+        } */
 
         .nav-link {
             color: var(--text-dark);
@@ -302,7 +302,8 @@
         /* Alliance Banner */
         /* Stats Section */
         .stats-section {
-            padding: 5rem 0;
+            padding-top: 8rem;
+            padding-bottom: 5rem;
             background: rgba(101, 43, 125, 0.05);
         }
 
@@ -334,7 +335,8 @@
 
         /* Stories Section */
         .stories-section {
-            padding: 6rem 0;
+            padding-top: 8rem;
+            padding-bottom: 5rem;
             overflow: hidden;
             position: relative;
         }
@@ -380,19 +382,20 @@
         }
 
         .story-badge {
-            padding: 0.4rem 0.8rem;
+            padding: 0.5rem 1rem;
             border-radius: 50px;
             background: rgba(101, 43, 125, 0.1);
             color: var(--primary-purple);
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         /* Philosophy Section */
         .philosophy-section {
-            padding: 6rem 0;
+            padding-top: 8rem;
+            padding-bottom: 5rem;
         }
 
         .skill-item {
@@ -537,7 +540,8 @@
 
         /* Ecosystem Cards - Soft Blob Design */
         .ecosystem-section {
-            padding: 6rem 0;
+            padding-top: 8rem;
+            padding-bottom: 5rem;
             background: linear-gradient(135deg, #faf8fc 0%, #f5f0f9 100%);
         }
 
@@ -703,7 +707,8 @@
 
         /* CSR Section */
         .csr-section {
-            padding: 6rem 0;
+            padding-top: 8rem;
+            padding-bottom: 5rem;
             background: #f3edf5;
             color: #121212;
             overflow: hidden;
@@ -714,9 +719,9 @@
             display: inline-block;
             padding: 0.5rem 1rem;
             border-radius: 50px;
-            background: rgb(62, 9, 85);
-            color: var(--primary-yellow);
-            font-size: 0.65rem;
+            background: rgba(101, 43, 125, 0.1);
+            color: var(--primary-purple);
+            font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -756,7 +761,8 @@
 
         /* CTA Section */
         .cta-section {
-            padding: 6rem 0;
+            padding-top: 8rem;
+            padding-bottom: 5rem;
         }
 
         .cta-box {
@@ -792,47 +798,52 @@
         }
 
         .btn-cta-primary {
-            background: var(--primary-purple);
-            color: white;
+            background: #facc48;
+            color: #652b7d;
             font-weight: 700;
-            padding: 1rem 2.5rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
             border: none;
-            box-shadow: 0 10px 30px rgba(101, 43, 125, 0.4);
+            box-shadow: 0 10px 30px rgba(250, 204, 72, 0.4);
             transition: all 0.3s;
+            font-size: 1rem;
         }
 
         .btn-cta-primary:hover {
             transform: scale(1.05);
+            background: #f9c02e;
         }
 
         .btn-cta-secondary {
-            background: white;
-            color: var(--text-dark);
+            background: #facc48;
+            color: #652b7d;
             font-weight: 700;
-            padding: 1rem 2.5rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
-            border: 1px solid #ddd;
+            border: none;
             transition: all 0.3s;
+            font-size: 1rem;
         }
 
         .btn-cta-secondary:hover {
-            background: #f8f8f8;
+            transform: scale(1.05);
+            background: #f9c02e;
         }
 
         .btn-cta-dark {
-            background: #f3edf5;
-            color: #121212;
+            background: #facc48;
+            color: #652b7d;
             font-weight: 700;
-            padding: 1rem 2.5rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
-            border: 2px solid #652B7D;
+            border: none;
             transition: all 0.3s;
+            font-size: 1rem;
         }
 
         .btn-cta-dark:hover {
-            background: #e8dced;
-            border-color: #FFD700;
+            transform: scale(1.05);
+            background: #f9c02e;
         }
 
         /* Footer */
@@ -928,20 +939,21 @@
         .nav-arrow {
             width: 48px;
             height: 48px;
-            border-radius: 50%;
-            border: 1px solid #ddd;
+            border-radius: 50px;
+            border: none;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
-            background: white;
+            background: #facc48;
+            color: #652b7d;
             cursor: pointer;
+            font-weight: 700;
         }
 
         .nav-arrow:hover {
-            background: var(--primary-purple);
-            color: white;
-            border-color: var(--primary-purple);
+            background: #f9c02e;
+            transform: scale(1.05);
         }
 
         /* Responsive */
@@ -966,7 +978,8 @@
 
         .arch-container {
             max-width: 1440px;
-            /* padding: 2rem; */
+            padding-top: 8rem;
+            /* padding-bottom: 5rem; */
         }
 
         .arch-spacer {
@@ -978,7 +991,7 @@
             display: flex;
             gap: 60px;
             justify-content: space-between;
-            max-width: 1100px;
+            max-width: 1280px;
             margin-inline: auto;
         }
 
@@ -989,7 +1002,7 @@
         }
 
         .arch__left .arch__info {
-            max-width: 356px;
+            max-width: 486px;
             height: 100vh;
             display: grid;
             place-items: center;
@@ -1012,13 +1025,27 @@
 
         .arch__left .arch__info a.link {
             text-decoration: none;
-            padding: 16px 18px;
-            color: inherit;
-            border-radius: 40px;
+            padding: 1rem 2rem;
+            color: #652b7d;
+            background: #facc48;
+            border-radius: 50px;
+            border: none;
             display: flex;
             gap: 4px;
             width: fit-content;
             align-items: center;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .arch__left .arch__info a.link:hover {
+            background: #f9c02e;
+            transform: scale(1.05);
+        }
+
+        .arch__left .arch__info a.link svg path {
+            fill: #652b7d;
         }
 
         .arch__right {
@@ -1291,7 +1318,7 @@
             gap: 4rem;
             justify-content: space-between;
             margin: 0 auto;
-            padding: 2.5rem;
+            padding: 2rem 4.5rem;
         }
 
         .hero .text {
@@ -1336,10 +1363,17 @@
         }
 
         .hero .text__short {
-            text-transform: uppercase;
+            display: inline-block;
+            width: max-content;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: rgba(101, 43, 125, 0.1);
+            color: var(--primary-purple);
             font-size: 0.75rem;
-            color: #FFD700;
-            font-weight: 600;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
         }
 
         .hero .text__title {
@@ -1363,18 +1397,20 @@
             text-align: center;
             display: inline-block;
             text-decoration: none;
-            color: white;
-            background-color: #FFD700;
-            padding: 1em 2em;
-            border-radius: 0.5em;
-            font-weight: 600;
+            color: #652b7d;
+            background-color: #facc48;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
             transition: all 0.3s ease;
+            font-size: 1rem;
+            border: none;
         }
 
         .hero .text__button:hover {
-            background-color: #FFA500;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            background-color: #f9c02e;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(250, 204, 72, 0.4);
         }
 
         .hero .grid__container {
@@ -1541,42 +1577,136 @@
 
         /* Philosophy Section Styles */
         .philosophy-section {
-            padding: 20px 0;
+            padding: 100px 0;
             background: linear-gradient(135deg, #f8f5fc 0%, #ffffff 100%);
             overflow: hidden;
             position: relative;
-        }
-
-        .philosophy-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(101, 43, 125, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
-            z-index: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
 
         .philosophy-container {
             position: relative;
             z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
         }
 
         .philosophy-content {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
+            justify-content: space-between;
             gap: 60px;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
         }
 
         /* Left Content Area */
         .philosophy-left {
             flex: 1;
-            max-width: 600px;
+            max-width: 500px;
+        }
+
+        .fixed-intro {
+            margin-bottom: 30px;
+        }
+
+        /* Dynamic Skill Area - Clean Box with Border Tracing */
+        .dynamic-skill-area {
+            background: rgba(101, 43, 125, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            min-height: 200px;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            position: relative;
+        }
+
+        /* Border Tracing Animation using Pseudo-elements */
+        .dynamic-skill-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            padding: 3px;
+            background: linear-gradient(90deg,
+                #5A2DAA 0%,
+                #7E4BC7 12.5%,
+                #A569E4 25%,
+                #C88FD8 37.5%,
+                #F4C44E 50%,
+                #C88FD8 62.5%,
+                #A569E4 75%,
+                #7E4BC7 87.5%,
+                #5A2DAA 100%
+            );
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: 10;
+            background-size: 300% 300%;
+            animation: traceBorderFlow 6s ease-in-out infinite;
+        }
+
+        @keyframes traceBorderFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .skill-hidden {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .skill-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #652b7d;
+            margin-right: 10px;
+            display: inline-block;
+        }
+
+        .skill-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skill-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .skill-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #652b7d;
+            font-weight: bold;
         }
 
         /* Right Circle Framework */
@@ -1586,38 +1716,86 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            min-height: 650px;
+            min-height: 600px;
         }
 
         .circle-framework {
             position: relative;
             width: 550px;
             height: 550px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Continuous Rotation Animation */
+        @keyframes rotateAssembly {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Counter-Rotation for Icons to stay upright */
+        @keyframes counterRotate {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(-360deg);
+            }
+        }
+
+        /* Rotating Container for both Ring and Icons */
+        .rotating-wrapper {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: rotateAssembly 30s linear infinite;
+            z-index: 1;
+        }
+
+        .rotating-wrapper:hover {
+            animation-play-state: paused;
+        }
+
+        .rotating-wrapper:hover .orbit-icon {
+            animation-play-state: paused;
         }
 
         /* Main Colored Ring SVG */
         .colored-ring-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 550px;
-            height: 550px;
+            width: 100%;
+            height: 100%;
+            display: block;
         }
 
-        /* Center Circle with Image */
+        .segment-path {
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .segment-path:hover {
+            opacity: 0.85;
+        }
+
+        /* Center Circle with Image - Gap Removed */
         .center-circle {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 280px;
-            height: 280px;
+            width: 310px;
+            height: 310px;
             border-radius: 50%;
             overflow: hidden;
-            border: 8px solid white;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
-            z-index: 10;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            z-index: 15;
+            background: #eee;
         }
 
         .center-circle img {
@@ -1626,234 +1804,89 @@
             object-fit: cover;
         }
 
-        /* Rotating Orbit Container */
-        .rotating-orbit {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 420px;
-            height: 420px;
-        }
-
-        /* Orbit Icons */
+        /* Icons placed inside the rotating wrapper */
         .orbit-icon {
             position: absolute;
-            width: 65px;
-            height: 65px;
+            width: 64px;
+            height: 64px;
             background: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             z-index: 20;
-            border: 4px solid white;
+            border: 3px solid white;
+            animation: counterRotate 30s linear infinite;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .orbit-icon:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 35px rgba(101, 43, 125, 0.3);
+            box-shadow: 0 8px 25px rgba(101, 43, 125, 0.3);
+        }
+
+        /* Pixel Perfect Positioning */
+        .icon-1 {
+            top: 101.1px;
+            left: 401.2px;
+        }
+
+        .icon-2 {
+            top: 341.4px;
+            left: 479.5px;
+        }
+
+        .icon-3 {
+            top: 490px;
+            left: 275px;
+        }
+
+        .icon-4 {
+            top: 341.4px;
+            left: 70.5px;
+        }
+
+        .icon-5 {
+            top: 101.1px;
+            left: 148.8px;
         }
 
         .orbit-icon .material-icons {
-            font-size: 30px;
+            font-size: 32px;
             color: #652b7d;
-            transition: color 0.3s ease;
-        }
-
-        /* Navigation Arrows */
-        .nav-arrow-circle {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            z-index: 25;
-        }
-
-        .nav-arrow-circle:hover {
-            background: #652b7d;
-            transform: scale(1.1);
-        }
-
-        .nav-arrow-circle:hover .material-icons {
-            color: white;
-        }
-
-        .nav-arrow-circle .material-icons {
-            font-size: 28px;
-            color: #652b7d;
-            transition: color 0.3s ease;
-        }
-
-        .nav-arrow-left {
-            left: -60px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .nav-arrow-right {
-            right: -60px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .philosophy-content {
-                gap: 40px;
-            }
-
-            .circle-framework {
-                width: 500px;
-                height: 500px;
-            }
-
-            .rotating-orbit {
-                width: 420px;
-                height: 420px;
-            }
-
-            .segments-container {
-                width: 440px;
-                height: 440px;
-            }
         }
 
         @media (max-width: 992px) {
             .philosophy-content {
                 flex-direction: column;
-                gap: 60px;
+                text-align: center;
             }
 
             .philosophy-left {
                 max-width: 100%;
-                text-align: center;
             }
 
-            .philosophy-list li {
+            .circle-framework {
+                transform: scale(0.8);
+            }
+
+            .dynamic-skill-area {
                 text-align: left;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .philosophy-title {
-                font-size: 32px;
-            }
-
-            .circle-framework {
-                width: 400px;
-                height: 400px;
-            }
-
-            .rotating-orbit {
-                width: 340px;
-                height: 340px;
-            }
-
-            .segments-container {
-                width: 360px;
-                height: 360px;
-            }
-
-            .center-circle {
-                width: 140px;
-                height: 140px;
-            }
-
-            .center-circle-text {
-                font-size: 13px;
-            }
-
-            .orbit-icon {
-                width: 60px;
-                height: 60px;
-            }
-
-            .orbit-icon .material-icons {
-                font-size: 28px;
-            }
-
-            .outer-ring-1 {
-                width: 480px;
-                height: 480px;
-            }
-
-            .outer-ring-2 {
-                width: 520px;
-                height: 520px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .philosophy-right {
-                min-height: 450px;
-            }
-
-            .circle-framework {
-                width: 320px;
-                height: 320px;
-            }
-
-            .rotating-orbit {
-                width: 280px;
-                height: 280px;
-            }
-
-            .segments-container {
-                width: 300px;
-                height: 300px;
-            }
-
-            .center-circle {
-                width: 110px;
-                height: 110px;
-            }
-
-            .center-circle-text {
-                font-size: 11px;
-            }
-
-            .orbit-icon {
-                width: 50px;
-                height: 50px;
-                border-width: 2px;
-            }
-
-            .orbit-icon .material-icons {
-                font-size: 24px;
-            }
-
-            .outer-ring-1 {
-                width: 380px;
-                height: 380px;
-            }
-
-            .outer-ring-2 {
-                width: 420px;
-                height: 420px;
             }
         }
 
         /* New Video Slider Section Styles */
         .new-video-slider-section {
-            padding: 3rem 0;
+            padding-top: 8rem;
+            padding-bottom: 5rem;
             background: #fff;
         }
 
         .new-slider-header {
             text-align: center;
             margin-bottom: 3rem;
-            padding: 0 1rem;
+            padding: 0 5rem;
         }
 
         .new-swiper-container {
@@ -2056,7 +2089,7 @@
         }
 
         .new-counter-section {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 4rem auto 2rem;
             padding: 3rem 2rem;
             background: #f9f9f9;
@@ -2281,7 +2314,8 @@
                             <span class="story-badge">Social Impact</span>
                         </div>
                         <p class="text-secondary fst-italic mb-4">
-                            "Aryan's Mera Sathi Agrotech combines tech of the future with empathy & innovation - his idea earned recognition from Hon'ble PM of India for solving real agricultural challenges."
+                            "Aryan's Mera Sathi Agrotech combines tech of the future with empathy & innovation - his
+                            idea earned recognition from Hon'ble PM of India for solving real agricultural challenges."
                         </p>
                         <div class="pt-3 border-top">
                             <div class="d-flex justify-content-between align-items-center">
@@ -2308,7 +2342,8 @@
                             <span class="story-badge">Tech Innovation</span>
                         </div>
                         <p class="text-secondary fst-italic mb-4">
-                            "Atulya solved daily village commute challenges by developing an E-cycle - an idea that was recognised by the Hon'ble PM of India at the 3rd NEP Anniversary"
+                            "Atulya solved daily village commute challenges by developing an E-cycle - an idea that was
+                            recognised by the Hon'ble PM of India at the 3rd NEP Anniversary"
                         </p>
                         <div class="pt-3 border-top">
                             <div class="d-flex justify-content-between align-items-center">
@@ -2335,7 +2370,9 @@
                             <span class="story-badge">Agri-Tech</span>
                         </div>
                         <p class="text-secondary fst-italic mb-4">
-                            "Divya & Parth built Tyron - a profit-making startup that creates job-opportunities for acid attack survivors. They won NFTE's global challenge and was recognized by Unstop & Better India platforms." 
+                            "Divya & Parth built Tyron - a profit-making startup that creates job-opportunities for acid
+                            attack survivors. They won NFTE's global challenge and was recognized by Unstop & Better
+                            India platforms."
                         </p>
                         <div class="pt-3 border-top">
                             <div class="d-flex justify-content-between align-items-center">
@@ -2362,7 +2399,8 @@
                             <span class="story-badge">EdTech</span>
                         </div>
                         <p class="text-secondary fst-italic mb-4">
-                            "Mentored by ENpower, Akshit turned The Bionic Hand prototype into an investor-backed prosthetic powered by design thinking and entrepreneurial skills"
+                            "Mentored by ENpower, Akshit turned The Bionic Hand prototype into an investor-backed
+                            prosthetic powered by design thinking and entrepreneurial skills"
                         </p>
                         <div class="pt-3 border-top">
                             <div class="d-flex justify-content-between align-items-center">
@@ -2389,7 +2427,8 @@
                             <span class="story-badge">FinTech</span>
                         </div>
                         <p class="text-secondary fst-italic mb-4">
-                            "Prathamesh, Prasad & Shivam from Dharashiv engineered a low-cost seed sowing machine for helping local farmers reduce manual labour applying STEM to problem-solving."
+                            "Prathamesh, Prasad & Shivam from Dharashiv engineered a low-cost seed sowing machine for
+                            helping local farmers reduce manual labour applying STEM to problem-solving."
                         </p>
                         <div class="pt-3 border-top">
                             <div class="d-flex justify-content-between align-items-center">
@@ -2416,7 +2455,9 @@
                             <span class="story-badge">Healthcare</span>
                         </div>
                         <p class="text-secondary fst-italic mb-4">
-                            "Empowered by an entrepreneurial mindset, Pushpak, Tanuja & Utkarsha have built a profit-generating FSSAI-certified spice brand turning adversity into opportunity, creating livelihood for many."
+                            "Empowered by an entrepreneurial mindset, Pushpak, Tanuja & Utkarsha have built a
+                            profit-generating FSSAI-certified spice brand turning adversity into opportunity, creating
+                            livelihood for many."
                         </p>
                         <div class="pt-3 border-top">
                             <div class="d-flex justify-content-between align-items-center">
@@ -2434,114 +2475,86 @@
     <section class="philosophy-section">
         <div class="philosophy-container">
             <div class="philosophy-content">
-
                 <!-- Left Content Area -->
                 <div class="philosophy-left">
-                    <h2 class="h1 fw-bold mb-3">The ENpower Philosophy</h2>
-                    <p class="text-secondary mb-4" style="font-size: 1.1rem; line-height: 1.7;">
-                        The future of work is evolving faster than education systems can adapt. Automation, AI, and
-                        climate transitions are reshaping careers and yet most students today are still being prepared
-                        for jobs that may not exist tomorrow.<br /><br />
-                        Global frameworks by the OECD, World Economic Forum, UNICEF, alongside India's NEP
-                        2020, consistently highlight the urgent need for future-skills education including 21st-century
-                        life skills, STEM application, innovative thinking, and entrepreneurial mindset. What's missing
-                        is
-                        not the intent - it's integration.
-                    </p>
-                    <!-- <div>
-                        <div class="skill-item skill-item-active">
-                            <div class="skill-number skill-number-active">01</div>
-                            <span class="fw-bold">Creative Problem Solving</span>
-                        </div>
-                        <div class="skill-item skill-item-inactive">
-                            <div class="skill-number skill-number-inactive">02</div>
-                            <span class="fw-bold">Empathy &amp; User-Centricity</span>
-                        </div>
-                        <div class="skill-item skill-item-inactive">
-                            <div class="skill-number skill-number-inactive">03</div>
-                            <span class="fw-bold">Risk Management &amp; Resilience</span>
-                        </div>
-                    </div> -->
+                    <!-- Fixed Intro Content -->
+                    <div class="fixed-intro">
+                        <h2 class="h1 fw-bold mb-3">The ENpower Philosophy</h2>
+                        <p class="text-secondary mb-4" style="font-size: 1.05rem; line-height: 1.7;">
+                            The future of work is evolving faster than education. Global frameworks like OECD, WEF,
+                            UNICEF, and India's NEP 2020 stress the need for future-skills, yet most schools stop at
+                            robotics and coding.<br /><br />ENpower bridges this gap with a holistic future-skilling ecosystem that
+                            builds thinking, entrepreneurship, and life skills. Our 17-skill, 5-outcome model helps
+                            students move from learning concepts to creating solutions for tomorrow's world.
+                        </p>
+                    </div>
+
+                    <!-- Dynamic Skill Details Area -->
+                    <div class="dynamic-skill-area" id="skillArea">
+                        <span class="skill-number" id="skillNum">01</span>
+                        <h3 class="skill-title" id="skillTitle">Self Exploration</h3>
+                        <ul class="skill-list" id="skillList">
+                            <li>Self-discovery, Interest & Values</li>
+                            <li>Personality Development & Communication</li>
+                            <li>Connecting to the World</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Right Circle Framework -->
                 <div class="philosophy-right">
                     <div class="circle-framework">
 
-                        <!-- Colored Ring with 5 Equal Segments (72° each) -->
-                        <svg class="colored-ring-container" viewBox="0 0 550 550">
-                            <defs>
-                                <!-- Donut mask for ring shape -->
-                                <mask id="donutMask">
-                                    <circle cx="275" cy="275" r="275" fill="white" />
-                                    <circle cx="275" cy="275" r="150" fill="black" />
-                                </mask>
-                            </defs>
+                        <!-- Rotating Wrapper (Contains Ring + Icons) -->
+                        <div class="rotating-wrapper">
+                            <!-- Colored Ring SVG -->
+                            <svg class="colored-ring-container" viewBox="0 0 550 550">
+                                <defs>
+                                    <mask id="donutMask">
+                                        <circle cx="275" cy="275" r="275" fill="white" />
+                                        <circle cx="275" cy="275" r="155" fill="black" />
+                                    </mask>
+                                </defs>
+                                <g mask="url(#donutMask)">
+                                    <!-- Segment 1: Yellow (0 to 72) -->
+                                    <path class="segment-path" onclick="updateSkill(1)"
+                                        d="M 275,275 L 275,0 A 275,275 0 0,1 536.8,190.1 Z" fill="#FCC842" />
+                                    <!-- Segment 2: Dark Purple (72 to 144) -->
+                                    <path class="segment-path" onclick="updateSkill(2)"
+                                        d="M 275,275 L 536.8,190.1 A 275,275 0 0,1 436.6,497.5 Z" fill="#5B1B6D" />
+                                    <!-- Segment 3: Purple (144 to 216) -->
+                                    <path class="segment-path" onclick="updateSkill(3)"
+                                        d="M 275,275 L 436.6,497.5 A 275,275 0 0,1 113.4,497.5 Z" fill="#7B2D8E" />
+                                    <!-- Segment 4: Magenta (216 to 288) -->
+                                    <path class="segment-path" onclick="updateSkill(4)"
+                                        d="M 275,275 L 113.4,497.5 A 275,275 0 0,1 13.2,190.1 Z" fill="#C1458E" />
+                                    <!-- Segment 5: Light Purple (288 to 360) -->
+                                    <path class="segment-path" onclick="updateSkill(5)"
+                                        d="M 275,275 L 13.2,190.1 A 275,275 0 0,1 275,0 Z" fill="#9B6BA8" />
+                                </g>
+                            </svg>
 
-                            <!-- Ring segments with 5 different colors (exactly 72° each) -->
-                            <g mask="url(#donutMask)">
-                                <!-- Segment 1: Yellow (0° to 72°) -->
-                                <path d="M 275,275 L 275,0 A 275,275 0 0,1 460,88 Z" fill="#FCC842" />
+                            <!-- Icons centered in each strip -->
+                            <div class="orbit-icon icon-1" onclick="updateSkill(1)"><span
+                                    class="material-icons">psychology</span></div>
+                            <div class="orbit-icon icon-2" onclick="updateSkill(2)"><span
+                                    class="material-icons">menu_book</span></div>
+                            <div class="orbit-icon icon-3" onclick="updateSkill(3)"><span
+                                    class="material-icons">analytics</span></div>
+                            <div class="orbit-icon icon-4" onclick="updateSkill(4)"><span
+                                    class="material-icons">lightbulb</span></div>
+                            <div class="orbit-icon icon-5" onclick="updateSkill(5)"><span
+                                    class="material-icons">groups</span></div>
+                        </div>
 
-                                <!-- Segment 2: Dark Purple (72° to 144°) -->
-                                <path d="M 275,275 L 460,88 A 275,275 0 0,1 460,462 Z" fill="#5B1B6D" />
-
-                                <!-- Segment 3: Purple (144° to 216°) -->
-                                <path d="M 275,275 L 460,462 A 275,275 0 0,1 275,550 Z" fill="#7B2D8E" />
-
-                                <!-- Segment 4: Magenta/Pink (216° to 288°) -->
-                                <path d="M 275,275 L 275,550 A 275,275 0 0,1 90,462 Z" fill="#C1458E" />
-
-                                <!-- Segment 5: Light Purple (288° to 360°) -->
-                                <path d="M 275,275 L 90,462 A 275,275 0 0,1 90,88 Z" fill="#9B6BA8" />
-                            </g>
-                        </svg>
-
-                        <!-- Center Circle with Image -->
+                        <!-- Center Circle (Gap Removed) -->
                         <div class="center-circle">
                             <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXaA7h45AjSWvNNmvuQk65sGjs20YLurx6VzZ8Erg4MRuM_FJd4VFjXmjdgXQ6HSOavYgYaDO5X1Ix020RyaDS9hJN05W9M_6-l752j4j7JmgO2VQM5mUqi_sZN_oRqwVmJuTzGmhJFrTckrOKRO7Sdr0d81sLBlMicvDX7p_BV_kRsNZPS4sHpTbFoPllgKRo2Kz5Czc8k1nD8Xw5J0hnoq1SEYSFT9uQxsNpqhYarF_XetBnR1dU9-vIsjfTDC6-TVCjyc2Np8Ui"
-                                alt="Students collaborating in lab" />
-                        </div>
-
-                        <!-- Navigation Arrows -->
-                        <div class="nav-arrow-circle nav-arrow-left">
-                            <span class="material-icons">chevron_left</span>
-                        </div>
-                        <div class="nav-arrow-circle nav-arrow-right">
-                            <span class="material-icons">chevron_right</span>
-                        </div>
-
-                        <!-- Rotating Orbit with Icons (5 icons evenly spaced at 72 degrees) -->
-                        <div class="rotating-orbit" id="rotatingOrbit">
-                            <!-- Icon 1: Top - 0 degrees (psychology) -->
-                            <div class="orbit-icon" style="top: -32px; left: 50%; transform: translateX(-50%);">
-                                <span class="material-icons">psychology</span>
-                            </div>
-
-                            <!-- Icon 2: Top-right - 72 degrees (menu_book) -->
-                            <div class="orbit-icon" style="top: 62px; right: 27px;">
-                                <span class="material-icons">menu_book</span>
-                            </div>
-
-                            <!-- Icon 3: Bottom-right - 144 degrees (analytics) -->
-                            <div class="orbit-icon" style="bottom: 62px; right: 27px;">
-                                <span class="material-icons">analytics</span>
-                            </div>
-
-                            <!-- Icon 4: Bottom-left - 216 degrees (lightbulb) -->
-                            <div class="orbit-icon" style="bottom: 62px; left: 27px;">
-                                <span class="material-icons">lightbulb</span>
-                            </div>
-
-                            <!-- Icon 5: Top-left - 288 degrees (groups) -->
-                            <div class="orbit-icon" style="top: 62px; left: 27px;">
-                                <span class="material-icons">groups</span>
-                            </div>
+                                alt="Students collaborating" />
                         </div>
 
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -2612,7 +2625,7 @@
 
     <!-- Architecture Scroll Section -->
     <div class="arch-container">
-        <div class="text-center mb-5" style="padding-top: 4rem;">
+        <div class="text-center mb-1">
             <h2 class="h1 fw-bold mb-3">Training & Certificates</h2>
         </div>
 
@@ -2623,9 +2636,9 @@
                         <h2 class="header">Green Cityscape</h2>
                         <p class="desc">Vibrant streets with vertical gardens and solar buildings. This oasis thrives on
                             renewable energy, smart transport, and green spaces for biodiversity.</p>
-                        <a class="link" href="#" style="background-color: #D5FF37">
+                        <a class="link" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
-                                <path fill="#121212"
+                                <path fill="#652b7d"
                                     d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
                             </svg> <span>Learn More</span></a>
                     </div>
@@ -2636,9 +2649,9 @@
                         <h2 class="header">Blue Urban Oasis</h2>
                         <p class="desc">Avenues with azure facades and eco-structures. This hub uses clean energy, smart
                             transit, and parks for urban wildlife.</p>
-                        <a class="link" href="#" style="background-color: #7DD6FF">
+                        <a class="link" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
-                                <path fill="#121212"
+                                <path fill="#652b7d"
                                     d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
                             </svg> <span>Learn More</span></a>
                     </div>
@@ -2649,9 +2662,9 @@
                         <h2 class="header">Fluid Architecture</h2>
                         <p class="desc">Desert refuge with fluid architecture and glowing interiors. This sanctuary
                             harnesses solar power, sustainable design, and natural harmony for resilient living.</p>
-                        <a class="link" href="#" style="background-color: #FFA0B0">
+                        <a class="link" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
-                                <path fill="#121212"
+                                <path fill="#652b7d"
                                     d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
                             </svg> <span>Learn More</span></a>
                     </div>
@@ -2664,9 +2677,9 @@
                             Martian sun. This desolate beauty showcases the stark, captivating landscape of the red
                             planet.
                         </p>
-                        <a class="link" href="#" style="background-color: #FFA17B">
+                        <a class="link" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
-                                <path fill="#121212"
+                                <path fill="#652b7d"
                                     d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
                             </svg> <span>Learn More</span></a>
                     </div>
@@ -2702,14 +2715,16 @@
     </div>
 
     <!-- New Video Slider Section from video-slider.html -->
-    <section class="new-video-slider-section" style="background: #fff; padding: 3rem 0;">
+    <section class="new-video-slider-section">
 
         <!-- Section Header -->
         <div class="new-slider-header">
             <h2 class="h1 fw-bold mb-3">Student Transformation Stories</h2>
-            <p class="text-secondary">ENpower students are building empathy-driven innovations powered by AI, ML, IoT, sensors, and coding, ranging
+            <p class="text-secondary">ENpower students are building empathy-driven innovations powered by AI, ML, IoT,
+                sensors, and coding, ranging
                 from assistive bionic hands and gesture-to-speech models to solutions for safety, culture, tourism, and
-                mobility. Their work has gained national and international visibility through platforms like Atal Marathon,
+                mobility. Their work has gained national and international visibility through platforms like Atal
+                Marathon,
                 INSPIRE MANAK, UNGCNI, and NFTE WYEC, with several projects progressing from concept to real-world
                 deployment through seed-funded pathways.</p>
         </div>
@@ -3015,8 +3030,10 @@
                             </li>
                         </ul>
                     </div>
-                    <button class="btn btn-outline-dark btn-lg"
-                        style="border-width: 2px; border-radius: 50px; padding: 1rem 2rem; font-weight: 600;">
+                    <button class="btn"
+                        style="background: #facc48; color: #652b7d; border: none; border-radius: 50px; padding: 1rem 2rem; font-weight: 700; transition: all 0.3s; font-size: 1rem;"
+                        onmouseover="this.style.background='#f9c02e'; this.style.transform='scale(1.05)';"
+                        onmouseout="this.style.background='#facc48'; this.style.transform='scale(1)';">
                         Partner With Us
                     </button>
                 </div>
@@ -3379,22 +3396,85 @@
 
     <script>
         // ========================================
-        // PHILOSOPHY SECTION - ROTATING COLORED RING
+        // PHILOSOPHY SECTION - INTERACTIVE SKILL DISPLAY
         // ========================================
 
-        // Initialize GSAP rotation on page load
-        document.addEventListener('DOMContentLoaded', function () {
-            const coloredRing = document.querySelector('.colored-ring-container');
+        const skillData = {
+            1: {
+                num: "01",
+                title: "Self Exploration",
+                items: [
+                    "Self-discovery, Interest & Values",
+                    "Personality Development & Communication",
+                    "Connecting to the World"
+                ]
+            },
+            2: {
+                num: "02",
+                title: "Foundational Literacy",
+                items: [
+                    "Digital, Media & Data Literacy",
+                    "Financial & Economic Literacy",
+                    "Environmental & Sustainability Literacy"
+                ]
+            },
+            3: {
+                num: "03",
+                title: "Tech Of The Future",
+                items: [
+                    "Smart Systems, IoT",
+                    "AI, Coding, ML, Robotics",
+                    "Design, Emerging Tech"
+                ]
+            },
+            4: {
+                num: "04",
+                title: "Human Skills",
+                items: [
+                    "Critical Thinking & Problem Solving",
+                    "Creativity & Innovation",
+                    "Collaboration",
+                    "Emotional Intelligence (SEL)"
+                ]
+            },
+            5: {
+                num: "05",
+                title: "Future Competencies",
+                items: [
+                    "Design Thinking",
+                    "Entrepreneurial Mindset",
+                    "Global Citizenship & Cross-cultural Awareness",
+                    "Readiness for the 'Future of Work'"
+                ]
+            }
+        };
 
-            // Rotate only the colored ring, icons stay fixed
-            gsap.to(coloredRing, {
-                rotation: 360,
-                duration: 40,
-                ease: "none",
-                repeat: -1,
-                transformOrigin: "center center"
-            });
-        });
+        function updateSkill(id) {
+            const skillArea = document.getElementById('skillArea');
+            const skillNum = document.getElementById('skillNum');
+            const skillTitle = document.getElementById('skillTitle');
+            const skillList = document.getElementById('skillList');
+
+            // Fade out
+            skillArea.classList.add('skill-hidden');
+
+            setTimeout(() => {
+                const data = skillData[id];
+                skillNum.innerText = data.num;
+                skillTitle.innerText = data.title;
+
+                // Clear and rebuild list
+                skillList.innerHTML = "";
+                data.items.forEach(item => {
+                    const li = document.createElement('li');
+                    li.innerText = item;
+                    skillList.appendChild(li);
+                });
+
+                // Fade in
+                skillArea.classList.remove('skill-hidden');
+            }, 400);
+        }
 
         gsap.registerPlugin(ScrollTrigger);
 
@@ -3686,7 +3766,7 @@
         }
 
         // New Video Slider Section JavaScript
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             if (!document.querySelector('.new-swiper-container')) return;
 
             var sliderSelector = ".new-swiper-container",
@@ -3737,10 +3817,10 @@
                         }
                     },
                     on: {
-                        imagesReady: function() {
+                        imagesReady: function () {
                             this.el.classList.remove("loading");
                         },
-                        slideChange: function() {
+                        slideChange: function () {
                             // Stop Video from Playing on Slide Change
                             videoStop();
                         }
@@ -3753,7 +3833,7 @@
             mySwiper.init();
 
             // Video Poster Setup
-            $(document).on("click", ".new-swiper-container .js-videoPoster", function(ev) {
+            $(document).on("click", ".new-swiper-container .js-videoPoster", function (ev) {
                 "use strict";
                 ev.preventDefault();
                 videoStop();
