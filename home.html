@@ -261,6 +261,13 @@
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
             transform: rotate(1deg);
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+            will-change: transform;
+        }
+
+        .hero-image:hover {
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
         }
 
         .hero-image img {
@@ -804,7 +811,6 @@
             padding: 1rem 2rem;
             border-radius: 50px;
             border: none;
-            box-shadow: 0 10px 30px rgba(250, 204, 72, 0.4);
             transition: all 0.3s;
             font-size: 1rem;
         }
@@ -1231,7 +1237,7 @@
 
         .partner-logo-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+            box-shadow: 0 0px 5px rgba(255, 215, 0, 0.2);
             border-color: rgba(255, 215, 0, 0.3);
         }
 
@@ -1633,16 +1639,15 @@
             border-radius: 15px;
             padding: 3px;
             background: linear-gradient(90deg,
-                #5A2DAA 0%,
-                #7E4BC7 12.5%,
-                #A569E4 25%,
-                #C88FD8 37.5%,
-                #F4C44E 50%,
-                #C88FD8 62.5%,
-                #A569E4 75%,
-                #7E4BC7 87.5%,
-                #5A2DAA 100%
-            );
+                    #5A2DAA 0%,
+                    #7E4BC7 12.5%,
+                    #A569E4 25%,
+                    #C88FD8 37.5%,
+                    #F4C44E 50%,
+                    #C88FD8 62.5%,
+                    #A569E4 75%,
+                    #7E4BC7 87.5%,
+                    #5A2DAA 100%);
             -webkit-mask:
                 linear-gradient(#fff 0 0) content-box,
                 linear-gradient(#fff 0 0);
@@ -1658,9 +1663,11 @@
             0% {
                 background-position: 0% 50%;
             }
+
             50% {
                 background-position: 100% 50%;
             }
+
             100% {
                 background-position: 0% 50%;
             }
@@ -2164,6 +2171,56 @@
                 font-size: 1.75rem;
             }
         }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #facc48;
+            color: #652b7d;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(250, 204, 72, 0.4);
+            background: #f9c02e;
+        }
+
+        .back-to-top .material-icons {
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .back-to-top .material-icons {
+                font-size: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -2483,7 +2540,8 @@
                         <p class="text-secondary mb-4" style="font-size: 1.05rem; line-height: 1.7;">
                             The future of work is evolving faster than education. Global frameworks like OECD, WEF,
                             UNICEF, and India's NEP 2020 stress the need for future-skills, yet most schools stop at
-                            robotics and coding.<br /><br />ENpower bridges this gap with a holistic future-skilling ecosystem that
+                            robotics and coding.<br /><br />ENpower bridges this gap with a holistic future-skilling
+                            ecosystem that
                             builds thinking, entrepreneurship, and life skills. Our 17-skill, 5-outcome model helps
                             students move from learning concepts to creating solutions for tomorrow's world.
                         </p>
@@ -3284,14 +3342,13 @@
                 <h2 class="h1 fw-bold mb-4 position-relative" style="z-index: 10;">Ready to Build a Future-Ready School?
                 </h2>
                 <p class="text-secondary mb-5 mx-auto position-relative" style="max-width: 600px; z-index: 10;">
-                    Join 680+ schools in transforming the educational experience for your students. Book a discovery
-                    call
-                    today to see our labs in action.
+                    Join 680+ schools building confident Thinkers, Creators & Leaders. Go beyond compliance and
+                    traditional STEM with a complete future-skills ecosystem aligned to NEP 2020.
                 </p>
                 <div class="d-flex flex-wrap justify-content-center gap-3 position-relative" style="z-index: 10;">
-                    <button class="btn btn-cta-primary">Start Integration</button>
-                    <button class="btn btn-cta-secondary">Download Brochure</button>
-                    <button class="btn btn-cta-dark">Contact Sales</button>
+                    <button class="btn btn-cta-primary">Explore Future Skills Lab</button>
+                    <button class="btn btn-cta-secondary">Download School Brochure</button>
+                    <button class="btn btn-cta-dark">Talk to Our School Advisor</button>
                 </div>
             </div>
         </div>
@@ -3300,9 +3357,9 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="row g-5 mb-5">
+            <div class="row g-5 mb-5 justify-content-center text-center text-md-start">
                 <div class="col-md-3">
-                    <div class="d-flex align-items-center gap-2 mb-4">
+                    <div class="d-flex align-items-center gap-2 mb-4 justify-content-center justify-content-md-start">
                         <!-- <div class="footer-logo">
                             <span class="material-icons">rocket_launch</span>
                         </div> -->
@@ -3312,7 +3369,7 @@
                         ENpower is India's first comprehensive entrepreneurship learning ecosystem for schools.
                         Nurture the entrepreneurship mindset of your children; they are the changemakers of the future!
                     </p>
-                    <div class="d-flex gap-3">
+                    <div class="d-flex gap-3 justify-content-center justify-content-md-start">
                         <a href="https://www.facebook.com/Enpowerbschool/" target="_blank" class="footer-social"
                             aria-label="Facebook">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -3388,6 +3445,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <span class="material-icons">arrow_upward</span>
+    </button>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -3526,10 +3588,33 @@
         //     scale: 0, opacity: 0, stagger: 0.2, duration: 0.8, ease: "back.out(1.7)"
         // });
 
-        // 5. CSR Clip-path reveal
-        gsap.from(".csr-grid img", {
-            scrollTrigger: { trigger: ".csr-section", start: "top 70%" },
-            clipPath: "inset(100% 0 0 0)", stagger: 0.2, duration: 1.5, ease: "power4.out"
+        // 5. CSR Clip-path reveal - Triggers when user reaches Impact Programs section
+        document.addEventListener('DOMContentLoaded', function () {
+            const csrImages = gsap.utils.toArray(".csr-image");
+
+            // Set initial state - completely hidden
+            gsap.set(csrImages, {
+                clipPath: "inset(100% 0 0 0)"
+            });
+
+            // Create timeline for reveal animation
+            const csrTimeline = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".csr-grid",
+                    start: "top center",
+                    end: "bottom center",
+                    scrub: 1
+                }
+            });
+
+            // Animate each image with stagger
+            csrImages.forEach((img, index) => {
+                csrTimeline.to(img, {
+                    clipPath: "inset(0% 0 0 0)",
+                    duration: 1,
+                    ease: "power2.out"
+                }, index * 0.2);
+            });
         });
 
         // 6. Story Cards Horizontal GSAP Scroll Animation
@@ -3906,6 +3991,55 @@
             if (counterSection) {
                 counterObserver.observe(counterSection);
             }
+        });
+
+        // ========================================
+        // 3D TILT EFFECT FOR HERO IMAGE
+        // ========================================
+
+        const heroImage = document.querySelector('.hero-image');
+
+        if (heroImage) {
+            heroImage.addEventListener('mousemove', function(e) {
+                const rect = heroImage.getBoundingClientRect();
+                const x = e.clientX - rect.left; // x position within the element
+                const y = e.clientY - rect.top;  // y position within the element
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = ((y - centerY) / centerY) * -10; // max 10deg tilt
+                const rotateY = ((x - centerX) / centerX) * 10;  // max 10deg tilt
+
+                heroImage.style.transform = `rotate(1deg) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            heroImage.addEventListener('mouseleave', function() {
+                heroImage.style.transform = 'rotate(1deg) perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
+        }
+
+        // ========================================
+        // BACK TO TOP BUTTON
+        // ========================================
+
+        const backToTopButton = document.getElementById('backToTop');
+
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        // Scroll to top when button is clicked
+        backToTopButton.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
 
     </script>
