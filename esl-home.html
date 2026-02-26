@@ -1,0 +1,3912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENpower — Nurturing Future Creators</title>
+    <meta name="description"
+        content="ENpower is nurturing a generation of future creators through innovation labs, robotics, AI learning, and design thinking workshops.">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Google Fonts for Impact Section -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #f5f0fa;
+            overflow-x: hidden;
+            color: #1a1a1a;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1.25rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.4s ease, box-shadow 0.4s ease;
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .nav.scrolled {
+            background: rgba(245, 240, 250, 0.85);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+
+        .nav-logo img {
+            height: 36px;
+            width: auto;
+        }
+
+        .nav-logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        /* ===== NAVIGATION MENU LINKS ===== */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .nav-link:hover {
+            color: #6B21A8;
+        }
+
+        .nav-link svg {
+            width: 14px;
+            height: 14px;
+            color: #1a1a1a;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover svg {
+            color: #6B21A8;
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            background: #6B21A8;
+            color: #fff;
+            border: none;
+            border-radius: 100px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(107, 33, 168, 0.25);
+        }
+
+        .nav-cta:hover {
+            background: #7C3AED;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(107, 33, 168, 0.35);
+        }
+
+        .nav-cta svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-cta:hover svg {
+            transform: translateX(3px);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            /* background: linear-gradient(160deg, #faf8fc 0%, #f5f0fa 40%, #f7f3fb 70%, #fcfafd 100%); */
+        }
+
+        /* Canvas wave background */
+        #waveCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* ===== DOODLE DECORATIONS ===== */
+        .deco {
+            position: absolute;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* Sparkle stars */
+        .sparkle {
+            color: #E5A817;
+            font-size: 2rem;
+            line-height: 1;
+            animation: sparklePulse 2.5s ease-in-out infinite;
+        }
+
+        .sparkle-1 {
+            top: 8%;
+            left: 8%;
+            font-size: 1.8rem;
+            animation-delay: 0s;
+        }
+
+        .sparkle-2 {
+            top: 6%;
+            left: 15%;
+            font-size: 1rem;
+            animation-delay: 0.8s;
+        }
+
+        .sparkle-3 {
+            bottom: 18%;
+            right: 30%;
+            font-size: 1.6rem;
+            animation-delay: 1.2s;
+        }
+
+        .sparkle-4 {
+            bottom: 25%;
+            left: 6%;
+            font-size: 1.2rem;
+            animation-delay: 0.4s;
+        }
+
+        .sparkle-5 {
+            top: 30%;
+            right: 8%;
+            font-size: 1rem;
+            animation-delay: 1.6s;
+        }
+
+        @keyframes sparklePulse {
+
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: scale(1) rotate(0deg);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.3) rotate(15deg);
+            }
+        }
+
+        /* Rocket doodle */
+        .rocket-deco {
+            bottom: 25%;
+            right: 12%;
+            width: 110px;
+            height: 135px;
+            top: auto;
+        }
+
+
+        /* Dashed trajectory */
+        .trajectory-deco {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+
+        /* Hero content */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1300px;
+            width: 100%;
+            padding: 6rem 3rem 3rem;
+            text-align: center;
+        }
+
+        /* ===== MAIN HEADING ===== */
+        .heading {
+            font-size: clamp(2.8rem, 6.5vw, 6.2rem);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -3px;
+            color: #6B21A8;
+        }
+
+        .heading .highlight {
+            color: #E5A817;
+            position: relative;
+        }
+
+        .heading-line {
+            display: block;
+            position: relative;
+            overflow: visible;
+            opacity: 0;
+            transform: translateY(60px);
+        }
+
+        /* ===== IMAGE CAPSULES ===== */
+        .capsule {
+            display: inline-block;
+            border-radius: 100px;
+            overflow: hidden;
+            vertical-align: middle;
+            position: relative;
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 32px rgba(107, 33, 168, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        .capsule img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .capsule:hover img {
+            transform: scale(1.08);
+        }
+
+        .capsule-sm {
+            width: 130px;
+            height: 72px;
+            margin: 0 0.4rem;
+        }
+
+        .capsule-md {
+            width: 360px;
+            height: 95px;
+            margin: 0 0.6rem;
+        }
+
+        .capsule-lg {
+            width: 300px;
+            height: 88px;
+            margin: 0 0.5rem;
+        }
+
+        .capsule-xl {
+            width: 200px;
+            height: 78px;
+            margin: 0 0.5rem;
+        }
+
+        /* ===== SUBTITLE & CTA BELOW HERO ===== */
+        .hero-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 3rem;
+            gap: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .hero-subtitle {
+            max-width: 420px;
+            font-size: 1.05rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #666;
+            text-align: center;
+        }
+
+        .hero-subtitle strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 1rem 2.2rem;
+            background: linear-gradient(135deg, #7C3AED 0%, #6B21A8 100%);
+            color: #fff;
+            border: none;
+            border-radius: 100px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 6px 24px rgba(107, 33, 168, 0.3);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 36px rgba(107, 33, 168, 0.4);
+            background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+        }
+
+        .hero-cta svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* ===== SCROLL INDICATOR ===== */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+        }
+
+        .scroll-indicator span {
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #999;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, #999, transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scaleY(0.6);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scaleY(1);
+            }
+        }
+
+        /* ===== IMPACT SECTION (LARGE SCALE REVEAL) ===== */
+        .impact-v2-container {
+            height: 400vh;
+        }
+
+        .impact-v2-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f7f8fa;
+            /* Corporate soft grey */
+        }
+
+        /* Map Styling */
+        .impact-v2-map-container {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+            width: 45%;
+            height: 80%;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .impact-v2-map-svg {
+            width: 100%;
+            height: 100%;
+            fill: currentColor;
+            color: #6B21A8;
+        }
+
+        /* Content Overlay */
+        .impact-v2-content-overlay {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .impact-v2-content-overlay {
+                padding: 0 5rem;
+            }
+        }
+
+        .impact-v2-inner {
+            width: 100%;
+            max-width: 1152px;
+            margin: 0 auto;
+        }
+
+        /* Introduction Hook */
+        .impact-v2-intro {
+            margin-bottom: 3rem;
+        }
+
+        .impact-v2-subtitle {
+            color: #6B21A8;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .impact-v2-title {
+            font-weight: 900;
+            font-size: 3rem;
+            color: #111827;
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+        }
+
+        @media (min-width: 768px) {
+            .impact-v2-title {
+                font-size: 5rem;
+            }
+        }
+
+        .text-enpowerPurple {
+            color: #6B21A8;
+        }
+
+        /* Counter Grid */
+        .impact-v2-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: flex-end;
+        }
+
+        @media (min-width: 768px) {
+            .impact-v2-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        .impact-v2-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Dynamic Numbers */
+        .impact-v2-number-window {
+            overflow: hidden;
+            height: 100px;
+            /* Reduced for mobile */
+        }
+
+        @media (min-width: 768px) {
+            .impact-v2-number-window {
+                height: 150px;
+            }
+        }
+
+        .impact-v2-number-roller {
+            display: flex;
+            flex-direction: column;
+            font-variant-numeric: tabular-nums;
+            font-weight: 800;
+            font-size: 80px;
+            /* Adjusted to fit layout */
+            line-height: 1;
+            color: #6B21A8;
+        }
+
+        @media (min-width: 768px) {
+            .impact-v2-number-roller {
+                font-size: 90px;
+            }
+        }
+
+        .impact-v2-roller-item {
+            height: 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .impact-v2-roller-item {
+                height: 150px;
+            }
+        }
+
+        /* Labels */
+        .impact-v2-label-window {
+            overflow: hidden;
+            height: 3rem;
+            margin-top: 1.5rem;
+        }
+
+        .impact-v2-label-roller {
+            display: flex;
+            flex-direction: column;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: -0.025em;
+        }
+
+        @media (min-width: 768px) {
+            .impact-v2-label-roller {
+                font-size: 2.25rem;
+            }
+        }
+
+        .impact-v2-label-item {
+            height: 3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Descriptions & Progress */
+        .impact-v2-right {
+            padding-bottom: 1rem;
+        }
+
+        .impact-v2-desc-window {
+            position: relative;
+            height: 6rem;
+            overflow: hidden;
+        }
+
+        .impact-v2-desc-roller {
+            position: absolute;
+            inset: 0;
+        }
+
+        .description-item {
+            opacity: 0;
+            transform: translateY(2rem);
+            font-size: 1.125rem;
+            color: #4b5563;
+            max-width: 24rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .impact-v2-progress {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .progress-dot {
+            width: 2rem;
+            height: 0.25rem;
+            background-color: #e5e7eb;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background-color: #6B21A8;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+            .heading {
+                font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+                letter-spacing: -2px;
+            }
+
+            .capsule-md {
+                width: 280px;
+                height: 80px;
+            }
+
+            .capsule-lg {
+                width: 240px;
+                height: 75px;
+            }
+
+            .capsule-xl {
+                width: 170px;
+                height: 68px;
+            }
+
+            .capsule-sm {
+                width: 110px;
+                height: 62px;
+            }
+
+            .rocket-deco {
+                width: 90px;
+                height: 110px;
+                right: 8%;
+                bottom: 22%;
+                top: auto;
+            }
+
+
+        }
+
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+                /* Hide standard menu on tablets and below for now */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .impact-v2-map-container {
+                display: none;
+                /* Map can get too cluttered on pure mobile */
+            }
+
+
+            .nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .hero-content {
+                padding: 5rem 1.5rem 2rem;
+            }
+
+            .heading {
+                font-size: clamp(2rem, 7vw, 3rem);
+                letter-spacing: -1.5px;
+            }
+
+            .capsule-md {
+                width: 180px;
+                height: 58px;
+            }
+
+            .capsule-lg {
+                width: 160px;
+                height: 55px;
+            }
+
+            .capsule-xl {
+                width: 130px;
+                height: 50px;
+            }
+
+            .capsule-sm {
+                width: 90px;
+                height: 48px;
+            }
+
+            .capsule {
+                margin: 0 0.3rem;
+                border-width: 2px;
+            }
+
+            .hero-bottom {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .nav-logo-text {
+                font-size: 1.1rem;
+            }
+
+            /* Hide some deco on mobile */
+            .rocket-deco {
+                width: 70px;
+                height: 85px;
+                bottom: 18%;
+                right: 5%;
+                top: auto;
+            }
+
+
+
+            .sparkle {
+                font-size: 1rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav {
+                padding: 0.8rem 1rem;
+            }
+
+            .hero-content {
+                padding: 4.5rem 1rem 2rem;
+            }
+
+            .heading {
+                font-size: clamp(1.7rem, 8vw, 2.4rem);
+                letter-spacing: -1px;
+            }
+
+            .capsule-md,
+            .capsule-lg,
+            .capsule-xl {
+                width: 120px;
+                height: 45px;
+            }
+
+            .capsule-sm {
+                width: 75px;
+                height: 40px;
+            }
+
+            .capsule {
+                margin: 0 0.2rem;
+            }
+
+            .nav-cta {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
+            }
+
+            .hero-cta {
+                padding: 0.85rem 1.6rem;
+                font-size: 0.9rem;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+
+            .rocket-deco {
+                display: none;
+            }
+
+            .sparkle-2,
+            .sparkle-5 {
+                display: none;
+            }
+        }
+
+        /* ===== STORIES SECTION ===== */
+        .stories-section {
+            padding-top: 8rem;
+            padding-bottom: 5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .stories-section .container-fluid {
+            overflow: visible;
+        }
+
+        .stories-scroll-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .story-card {
+            width: 400px;
+            height: 550px;
+            flex-shrink: 0;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .story-image {
+            height: 16rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .story-image::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: -5%;
+            width: 110%;
+            height: 32px;
+            background: #fff;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .story-card:hover .story-image img {
+            transform: scale(1.05);
+        }
+
+        .story-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: rgba(101, 43, 125, 0.1);
+            color: #6B21A8;
+            /* using purple accent */
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .stories-heading-container {
+            flex-shrink: 0;
+            width: 500px;
+            /* Take up space in the horizontal scroll */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .stories-heading-container h2 {
+            font-size: 3.5rem !important;
+            font-weight: 800;
+            color: #111827;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Fun GIF Elements */
+        .stories-gif {
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .stories-gif img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Recognition GIF - Left */
+        .gif-left {
+            top: -30px;
+            left: -15px;
+            width: 120px;
+            height: 120px;
+        }
+
+        /* Idea GIF - Right */
+        .gif-right {
+            bottom: -20px;
+            right: 10px;
+            width: 100px;
+            height: 100px;
+        }
+
+        @media (max-width: 1024px) {
+            .stories-heading-container {
+                width: 350px;
+            }
+
+            .stories-heading-container h2 {
+                font-size: 2.8rem !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stories-heading-container {
+                width: 300px;
+            }
+
+            .stories-heading-container h2 {
+                font-size: 2.2rem !important;
+            }
+
+            .starburst-left {
+                width: 90px;
+                height: 90px;
+                left: -20px;
+            }
+
+            .circle-right {
+                width: 70px;
+                height: 70px;
+                right: 10px;
+            }
+        }
+
+        /* Horizontal Scroll */
+        .horizontal-scroll-section {
+            display: flex;
+            gap: 2rem;
+            will-change: transform;
+            padding: 1rem 0 3rem 0;
+            padding-left: max(5vw, calc((100vw - 1200px) / 2));
+            padding-right: calc((100vw - 400px) / 2);
+            align-items: center;
+            /* Center items vertically */
+        }
+
+        @media (max-width: 1024px) {
+            .horizontal-scroll-section {
+                padding-left: 5vw;
+                padding-right: 5vw;
+            }
+        }
+
+        .snap-center {
+            scroll-snap-align: center;
+        }
+
+        /* Navigation Buttons */
+        .stories-nav-arrows {
+            position: absolute;
+            top: 2rem;
+            right: 3rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 10;
+        }
+
+        .nav-arrow {
+            width: 48px;
+            height: 48px;
+            border-radius: 50px;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            background: #facc48;
+            color: #6B21A8;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .nav-arrow:hover {
+            background: #f9c02e;
+        }
+
+        /* Added layout utilities for stories (replacing Bootstrap) */
+        .p-4 {
+            padding: 1.5rem;
+        }
+
+        .pt-3 {
+            padding-top: 1rem;
+        }
+
+        .mb-0 {
+            margin-bottom: 0px;
+        }
+
+        .mb-1 {
+            margin-bottom: 0.25rem;
+        }
+
+        .mb-3 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1.5rem;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        .justify-content-between {
+            justify-content: space-between;
+        }
+
+        .align-items-start {
+            align-items: flex-start;
+        }
+
+        .align-items-center {
+            align-items: center;
+        }
+
+        .fw-bold {
+            font-weight: 700;
+        }
+
+        .fst-italic {
+            font-style: italic;
+        }
+
+        .small {
+            font-size: 0.875em;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-secondary {
+            color: #6c757d;
+        }
+
+        .h5 {
+            font-size: 1.25rem;
+            margin-top: 0;
+            line-height: 1.2;
+        }
+
+        /* ===== ENGAGEMENTS SECTION (BENTO GRID) ===== */
+        .engagements-section {
+            padding: 7rem 2rem;
+            background-color: #f5f0fa;
+            position: relative;
+            z-index: 10;
+        }
+
+        .engagements-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .engagements-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .engagements-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: #6B21A8;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .engagements-subtitle {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: #4b5563;
+        }
+
+        .engagements-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 340px);
+            gap: 1.5rem;
+        }
+
+        .eng-card {
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            background: #1a1a1a;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .eng-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(107, 33, 168, 0.15);
+        }
+
+        .eng-card-wide {
+            grid-column: span 2;
+        }
+
+        .eng-card-tall {
+            grid-column: 3;
+            grid-row: span 2;
+        }
+
+        .eng-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: transform 0.6s ease;
+        }
+
+        .overlay-dark {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgb(0 0 0 / 67%) 0%, rgb(107 33 168 / 16%) 60%, transparent 100%);
+            z-index: 1;
+        }
+
+        .overlay-side {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, #1a1a1a8a 0%, rgb(107 33 168 / 16%) 100%);
+            z-index: 1;
+        }
+
+        .overlay-purple {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, #1a1a1a8a 0%, rgb(107 33 168 / 16%) 100%);
+            z-index: 1;
+        }
+
+        .eng-card:hover .eng-bg {
+            transform: scale(1.05);
+        }
+
+        .eng-content {
+            position: absolute;
+            inset: 0;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            z-index: 2;
+        }
+
+        .eng-card-wide .eng-content {
+            justify-content: center;
+            width: 75%;
+        }
+
+        /* .eng-card-light .eng-content {
+            justify-content: flex-start;
+        } */
+
+        .eng-icon {
+            width: 54px;
+            height: 54px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .eng-icon .material-icons {
+            font-size: 28px;
+            color: #fff;
+        }
+
+        .eng-content h3 {
+            font-size: 1.67rem;
+            font-weight: 900;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .eng-card-wide .eng-content h3 {
+            font-size: 2.4rem;
+        }
+
+        .eng-content p {
+            font-size: 1.05rem;
+            line-height: 1.5;
+            opacity: 1;
+            font-weight: 900;
+        }
+
+        .eng-card-light {
+            background: #e9f5ee;
+            color: #111827;
+        }
+
+        .eng-card-light .eng-bg {
+            opacity: 0.4;
+            mix-blend-mode: multiply;
+        }
+
+        .eng-card-light .eng-icon {
+            background: rgba(107, 33, 168, 0.1);
+            border: 1px solid rgba(107, 33, 168, 0.2);
+        }
+
+        .eng-card-light .eng-icon .material-icons {
+            color: #6B21A8;
+        }
+
+        .eng-card-light .eng-content p {
+            color: #4b5563;
+            font-weight: 500;
+        }
+
+        @media (max-width: 1024px) {
+            .engagements-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+            }
+
+            .eng-card-tall {
+                grid-column: span 1;
+                grid-row: span 1;
+                min-height: 380px;
+            }
+
+            .eng-card-wide {
+                grid-column: span 2;
+                min-height: 400px;
+            }
+
+            .eng-card {
+                min-height: 380px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .engagements-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .engagements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .eng-card-wide {
+                grid-column: 1;
+            }
+
+            .eng-card-wide .eng-content {
+                width: 100%;
+                justify-content: flex-end;
+            }
+
+            .overlay-side {
+                background: linear-gradient(to top, rgba(107, 33, 168, 0.95) 0%, rgba(107, 33, 168, 0.4) 60%, transparent 100%);
+            }
+        }
+
+        /* ===== IMPACT PROGRAMS SECTION ===== */
+        .ip-scroll-container {
+            height: 300vh;
+            position: relative;
+        }
+
+        .ip-sticky-wrapper {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* background-color: #f4f1eb; */
+        }
+
+        /* Grid Lines */
+        .ip-structural-grid {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .ip-grid-line {
+            position: absolute;
+            background: rgba(91, 63, 166, 0.08);
+        }
+
+        .ip-grid-line-h {
+            height: 1px;
+            width: 100%;
+            opacity: 0;
+        }
+
+        .ip-grid-line-v {
+            width: 1px;
+            height: 100%;
+            opacity: 0;
+        }
+
+        #ip-h-line-1 {
+            top: 25%;
+        }
+
+        #ip-h-line-2 {
+            top: 50%;
+        }
+
+        #ip-h-line-3 {
+            top: 75%;
+        }
+
+        #ip-v-line-1 {
+            left: 25%;
+        }
+
+        #ip-v-line-2 {
+            left: 50%;
+        }
+
+        #ip-v-line-3 {
+            left: 75%;
+        }
+
+        /* Badge */
+        .ip-badge {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            border: 1px solid #c5b5f0;
+            background: #ede8f9;
+            color: #5b3fa6;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
+
+        /* Headline */
+        .ip-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3rem;
+            line-height: 1.15;
+            color: #1c1430;
+            margin: 0;
+        }
+
+        .ip-headline span {
+            color: #5b3fa6;
+        }
+
+        .ip-subtext {
+            color: #6b6580;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 460px;
+        }
+
+        /* CTA Button */
+        .ip-glass-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            border-radius: 10px;
+            background: #5b3fa6;
+            border: none;
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(91, 63, 166, 0.25);
+        }
+
+        .ip-glass-btn:hover {
+            background: #4a307d;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(91, 63, 166, 0.35);
+        }
+
+        .ip-glass-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Program Matrix Wrapper */
+        .ip-program-matrix-wrap {
+            position: relative;
+        }
+
+        .ip-connector-v {
+            position: absolute;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, rgba(91, 63, 166, 0.35), transparent);
+            height: 0;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        .ip-connector-h {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(91, 63, 166, 0.35), transparent);
+            width: 0;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+
+        /* Program Cards */
+        .ip-program-card {
+            background: #ffffff;
+            border: 1px solid rgba(91, 63, 166, 0.15);
+            border-radius: 20px;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(40px);
+            box-shadow: 0 8px 40px rgba(91, 63, 166, 0.10);
+            transition: box-shadow 0.4s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ip-program-card:hover {
+            box-shadow: 0 16px 56px rgba(91, 63, 166, 0.18);
+        }
+
+        .ip-module-icon-wrap {
+            width: 52px;
+            height: 52px;
+            background: #ede8f9;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .ip-module-icon-wrap svg {
+            width: 24px;
+            height: 24px;
+            stroke: #5b3fa6;
+        }
+
+        .ip-module-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1c1430;
+            margin-bottom: 0.5rem;
+        }
+
+        .ip-module-desc {
+            font-size: 0.875rem;
+            color: #6b6580;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Decorative Blobs */
+        .ip-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+        }
+
+        .ip-blob-1 {
+            width: 380px;
+            height: 380px;
+            background: rgba(91, 63, 166, 0.07);
+            top: -80px;
+            right: -80px;
+        }
+
+        .ip-blob-2 {
+            width: 380px;
+            height: 380px;
+            background: rgba(59, 130, 246, 0.05);
+            bottom: -80px;
+            left: -80px;
+        }
+
+        .ip-pos-relative {
+            position: relative;
+        }
+
+        .ip-z-10 {
+            z-index: 10;
+        }
+
+        /* ========================
+           PARTNERS SECTION STYLES
+           ======================== */
+
+        .partners-section {
+            padding: 5rem 0;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            background-color: rgba(249, 249, 249, 0.4);
+        }
+
+        .partners-section .section-label {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            padding-top: 2rem;
+        }
+
+        .marquee-row-rtl,
+        .marquee-row-ltr {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            white-space: nowrap;
+        }
+
+        .marquee-row-rtl {
+            animation: scroll-rtl 30s linear infinite;
+        }
+
+        .marquee-row-ltr {
+            animation: scroll-ltr 30s linear infinite;
+        }
+
+        @keyframes scroll-rtl {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes scroll-ltr {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .partner-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #6c757d;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .partner-name:hover {
+            color: #FFD700;
+        }
+
+        .partner-logo-item {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            min-width: 180px;
+            height: 100px;
+            animation: fadeInLogo 0.8s ease-in-out;
+        }
+
+        @keyframes fadeInLogo {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .partner-logo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0px 5px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .partner-logo {
+            max-width: 140px;
+            max-height: 60px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .partner-logo-item:hover .partner-logo {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* ===== STUDENT TRANSFORMATION STORIES - FLOATING COLLAGE ===== */
+        .sts-section {
+            width: 100%;
+            min-height: 100vh;
+            padding: 6rem 0;
+            background: #f5f0fa;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sts-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+            padding: 0 2rem;
+        }
+
+        .sts-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 1rem;
+            letter-spacing: -1.5px;
+        }
+
+        .sts-description {
+            font-size: 1.125rem;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Collage Container - Full Width, Centered Content */
+        .sts-collage-container {
+            position: relative;
+            width: 100%;
+            max-width: 1600px;
+            height: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Base Card Styles */
+        .sts-card {
+            position: absolute;
+            background: #1f1f1f;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeInCard 0.8s ease forwards;
+        }
+
+        @keyframes fadeInCard {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .sts-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+            z-index: 100 !important;
+        }
+
+        /* Size Variants */
+        .sts-hero {
+            width: 550px;
+            height: 400px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            animation-delay: 0.2s;
+        }
+
+        .sts-medium {
+            width: 340px;
+            height: 240px;
+        }
+
+        .sts-small {
+            width: 260px;
+            height: 180px;
+        }
+
+        /* Asymmetric Positioning - Organic Layout */
+        .sts-top-left {
+            top: 8%;
+            left: 5%;
+            z-index: 8;
+            animation-delay: 0.3s;
+        }
+
+        .sts-top-right {
+            top: 10%;
+            right: 8%;
+            z-index: 7;
+            animation-delay: 0.4s;
+        }
+
+        .sts-left-mid {
+            top: 35%;
+            left: 3%;
+            z-index: 6;
+            animation-delay: 0.5s;
+        }
+
+        .sts-right-mid {
+            top: 40%;
+            right: 5%;
+            z-index: 9;
+            animation-delay: 0.6s;
+        }
+
+        .sts-bottom-left {
+            bottom: 8%;
+            left: 10%;
+            z-index: 5;
+            animation-delay: 0.7s;
+        }
+
+        .sts-bottom-right {
+            bottom: 10%;
+            right: 12%;
+            z-index: 7;
+            animation-delay: 0.8s;
+        }
+
+        .sts-far-right {
+            top: 25%;
+            right: 2%;
+            z-index: 4;
+            animation-delay: 0.9s;
+        }
+
+        .sts-far-left {
+            top: 55%;
+            left: 1%;
+            z-index: 6;
+            animation-delay: 1s;
+        }
+
+        .sts-top-center {
+            top: 2%;
+            left: 42%;
+            z-index: 5;
+            animation-delay: 1.1s;
+        }
+
+        .sts-bottom-center {
+            bottom: 5%;
+            left: 38%;
+            z-index: 8;
+            animation-delay: 1.2s;
+        }
+
+        .sts-extra-bottom-left {
+            bottom: 18%;
+            left: 15%;
+            z-index: 4;
+            animation-delay: 1.3s;
+        }
+
+        /* Video Wrapper */
+        .sts-video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .sts-video-wrapper::before {
+            content: 'Video Loading...';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            font-weight: 500;
+            z-index: 1;
+        }
+
+        .sts-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            z-index: 2;
+            background: #000;
+            border: none;
+        }
+
+        iframe.sts-video {
+            display: block;
+        }
+
+        .sts-card:hover .sts-video {
+            transform: scale(1.08);
+        }
+
+        /* Play Overlay - Hidden for YouTube iframes */
+        .sts-play-overlay {
+            display: none;
+        }
+
+        /* Card Info */
+        .sts-card-info {
+            padding: 1.25rem;
+            background: #1f1f1f;
+        }
+
+        .sts-card-info h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.35rem;
+            line-height: 1.3;
+        }
+
+        .sts-card-info p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Small cards - adjust info */
+        .sts-small .sts-card-info h4 {
+            font-size: 0.95rem;
+        }
+
+        .sts-small .sts-card-info p {
+            font-size: 0.8rem;
+        }
+
+        /* Floating Animation */
+        @keyframes subtleFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .sts-card {
+            animation: subtleFloat 6s ease-in-out infinite;
+        }
+
+        .sts-card[data-float-speed="1"] {
+            animation-duration: 7s;
+        }
+
+        .sts-card[data-float-speed="1.2"] {
+            animation-duration: 8s;
+        }
+
+        .sts-card[data-float-speed="1.5"] {
+            animation-duration: 6.5s;
+        }
+
+        .sts-card[data-float-speed="1.8"] {
+            animation-duration: 7.5s;
+        }
+
+        .sts-card[data-float-speed="2.0"] {
+            animation-duration: 9s;
+        }
+
+        /* Responsive - Mobile Stack Layout */
+        @media (max-width: 1024px) {
+            .sts-collage-container {
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                padding: 0 1.5rem;
+            }
+
+            .sts-card {
+                position: relative !important;
+                width: 100% !important;
+                max-width: 500px;
+                height: 320px !important;
+                left: 0 !important;
+                top: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                transform: none !important;
+                margin: 0 auto;
+                animation: fadeInCard 0.8s ease forwards;
+            }
+
+            .sts-card:hover {
+                transform: translateY(-5px) !important;
+            }
+
+            .sts-title {
+                font-size: 2.5rem;
+            }
+
+            .sts-description {
+                font-size: 1rem;
+            }
+
+            .sts-hero {
+                width: 100% !important;
+                max-width: 600px;
+                height: 380px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sts-section {
+                padding: 4rem 0;
+            }
+
+            .sts-title {
+                font-size: 2rem;
+            }
+
+            .sts-header {
+                margin-bottom: 3rem;
+            }
+
+            .sts-card {
+                height: 280px !important;
+            }
+
+            .sts-hero {
+                height: 340px !important;
+            }
+        }
+
+        /* ===== TRAINING & CERTIFICATES (ARCH SCROLL) ===== */
+        .arch-container {
+            max-width: 1440px;
+            padding-top: 8rem;
+        }
+
+        .arch-spacer {
+            width: 100%;
+            height: 5vh;
+        }
+
+        .arch {
+            display: flex;
+            gap: 60px;
+            justify-content: space-between;
+            max-width: 1280px;
+            margin-inline: auto;
+        }
+
+        .arch__left {
+            display: flex;
+            flex-direction: column;
+            min-width: 300px;
+        }
+
+        .arch__left .arch__info {
+            max-width: 486px;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+        .arch__left .arch__info h2.header {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -0.84px;
+        }
+
+        .arch__left .arch__info p.desc {
+            color: rgba(18, 18, 18, 0.8);
+            font-size: 18px;
+            letter-spacing: -0.54px;
+            margin-block: 6px 28px;
+            line-height: normal;
+        }
+
+        .arch__left .arch__info a.link {
+            text-decoration: none;
+            padding: 1rem 2rem;
+            color: #fff;
+            background: #6B21A8;
+            border-radius: 50px;
+            border: none;
+            display: flex;
+            gap: 4px;
+            width: fit-content;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .arch__left .arch__info a.link:hover {
+            background: #7C3AED;
+            transform: scale(1.05);
+        }
+
+        .arch__left .arch__info a.link svg path {
+            fill: #fff;
+        }
+
+        .arch__right {
+            flex-shrink: 1;
+            height: 100vh;
+            width: 100%;
+            max-width: 540px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .arch__right .img-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            height: 400px;
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .arch__right .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .arch-section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: #1a1a1a;
+            text-align: center;
+            letter-spacing: -1.5px;
+        }
+
+        @media (max-width: 900px) {
+            .arch {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .arch {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .arch__left,
+            .arch__right {
+                display: contents;
+            }
+
+            .arch__right {
+                height: auto;
+                max-width: 100%;
+            }
+
+            .arch__right .img-wrapper {
+                position: static;
+                transform: none;
+                height: 360px;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .arch__left .arch__info {
+                height: auto;
+                padding: 20px 0;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .arch {
+                gap: 12px;
+            }
+
+            .arch-container {
+                padding: 10px;
+            }
+
+            .arch__right .img-wrapper {
+                border-radius: 10px;
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="nav" id="mainNav">
+        <a href="#" class="nav-logo">
+            <img src="assets/enpower-logo.svg" alt="ENpower Logo">
+            <!-- <span class="nav-logo-text">ENpower</span> -->
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#" class="nav-link">Home</a></li>
+            <li>
+                <a href="#" class="nav-link">
+                    Labs
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </li>
+            <li><a href="#" class="nav-link">IFT</a></li>
+            <li><a href="#" class="nav-link">Teacher Training</a></li>
+            <li><a href="#" class="nav-link">Impact Programs</a></li>
+            <li><a href="#" class="nav-link">About Us</a></li>
+        </ul>
+
+        <!-- <a href="#" class="nav-cta">
+            Book a Readiness Call
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+        </a> -->
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+        <canvas id="waveCanvas"></canvas>
+
+        <!-- ===== DECORATIVE ELEMENTS ===== -->
+
+        <!-- Sparkle stars -->
+        <div class="deco sparkle sparkle-1">✦</div>
+        <div class="deco sparkle sparkle-2">✦</div>
+        <div class="deco sparkle sparkle-3">✦</div>
+        <div class="deco sparkle sparkle-4">✦</div>
+        <div class="deco sparkle sparkle-5">✦</div>
+
+
+
+        <!-- Rocket doodle (hand-drawn style) -->
+        <svg class="deco rocket-deco" viewBox="0 0 180 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Rocket body -->
+            <path
+                d="M90 20 C92 18 100 30 105 50 C112 75 115 110 112 140 C110 155 105 165 100 170 L80 170 C75 165 70 155 68 140 C65 110 68 75 75 50 C80 30 88 18 90 20Z"
+                stroke="#2D2D2D" stroke-width="2.5" stroke-linecap="round" fill="none" />
+            <!-- Window -->
+            <ellipse cx="90" cy="90" rx="14" ry="16" stroke="#2D2D2D" stroke-width="2.5" fill="none" />
+            <ellipse cx="90" cy="90" rx="8" ry="9" stroke="#C4A0E0" stroke-width="1.5" fill="rgba(196,160,224,0.15)" />
+            <!-- Nose cone -->
+            <path d="M85 30 Q90 15 95 30" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round" fill="none" />
+            <!-- Left fin -->
+            <path d="M68 135 C55 145 48 165 50 175 C55 172 65 168 72 160" stroke="#2D2D2D" stroke-width="2.5"
+                stroke-linecap="round" fill="none" />
+            <!-- Right fin -->
+            <path d="M112 135 C125 145 132 165 130 175 C125 172 115 168 108 160" stroke="#2D2D2D" stroke-width="2.5"
+                stroke-linecap="round" fill="none" />
+            <!-- Exhaust flames -->
+            <path d="M82 170 Q85 190 90 200 Q95 190 98 170" stroke="#E5A817" stroke-width="2" stroke-linecap="round"
+                fill="none" opacity="0.7" />
+            <path d="M86 170 Q88 185 90 192 Q92 185 94 170" stroke="#E5A817" stroke-width="1.5" stroke-linecap="round"
+                fill="none" opacity="0.5" />
+        </svg>
+
+        <!-- ===== HERO CONTENT ===== -->
+        <div class="hero-content">
+            <h1 class="heading">
+                <!-- Line 1 -->
+                <span class="heading-line">
+                    Nurturing a
+                    <span class="capsule capsule-sm" data-float-offset="0">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400&h=250&fit=crop&q=80"
+                            alt="Students building prototypes">
+                    </span>
+                </span>
+
+                <!-- Line 2 -->
+                <span class="heading-line">
+                    Generation of
+                    <span class="capsule capsule-md" data-float-offset="1.2">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&h=350&fit=crop&q=80"
+                            alt="Innovation lab">
+                    </span>
+                </span>
+
+                <!-- Line 3 -->
+                <span class="heading-line">
+                    <span class="capsule capsule-lg" data-float-offset="0.6">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=700&h=350&fit=crop&q=80"
+                            alt="Robotics and AI learning">
+                    </span>
+                    <span class="highlight">Future</span>
+                </span>
+
+                <!-- Line 4 -->
+                <span class="heading-line">
+                    <span class="highlight">Creators</span>
+                    <span class="capsule capsule-xl" data-float-offset="1.8">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop&q=80"
+                            alt="Design thinking workshop">
+                    </span>
+                </span>
+            </h1>
+
+            <div class="hero-bottom">
+                <p class="hero-subtitle">
+                    We prepare young minds for tomorrow's world through innovation labs, robotics, AI learning, and
+                    creative <strong>design thinking</strong> workshops.
+                </p>
+                <a href="#" class="hero-cta">
+                    Explore Future Skills
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator" id="scrollIndicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ===== IMPACT SECTION (LARGE SCALE REVEAL) ===== -->
+    <section id="impact-scroll-container" class="impact-v2-container">
+        <div id="sticky-viewport" class="impact-v2-sticky">
+
+            <!-- Background Map Visualization -->
+            <div id="india-map-container" class="impact-v2-map-container">
+                <svg class="impact-v2-map-svg" viewBox="0 0 600 700">
+                    <path
+                        d="M300,50 L350,100 L400,150 L450,250 L420,400 L380,550 L300,650 L220,550 L180,400 L150,250 L200,150 L250,100 Z"
+                        id="map-outline" opacity="0.2"></path>
+                    <circle class="map-hub" cx="280" cy="200" opacity="0" r="10"></circle>
+                    <circle class="map-hub" cx="220" cy="400" opacity="0" r="15"></circle>
+                    <circle class="map-hub" cx="350" cy="350" opacity="0" r="12"></circle>
+                    <circle class="map-hub" cx="320" cy="550" opacity="0" r="10"></circle>
+                    <circle class="map-hub" cx="400" cy="450" opacity="0" r="14"></circle>
+                </svg>
+            </div>
+
+            <!-- Content Overlay -->
+            <div class="impact-v2-content-overlay">
+                <div class="impact-v2-inner">
+                    <!-- Introduction Hook -->
+                    <div class="impact-v2-intro" id="intro-text">
+                        <h3 class="impact-v2-subtitle impact-reveal-element">The ENpower Footprint</h3>
+                        <h2 class="impact-v2-title">
+                            <span style="display: block; overflow: hidden;">
+                                <span class="impact-title-line"
+                                    style="display: block; transform: translateY(100%);">CREATING</span>
+                            </span>
+                            <span style="display: block; overflow: hidden;">
+                                <span class="impact-title-line text-enpowerPurple"
+                                    style="display: block; transform: translateY(100%);">LARGE-SCALE</span>
+                            </span>
+                            <span style="display: block; overflow: hidden;">
+                                <span class="impact-title-line"
+                                    style="display: block; transform: translateY(100%);">IMPACT.</span>
+                            </span>
+                        </h2>
+                    </div>
+
+                    <!-- Counter Grid -->
+                    <div class="impact-v2-grid">
+
+                        <!-- Left Side: Dynamic Number & Label -->
+                        <div class="impact-v2-left" id="counter-display">
+
+                            <div class="impact-v2-number-window">
+                                <div id="number-roller" class="impact-v2-number-roller">
+                                    <div class="impact-v2-roller-item">7+</div>
+                                    <div class="impact-v2-roller-item">680+</div>
+                                    <div class="impact-v2-roller-item">180,000+</div>
+                                    <div class="impact-v2-roller-item">145+</div>
+                                </div>
+                            </div>
+
+                            <div class="impact-v2-label-window">
+                                <div id="label-roller" class="impact-v2-label-roller">
+                                    <div class="impact-v2-label-item">States in India</div>
+                                    <div class="impact-v2-label-item">Partner Schools</div>
+                                    <div class="impact-v2-label-item">Future Leaders</div>
+                                    <div class="impact-v2-label-item">Thinking Coaches</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Right Side: Contextual Detail -->
+                        <div class="impact-v2-right" id="context-container">
+
+                            <div class="impact-v2-desc-window">
+                                <div id="description-roller" class="impact-v2-desc-roller">
+                                    <p class="description-item">
+                                        Extending our reach across the vast geographic diversity of the Indian
+                                        subcontinent.
+                                    </p>
+                                    <p class="description-item">
+                                        Transforming educational institutions into hubs of innovation and
+                                        entrepreneurial spirit.
+                                    </p>
+                                    <p class="description-item">
+                                        Empowering the next generation with mindsets that thrive in the 21st-century
+                                        economy.
+                                    </p>
+                                    <p class="description-item">
+                                        Expert mentors dedicated to nurturing curiosity and structured problem-solving.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Navigation / Progress Indicator -->
+                            <div class="impact-v2-progress">
+                                <div class="progress-dot">
+                                    <div class="progress-fill"></div>
+                                </div>
+                                <div class="progress-dot">
+                                    <div class="progress-fill"></div>
+                                </div>
+                                <div class="progress-dot">
+                                    <div class="progress-fill"></div>
+                                </div>
+                                <div class="progress-dot">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STORIES SECTION ===== -->
+    <section class="stories-section" id="stories">
+        <!-- Navigation Arrows positioned at right end -->
+        <div class="stories-nav-arrows">
+            <button class="nav-arrow" id="story-prev">
+                <span class="material-icons">chevron_left</span>
+            </button>
+            <button class="nav-arrow" id="story-next">
+                <span class="material-icons">chevron_right</span>
+            </button>
+        </div>
+        <div class="container-fluid">
+            <div class="horizontal-scroll-section" id="stories-scroll">
+                <!-- Add heading for ESL home page specific formatting -->
+                <div class="stories-heading-container" id="stories-heading">
+                    <div class="stories-gif gif-left"><img src="assets/recognition.gif" alt="Recognition"></div>
+                    <h2>Recognised<br>Innovations</h2>
+                    <div class="stories-gif gif-right"><img src="assets/idea.gif" alt="Idea"></div>
+                </div>
+                <!-- Story 1 -->
+                <div class="story-card snap-center">
+                    <div class="story-image">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5WvaIrI8OUm9oVbDsjxYoi68DG0vDMQqplG3sS3euP2JFCvO0jwFH54c8bEfZ2Q8cnOd_rqL0RAded98WwOEBsjFtupIfYshSbOlP-Zs1704vaxMro9X--6SHCUxEyq9hmcT20gBqKBBtzkKVWgOXdgheWq-xWEMGwSj0MB_RRiDOTxNGGEtOgj5l2dzyf2or-a4-XLWuF1pMJjJIp59jG10SKJLjCqxOBJzqIiIae6zlJSPGtUC5IzNJrn4QmpU3LxYQOAkZ7Lm-"
+                            alt="Young student entrepreneur presenting a prototype" />
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600;">Aryan Singh</h3>
+                                <p class="small mb-0" style="color: #6B21A8; font-weight: 500;">Grade 9,
+                                    Mumbai</p>
+                            </div>
+                            <span class="story-badge">Social Impact</span>
+                        </div>
+                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563;">
+                            "Aryan's Mera Sathi Agrotech combines tech of the future with empathy & innovation - his
+                            idea earned recognition from Hon'ble PM of India for solving real agricultural challenges."
+                        </p>
+                        <div class="pt-3 border-top" style="border-top: 1px solid #e5e7eb !important;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold" style="font-weight: 600;">Eco-Sort Initiative</span>
+                                <span class="small text-secondary" style="color: #6B7280;">Raised ₹2L in funding</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 2 -->
+                <div class="story-card snap-center">
+                    <div class="story-image">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBebR9GbphC1lKj1vexOHs53Rp-hY_7sXv8MaxILehXw6o6o1mN85rjsUk9qL_V0aExPr21Ok7olFkpJIfyA1ltDQ8mSvaV9dhyI3_lpVZc2Sw9xLk5S3rEFUYxRrVnayBnRb87-iwC4Z6tU9KW3bb1sfhcGIIh1f4vz8W6JKtA_PD4UPydepWtym-__jgXTfpQpAJm7N75k9CvQonk1McHY7i_RWyBYnuaNu5o2tno4xzIL9MnOcD9B2BU4oAfWwH-ohYsYnALer78"
+                            alt="Group of students brainstorming with sticky notes" />
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600;">Atulya</h3>
+                                <p class="small mb-0" style="color: #6B21A8; font-weight: 500;">Grade 11,
+                                    Delhi</p>
+                            </div>
+                            <span class="story-badge">Tech Innovation</span>
+                        </div>
+                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563;">
+                            "Atulya solved daily village commute challenges by developing an E-cycle - an idea that was
+                            recognised by the Hon'ble PM of India at the 3rd NEP Anniversary"
+                        </p>
+                        <div class="pt-3 border-top" style="border-top: 1px solid #e5e7eb !important;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold" style="font-weight: 600;">Code-Green App</span>
+                                <span class="small text-secondary" style="color: #6B7280;">Top 10 Global Finalist</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 3 -->
+                <div class="story-card snap-center">
+                    <div class="story-image">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN91c44fIY0kmetYw0e2jMCWswpUBiFiTlFwjiDt-gR2J5ehu0rJhpRDmfnQ4ZJ1Bk10xLyRkfpCcCPErIWGDKFTLuWlDMStEdMeINSTJWvVfXc06Uy_jXSG9713YZCSt438skr6TVo8ZOMqspSXgBuVakcGIU4zaNDH_rCjj0V7bdrEMN5TY9-HdeGGXcIUfSN_2wgNLX_KFJq7UYPRn6EsI3vsOZ674ZN1hkef_3I1gXiNnWPQgSXFVdgmED6PqnEF-2c4drZJhu"
+                            alt="Enthusiastic students receiving an award" />
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600;">Divya & Parth</h3>
+                                <p class="small mb-0" style="color: #6B21A8; font-weight: 500;">Grade 10,
+                                    Bengaluru</p>
+                            </div>
+                            <span class="story-badge">Agri-Tech</span>
+                        </div>
+                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563;">
+                            "Divya & Parth built Tyron - a profit-making startup that creates job-opportunities for acid
+                            attack survivors. They won NFTE's global challenge and was recognized by Unstop & Better
+                            India platforms."
+                        </p>
+                        <div class="pt-3 border-top" style="border-top: 1px solid #e5e7eb !important;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold" style="font-weight: 600;">Hydro-Smart Kits</span>
+                                <span class="small text-secondary" style="color: #6B7280;">Patent Pending</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 4 -->
+                <div class="story-card snap-center">
+                    <div class="story-image">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXaA7h45AjSWvNNmvuQk65sGjs20YLurx6VzZ8Erg4MRuM_FJd4VFjXmjdgXQ6HSOavYgYaDO5X1Ix020RyaDS9hJN05W9M_6-l752j4j7JmgO2VQM5mUqi_sZN_oRqwVmJuTzGmhJFrTckrOKRO7Sdr0d81sLBlMicvDX7p_BV_kRsNZPS4sHpTbFoPllgKRo2Kz5Czc8k1nD8Xw5J0hnoq1SEYSFT9uQxsNpqhYarF_XetBnR1dU9-vIsjfTDC6-TVCjyc2Np8Ui"
+                            alt="Student working on creative project" />
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600;">Akshit</h3>
+                                <p class="small mb-0" style="color: #6B21A8; font-weight: 500;">Grade 12,
+                                    Pune</p>
+                            </div>
+                            <span class="story-badge">EdTech</span>
+                        </div>
+                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563;">
+                            "Mentored by ENpower, Akshit turned The Bionic Hand prototype into an investor-backed
+                            prosthetic powered by design thinking and entrepreneurial skills"
+                        </p>
+                        <div class="pt-3 border-top" style="border-top: 1px solid #e5e7eb !important;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold" style="font-weight: 600;">LearnBridge Platform</span>
+                                <span class="small text-secondary" style="color: #6B7280;">5000+ Users</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 5 -->
+                <div class="story-card snap-center">
+                    <div class="story-image">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBebR9GbphC1lKj1vexOHs53Rp-hY_7sXv8MaxILehXw6o6o1mN85rjsUk9qL_V0aExPr21Ok7olFkpJIfyA1ltDQ8mSvaV9dhyI3_lpVZc2Sw9xLk5S3rEFUYxRrVnayBnRb87-iwC4Z6tU9KW3bb1sfhcGIIh1f4vz8W6JKtA_PD4UPydepWtym-__jgXTfpQpAJm7N75k9CvQonk1McHY7i_RWyBYnuaNu5o2tno4xzIL9MnOcD9B2BU4oAfWwH-ohYsYnALer78"
+                            alt="Team collaboration session" />
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600;">Prathamesh, Prasad & Shivam</h3>
+                                <p class="small mb-0" style="color: #6B21A8; font-weight: 500;">Grade 11,
+                                    Ahmedabad</p>
+                            </div>
+                            <span class="story-badge">FinTech</span>
+                        </div>
+                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563;">
+                            "Prathamesh, Prasad & Shivam from Dharashiv engineered a low-cost seed sowing machine for
+                            helping local farmers reduce manual labour applying STEM to problem-solving."
+                        </p>
+                        <div class="pt-3 border-top" style="border-top: 1px solid #e5e7eb !important;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold" style="font-weight: 600;">Seed Sowing Machine</span>
+                                <span class="small text-secondary" style="color: #6B7280;">Incubated</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 6 -->
+                <div class="story-card snap-center">
+                    <div class="story-image">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKm79QRfmcvVr_My3LEgoX-mMSANe4cx2MXk434ulE1ku_yL-5nz1aRqbibCe8D6N-zl05s6ra3xY7fU5yzNwyzScr0Ujwc72b2Fw2Teyg-MWbpGv5fhzVGQdOkUFJKB3sHfiJ3tXo3K4428OjuzFAw_PnHcrXuq8l9VQPuzg6WQeRxIoaRIkwP88_D269hHRevjmzmrxvSJC4oB-0BkO2PWJPOgTLtFXSrVHUurjv7fb9IKBJubYz4U-HWb0ATbVe7YrU4vjYNA5u"
+                            alt="Student presenting to audience" />
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600;">Pushpak, Tanuja & Utkarsha</h3>
+                                <p class="small mb-0" style="color: #6B21A8; font-weight: 500;">Grade 10,
+                                    Kolkata</p>
+                            </div>
+                            <span class="story-badge">Healthcare</span>
+                        </div>
+                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563;">
+                            "Empowered by an entrepreneurial mindset, Pushpak, Tanuja & Utkarsha have built a
+                            profit-generating FSSAI-certified spice brand turning adversity into opportunity, creating
+                            livelihood for many."
+                        </p>
+                        <div class="pt-3 border-top" style="border-top: 1px solid #e5e7eb !important;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold" style="font-weight: 600;">HealthConnect</span>
+                                <span class="small text-secondary" style="color: #6B7280;">10+ Villages Served</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ENpower Engagements Section (Bento Grid) ===== -->
+    <section class="engagements-section" id="engagements">
+        <div class="engagements-container">
+            <div class="engagements-header">
+                <h2 class="engagements-title">ENpower Engagements</h2>
+                <p class="engagements-subtitle">
+                    One ecosystem. Multiple pathways. Designed for future readiness. At ENpower, future skills are
+                    delivered through integrated engagements within schools, ensuring students become confident
+                    Thinkers, Creators & Leaders.
+                </p>
+            </div>
+
+            <div class="engagements-grid">
+                <!-- Box 1 (Wide Top Left) -->
+                <div class="eng-card eng-card-wide">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=1200&h=600&fit=crop&q=80"
+                        class="eng-bg" alt="Students in Lab">
+                    <div class="overlay-side"></div>
+                    <div class="eng-content">
+                        <div class="eng-icon"><span class="material-icons">architecture</span></div>
+                        <h3>Future Skills Lab</h3>
+                        <p>India's first Integrated Future-Skills Ecosystem for schools. Transforming Your School Into A
+                            Future-Skills Ecosystem.</p>
+                    </div>
+                </div>
+
+                <!-- Box 2 (Tall Right) -->
+                <div class="eng-card eng-card-tall">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=1000&fit=crop&q=80"
+                        class="eng-bg" alt="Student collaboration">
+                    <div class="overlay-dark"></div>
+                    <div class="eng-content">
+                        <div class="eng-icon"><span class="material-icons">extension</span></div>
+                        <h3>Composite Skills Lab</h3>
+                        <p>One-stop Solution For CSL & Kaushal Bodh Implementation. ENpower's Composite Skill Lab
+                            transforms CBSE's CSL & Kaushal Bodh mandate. groups</p>
+                    </div>
+                </div>
+
+                <!-- Box 3 (Bottom Left) -->
+                <div class="eng-card">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=600&fit=crop&q=80"
+                        class="eng-bg" alt="Tech Innovation">
+                    <div class="overlay-purple"></div>
+                    <div class="eng-content">
+                        <div class="eng-icon"><span class="material-icons">psychology</span></div>
+                        <h3>Tech Innovation Labs</h3>
+                        <p>Transforming Traditional STEM Learning With Design Thinking & Entrepreneurship.</p>
+                    </div>
+                </div>
+
+                <!-- Box 4 (Bottom Middle) - Light Card styled like verdura -->
+                <div class="eng-card">
+                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&h=600&fit=crop&q=80"
+                        class="eng-bg" alt="Future Tycoons">
+                    <div class="overlay-purple"></div>
+                    <div class="eng-content">
+                        <div class="eng-icon"><span class="material-icons">emoji_events</span></div>
+                        <h3>India's Future Tycoons</h3>
+                        <p>India's first-ever entrepreneurship search and mentorship platform for young adults(13-18).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Training & Certificates Section ===== -->
+    <div class="arch-container">
+        <div class="text-center mb-1">
+            <h2 class="arch-section-title">Training & Certificates</h2>
+        </div>
+
+        <div class="arch">
+            <div class="arch__left">
+                <div class="arch__info" id="green-arch">
+                    <div class="content">
+                        <h2 class="header">Entrepreneurship Fundamentals</h2>
+                        <p class="desc">Comprehensive 6-week training program covering business planning, market
+                            research, financial literacy, and pitching skills. Participants receive a certified
+                            completion certificate recognized by industry partners.</p>
+                        <a class="link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                                <path fill="#fff"
+                                    d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+                            </svg> <span>Learn More</span></a>
+                    </div>
+                </div>
+
+                <div class="arch__info" id="blue-arch">
+                    <div class="content">
+                        <h2 class="header">Digital Marketing Mastery</h2>
+                        <p class="desc">Master social media strategy, content creation, SEO, and analytics in this
+                            intensive 4-week course. Earn a professional certificate to showcase your digital marketing
+                            expertise and boost your startup's online presence.</p>
+                        <a class="link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                                <path fill="#fff"
+                                    d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+                            </svg> <span>Learn More</span></a>
+                    </div>
+                </div>
+
+                <div class="arch__info" id="pink-arch">
+                    <div class="content">
+                        <h2 class="header">Leadership & Innovation</h2>
+                        <p class="desc">Develop critical leadership skills, design thinking, and innovation
+                            methodologies through hands-on workshops and mentorship sessions. Certificate holders gain
+                            access to our exclusive alumni network and ongoing resources.</p>
+                        <a class="link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                                <path fill="#fff"
+                                    d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+                            </svg> <span>Learn More</span></a>
+                    </div>
+                </div>
+
+                <div class="arch__info" id="orange-arch">
+                    <div class="content">
+                        <h2 class="header">Financial Planning & Investment</h2>
+                        <p class="desc">Learn fundraising strategies, investor pitching, financial modeling, and
+                            sustainable growth planning. This advanced certification prepares entrepreneurs for securing
+                            funding and managing startup finances effectively.
+                        </p>
+                        <a class="link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                                <path fill="#fff"
+                                    d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+                            </svg> <span>Learn More</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arch__right">
+                <div class="img-wrapper" data-index="4">
+                    <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/cu8978xjlsjjpjk52ta0.webp"
+                        alt="Green Architecture">
+                </div>
+
+                <div class="img-wrapper" data-index="3">
+                    <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/trh7c8ufv1dqfrofdytd.webp"
+                        alt="Blue Architecture">
+                </div>
+
+                <div class="img-wrapper" data-index="2">
+                    <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/aw6qwur0pggp5r03whjq.webp"
+                        alt="Pink Architecture">
+                </div>
+
+                <div class="img-wrapper" data-index="1">
+                    <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/sqwn8u84zd1besgl0zpd.webp"
+                        alt="Orange Architecture">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="arch-spacer"></div>
+
+    </div>
+    <!-- END: Training & Certificates Section -->
+
+    <!-- ===== Student Transformation Stories Section ===== -->
+    <section class="sts-section" id="student-stories">
+        <div class="sts-header">
+            <h2 class="sts-title">Student Transformation Stories</h2>
+            <p class="sts-description">
+                Discover how our students have transformed their entrepreneurial dreams into reality
+            </p>
+        </div>
+
+        <div class="sts-collage-container">
+            <!-- Hero Central Video (Large) -->
+            <div class="sts-card sts-hero" data-float-speed="1">
+                <div class="sts-video-wrapper">
+                    <iframe class="sts-video" src="https://www.youtube.com/embed/rf5cgg24YEc"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="sts-card-info">
+                    <h4>From Idea to Launch</h4>
+                    <p>Priya's sustainable fashion startup journey</p>
+                </div>
+            </div>
+
+            <!-- Top Left - Small -->
+            <div class="sts-card sts-small sts-top-left" data-float-speed="1.5">
+                <div class="sts-video-wrapper">
+                    <iframe class="sts-video" src="https://www.youtube.com/embed/218O0rdenqY"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="sts-card-info">
+                    <h4>Tech Innovation</h4>
+                    <p>Rahul's EdTech platform</p>
+                </div>
+            </div>
+
+            <!-- Top Right - Medium -->
+            <div class="sts-card sts-medium sts-top-right" data-float-speed="1.2">
+                <div class="sts-video-wrapper">
+                    <iframe class="sts-video" src="https://www.youtube.com/embed/seLSYs3Q7Co"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="sts-card-info">
+                    <h4>Social Impact</h4>
+                    <p>Ananya empowers rural artisans</p>
+                </div>
+            </div>
+
+            <!-- Left Middle - Medium -->
+            <div class="sts-card sts-medium sts-left-mid" data-float-speed="1.8">
+                <div class="sts-video-wrapper">
+                    <iframe class="sts-video" src="https://www.youtube.com/embed/VzA2M6Q3xJY"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="sts-card-info">
+                    <h4>E-commerce Breakthrough</h4>
+                    <p>Vikram's organic delivery</p>
+                </div>
+            </div>
+
+            <!-- Right Middle - Small -->
+            <div class="sts-card sts-small sts-right-mid" data-float-speed="2.0">
+                <div class="sts-video-wrapper">
+                    <iframe class="sts-video" src="https://www.youtube.com/embed/eYbyRulcrFo"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="sts-card-info">
+                    <h4>Fitness Revolution</h4>
+                    <p>Sneha's wellness app</p>
+                </div>
+            </div>
+
+            <!-- Bottom Left - Medium -->
+            <div class="sts-card sts-medium sts-bottom-left" data-float-speed="1.3">
+                <div class="sts-video-wrapper">
+                    <iframe class="sts-video" src="https://www.youtube.com/embed/g45D9qVYO7U"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="sts-card-info">
+                    <h4>Green Energy Pioneer</h4>
+                    <p>Arjun's solar solution</p>
+                </div>
+            </div>
+
+            <!-- Bottom Right - Small -->
+            <div class="sts-card sts-small sts-bottom-right" data-float-speed="1.6">
+                <div class="sts-video-wrapper">
+                    <iframe class="sts-video" src="https://www.youtube.com/embed/Z03OjLJ36B0"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="sts-card-info">
+                    <h4>Creative Marketplace</h4>
+                    <p>Meera connects artists</p>
+                </div>
+            </div>
+
+            <!-- Far Right - Medium -->
+            <div class="sts-card sts-medium sts-far-right" data-float-speed="1.4">
+                <div class="sts-video-wrapper">
+                    <iframe class="sts-video" src="https://www.youtube.com/embed/h1e4PDQ1Cms"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="sts-card-info">
+                    <h4>Healthcare Innovation</h4>
+                    <p>Karan's telemedicine startup</p>
+                </div>
+            </div>
+
+            <!-- Far Left - Small -->
+            <div class="sts-card sts-small sts-far-left" data-float-speed="1.7">
+                <div class="sts-video-wrapper">
+                    <iframe class="sts-video" src="https://www.youtube.com/embed/jHHzYheXtRw"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="sts-card-info">
+                    <h4>Food Tech</h4>
+                    <p>Neha's cloud kitchen</p>
+                </div>
+            </div>
+
+            <!-- Top Center - Small -->
+            <div class="sts-card sts-small sts-top-center" data-float-speed="1.9">
+                <div class="sts-video-wrapper">
+                    <iframe class="sts-video" src="https://www.youtube.com/embed/iGxCi9h94KA"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="sts-card-info">
+                    <h4>Mobility Revolution</h4>
+                    <p>Rohan's transport</p>
+                </div>
+            </div>
+
+            <!-- Bottom Center - Medium -->
+            <div class="sts-card sts-medium sts-bottom-center" data-float-speed="1.1">
+                <div class="sts-video-wrapper">
+                    <iframe class="sts-video" src="https://www.youtube.com/embed/rf5cgg24YEc"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="sts-card-info">
+                    <h4>Smart Agriculture</h4>
+                    <p>Deepak's IoT for farmers</p>
+                </div>
+            </div>
+
+            <!-- Extra Bottom Left - Small -->
+            <div class="sts-card sts-small sts-extra-bottom-left" data-float-speed="2.1">
+                <div class="sts-video-wrapper">
+                    <iframe class="sts-video" src="https://www.youtube.com/embed/218O0rdenqY"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="sts-card-info">
+                    <h4>Fintech Innovation</h4>
+                    <p>Simran's payment platform</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END: Student Transformation Stories Section -->
+
+    <!-- ===== Impact Programs Section ===== -->
+    <section class="ip-scroll-container" id="ip-impact-section">
+        <div class="ip-sticky-wrapper">
+
+            <!-- Grid Background -->
+            <div class="ip-structural-grid" id="ip-structural-grid">
+                <div class="ip-grid-line ip-grid-line-h" id="ip-h-line-1"></div>
+                <div class="ip-grid-line ip-grid-line-h" id="ip-h-line-2"></div>
+                <div class="ip-grid-line ip-grid-line-h" id="ip-h-line-3"></div>
+                <div class="ip-grid-line ip-grid-line-v" id="ip-v-line-1"></div>
+                <div class="ip-grid-line ip-grid-line-v" id="ip-v-line-2"></div>
+                <div class="ip-grid-line ip-grid-line-v" id="ip-v-line-3"></div>
+            </div>
+
+            <!-- Blobs -->
+            <div class="ip-blob ip-blob-1"></div>
+            <div class="ip-blob ip-blob-2"></div>
+
+            <!-- Main Layout -->
+            <div class="container ip-pos-relative ip-z-10">
+                <div class="row align-items-center g-5">
+
+                    <!-- LEFT: Text Content -->
+                    <div class="col-lg-5" id="ip-text-content">
+                        <div class="d-flex flex-column gap-4">
+                            <div>
+                                <span class="ip-badge">Impact Programs</span>
+                            </div>
+                            <h1 class="ip-headline">
+                                Grassroot <span>Entrepreneurship</span> &amp; Livelihood Empowerment at Scale
+                            </h1>
+                            <p class="ip-subtext">
+                                We partner with corporates, foundations, and institutions to deliver scalable education
+                                programs that bring future skills, entrepreneurship, and technology-enabled learning to
+                                underserved schools and communities across India.
+
+                                India’s skilling challenges require connected systems. Partners can choose focused
+                                interventions or integrate multiple pathways for deeper, sustainable impact.
+                            </p>
+                            <div>
+                                <button class="ip-glass-btn">
+                                    Explore Impact
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: Program Matrix -->
+                    <div class="col-lg-7">
+                        <div class="ip-program-matrix-wrap ip-pos-relative">
+
+                            <!-- Connectors -->
+                            <div class="ip-connector-v" id="ip-connector-v"></div>
+                            <div class="ip-connector-h" id="ip-connector-h"></div>
+
+                            <!-- 2x2 Grid -->
+                            <div class="row g-4 ip-pos-relative ip-z-10" id="ip-program-matrix">
+
+                                <!-- Module 1 -->
+                                <div class="col-6">
+                                    <div class="ip-program-card h-100" data-purpose="program-module">
+                                        <div class="ip-module-icon-wrap ip-module-icon">
+                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="ip-module-title">Composite Skills Labs</h3>
+                                        <p class="ip-module-desc">Advanced technical foundations for modern industrial
+                                            integration.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Module 2 -->
+                                <div class="col-6">
+                                    <div class="ip-program-card h-100" data-purpose="program-module">
+                                        <div class="ip-module-icon-wrap ip-module-icon">
+                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="ip-module-title">Tech Innovation Labs</h3>
+                                        <p class="ip-module-desc">Incubating disruptive technologies for localized
+                                            challenges.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Module 3 -->
+                                <div class="col-6">
+                                    <div class="ip-program-card h-100" data-purpose="program-module">
+                                        <div class="ip-module-icon-wrap ip-module-icon">
+                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="ip-module-title">Livelihood Programs</h3>
+                                        <p class="ip-module-desc">Scalable entrepreneurship models for community
+                                            sustainability.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Module 4 -->
+                                <div class="col-6">
+                                    <div class="ip-program-card h-100" data-purpose="program-module">
+                                        <div class="ip-module-icon-wrap ip-module-icon">
+                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2"></path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="ip-module-title">Idea-to-Venture</h3>
+                                        <p class="ip-module-desc">End-to-end platform for commercializing grassroots
+                                            innovation.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END: Impact Programs Section -->
+
+    <!-- Partners & Engagements Section -->
+    <section class="partners-section" id="partners">
+        <div class="container">
+            <div class="section-label">
+                Partners &amp; Engagements
+            </div>
+
+            <!-- Row 1: Left to Right -->
+            <div class="marquee-container">
+                <div class="marquee-row-ltr">
+                    <div class="partner-logo-item">
+                        <img src="https://msblogs.thesourcemediaassets.com/2012/08/8867.Microsoft_5F00_Logo_2D00_for_2D00_screen-1920x706.jpg"
+                            alt="Microsoft" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/snapchat.webp" alt="Snapchat"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://adypu.edu.in/wp-content/themes/adypu/images/logo.png"
+                            alt="Ajeenkya DY Patil University" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr1ECbc3Dwjc4APV4Q23nL5hZlOPZdXJDTJw&s"
+                            alt="NavNeet" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL2JS8N7igv5LxjxyH_dUAv_T3m5Da4R9mfQ&s"
+                            alt="Kotak Mahindra Bank" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://logonoid.com/images/hafele-logo.png" alt="Hafele" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/l-and-t-logo.webp"
+                            alt="Larsen & Toubro" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/aim-logo.webp"
+                            alt="NITI Aayog AIM" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://www.mindacademy.com.tr/medya/ems_kM42406.jpg" alt="Accelium"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/raskik.webp" alt="raskik"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/bayer.webp" alt="Bayer"
+                            class="partner-logo">
+                    </div>
+
+                    <!-- duplicate logo -->
+                    <div class="partner-logo-item">
+                        <img src="https://msblogs.thesourcemediaassets.com/2012/08/8867.Microsoft_5F00_Logo_2D00_for_2D00_screen-1920x706.jpg"
+                            alt="Microsoft" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/snapchat.webp" alt="Snapchat"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://adypu.edu.in/wp-content/themes/adypu/images/logo.png"
+                            alt="Ajeenkya DY Patil University" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr1ECbc3Dwjc4APV4Q23nL5hZlOPZdXJDTJw&s"
+                            alt="NavNeet" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL2JS8N7igv5LxjxyH_dUAv_T3m5Da4R9mfQ&s"
+                            alt="Kotak Mahindra Bank" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://logonoid.com/images/hafele-logo.png" alt="Hafele" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/l-and-t-logo.webp"
+                            alt="Larsen & Toubro" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/aim-logo.webp"
+                            alt="NITI Aayog AIM" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://www.mindacademy.com.tr/medya/ems_kM42406.jpg" alt="Accelium"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/raskik.webp" alt="raskik"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/bayer.webp" alt="Bayer"
+                            class="partner-logo">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: Right to Left -->
+            <div class="marquee-container">
+                <div class="marquee-row-rtl">
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/un-global-compact-logo.webp"
+                            alt="un-global-compact" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/tata-capital.webp"
+                            alt="Tata Capital" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/indusind.webp" alt="indusind"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/inoxap.webp" alt="inoxap"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/aaramco.webp" alt="aaramco"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/axis-bank-logo.webp"
+                            alt="Axis Bank" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/hsbc.webp" alt="hsbc"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/sbf-logo.webp" alt="sbf-logo"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/udaan.webp" alt="udaan"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/manipal-foundation.webp"
+                            alt="manipal-foundation" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/yuva-logo.webp" alt="yuva"
+                            class="partner-logo">
+                    </div>
+
+                    <!-- duplicate logo row -->
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/un-global-compact-logo.webp"
+                            alt="un-global-compact" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/tata-capital.webp"
+                            alt="Tata Capital" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/indusind.webp" alt="indusind"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/inoxap.webp" alt="inoxap"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/aaramco.webp" alt="aaramco"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/axis-bank-logo.webp"
+                            alt="Axis Bank" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/hsbc.webp" alt="hsbc"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/sbf-logo.webp" alt="sbf-logo"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/udaan.webp" alt="udaan"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/manipal-foundation.webp"
+                            alt="manipal-foundation" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="https://enpower-school.com/media/images/our-partners/yuva-logo.webp" alt="yuva"
+                            class="partner-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <script>
+        /* ==========================================================
+           INTERACTIVE LINE CANVAS — Solid wavy lines
+           ========================================================== */
+        (function () {
+            const canvas = document.getElementById('waveCanvas');
+            const ctx = canvas.getContext('2d');
+
+            let width, height;
+            let mouseX = -1000, mouseY = -1000;
+            let scrollY = 0;
+            const WAVE_COUNT = 24; // More lines for the mesh look
+            const INFLUENCE_RADIUS = 250;
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            document.addEventListener('mouseleave', () => {
+                mouseX = -1000;
+                mouseY = -1000;
+            });
+            window.addEventListener('scroll', () => { scrollY = window.scrollY; });
+
+            const waves = [];
+            // Create "ribbons" of lines
+            for (let i = 0; i < WAVE_COUNT; i++) {
+                const group = Math.floor(i / 8);
+                waves.push({
+                    y: 0.3 + group * 0.2 + (Math.random() * 0.05), // Grouped vertically
+                    amplitude: 40 + Math.random() * 50, // Larger, more sweeping waves
+                    frequency: 0.001 + Math.random() * 0.001, // Gentler frequency
+                    speed: 0.0002 + Math.random() * 0.0003,
+                    phase: i * 0.2, // Offset phases to create the mesh effect
+                    opacity: 0.08 + Math.random() * 0.05,
+                    thickness: 0.5 + Math.random() * 0.5 // Hair-thin lines
+                });
+            }
+
+            let time = 0;
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                const parallaxOffset = scrollY * 0.1;
+
+                for (let w = 0; w < waves.length; w++) {
+                    const wave = waves[w];
+                    const baseY = wave.y * height + parallaxOffset;
+
+                    // Soft purple/pink palette to match the image
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(180, 120, 220, ${wave.opacity})`;
+                    ctx.lineWidth = wave.thickness;
+
+                    const step = 6;
+                    for (let x = -10; x <= width + 10; x += step) {
+                        // Complex sine combination for fluid ribbon motion
+                        let y = baseY + Math.sin(x * wave.frequency + time * wave.speed * 1000 + wave.phase) * wave.amplitude;
+                        y += Math.sin(x * wave.frequency * 0.5 + time * wave.speed * 500) * (wave.amplitude * 0.3);
+
+                        const dx = x - mouseX;
+                        const dy = y - mouseY;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < INFLUENCE_RADIUS) {
+                            const influence = 1 - dist / INFLUENCE_RADIUS;
+                            const smoothInfluence = influence * influence * (3 - 2 * influence);
+                            const pushStrength = 40 * smoothInfluence;
+                            const angle = Math.atan2(dy, dx);
+                            y += Math.sin(angle) * pushStrength;
+                        }
+
+                        if (x === -10) { ctx.moveTo(x, y); }
+                        else { ctx.lineTo(x, y); }
+                    }
+                    ctx.stroke();
+                }
+
+                time = performance.now() / 1000;
+                requestAnimationFrame(draw);
+            }
+
+            draw();
+        })();
+
+        /* ==========================================================
+           GSAP ANIMATIONS
+           ========================================================== */
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkGSAP = setInterval(() => {
+                if (typeof gsap !== 'undefined') {
+                    clearInterval(checkGSAP);
+                    initAnimations();
+                }
+            }, 50);
+
+            function initAnimations() {
+                const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+                // Nav entrance
+                tl.to('.nav', { opacity: 1, y: 0, duration: 0.8, delay: 0.2 });
+
+                // Heading lines stagger
+                tl.to('.heading-line', {
+                    opacity: 1, y: 0, duration: 0.9, stagger: 0.15
+                }, '-=0.4');
+
+                // Capsules scale in
+                tl.to('.capsule', {
+                    opacity: 1, scale: 1, duration: 0.7, stagger: 0.12,
+                    ease: 'back.out(1.4)'
+                }, '-=0.6');
+
+
+
+                // Bottom section
+                tl.to('.hero-bottom', { opacity: 1, y: 0, duration: 0.7 }, '-=0.3');
+
+                // Scroll indicator
+                tl.to('#scrollIndicator', { opacity: 0.6, duration: 0.6 }, '-=0.2');
+
+                // Floating animation for capsules
+                document.querySelectorAll('.capsule').forEach((capsule) => {
+                    const offset = parseFloat(capsule.dataset.floatOffset) || 0;
+                    gsap.to(capsule, {
+                        y: -8, duration: 2.2 + offset * 0.3,
+                        repeat: -1, yoyo: true, ease: 'sine.inOut', delay: offset
+                    });
+                });
+
+
+                // Gentle sway on rocket
+                gsap.to('.rocket-deco', {
+                    y: -10, rotation: 3, duration: 3,
+                    repeat: -1, yoyo: true, ease: 'sine.inOut'
+                });
+
+                // --- Impact Section ScrollTrigger ---
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Heading Reveal Animation
+                gsap.to(".impact-title-line", {
+                    scrollTrigger: {
+                        trigger: "#impact-scroll-container",
+                        start: "top 30%", // Triggers exactly when user reaches the section
+                        once: true        // Play only once, no reverse, no flicker
+                    },
+                    y: "0%",
+                    duration: 1,
+                    stagger: 0.2, // Seamless staggered reveal
+                    ease: "power4.out"
+                });
+
+                gsap.from(".impact-reveal-element", {
+                    scrollTrigger: {
+                        trigger: "#impact-scroll-container",
+                        start: "top 30%",
+                        once: true
+                    },
+                    opacity: 0,
+                    y: 20,
+                    duration: 1,
+                    delay: 0.4,
+                    ease: "power2.out"
+                });
+
+                const mainTl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: "#impact-scroll-container",
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 1,
+                    }
+                });
+
+                // Calculate heights for rolling animations based on CSS values
+                const numberHeight = window.innerWidth >= 768 ? 150 : 100;
+                const labelHeight = 48; // 3rem
+
+                // Define Scenes
+                const scenes = [
+                    { index: 0, label: "States" },
+                    { index: 1, label: "Schools" },
+                    { index: 2, label: "Students" },
+                    { index: 3, label: "Coaches" }
+                ];
+
+                // Initial State Setup
+                gsap.set(".description-item", { opacity: 0, y: 20 });
+                gsap.set(".description-item:nth-child(1)", { opacity: 1, y: 0 });
+                gsap.set(".progress-fill:nth-child(1)", { width: "100%" });
+
+                // Scene transitions
+                scenes.forEach((scene, i) => {
+                    if (i === 0) return; // Skip first scene transition as it's the start
+
+                    // Roll Numbers
+                    mainTl.to("#number-roller", {
+                        y: -numberHeight * i,
+                        duration: 1,
+                        ease: "power2.inOut"
+                    }, i);
+
+                    // Roll Labels
+                    mainTl.to("#label-roller", {
+                        y: -labelHeight * i,
+                        duration: 1,
+                        ease: "power2.inOut"
+                    }, i);
+
+                    // Transition Descriptions
+                    mainTl.to(".description-item:nth-child(" + i + ")", {
+                        opacity: 0,
+                        y: -20,
+                        duration: 0.5
+                    }, i);
+                    mainTl.to(".description-item:nth-child(" + (i + 1) + ")", {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.5
+                    }, i + 0.5);
+
+                    // Update Progress Dots
+                    mainTl.to(`.progress-dot:nth-child(${i + 1}) .progress-fill`, {
+                        width: "100%",
+                        duration: 1
+                    }, i);
+
+                    // Map Interaction (Activate hubs)
+                    mainTl.to(".map-hub", {
+                        opacity: (index) => (index <= i * 2 ? 0.8 : 0),
+                        scale: (index) => (index <= i * 2 ? 1.5 : 1),
+                        duration: 0.8,
+                        stagger: 0.1
+                    }, i);
+                });
+
+                // Subtle Map Pulse
+                gsap.to(".map-hub", {
+                    scale: 1.8,
+                    opacity: 0.4,
+                    duration: 2,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut",
+                    stagger: {
+                        each: 0.4,
+                        from: "random"
+                    }
+                });
+
+                // Stories Section Horizontal GSAP Scroll Animation
+                const storiesSection = document.querySelector('.stories-section');
+                const storiesScroll = document.getElementById('stories-scroll');
+                const storyCards = gsap.utils.toArray('.story-card');
+                const heading = document.getElementById('stories-heading');
+
+                if (storiesSection && storiesScroll && storyCards.length > 0) {
+                    // Calculate total scroll width
+                    const getScrollWidth = () => {
+                        let width = heading ? heading.offsetWidth + 32 : 0; // Account for heading
+                        storyCards.forEach(card => {
+                            width += card.offsetWidth + 32; // + gap
+                        });
+                        return width;
+                    };
+
+                    // Calculate max scroll distance to show all cards
+                    const getMaxScroll = () => {
+                        const totalWidth = getScrollWidth();
+                        const padding = Math.max(window.innerWidth * 0.05, (window.innerWidth - 1200) / 2); // Match CSS padding-left
+                        return totalWidth - window.innerWidth + padding * 2;
+                    };
+
+                    // GSAP Horizontal Scroll
+                    const storiesTimeline = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: storiesSection,
+                            start: "top top",
+                            end: () => `+=${getMaxScroll() * 1.5}`, // Adjusted scroll length
+                            pin: true,
+                            scrub: 1,
+                            invalidateOnRefresh: true
+                        }
+                    });
+
+                    storiesTimeline.to(storiesScroll, {
+                        x: () => -getMaxScroll(),
+                        ease: "none",
+                        duration: 1
+                    });
+
+                    // Navigation Buttons (manual overrides)
+                    const storyPrev = document.getElementById('story-prev');
+                    const storyNext = document.getElementById('story-next');
+
+                    if (storyPrev && storyNext) {
+                        let currentScroll = 0;
+                        const cardWidth = 400 + 32;
+
+                        storyNext.addEventListener('click', () => {
+                            currentScroll -= cardWidth;
+                            const maxScroll = -getMaxScroll();
+                            currentScroll = Math.max(currentScroll, maxScroll);
+                            gsap.to(storiesScroll, { x: currentScroll, duration: 0.5, ease: "power2.out" });
+                        });
+
+                        storyPrev.addEventListener('click', () => {
+                            currentScroll += cardWidth;
+                            currentScroll = Math.min(currentScroll, 0);
+                            gsap.to(storiesScroll, { x: currentScroll, duration: 0.5, ease: "power2.out" });
+                        });
+                    }
+                }
+
+                // --- Training & Certificates (Arch Scroll) ---
+                // Set z-index for images
+                document.querySelectorAll(".arch__right .img-wrapper").forEach((element) => {
+                    const order = element.getAttribute("data-index");
+                    if (order !== null) {
+                        element.style.zIndex = order;
+                    }
+                });
+
+                // Mobile layout handler
+                function handleMobileLayout() {
+                    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+                    const leftItems = gsap.utils.toArray(".arch__left .arch__info");
+                    const rightItems = gsap.utils.toArray(".arch__right .img-wrapper");
+
+                    if (isMobile) {
+                        leftItems.forEach((item, i) => {
+                            item.style.order = i * 2;
+                        });
+                        rightItems.forEach((item, i) => {
+                            item.style.order = i * 2 + 1;
+                        });
+                    } else {
+                        leftItems.forEach((item) => {
+                            item.style.order = "";
+                        });
+                        rightItems.forEach((item) => {
+                            item.style.order = "";
+                        });
+                    }
+                }
+
+                let archResizeTimeout;
+                window.addEventListener("resize", () => {
+                    clearTimeout(archResizeTimeout);
+                    archResizeTimeout = setTimeout(handleMobileLayout, 100);
+                });
+                handleMobileLayout();
+
+                const archImgs = gsap.utils.toArray(".img-wrapper img");
+
+                ScrollTrigger.matchMedia({
+                    "(min-width: 769px)": function () {
+                        const mainTimeline = gsap.timeline({
+                            scrollTrigger: {
+                                trigger: ".arch",
+                                start: "top top",
+                                end: "bottom bottom",
+                                pin: ".arch__right",
+                                scrub: 1,
+                                anticipatePin: 1
+                            }
+                        });
+
+                        gsap.set(archImgs, {
+                            clipPath: "inset(0)",
+                            objectPosition: "0px 0%"
+                        });
+
+                        archImgs.forEach((_, index) => {
+                            const currentImage = archImgs[index];
+                            const nextImage = archImgs[index + 1] ? archImgs[index + 1] : null;
+
+                            const sectionTimeline = gsap.timeline();
+
+                            if (nextImage) {
+                                sectionTimeline
+                                    .to(
+                                        currentImage,
+                                        {
+                                            clipPath: "inset(0px 0px 100%)",
+                                            objectPosition: "0px 60%",
+                                            duration: 1.5,
+                                            ease: "none"
+                                        },
+                                        0
+                                    )
+                                    .to(
+                                        nextImage,
+                                        {
+                                            objectPosition: "0px 40%",
+                                            duration: 1.5,
+                                            ease: "none"
+                                        },
+                                        0
+                                    );
+                            }
+
+                            mainTimeline.add(sectionTimeline);
+                        });
+                    },
+                    "(max-width: 768px)": function () {
+                        gsap.set(archImgs, {
+                            objectPosition: "0px 60%"
+                        });
+
+                        archImgs.forEach((image) => {
+                            gsap.to(image, {
+                                objectPosition: "0px 30%",
+                                scrollTrigger: {
+                                    trigger: image,
+                                    start: "top bottom",
+                                    end: "bottom top",
+                                    scrub: 1
+                                }
+                            });
+                        });
+                    }
+                });
+
+                // --- Student Transformation Stories - Parallax Only (YouTube iframes) ---
+                const stsCards = document.querySelectorAll('.sts-card');
+                const stsCollageContainer = document.querySelector('.sts-collage-container');
+
+                // Optional: Subtle Parallax Effect on Mouse Move (Desktop Only)
+                if (window.innerWidth > 1024 && stsCollageContainer) {
+                    stsCollageContainer.addEventListener('mousemove', (e) => {
+                        const rect = stsCollageContainer.getBoundingClientRect();
+                        const mouseX = e.clientX - rect.left;
+                        const mouseY = e.clientY - rect.top;
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+
+                        // Calculate offset from center (-1 to 1)
+                        const offsetX = (mouseX - centerX) / centerX;
+                        const offsetY = (mouseY - centerY) / centerY;
+
+                        stsCards.forEach(card => {
+                            const speed = parseFloat(card.getAttribute('data-float-speed')) || 1;
+                            const moveX = offsetX * speed * 8; // Max 8px movement
+                            const moveY = offsetY * speed * 8;
+
+                            // Preserve existing transform and add parallax
+                            const currentTransform = window.getComputedStyle(card).transform;
+                            if (currentTransform && currentTransform !== 'none') {
+                                card.style.transform = `${currentTransform} translate(${moveX}px, ${moveY}px)`;
+                            } else {
+                                card.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                            }
+                        });
+                    });
+
+                    // Reset position when mouse leaves
+                    stsCollageContainer.addEventListener('mouseleave', () => {
+                        stsCards.forEach(card => {
+                            card.style.transform = '';
+                        });
+                    });
+                }
+
+                // --- Impact Programs Section ScrollTrigger ---
+                const ipTl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: "#ip-impact-section",
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 1
+                    }
+                });
+
+                // Phase 1: Grid lines draw in
+                ipTl.to(".ip-grid-line", {
+                    opacity: 1,
+                    duration: 0.5,
+                    stagger: 0.1
+                })
+                    .from("#ip-h-line-1, #ip-h-line-2, #ip-h-line-3", { scaleX: 0, transformOrigin: "center" }, "<")
+                    .from("#ip-v-line-1, #ip-v-line-2, #ip-v-line-3", { scaleY: 0, transformOrigin: "center" }, "<");
+
+                // Phase 2: Cards reveal
+                ipTl.to(".ip-program-card", {
+                    opacity: 1,
+                    y: 0,
+                    rotateX: 0,
+                    duration: 1,
+                    stagger: 0.2,
+                    ease: "power2.out"
+                }, "+=0.2");
+
+                // Phase 3: Icons pop
+                ipTl.from(".ip-module-icon", {
+                    scale: 0.5,
+                    opacity: 0,
+                    duration: 0.5,
+                    stagger: 0.2
+                }, "-=0.8");
+
+                ipTl.from(".ip-module-title, .ip-module-desc", {
+                    y: 10,
+                    opacity: 0,
+                    duration: 0.5,
+                    stagger: 0.1
+                }, "-=0.5");
+
+                // Phase 4: Connecting lines extend
+                ipTl.to("#ip-connector-v", {
+                    height: "100%",
+                    duration: 0.8,
+                    ease: "power1.inOut"
+                }, "-=0.2");
+
+                ipTl.to("#ip-connector-h", {
+                    width: "100%",
+                    duration: 0.8,
+                    ease: "power1.inOut"
+                }, "<");
+
+                // Phase 5: Left text parallax
+                ipTl.from("#ip-text-content", {
+                    y: 100,
+                    opacity: 0,
+                    duration: 1
+                }, "0.5");
+
+                // 3D Hover tilt for Impact Program cards
+                document.querySelectorAll('.ip-program-card').forEach(card => {
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const dx = (e.clientX - rect.left) - rect.width / 2;
+                        const dy = (e.clientY - rect.top) - rect.height / 2;
+                        gsap.to(card, {
+                            rotateY: dx / 10,
+                            rotateX: -dy / 10,
+                            duration: 0.5,
+                            ease: "power2.out"
+                        });
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        gsap.to(card, {
+                            rotateY: 0,
+                            rotateX: 0,
+                            duration: 0.5,
+                            ease: "power2.out"
+                        });
+                    });
+                });
+
+            }
+
+            // Nav scroll effect
+            window.addEventListener('scroll', () => {
+                const nav = document.getElementById('mainNav');
+                if (window.scrollY > 50) { nav.classList.add('scrolled'); }
+                else { nav.classList.remove('scrolled'); }
+            });
+        });
+    </script>
+</body>
+
+</html>
