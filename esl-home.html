@@ -9,7 +9,8 @@
         content="ENpower is nurturing a generation of future creators through innovation labs, robotics, AI learning, and design thinking workshops.">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Material Icons -->
@@ -18,16 +19,38 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Google Fonts for Impact Section -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap"
-        rel="stylesheet" />
-
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 
     <style>
+        /* ===== GLOBAL TYPOGRAPHY ===== */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Space Grotesk', sans-serif !important;
+            font-size: 2.2rem !important;
+            font-weight: 700 !important;
+            line-height: 1.2 !important;
+        }
+
+        /* HERO SECTION HEADING EXEMPTION */
+        .hero .heading {
+            font-size: clamp(2.8rem, 6.5vw, 6.2rem) !important;
+            font-weight: 800 !important;
+            letter-spacing: -3px !important;
+            line-height: 1.08 !important;
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif !important;
+            font-size: 1.05rem !important;
+            line-height: 1.6 !important;
+        }
+
         /* ===== RESET & BASE ===== */
         *,
         *::before,
@@ -44,32 +67,35 @@
         }
 
         body {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: #f5f0fa;
             overflow-x: hidden;
             color: #1a1a1a;
         }
 
         /* ===== NAVIGATION ===== */
-        .nav {
+        .en-main-nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 100;
-            padding: 1.25rem 3rem;
+            height: 90px;
+            z-index: 9999;
+            padding: 0 3rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: background 0.4s ease, box-shadow 0.4s ease;
+            transition: all 0.4s ease;
+            background: rgba(245, 240, 250, 0);
             opacity: 0;
             transform: translateY(-20px);
         }
 
-        .nav.scrolled {
-            background: rgba(245, 240, 250, 0.85);
+        .en-main-nav.scrolled {
+            background: rgba(255, 255, 255, 0.95) !important;
             backdrop-filter: blur(16px);
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            height: 80px;
         }
 
         .nav-logo {
@@ -99,18 +125,9 @@
             list-style: none;
             margin: 0;
             padding: 0;
+            height: 100%;
         }
 
-        .nav-link {
-            text-decoration: none;
-            color: #1a1a1a;
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
 
         .nav-link:hover {
             color: #6B21A8;
@@ -125,6 +142,79 @@
 
         .nav-link:hover svg {
             color: #6B21A8;
+            transform: rotate(180deg);
+        }
+
+        /* ===== NAVIGATION DROPDOWN ===== */
+        .nav-links li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0 1rem;
+            height: 100%;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 80%;
+            left: 160%;
+            transform: translateX(-50%);
+            background: #ffffff !important;
+            min-width: 260px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            padding: 10px 0;
+            display: none;
+            /* Changed from hidden/opacity to display:none */
+            z-index: 99999 !important;
+            /* Extremely high z-index */
+            list-style: none;
+            border: 1px solid rgba(107, 33, 168, 0.1);
+            margin-top: 5px;
+        }
+
+        /* Bridge to keep it open on hover gap */
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: transparent;
+        }
+
+        .nav-links li:hover .dropdown-menu {
+            display: block !important;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 0.8rem 1.8rem;
+            color: #1a1a1a !important;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .dropdown-item:hover {
+            background: #f5f3ff;
+            color: #6B21A8 !important;
+            padding-left: 2.2rem;
         }
 
         .nav-cta {
@@ -515,25 +605,20 @@
         .impact-v2-subtitle {
             color: #6B21A8;
             font-weight: 700;
-            text-transform: uppercase;
+            /* text-transform: uppercase; */
             letter-spacing: 0.1em;
-            font-size: 0.875rem;
             margin-bottom: 1rem;
+            font-size: 1.1rem !important;
         }
 
         .impact-v2-title {
             font-weight: 900;
-            font-size: 3rem;
             color: #111827;
             line-height: 0.9;
             letter-spacing: -0.05em;
+            font-size: 3.5rem !important;
         }
 
-        @media (min-width: 768px) {
-            .impact-v2-title {
-                font-size: 5rem;
-            }
-        }
 
         .text-enpowerPurple {
             color: #6B21A8;
@@ -580,6 +665,7 @@
             /* Adjusted to fit layout */
             line-height: 1;
             color: #6B21A8;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         @media (min-width: 768px) {
@@ -604,7 +690,7 @@
         .impact-v2-label-window {
             overflow: hidden;
             height: 3rem;
-            margin-top: 1.5rem;
+            /* margin-top: 1.5rem; */
         }
 
         .impact-v2-label-roller {
@@ -613,7 +699,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: #9ca3af;
-            text-transform: uppercase;
+            /* text-transform: uppercase; */
             letter-spacing: -0.025em;
         }
 
@@ -727,7 +813,7 @@
             }
 
 
-            .nav {
+            .en-main-nav {
                 padding: 1rem 1.5rem;
             }
 
@@ -771,9 +857,6 @@
                 gap: 1.5rem;
             }
 
-            .hero-subtitle {
-                font-size: 0.95rem;
-            }
 
             .nav-logo-text {
                 font-size: 1.1rem;
@@ -796,7 +879,7 @@
         }
 
         @media (max-width: 480px) {
-            .nav {
+            .en-main-nav {
                 padding: 0.8rem 1rem;
             }
 
@@ -938,13 +1021,13 @@
         }
 
         .stories-heading-container h2 {
-            font-size: 3.5rem !important;
             font-weight: 800;
             color: #111827;
             line-height: 1.1;
             letter-spacing: -1.5px;
             position: relative;
             z-index: 2;
+            font-size: 3.4rem !important;
         }
 
         /* Fun GIF Elements */
@@ -981,9 +1064,6 @@
                 width: 350px;
             }
 
-            .stories-heading-container h2 {
-                font-size: 2.8rem !important;
-            }
         }
 
         @media (max-width: 768px) {
@@ -991,9 +1071,6 @@
                 width: 300px;
             }
 
-            .stories-heading-container h2 {
-                font-size: 2.2rem !important;
-            }
 
             .starburst-left {
                 width: 90px;
@@ -1053,7 +1130,7 @@
             background: #facc48;
             color: #6B21A8;
             cursor: pointer;
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .nav-arrow:hover {
@@ -1109,9 +1186,6 @@
             font-style: italic;
         }
 
-        .small {
-            font-size: 0.875em;
-        }
 
         .text-center {
             text-align: center;
@@ -1122,7 +1196,6 @@
         }
 
         .h5 {
-            font-size: 1.25rem;
             margin-top: 0;
             line-height: 1.2;
         }
@@ -1149,16 +1222,20 @@
         }
 
         .engagements-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
-            color: #6B21A8;
+            color: #000000;
             margin-bottom: 1.5rem;
             letter-spacing: -1px;
             line-height: 1.1;
+            font-size: 3.4rem !important;
+        }
+
+        .engagements-title .italic-blue {
+            color: #5b3fa6;
+            font-weight: 800;
         }
 
         .engagements-subtitle {
-            font-size: 1.15rem;
             line-height: 1.6;
             color: #4b5563;
         }
@@ -1268,21 +1345,18 @@
         }
 
         .eng-content h3 {
-            font-size: 1.67rem;
             font-weight: 900;
             margin-bottom: 0.75rem;
             line-height: 1.2;
+            font-size: 1.2rem !important;
         }
 
-        .eng-card-wide .eng-content h3 {
-            font-size: 2.4rem;
-        }
 
         .eng-content p {
-            font-size: 1.05rem;
             line-height: 1.5;
             opacity: 1;
             font-weight: 900;
+            font-size: 0.9rem !important;
         }
 
         .eng-card-light {
@@ -1435,8 +1509,6 @@
 
         /* Headline */
         .ip-headline {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.3rem;
             line-height: 1.15;
             color: #1c1430;
             margin: 0;
@@ -1448,7 +1520,6 @@
 
         .ip-subtext {
             color: #6b6580;
-            font-size: 1.05rem;
             line-height: 1.7;
             max-width: 460px;
         }
@@ -1463,8 +1534,6 @@
             background: #5b3fa6;
             border: none;
             color: #fff;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
@@ -1547,18 +1616,17 @@
         }
 
         .ip-module-title {
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1.05rem;
             font-weight: 700;
             color: #1c1430;
             margin-bottom: 0.5rem;
+            font-size: 1.5rem !important;
         }
 
         .ip-module-desc {
-            font-size: 0.875rem;
             color: #6b6580;
             line-height: 1.6;
             margin: 0;
+            font-size: 0.9rem !important;
         }
 
         /* Decorative Blobs */
@@ -1717,349 +1785,584 @@
             opacity: 1;
         }
 
-        /* ===== STUDENT TRANSFORMATION STORIES - FLOATING COLLAGE ===== */
-        .sts-section {
-            width: 100%;
-            min-height: 100vh;
-            padding: 6rem 0;
-            background: #f5f0fa;
-            position: relative;
-            overflow: hidden;
+        /* ── Lets Connect Card Styles ── */
+        .cta-section {
+            padding: 80px 20px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .sts-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 5rem;
-            padding: 0 2rem;
-        }
-
-        .sts-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: #111827;
-            margin-bottom: 1rem;
-            letter-spacing: -1.5px;
-        }
-
-        .sts-description {
-            font-size: 1.125rem;
-            color: #6b7280;
-            line-height: 1.6;
-        }
-
-        /* Collage Container - Full Width, Centered Content */
-        .sts-collage-container {
+        .lets-connect-card {
             position: relative;
             width: 100%;
-            max-width: 1600px;
-            height: 900px;
-            margin: 0 auto;
-            padding: 0 2rem;
+            max-width: 1100px;
+            border-radius: 40px;
+            background: linear-gradient(135deg, #efdeff 0%, #fffce3 100%);
+            border: 1px solid #e9d5ff;
+            cursor: default;
+            overflow: visible;
         }
 
-        /* Base Card Styles */
-        .sts-card {
+        .glow-border {
+            pointer-events: none;
             position: absolute;
-            background: #1f1f1f;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            opacity: 0;
-            animation: fadeInCard 0.8s ease forwards;
-        }
-
-        @keyframes fadeInCard {
-            to {
-                opacity: 1;
-            }
-        }
-
-        .sts-card:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-            z-index: 100 !important;
-        }
-
-        /* Size Variants */
-        .sts-hero {
-            width: 550px;
-            height: 400px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            inset: 0;
+            border-radius: 40px;
+            border: 5px solid rgba(107, 33, 168, 0.04);
             z-index: 10;
-            animation-delay: 0.2s;
         }
 
-        .sts-medium {
-            width: 340px;
-            height: 240px;
+        .glow-border::after {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 40px;
+            background: radial-gradient(300px circle at var(--mx, -9999px) var(--my, -9999px),
+                    rgba(107, 33, 168, 0.4),
+                    transparent 70%);
+            -webkit-mask:
+                linear-gradient(#000, #000) content-box exclude,
+                linear-gradient(#000, #000);
+            mask:
+                linear-gradient(#000, #000) content-box exclude,
+                linear-gradient(#000, #000);
+            padding: 5px;
         }
 
-        .sts-small {
-            width: 260px;
-            height: 180px;
-        }
-
-        /* Asymmetric Positioning - Organic Layout */
-        .sts-top-left {
-            top: 8%;
-            left: 5%;
-            z-index: 8;
-            animation-delay: 0.3s;
-        }
-
-        .sts-top-right {
-            top: 10%;
-            right: 8%;
-            z-index: 7;
-            animation-delay: 0.4s;
-        }
-
-        .sts-left-mid {
-            top: 35%;
-            left: 3%;
-            z-index: 6;
-            animation-delay: 0.5s;
-        }
-
-        .sts-right-mid {
-            top: 40%;
-            right: 5%;
-            z-index: 9;
-            animation-delay: 0.6s;
-        }
-
-        .sts-bottom-left {
-            bottom: 8%;
-            left: 10%;
-            z-index: 5;
-            animation-delay: 0.7s;
-        }
-
-        .sts-bottom-right {
-            bottom: 10%;
-            right: 12%;
-            z-index: 7;
-            animation-delay: 0.8s;
-        }
-
-        .sts-far-right {
-            top: 25%;
-            right: 2%;
-            z-index: 4;
-            animation-delay: 0.9s;
-        }
-
-        .sts-far-left {
-            top: 55%;
-            left: 1%;
-            z-index: 6;
-            animation-delay: 1s;
-        }
-
-        .sts-top-center {
-            top: 2%;
-            left: 42%;
-            z-index: 5;
-            animation-delay: 1.1s;
-        }
-
-        .sts-bottom-center {
-            bottom: 5%;
-            left: 38%;
-            z-index: 8;
-            animation-delay: 1.2s;
-        }
-
-        .sts-extra-bottom-left {
-            bottom: 18%;
-            left: 15%;
-            z-index: 4;
-            animation-delay: 1.3s;
-        }
-
-        /* Video Wrapper */
-        .sts-video-wrapper {
-            position: relative;
+        #arrow-svg {
+            position: absolute;
+            inset: 0;
             width: 100%;
-            height: 0;
-            padding-bottom: 56.25%;
-            /* 16:9 aspect ratio */
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+            overflow: visible;
+        }
+
+        #arrow-path {
+            fill: none;
+            stroke: #6B21A8;
+            stroke-width: 2;
+            stroke-dasharray: 6 8;
+            stroke-linecap: round;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .card-body {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 45px 60px;
+        }
+
+        .card-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            color: #111827;
+            margin-bottom: 22px;
+        }
+
+        .card-subtext {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 14px;
+            max-width: 800px;
+        }
+
+        .card-subtext p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            letter-spacing: -0.02em;
+            line-height: 1.5;
+            color: #374151;
+        }
+
+        .card-subtext p.bold {
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .connect-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 48px;
+            border-radius: 100px;
+            background: rgba(245, 245, 245, 0.9);
+            color: #000;
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            white-space: nowrap;
+            cursor: pointer;
+            border: none;
+            position: relative;
+            z-index: 3;
+            box-shadow: rgba(0, 0, 0, 0.25) 1px 1px 2px 0;
+            transition: background 0.25s, transform 0.2s;
+        }
+
+        .connect-btn:hover {
+            background: #fff;
+            transform: scale(1.04);
+            color: #000;
+        }
+
+        /* ===== CINEMATIC SERIES VIDEO SECTION ===== */
+        :root {
+            --blue-accent: #3565E0;
+            --dark-heading: #1a1f36;
+            --body-text: #5a6178;
+            --light-bg: #f3f5f9;
+            --card-radius: 20px;
+            --white: #ffffff;
+        }
+
+        .cinematic-section {
+            display: flex;
+            align-items: stretch;
+            min-height: 100vh;
+            padding: 60px 0 60px 80px;
+            gap: 0;
+            background: var(--white);
+        }
+
+        /* LEFT CONTENT */
+        .left-content {
+            flex: 0 0 420px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-right: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .label-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .label-line {
+            width: 48px;
+            height: 3px;
+            background: var(--blue-accent);
+            border-radius: 2px;
+        }
+
+        .label-text {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3.5px;
+            color: var(--blue-accent);
+            text-transform: uppercase;
+        }
+
+        .main-heading {
+            font-size: 44px !important;
+            font-weight: 800;
+            line-height: 1.05;
+            color: var(--dark-heading);
+            margin-bottom: 32px;
+        }
+
+        .main-heading .italic-blue {
+            font-style: italic;
+            color: #5b3fa6;
+            font-weight: 800;
+        }
+
+        .description {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--body-text);
+            margin-bottom: 32px;
+            max-width: 380px;
+        }
+
+        .channel-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 15px;
+            color: var(--dark-heading);
+            margin-bottom: 80px;
+        }
+
+        .channel-link span {
+            font-weight: 400;
+        }
+
+        .channel-link a {
+            color: var(--dark-heading);
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-color: var(--blue-accent);
+            text-decoration-thickness: 2px;
+        }
+
+        .channel-link .arrow {
+            font-size: 14px;
+            transform: rotate(-45deg);
+            display: inline-block;
+            margin-left: 2px;
+        }
+
+        /* Navigation */
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 20px 0px 20px 0px;
+        }
+
+        .nav-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1.5px solid #d0d5dd;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #f9c02e;
+        }
+
+        .nav-btn:hover {
+            border-color: #f9c02e;
+            background-color: #f9c02e;
+            color: #730092;
+        }
+
+        .nav-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .slide-counter {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+            margin-left: 8px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .slide-counter .current {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--dark-heading);
+        }
+
+        .slide-counter .divider {
+            font-size: 16px;
+            color: #b0b5c3;
+            margin: 0 2px;
+        }
+
+        .slide-counter .total {
+            font-size: 16px;
+            color: #b0b5c3;
+            font-weight: 400;
+        }
+
+        /* RIGHT CAROUSEL */
+        .right-carousel {
+            flex: 1;
+            background: #f5f0fa;
+            border-radius: 32px 0 0 32px;
+            padding: 50px 0 50px 50px;
+            display: flex;
+            align-items: center;
             overflow: hidden;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
         }
 
-        .sts-video-wrapper::before {
-            content: 'Video Loading...';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.95rem;
-            font-weight: 500;
-            z-index: 1;
+        .cards-track {
+            display: flex;
+            gap: 24px;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .sts-video {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .video-card {
+            flex: 0 0 300px;
+            height: 440px;
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        .video-card .card-bg {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
-            z-index: 2;
-            background: #000;
-            border: none;
-        }
-
-        iframe.sts-video {
             display: block;
         }
 
-        .sts-card:hover .sts-video {
+        .video-card .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0.05) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .category-badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: white;
+        }
+
+        .play-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
             transform: scale(1.08);
         }
 
-        /* Play Overlay - Hidden for YouTube iframes */
-        .sts-play-overlay {
-            display: none;
+        .play-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+            margin-left: 2px;
         }
 
-        /* Card Info */
-        .sts-card-info {
-            padding: 1.25rem;
-            background: #1f1f1f;
+        .card-bottom {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        .sts-card-info h4 {
-            font-size: 1.1rem;
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .card-meta .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card-meta .dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #4ade80;
+        }
+
+        .card-title {
+            font-size: 22px;
             font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 0.35rem;
-            line-height: 1.3;
+            color: white;
+            line-height: 1.25;
         }
 
-        .sts-card-info p {
-            font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.6);
-            line-height: 1.4;
-            margin: 0;
+        /* Progress bar */
+        .progress-bar {
+            position: absolute;
+            bottom: 30px;
+            left: 50px;
+            width: 120px;
+            height: 3px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
         }
 
-        /* Small cards - adjust info */
-        .sts-small .sts-card-info h4 {
-            font-size: 0.95rem;
+        .progress-fill {
+            height: 100%;
+            background: #4a307d;
+            border-radius: 2px;
+            transition: width 0.5s ease;
         }
 
-        .sts-small .sts-card-info p {
-            font-size: 0.8rem;
+        /* Video Modal */
+        .video-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
         }
 
-        /* Floating Animation */
-        @keyframes subtleFloat {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
+        .video-modal.active {
+            display: flex;
         }
 
-        .sts-card {
-            animation: subtleFloat 6s ease-in-out infinite;
+        .modal-content {
+            width: 80%;
+            max-width: 900px;
+            aspect-ratio: 16/9;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
         }
 
-        .sts-card[data-float-speed="1"] {
-            animation-duration: 7s;
+        .modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
-        .sts-card[data-float-speed="1.2"] {
-            animation-duration: 8s;
+        .modal-close {
+            position: absolute;
+            top: -48px;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
         }
 
-        .sts-card[data-float-speed="1.5"] {
-            animation-duration: 6.5s;
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
         }
 
-        .sts-card[data-float-speed="1.8"] {
-            animation-duration: 7.5s;
-        }
-
-        .sts-card[data-float-speed="2.0"] {
-            animation-duration: 9s;
-        }
-
-        /* Responsive - Mobile Stack Layout */
+        /* Responsive Mobile Layout */
         @media (max-width: 1024px) {
-            .sts-collage-container {
-                height: auto;
-                display: flex;
+            .cinematic-section {
                 flex-direction: column;
-                gap: 2rem;
-                padding: 0 1.5rem;
+                padding: 40px 24px;
             }
 
-            .sts-card {
-                position: relative !important;
-                width: 100% !important;
-                max-width: 500px;
-                height: 320px !important;
-                left: 0 !important;
-                top: 0 !important;
-                right: 0 !important;
-                bottom: 0 !important;
-                transform: none !important;
-                margin: 0 auto;
-                animation: fadeInCard 0.8s ease forwards;
+            .left-content {
+                flex: none;
+                padding-right: 0;
+                margin-bottom: 40px;
             }
 
-            .sts-card:hover {
-                transform: translateY(-5px) !important;
+            .right-carousel {
+                border-radius: 24px;
+                padding: 30px 0 30px 30px;
             }
 
-            .sts-title {
-                font-size: 2.5rem;
-            }
-
-            .sts-description {
-                font-size: 1rem;
-            }
-
-            .sts-hero {
-                width: 100% !important;
-                max-width: 600px;
-                height: 380px !important;
+            .main-heading {
+                font-size: 48px;
             }
         }
 
-        @media (max-width: 768px) {
-            .sts-section {
-                padding: 4rem 0;
+        /* ===== NEW COUNTER SECTION ===== */
+        .new-counter-section {
+            padding: 80px 0;
+            background: var(--white);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .new-counter-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .new-counter-item {
+            text-align: center;
+        }
+
+        .new-counter-number {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--dark-heading);
+            margin-bottom: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .new-counter-number::after {
+            content: '+';
+            font-size: 32px;
+            color: #f9c02e;
+            margin-left: 4px;
+        }
+
+        .new-counter-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--body-text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 991px) {
+            .new-counter-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 50px 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .new-counter-grid {
+                grid-template-columns: 1fr;
             }
 
-            .sts-title {
-                font-size: 2rem;
-            }
-
-            .sts-header {
-                margin-bottom: 3rem;
-            }
-
-            .sts-card {
-                height: 280px !important;
-            }
-
-            .sts-hero {
-                height: 340px !important;
+            .new-counter-number {
+                font-size: 48px;
             }
         }
 
@@ -2096,15 +2399,12 @@
         }
 
         .arch__left .arch__info h2.header {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 42px;
             font-weight: 800;
             letter-spacing: -0.84px;
         }
 
         .arch__left .arch__info p.desc {
             color: rgba(18, 18, 18, 0.8);
-            font-size: 18px;
             letter-spacing: -0.54px;
             margin-block: 6px 28px;
             line-height: normal;
@@ -2164,12 +2464,11 @@
         }
 
         .arch-section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 800;
             color: #1a1a1a;
             text-align: center;
             letter-spacing: -1.5px;
+            font-size: 3.4rem !important;
         }
 
         @media (max-width: 900px) {
@@ -2222,12 +2521,62 @@
                 height: 280px;
             }
         }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: white;
+            border-top: 1px solid #f0f0f0;
+            padding: 5rem 0 2.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-social {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: #1e1022;
+        }
+
+        .footer-social:hover {
+            background: #6B21A8;
+            color: white;
+        }
+
+        .footer-link {
+            color: #666 !important;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-family: 'Poppins', sans-serif !important;
+        }
+
+        .footer-link:hover {
+            color: #6B21A8 !important;
+        }
+
+        footer h4,
+        footer .h5 {
+            color: #1a1a1a;
+            font-family: 'Space Grotesk', sans-serif !important;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 0.95rem !important;
+            line-height: 1.6;
+        }
     </style>
 </head>
 
 <body>
     <!-- ===== NAVIGATION ===== -->
-    <nav class="nav" id="mainNav">
+    <nav class="en-main-nav" id="mainNav">
         <a href="#" class="nav-logo">
             <img src="assets/enpower-logo.svg" alt="ENpower Logo">
             <!-- <span class="nav-logo-text">ENpower</span> -->
@@ -2244,6 +2593,11 @@
                             clip-rule="evenodd" />
                     </svg>
                 </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" class="dropdown-item">Composite Skills Lab</a></li>
+                    <li><a href="#" class="dropdown-item">Future Skills Lab</a></li>
+                    <li><a href="#" class="dropdown-item">Tech Innovation Lab</a></li>
+                </ul>
             </li>
             <li><a href="#" class="nav-link">IFT</a></li>
             <li><a href="#" class="nav-link">Teacher Training</a></li>
@@ -2500,13 +2854,14 @@
                     <div class="p-4">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div>
-                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600;">Aryan Singh</h3>
+                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600; font-size: 1.2rem !important;">
+                                    Aryan Singh</h3>
                                 <p class="small mb-0" style="color: #6B21A8; font-weight: 500;">Grade 9,
                                     Mumbai</p>
                             </div>
                             <span class="story-badge">Social Impact</span>
                         </div>
-                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563;">
+                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563; font-size: 0.9rem !important;">
                             "Aryan's Mera Sathi Agrotech combines tech of the future with empathy & innovation - his
                             idea earned recognition from Hon'ble PM of India for solving real agricultural challenges."
                         </p>
@@ -2522,19 +2877,20 @@
                 <!-- Story 2 -->
                 <div class="story-card snap-center">
                     <div class="story-image">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBebR9GbphC1lKj1vexOHs53Rp-hY_7sXv8MaxILehXw6o6o1mN85rjsUk9qL_V0aExPr21Ok7olFkpJIfyA1ltDQ8mSvaV9dhyI3_lpVZc2Sw9xLk5S3rEFUYxRrVnayBnRb87-iwC4Z6tU9KW3bb1sfhcGIIh1f4vz8W6JKtA_PD4UPydepWtym-__jgXTfpQpAJm7N75k9CvQonk1McHY7i_RWyBYnuaNu5o2tno4xzIL9MnOcD9B2BU4oAfWwH-ohYsYnALer78"
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBebR9GbphC1lKj1vexOHs53Rp-hY_7sXv8MaxILehXw6o6o1mN85rjsUk9qL_V0aExPr21Ok7olFkpJIfyA1ltDQ8mSvaV9dhyI3_lpVZc2Sw9xLk5S3rEFUYxRrVnayBnRb87-iwC4Z6tU9KW3bb1sfhcGIIh1f4vz8W6JKtA_PD4UPydepWtym-__jgXTfpQpAJm7N75k5S3rEFUYxRrVnayBnRb87-iwC4Z6tU9KW3bb1sfhcGIIh1f4vz8W6JKtA_PD4UPydepWtym-__jgXTfpQpAJm7N75kCvQonk1McHY7i_RWyBYnuaNu5o2tno4xzIL9MnOcD9B2BU4oAfWwH-ohYsYnALer78"
                             alt="Group of students brainstorming with sticky notes" />
                     </div>
                     <div class="p-4">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div>
-                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600;">Atulya</h3>
+                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600; font-size: 1.2rem !important;">
+                                    Atulya</h3>
                                 <p class="small mb-0" style="color: #6B21A8; font-weight: 500;">Grade 11,
                                     Delhi</p>
                             </div>
                             <span class="story-badge">Tech Innovation</span>
                         </div>
-                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563;">
+                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563; font-size: 0.9rem !important;">
                             "Atulya solved daily village commute challenges by developing an E-cycle - an idea that was
                             recognised by the Hon'ble PM of India at the 3rd NEP Anniversary"
                         </p>
@@ -2550,19 +2906,20 @@
                 <!-- Story 3 -->
                 <div class="story-card snap-center">
                     <div class="story-image">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN91c44fIY0kmetYw0e2jMCWswpUBiFiTlFwjiDt-gR2J5ehu0rJhpRDmfnQ4ZJ1Bk10xLyRkfpCcCPErIWGDKFTLuWlDMStEdMeINSTJWvVfXc06Uy_jXSG9713YZCSt438skr6TVo8ZOMqspSXgBuVakcGIU4zaNDH_rCjj0V7bdrEMN5TY9-HdeGGXcIUfSN_2wgNLX_KFJq7UYPRn6EsI3vsOZ674ZN1hkef_3I1gXiNnWPQgSXFVdgmED6PqnEF-2c4drZJhu"
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN91c44fIY0kmetYw0e2jMCWswpUBiFiTlFwjiDt-gR2J5ehu0rJhpRDmfnQ4ZJ1Bk10xLyRkfpCcCPErIWGDKFTLuWlDMStEdMeINSTJWvVfXc06Uy_jXSG9713YZCSt438skr6TVo8ZOMqspSXbBuVakcGIU4zaNDH_rCjj0V7bdrEMN5TY9-HdeGGXcIUfSN_2wgNLX_KFJq7UYPRn6EsI3vsOZ674ZN1hkef_3I1gXiNnWPQgSXFVdgmED6PqnEF-2c4drZJhu"
                             alt="Enthusiastic students receiving an award" />
                     </div>
                     <div class="p-4">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div>
-                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600;">Divya & Parth</h3>
+                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600; font-size: 1.2rem !important;">
+                                    Divya & Parth</h3>
                                 <p class="small mb-0" style="color: #6B21A8; font-weight: 500;">Grade 10,
                                     Bengaluru</p>
                             </div>
                             <span class="story-badge">Agri-Tech</span>
                         </div>
-                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563;">
+                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563; font-size: 0.9rem !important;">
                             "Divya & Parth built Tyron - a profit-making startup that creates job-opportunities for acid
                             attack survivors. They won NFTE's global challenge and was recognized by Unstop & Better
                             India platforms."
@@ -2579,19 +2936,20 @@
                 <!-- Story 4 -->
                 <div class="story-card snap-center">
                     <div class="story-image">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXaA7h45AjSWvNNmvuQk65sGjs20YLurx6VzZ8Erg4MRuM_FJd4VFjXmjdgXQ6HSOavYgYaDO5X1Ix020RyaDS9hJN05W9M_6-l752j4j7JmgO2VQM5mUqi_sZN_oRqwVmJuTzGmhJFrTckrOKRO7Sdr0d81sLBlMicvDX7p_BV_kRsNZPS4sHpTbFoPllgKRo2Kz5Czc8k1nD8Xw5J0hnoq1SEYSFT9uQxsNpqhYarF_XetBnR1dU9-vIsjfTDC6-TVCjyc2Np8Ui"
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXaA7h45AjSWvNNmvuQk65sGjs20YLurx6VzZ8Erg4MRuM_FJd4VFjXmjdgXQ6HSOavYgYaDO5X1Ix020RyaDS9hJN05W9M_6-l752j4j7JmgO2VQM5mUqi_sZN_oRqwVmJuTzGmhJFrTckrOKRO7Sdr0d81sLBlMicvDX7p_BV_kRsNZPS4sHpTbFoPllgKRo2Kz5Czc8k1nD8Xw5J0hnoq1SEYSFT9uQxsNpqhYarX_XetBnR1dU9-vIsjfTDC6-TVCjyc2Np8Ui"
                             alt="Student working on creative project" />
                     </div>
                     <div class="p-4">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div>
-                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600;">Akshit</h3>
+                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600; font-size: 1.2rem !important;">
+                                    Akshit</h3>
                                 <p class="small mb-0" style="color: #6B21A8; font-weight: 500;">Grade 12,
                                     Pune</p>
                             </div>
                             <span class="story-badge">EdTech</span>
                         </div>
-                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563;">
+                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563; font-size: 0.9rem !important;">
                             "Mentored by ENpower, Akshit turned The Bionic Hand prototype into an investor-backed
                             prosthetic powered by design thinking and entrepreneurial skills"
                         </p>
@@ -2607,19 +2965,20 @@
                 <!-- Story 5 -->
                 <div class="story-card snap-center">
                     <div class="story-image">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBebR9GbphC1lKj1vexOHs53Rp-hY_7sXv8MaxILehXw6o6o1mN85rjsUk9qL_V0aExPr21Ok7olFkpJIfyA1ltDQ8mSvaV9dhyI3_lpVZc2Sw9xLk5S3rEFUYxRrVnayBnRb87-iwC4Z6tU9KW3bb1sfhcGIIh1f4vz8W6JKtA_PD4UPydepWtym-__jgXTfpQpAJm7N75k9CvQonk1McHY7i_RWyBYnuaNu5o2tno4xzIL9MnOcD9B2BU4oAfWwH-ohYsYnALer78"
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBebR9GbphC1lKj1vexOHs53Rp-hY_7sXv8MaxILehXw6o6o1mN85rjsUk9qL_V0aExPr21Ok7olFkpJIfyA1ltDQ8mSvaV9dhyI3_lpVZc2Sw9xLk5S3rEFUYxRrVnayBnRb87-iwC4Z6tU9KW3bb1sfhcGIIh1f4vz8W6JKtA_PD4UPydepWtym-__jgXTfpQpAJm7N75kCvQonk1McHY7i_RWyBYnuaNu5o2tno4xzIL9MnOcD9B2BU4oAfWwH-ohYsYnALer78"
                             alt="Team collaboration session" />
                     </div>
                     <div class="p-4">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div>
-                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600;">Prathamesh, Prasad & Shivam</h3>
+                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600; font-size: 1.2rem !important;">
+                                    Prathamesh, Prasad & Shivam</h3>
                                 <p class="small mb-0" style="color: #6B21A8; font-weight: 500;">Grade 11,
                                     Ahmedabad</p>
                             </div>
                             <span class="story-badge">FinTech</span>
                         </div>
-                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563;">
+                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563; font-size: 0.9rem !important;">
                             "Prathamesh, Prasad & Shivam from Dharashiv engineered a low-cost seed sowing machine for
                             helping local farmers reduce manual labour applying STEM to problem-solving."
                         </p>
@@ -2641,13 +3000,14 @@
                     <div class="p-4">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div>
-                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600;">Pushpak, Tanuja & Utkarsha</h3>
+                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600; font-size: 1.2rem !important;">
+                                    Pushpak, Tanuja & Utkarsha</h3>
                                 <p class="small mb-0" style="color: #6B21A8; font-weight: 500;">Grade 10,
                                     Kolkata</p>
                             </div>
                             <span class="story-badge">Healthcare</span>
                         </div>
-                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563;">
+                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563; font-size: 0.9rem !important;">
                             "Empowered by an entrepreneurial mindset, Pushpak, Tanuja & Utkarsha have built a
                             profit-generating FSSAI-certified spice brand turning adversity into opportunity, creating
                             livelihood for many."
@@ -2668,7 +3028,7 @@
     <section class="engagements-section" id="engagements">
         <div class="engagements-container">
             <div class="engagements-header">
-                <h2 class="engagements-title">ENpower Engagements</h2>
+                <h2 class="engagements-title">ENpower <span class="italic-blue">Engagements</span></h2>
                 <p class="engagements-subtitle">
                     One ecosystem. Multiple pathways. Designed for future readiness. At ENpower, future skills are
                     delivered through integrated engagements within schools, ensuring students become confident
@@ -2826,174 +3186,217 @@
     </div>
     <!-- END: Training & Certificates Section -->
 
-    <!-- ===== Student Transformation Stories Section ===== -->
-    <section class="sts-section" id="student-stories">
-        <div class="sts-header">
-            <h2 class="sts-title">Student Transformation Stories</h2>
-            <p class="sts-description">
-                Discover how our students have transformed their entrepreneurial dreams into reality
+    <!-- ===== Cinematic Series Video Section ===== -->
+    <section class="cinematic-section" id="cinematic-series">
+        <!-- LEFT -->
+        <div class="left-content">
+            <!-- <div class="label-row">
+                <div class="label-line"></div>
+                <span class="label-text">Cinematic Series</span>
+            </div> -->
+            <div class="nav-controls">
+                <button class="nav-btn" id="prevBtn" aria-label="Previous">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                </button>
+                <button class="nav-btn" id="nextBtn" aria-label="Next">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </button>
+                <div class="slide-counter">
+                    <span class="current" id="currentSlide">01</span>
+                    <span class="divider">/</span>
+                    <span class="total">05</span>
+                </div>
+            </div>
+
+            <h1 class="main-heading">
+                Student<br>
+                <span class="italic-blue">Transformation</span><br>
+                Stories
+            </h1>
+
+            <p class="description">
+                ENpower students build empathy-driven innovations using AI, ML, IoT, and coding. From assistive devices
+                to mobility solutions, their ideas gain national recognition and progress toward real-world
+                implementation through mentorship and seed funding.
             </p>
+
+            <div class="channel-link">
+                <span>Want more stories?</span>
+                <a href="#">Join our channel</a>
+                <span class="arrow">↗</span>
+            </div>
         </div>
 
-        <div class="sts-collage-container">
-            <!-- Hero Central Video (Large) -->
-            <div class="sts-card sts-hero" data-float-speed="1">
-                <div class="sts-video-wrapper">
-                    <iframe class="sts-video" src="https://www.youtube.com/embed/rf5cgg24YEc"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+        <!-- RIGHT CAROUSEL -->
+        <div class="right-carousel">
+            <div class="cards-track" id="cardsTrack">
+
+                <!-- Card 1 -->
+                <div class="video-card" data-video="https://www.youtube.com/embed/rf5cgg24YEc">
+                    <img class="card-bg"
+                        src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&h=900&fit=crop"
+                        alt="Architecture">
+                    <div class="card-overlay">
+                        <div class="card-top">
+                            <span class="category-badge">Innovation</span>
+                            <button class="play-btn" aria-label="Play video">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="card-bottom">
+                            <div class="card-meta">
+                                <div class="meta-item"><span class="dot"></span> 1.2M</div>
+                                <div class="meta-item"><span class="dot"></span> 12:45</div>
+                            </div>
+                            <h3 class="card-title">From Idea to Launch: Priya's Story</h3>
+                        </div>
+                    </div>
                 </div>
-                <div class="sts-card-info">
-                    <h4>From Idea to Launch</h4>
-                    <p>Priya's sustainable fashion startup journey</p>
+
+                <!-- Card 2 -->
+                <div class="video-card" data-video="https://www.youtube.com/embed/218O0rdenqY">
+                    <img class="card-bg"
+                        src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?w=600&h=900&fit=crop"
+                        alt="Lifestyle">
+                    <div class="card-overlay">
+                        <div class="card-top">
+                            <span class="category-badge">Technology</span>
+                            <button class="play-btn" aria-label="Play video">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="card-bottom">
+                            <div class="card-meta">
+                                <div class="meta-item"><span class="dot"></span> 850K</div>
+                                <div class="meta-item"><span class="dot"></span> 15:20</div>
+                            </div>
+                            <h3 class="card-title">Tech Innovation: Rahul's EdTech Platform</h3>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Card 3 -->
+                <div class="video-card" data-video="https://www.youtube.com/embed/seLSYs3Q7Co">
+                    <img class="card-bg"
+                        src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=900&fit=crop"
+                        alt="Travel">
+                    <div class="card-overlay">
+                        <div class="card-top">
+                            <span class="category-badge">Impact</span>
+                            <button class="play-btn" aria-label="Play video">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="card-bottom">
+                            <div class="card-meta">
+                                <div class="meta-item"><span class="dot"></span> 2.4M</div>
+                                <div class="meta-item"><span class="dot"></span> 18:30</div>
+                            </div>
+                            <h3 class="card-title">Social Impact: Ananya's Mission</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="video-card" data-video="https://www.youtube.com/embed/VzA2M6Q3xJY">
+                    <img class="card-bg"
+                        src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=600&h=900&fit=crop"
+                        alt="Ocean">
+                    <div class="card-overlay">
+                        <div class="card-top">
+                            <span class="category-badge">Business</span>
+                            <button class="play-btn" aria-label="Play video">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="card-bottom">
+                            <div class="card-meta">
+                                <div class="meta-item"><span class="dot"></span> 1.8M</div>
+                                <div class="meta-item"><span class="dot"></span> 22:10</div>
+                            </div>
+                            <h3 class="card-title">Vikram's Breakthrough in E-commerce</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="video-card" data-video="https://www.youtube.com/embed/eYbyRulcrFo">
+                    <img class="card-bg"
+                        src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=900&fit=crop"
+                        alt="Film">
+                    <div class="card-overlay">
+                        <div class="card-top">
+                            <span class="category-badge">Wellness</span>
+                            <button class="play-btn" aria-label="Play video">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="card-bottom">
+                            <div class="card-meta">
+                                <div class="meta-item"><span class="dot"></span> 3.1M</div>
+                                <div class="meta-item"><span class="dot"></span> 10:55</div>
+                            </div>
+                            <h3 class="card-title">Fitness Revolution: Sneha's Wellness App</h3>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- Top Left - Small -->
-            <div class="sts-card sts-small sts-top-left" data-float-speed="1.5">
-                <div class="sts-video-wrapper">
-                    <iframe class="sts-video" src="https://www.youtube.com/embed/218O0rdenqY"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="sts-card-info">
-                    <h4>Tech Innovation</h4>
-                    <p>Rahul's EdTech platform</p>
-                </div>
-            </div>
-
-            <!-- Top Right - Medium -->
-            <div class="sts-card sts-medium sts-top-right" data-float-speed="1.2">
-                <div class="sts-video-wrapper">
-                    <iframe class="sts-video" src="https://www.youtube.com/embed/seLSYs3Q7Co"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="sts-card-info">
-                    <h4>Social Impact</h4>
-                    <p>Ananya empowers rural artisans</p>
-                </div>
-            </div>
-
-            <!-- Left Middle - Medium -->
-            <div class="sts-card sts-medium sts-left-mid" data-float-speed="1.8">
-                <div class="sts-video-wrapper">
-                    <iframe class="sts-video" src="https://www.youtube.com/embed/VzA2M6Q3xJY"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="sts-card-info">
-                    <h4>E-commerce Breakthrough</h4>
-                    <p>Vikram's organic delivery</p>
-                </div>
-            </div>
-
-            <!-- Right Middle - Small -->
-            <div class="sts-card sts-small sts-right-mid" data-float-speed="2.0">
-                <div class="sts-video-wrapper">
-                    <iframe class="sts-video" src="https://www.youtube.com/embed/eYbyRulcrFo"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="sts-card-info">
-                    <h4>Fitness Revolution</h4>
-                    <p>Sneha's wellness app</p>
-                </div>
-            </div>
-
-            <!-- Bottom Left - Medium -->
-            <div class="sts-card sts-medium sts-bottom-left" data-float-speed="1.3">
-                <div class="sts-video-wrapper">
-                    <iframe class="sts-video" src="https://www.youtube.com/embed/g45D9qVYO7U"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="sts-card-info">
-                    <h4>Green Energy Pioneer</h4>
-                    <p>Arjun's solar solution</p>
-                </div>
-            </div>
-
-            <!-- Bottom Right - Small -->
-            <div class="sts-card sts-small sts-bottom-right" data-float-speed="1.6">
-                <div class="sts-video-wrapper">
-                    <iframe class="sts-video" src="https://www.youtube.com/embed/Z03OjLJ36B0"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="sts-card-info">
-                    <h4>Creative Marketplace</h4>
-                    <p>Meera connects artists</p>
-                </div>
-            </div>
-
-            <!-- Far Right - Medium -->
-            <div class="sts-card sts-medium sts-far-right" data-float-speed="1.4">
-                <div class="sts-video-wrapper">
-                    <iframe class="sts-video" src="https://www.youtube.com/embed/h1e4PDQ1Cms"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="sts-card-info">
-                    <h4>Healthcare Innovation</h4>
-                    <p>Karan's telemedicine startup</p>
-                </div>
-            </div>
-
-            <!-- Far Left - Small -->
-            <div class="sts-card sts-small sts-far-left" data-float-speed="1.7">
-                <div class="sts-video-wrapper">
-                    <iframe class="sts-video" src="https://www.youtube.com/embed/jHHzYheXtRw"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="sts-card-info">
-                    <h4>Food Tech</h4>
-                    <p>Neha's cloud kitchen</p>
-                </div>
-            </div>
-
-            <!-- Top Center - Small -->
-            <div class="sts-card sts-small sts-top-center" data-float-speed="1.9">
-                <div class="sts-video-wrapper">
-                    <iframe class="sts-video" src="https://www.youtube.com/embed/iGxCi9h94KA"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="sts-card-info">
-                    <h4>Mobility Revolution</h4>
-                    <p>Rohan's transport</p>
-                </div>
-            </div>
-
-            <!-- Bottom Center - Medium -->
-            <div class="sts-card sts-medium sts-bottom-center" data-float-speed="1.1">
-                <div class="sts-video-wrapper">
-                    <iframe class="sts-video" src="https://www.youtube.com/embed/rf5cgg24YEc"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="sts-card-info">
-                    <h4>Smart Agriculture</h4>
-                    <p>Deepak's IoT for farmers</p>
-                </div>
-            </div>
-
-            <!-- Extra Bottom Left - Small -->
-            <div class="sts-card sts-small sts-extra-bottom-left" data-float-speed="2.1">
-                <div class="sts-video-wrapper">
-                    <iframe class="sts-video" src="https://www.youtube.com/embed/218O0rdenqY"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="sts-card-info">
-                    <h4>Fintech Innovation</h4>
-                    <p>Simran's payment platform</p>
-                </div>
+            <!-- Progress bar -->
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 20%;"></div>
             </div>
         </div>
     </section>
-    <!-- END: Student Transformation Stories Section -->
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">✕</button>
+            <iframe id="videoFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+    <!-- END: Cinematic Series Video Section -->
+
+    <!-- ===== New Counter Section ===== -->
+    <div class="new-counter-section">
+        <div class="new-counter-grid">
+            <div class="new-counter-item">
+                <div class="new-counter-number" data-target="5000">0</div>
+                <div class="new-counter-label">Ideas Developed</div>
+            </div>
+            <div class="new-counter-item">
+                <div class="new-counter-number" data-target="110">0</div>
+                <div class="new-counter-label">Ideas Recognized At National-Level</div>
+            </div>
+            <div class="new-counter-item">
+                <div class="new-counter-number" data-target="40">0</div>
+                <div class="new-counter-label">Ideas Implemented</div>
+            </div>
+            <div class="new-counter-item">
+                <div class="new-counter-number" data-target="10">0</div>
+                <div class="new-counter-label">Ideas Funded For Implementation</div>
+            </div>
+        </div>
+    </div>
+    <!-- END: New Counter Section -->
 
     <!-- ===== Impact Programs Section ===== -->
     <section class="ip-scroll-container" id="ip-impact-section">
@@ -3335,6 +3738,31 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="lets-connect-card" id="card">
+            <div class="glow-border" id="glowBorder"></div>
+            <svg id="arrow-svg" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"
+                        markerUnits="strokeWidth">
+                        <polyline points="1,1 9,5 1,9" fill="none" stroke="#6B21A8" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </marker>
+                </defs>
+                <path id="arrow-path" marker-end="url(#arrowhead)" />
+            </svg>
+
+            <div class="card-body">
+                <h2 class="card-heading">Ready to Build a Future-Ready School?</h2>
+                <div class="card-subtext">
+                    <p>Join 680+ schools building confident Thinkers, Creators & Leaders. Go beyond compliance and
+                        traditional STEM with a complete future-skills ecosystem aligned to NEP 2020.</p>
+                </div>
+                <a href="./contact-us" class="connect-btn" id="connectBtn">Let's Connect!</a>
+            </div>
         </div>
     </section>
 
@@ -3445,7 +3873,7 @@
                 const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
                 // Nav entrance
-                tl.to('.nav', { opacity: 1, y: 0, duration: 0.8, delay: 0.2 });
+                tl.to('.en-main-nav', { opacity: 1, y: 0, duration: 0.8, delay: 0.2 });
 
                 // Heading lines stagger
                 tl.to('.heading-line', {
@@ -3535,7 +3963,7 @@
                 // Initial State Setup
                 gsap.set(".description-item", { opacity: 0, y: 20 });
                 gsap.set(".description-item:nth-child(1)", { opacity: 1, y: 0 });
-                gsap.set(".progress-fill:nth-child(1)", { width: "100%" });
+                gsap.set(".progress-dot:nth-child(1) .progress-fill", { width: "100%" });
 
                 // Scene transitions
                 scenes.forEach((scene, i) => {
@@ -3699,7 +4127,7 @@
                 });
                 handleMobileLayout();
 
-                const archImgs = gsap.utils.toArray(".img-wrapper img");
+                const archImgs = gsap.utils.toArray(".arch__right .img-wrapper img");
 
                 ScrollTrigger.matchMedia({
                     "(min-width: 769px)": function () {
@@ -3770,44 +4198,89 @@
                     }
                 });
 
-                // --- Student Transformation Stories - Parallax Only (YouTube iframes) ---
-                const stsCards = document.querySelectorAll('.sts-card');
-                const stsCollageContainer = document.querySelector('.sts-collage-container');
+                // --- Cinematic Series Interactive Carousel ---
+                const track = document.getElementById('cardsTrack');
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+                const currentSlideEl = document.getElementById('currentSlide');
+                const progressFill = document.getElementById('progressFill');
+                const modal = document.getElementById('videoModal');
+                const videoFrame = document.getElementById('videoFrame');
+                const modalClose = document.getElementById('modalClose');
 
-                // Optional: Subtle Parallax Effect on Mouse Move (Desktop Only)
-                if (window.innerWidth > 1024 && stsCollageContainer) {
-                    stsCollageContainer.addEventListener('mousemove', (e) => {
-                        const rect = stsCollageContainer.getBoundingClientRect();
-                        const mouseX = e.clientX - rect.left;
-                        const mouseY = e.clientY - rect.top;
-                        const centerX = rect.width / 2;
-                        const centerY = rect.height / 2;
+                if (track && prevBtn && nextBtn) {
+                    let cinematicIndex = 0;
+                    const totalCinematicSlides = 5;
+                    const getCardWidth = () => {
+                        const card = document.querySelector('.video-card');
+                        return card ? card.offsetWidth + 24 : 324; // card width + gap
+                    };
 
-                        // Calculate offset from center (-1 to 1)
-                        const offsetX = (mouseX - centerX) / centerX;
-                        const offsetY = (mouseY - centerY) / centerY;
+                    function updateCinematicCarousel() {
+                        const width = getCardWidth();
+                        track.style.transform = `translateX(-${cinematicIndex * width}px)`;
+                        currentSlideEl.textContent = String(cinematicIndex + 1).padStart(2, '0');
+                        progressFill.style.width = `${((cinematicIndex + 1) / totalCinematicSlides) * 100}%`;
+                    }
 
-                        stsCards.forEach(card => {
-                            const speed = parseFloat(card.getAttribute('data-float-speed')) || 1;
-                            const moveX = offsetX * speed * 8; // Max 8px movement
-                            const moveY = offsetY * speed * 8;
+                    prevBtn.addEventListener('click', () => {
+                        if (cinematicIndex > 0) {
+                            cinematicIndex--;
+                            updateCinematicCarousel();
+                        }
+                    });
 
-                            // Preserve existing transform and add parallax
-                            const currentTransform = window.getComputedStyle(card).transform;
-                            if (currentTransform && currentTransform !== 'none') {
-                                card.style.transform = `${currentTransform} translate(${moveX}px, ${moveY}px)`;
-                            } else {
-                                card.style.transform = `translate(${moveX}px, ${moveY}px)`;
-                            }
+                    nextBtn.addEventListener('click', () => {
+                        if (cinematicIndex < totalCinematicSlides - 1) {
+                            cinematicIndex++;
+                            updateCinematicCarousel();
+                        }
+                    });
+
+                    // Play buttons open modal
+                    document.querySelectorAll('.play-btn').forEach(btn => {
+                        btn.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            const card = btn.closest('.video-card');
+                            const videoUrl = card.dataset.video;
+                            videoFrame.src = videoUrl + '?autoplay=1';
+                            modal.classList.add('active');
                         });
                     });
 
-                    // Reset position when mouse leaves
-                    stsCollageContainer.addEventListener('mouseleave', () => {
-                        stsCards.forEach(card => {
-                            card.style.transform = '';
+                    // Card click also opens modal
+                    document.querySelectorAll('.video-card').forEach(card => {
+                        card.addEventListener('click', () => {
+                            const videoUrl = card.dataset.video;
+                            videoFrame.src = videoUrl + '?autoplay=1';
+                            modal.classList.add('active');
                         });
                     });
+
+                    // Close modal
+                    function closeCinematicModal() {
+                        modal.classList.remove('active');
+                        videoFrame.src = '';
+                    }
+
+                    if (modalClose) {
+                        modalClose.addEventListener('click', closeCinematicModal);
+                    }
+
+                    if (modal) {
+                        modal.addEventListener('click', (e) => {
+                            if (e.target === modal) closeCinematicModal();
+                        });
+                    }
+
+                    document.addEventListener('keydown', (e) => {
+                        if (e.key === 'Escape') closeCinematicModal();
+                        if (e.key === 'ArrowLeft') { if (cinematicIndex > 0) { cinematicIndex--; updateCinematicCarousel(); } }
+                        if (e.key === 'ArrowRight') { if (cinematicIndex < totalCinematicSlides - 1) { cinematicIndex++; updateCinematicCarousel(); } }
+                    });
+
+                    // Re-calculate on resize
+                    window.addEventListener('resize', updateCinematicCarousel);
                 }
 
                 // --- Impact Programs Section ScrollTrigger ---
@@ -3897,14 +4370,128 @@
                     });
                 });
 
-            }
+                // --- New Counter Animation (GSAP) ---
+                const counterNumbers = document.querySelectorAll('.new-counter-number');
+                counterNumbers.forEach(number => {
+                    const targetValue = parseInt(number.getAttribute('data-target'));
+                    const counterObj = { value: 0 };
 
-            // Nav scroll effect
-            window.addEventListener('scroll', () => {
-                const nav = document.getElementById('mainNav');
-                if (window.scrollY > 50) { nav.classList.add('scrolled'); }
-                else { nav.classList.remove('scrolled'); }
-            });
+                    gsap.to(counterObj, {
+                        value: targetValue,
+                        duration: 2,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: number,
+                            start: "top 90%",
+                            once: true
+                        },
+                        onUpdate: function () {
+                            number.innerText = Math.ceil(counterObj.value).toLocaleString();
+                        }
+                    });
+                });
+
+                // --- Dynamic CTA Arrow Logic ---
+                const card = document.getElementById('card');
+                const glowBorder = document.getElementById('glowBorder');
+                const arrowPath = document.getElementById('arrow-path');
+                const connectBtn = document.getElementById('connectBtn');
+
+                if (card && glowBorder && arrowPath && connectBtn) {
+                    let mouse = { x: 0, y: 0 };
+                    let smooth = { x: 0, y: 0 };
+                    let rafId = null;
+                    let isInside = false;
+
+                    function getBtnInfo() {
+                        const cardR = card.getBoundingClientRect();
+                        const btnR = connectBtn.getBoundingClientRect();
+                        return {
+                            cx: btnR.left + btnR.width / 2 - cardR.left,
+                            cy: btnR.top + btnR.height / 2 - cardR.top,
+                            w: btnR.width,
+                            h: btnR.height
+                        };
+                    }
+
+                    function getBtnEdgePoint(mx, my, btn) {
+                        const dx = mx - btn.cx;
+                        const dy = my - btn.cy;
+                        const rx = btn.w / 2 + 14;
+                        const ry = btn.h / 2 + 14;
+                        const t = Math.min(rx / Math.abs(dx || 0.001), ry / Math.abs(dy || 0.001));
+                        const clampT = Math.min(t, 1);
+                        return {
+                            x: btn.cx + dx * clampT,
+                            y: btn.cy + dy * clampT
+                        };
+                    }
+
+                    function buildCurvedPath(mx, my, ex, ey) {
+                        const dx = ex - mx;
+                        const dy = ey - my;
+                        const dist = Math.hypot(dx, dy) || 1;
+                        const px = -dy / dist;
+                        const py = dx / dist;
+                        const bend = Math.abs(dy) * 0.45;
+                        const cp1x = mx + dx * 0.33 + px * bend;
+                        const cp1y = my + dy * 0.33 + py * bend;
+                        const cp2x = ex - dx * 0.20 + px * bend * 0.15;
+                        const cp2y = ey - dy * 0.20 + py * bend * 0.15;
+                        return `M ${mx.toFixed(1)} ${my.toFixed(1)} C ${cp1x.toFixed(1)} ${cp1y.toFixed(1)}, ${cp2x.toFixed(1)} ${cp2y.toFixed(1)}, ${ex.toFixed(1)} ${ey.toFixed(1)}`;
+                    }
+
+                    function lerp(a, b, t) { return a + (b - a) * t; }
+
+                    function ctaTick() {
+                        if (!isInside) return;
+                        smooth.x = lerp(smooth.x, mouse.x, 0.10);
+                        smooth.y = lerp(smooth.y, mouse.y, 0.10);
+                        const btn = getBtnInfo();
+                        const edge = getBtnEdgePoint(smooth.x, smooth.y, btn);
+                        arrowPath.setAttribute('d', buildCurvedPath(smooth.x, smooth.y, edge.x, edge.y));
+                        rafId = requestAnimationFrame(ctaTick);
+                    }
+
+                    card.addEventListener('mouseenter', (e) => {
+                        isInside = true;
+                        const rect = card.getBoundingClientRect();
+                        smooth.x = mouse.x = e.clientX - rect.left;
+                        smooth.y = mouse.y = e.clientY - rect.top;
+                        arrowPath.style.opacity = '1';
+                        cancelAnimationFrame(rafId);
+                        ctaTick();
+                    });
+
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        mouse.x = e.clientX - rect.left;
+                        mouse.y = e.clientY - rect.top;
+                        glowBorder.style.setProperty('--mx', mouse.x + 'px');
+                        glowBorder.style.setProperty('--my', mouse.y + 'px');
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        isInside = false;
+                        arrowPath.style.opacity = '0';
+                        glowBorder.style.setProperty('--mx', '-9999px');
+                        glowBorder.style.setProperty('--my', '-9999px');
+                        cancelAnimationFrame(rafId);
+                    });
+                }
+            } // This closes the initAnimations function
+        }); // This closes the DOMContentLoaded event listener
+
+        // Nav effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('mainNav');
+            if (nav) {
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            }
         });
     </script>
 </body>
