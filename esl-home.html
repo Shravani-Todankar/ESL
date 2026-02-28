@@ -92,7 +92,7 @@
         }
 
         .en-main-nav.scrolled {
-            background: rgba(255, 255, 255, 0.95) !important;
+            background: #ffffff4f !important;
             backdrop-filter: blur(16px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             height: 80px;
@@ -938,6 +938,9 @@
             padding-bottom: 5rem;
             overflow: hidden;
             position: relative;
+            z-index: 10;
+            background: #ffffff;
+            height: 550vh;
         }
 
         .stories-section .container-fluid {
@@ -2531,6 +2534,21 @@
             z-index: 10;
         }
 
+        footer .container {
+            width: 100%;
+            max-width: 1140px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        @media (min-width: 1400px) {
+            footer .container {
+                max-width: 1320px;
+            }
+        }
+
         .footer-social {
             width: 40px;
             height: 40px;
@@ -2570,6 +2588,564 @@
             color: #666;
             font-size: 0.95rem !important;
             line-height: 1.6;
+        }
+
+        /* ===== BACK TO TOP BUTTON ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: #facc48;
+            color: #652b7d;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(250, 204, 72, 0.4);
+            background: #f9c02e;
+        }
+
+        .back-to-top .material-icons {
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .back-to-top .material-icons {
+                font-size: 20px;
+            }
+        }
+
+        /* ===== ALLIANCE SECTION STYLES ===== */
+        .alliance-grid-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(91, 63, 166, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+
+        .alliance-glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(91, 63, 166, 0.1);
+            border-radius: 1rem;
+        }
+
+        .alliance-hero-section {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 1rem;
+            overflow: hidden;
+        }
+
+        .alliance-hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 56rem;
+            margin: 0 auto;
+        }
+
+        .alliance-orb {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .alliance-orb-1 {
+            top: 25%;
+            left: -5rem;
+            width: 24rem;
+            height: 24rem;
+            background: rgba(91, 63, 166, 0.1);
+            filter: blur(100px);
+        }
+
+        .alliance-orb-2 {
+            bottom: 25%;
+            right: -5rem;
+            width: 24rem;
+            height: 24rem;
+            background: rgba(91, 63, 166, 0.2);
+            filter: blur(120px);
+        }
+
+        .alliance-partnership-badge {
+            display: inline-block;
+            padding: 0.25rem 1rem;
+            border-radius: 9999px;
+            background: rgba(91, 63, 166, 0.1);
+            color: #5b3fa6;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+        }
+
+        .alliance-hero-heading {
+            font-size: 3.75rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .alliance-hero-heading {
+                font-size: 4.5rem !important;
+            }
+        }
+
+        .alliance-text-primary {
+            color: #5b3fa6;
+        }
+
+        .alliance-scroll-indicator {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .alliance-scroll-indicator span {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #94a3b8;
+        }
+
+        .alliance-scroll-line {
+            width: 1px;
+            height: 3rem;
+            background: linear-gradient(to bottom, #5b3fa6, transparent);
+        }
+
+        .alliance-assembly-section {
+            position: relative;
+            z-index: 20;
+            padding-top: 5rem;
+        }
+
+        .alliance-wrapper {
+            margin-top: 10rem;
+            margin-bottom: 10rem;
+            text-align: center;
+            max-width: 56rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .alliance-glass-content {
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .alliance-glass-content {
+                padding: 4rem;
+            }
+        }
+
+        .alliance-glass-content .alliance-bg-accent {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8rem;
+            height: 8rem;
+            background: rgba(91, 63, 166, 0.05);
+            border-bottom-left-radius: 9999px;
+            pointer-events: none;
+            transition: transform 0.3s;
+        }
+
+        .alliance-glass-panel:hover .alliance-bg-accent {
+            transform: scale(1.1);
+        }
+
+        .alliance-quote-text {
+            font-size: 1.25rem;
+            color: #334155;
+            line-height: 1.8;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        @media (min-width: 768px) {
+            .alliance-quote-text {
+                font-size: 1.5rem;
+            }
+        }
+
+        .alliance-tags-wrapper {
+            margin-top: 3rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .alliance-tag-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            background: #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f1f5f9;
+        }
+
+        .alliance-tag-item .material-symbols-outlined {
+            color: #5b3fa6;
+        }
+
+        .alliance-tag-item span:last-child {
+            font-size: 0.875rem;
+            font-weight: 700;
+        }
+
+        @keyframes allianceFadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .alliance-fade-in-up {
+            animation: allianceFadeInUp 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        .alliance-fade-delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .alliance-fade-delay-2 {
+            animation-delay: 0.5s;
+        }
+
+        .alliance-main-wrapper {
+            position: relative;
+            min-height: 250vh;
+        }
+
+        /* ===== ENPOWER PHILOSOPHY SECTION ===== */
+        .enpower-section {
+            position: relative;
+            z-index: 50;
+            width: 100%;
+            background: #f5f0fa;
+            padding: 0;
+            margin: 0;
+        }
+
+        .enpower-wrapper {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .enpower-container {
+            position: relative;
+            width: calc(100% - 80px);
+            max-width: 1360px;
+            height: calc(100vh - 80px);
+            border-radius: 32px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            overflow: visible;
+            border: 1px solid rgba(0, 0, 0, .06);
+            box-shadow: 0 4px 60px rgba(0, 0, 0, .04), 0 1px 3px rgba(0, 0, 0, .03);
+        }
+
+        .enpower-left-content {
+            width: 48%;
+            padding: 60px 40px 60px 70px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .enpower-left-content .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: #7c3aed;
+            margin-bottom: 22px;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        .enpower-left-content .tag::before {
+            content: '';
+            width: 20px;
+            height: 2px;
+            background: #7c3aed;
+            border-radius: 1px;
+        }
+
+        .enpower-left-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 2.8vw, 2.6rem);
+            font-weight: 700;
+            line-height: 1.18;
+            color: #1e1b2e;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(24px);
+        }
+
+        .enpower-left-content .desc {
+            font-size: .92rem;
+            line-height: 1.75;
+            color: #5c566d;
+            font-weight: 400;
+            max-width: 430px;
+            opacity: 0;
+            transform: translateY(24px);
+        }
+
+        .enpower-left-content .desc p+p {
+            margin-top: 14px;
+        }
+
+        .enpower-left-content .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 30px;
+            padding: 13px 32px;
+            background: #7c3aed;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: .84rem;
+            font-weight: 600;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background .3s, transform .2s;
+            opacity: 0;
+            transform: translateY(24px);
+            width: fit-content;
+        }
+
+        .enpower-left-content .cta-btn:hover {
+            background: #6d28d9;
+            transform: translateY(-1px) !important;
+        }
+
+        .enpower-right-cards {
+            width: 52%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .enpower-card-stack {
+            position: relative;
+            width: 320px;
+            height: 330px;
+        }
+
+        .enpower-benefit-card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 22px;
+            display: flex;
+            align-items: flex-end;
+            padding: 36px 34px;
+            will-change: transform, opacity;
+            overflow: hidden;
+            transform-origin: 50% 50%;
+        }
+
+        .enpower-benefit-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, .12);
+            pointer-events: none;
+        }
+
+        .enpower-benefit-card[data-index="0"] {
+            background: linear-gradient(155deg, #7c3aed 0%, #6d28d9 50%, #5b21b6 100%);
+            box-shadow: 0 12px 45px rgba(124, 58, 237, .25);
+        }
+
+        .enpower-benefit-card[data-index="1"] {
+            background: linear-gradient(155deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+            box-shadow: 0 10px 40px rgba(245, 158, 11, .25);
+        }
+
+        .enpower-benefit-card[data-index="2"] {
+            background: linear-gradient(155deg, #5b21b6 0%, #4c1d95 50%, #3b0f85 100%);
+            box-shadow: 0 8px 35px rgba(91, 33, 182, .25);
+        }
+
+        .enpower-benefit-card[data-index="3"] {
+            background: linear-gradient(155deg, #eab308 0%, #ca8a04 50%, #a16207 100%);
+            box-shadow: 0 6px 30px rgba(234, 179, 8, .25);
+        }
+
+        .enpower-benefit-card[data-index="4"] {
+            background: linear-gradient(155deg, #6d28d9 0%, #5b21b6 50%, #4c1d95 100%);
+            box-shadow: 0 4px 25px rgba(109, 40, 217, .25);
+        }
+
+        .enpower-benefit-card .card-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.22;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .enpower-benefit-card[data-index="1"] .card-title,
+        .enpower-benefit-card[data-index="3"] .card-title {
+            color: #1e1b2e;
+        }
+
+        .enpower-scroll-progress {
+            position: absolute;
+            bottom: 26px;
+            left: 70px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 10;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        .enpower-progress-track {
+            width: 48px;
+            height: 3px;
+            background: rgba(124, 58, 237, .12);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .enpower-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #7c3aed;
+            border-radius: 2px;
+        }
+
+        .enpower-progress-label {
+            font-size: .66rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #b0adb8;
+        }
+
+        @media(max-width:1024px) {
+            .enpower-container {
+                width: calc(100% - 40px);
+                height: calc(100vh - 40px);
+            }
+
+            .enpower-left-content {
+                padding: 40px 30px 40px 40px;
+            }
+
+            .enpower-card-stack {
+                width: 270px;
+                height: 280px;
+            }
+
+            .enpower-benefit-card .card-title {
+                font-size: 1.7rem;
+            }
+        }
+
+        @media(max-width:768px) {
+            .enpower-container {
+                flex-direction: column;
+                width: calc(100% - 24px);
+                height: calc(100vh - 24px);
+                border-radius: 24px;
+            }
+
+            .enpower-left-content {
+                width: 100%;
+                padding: 34px 26px 16px;
+            }
+
+            .enpower-right-cards {
+                width: 100%;
+                height: 50%;
+            }
+
+            .enpower-card-stack {
+                width: 220px;
+                height: 230px;
+            }
+
+            .enpower-benefit-card .card-title {
+                font-size: 1.4rem;
+            }
+
+            .enpower-left-content h2 {
+                font-size: 1.7rem;
+            }
         }
     </style>
 </head>
@@ -3019,6 +3595,54 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENpower Philosophy Section -->
+    <section class="enpower-section">
+        <div class="enpower-wrapper">
+            <div class="enpower-container">
+                <div class="enpower-left-content">
+                    <div class="tag">ENpower Framework</div>
+                    <h2>The ENpower<br>Philosophy</h2>
+                    <div class="desc">
+                        <p>The future of work is evolving faster than education. Global frameworks like OECD, WEF,
+                            UNICEF, and India's NEP 2020 stress the need for future-skills, yet most schools stop at
+                            robotics and coding.</p>
+                        <p>ENpower bridges this gap with a holistic future-skilling ecosystem that builds thinking,
+                            entrepreneurship, and life skills. Our 17-skill, 5-outcome model helps students move from
+                            learning concepts to creating solutions for tomorrow's world.</p>
+                    </div>
+                    <a href="#" class="cta-btn">Learn More</a>
+                </div>
+
+                <div class="enpower-right-cards">
+                    <div class="enpower-card-stack" id="cardStack">
+                        <div class="enpower-benefit-card" data-index="0">
+                            <div class="card-title">Self<br>Exploration</div>
+                        </div>
+                        <div class="enpower-benefit-card" data-index="1">
+                            <div class="card-title">Foundational<br>Literacy</div>
+                        </div>
+                        <div class="enpower-benefit-card" data-index="2">
+                            <div class="card-title">Tech of<br>the Future</div>
+                        </div>
+                        <div class="enpower-benefit-card" data-index="3">
+                            <div class="card-title">Human<br>Skills</div>
+                        </div>
+                        <div class="enpower-benefit-card" data-index="4">
+                            <div class="card-title">Future<br>Competencies</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="enpower-scroll-progress">
+                    <div class="enpower-progress-track">
+                        <div class="enpower-progress-fill"></div>
+                    </div>
+                    <span class="enpower-progress-label">Scroll to explore</span>
                 </div>
             </div>
         </div>
@@ -3740,6 +4364,63 @@
         </div>
     </section>
 
+    <!-- Alliance Section -->
+    <main class="alliance-main-wrapper alliance-grid-pattern">
+        <!-- Stage 1: Hero Visual -->
+        <section class="alliance-hero-section">
+            <!-- Background Orbs -->
+            <div class="alliance-orb alliance-orb-1"></div>
+            <div class="alliance-orb alliance-orb-2"></div>
+
+            <div class="alliance-hero-content">
+                <span class="alliance-partnership-badge alliance-fade-in-up alliance-fade-delay-1">Strategic Partnership
+                    2025</span>
+                <h1 class="alliance-hero-heading alliance-fade-in-up alliance-fade-delay-2">
+                    About ENpower &amp;<br />
+                    <span class="alliance-text-primary">TATA ClassEdge Alliance</span>
+                </h1>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="alliance-scroll-indicator">
+                <span>Scroll to explore</span>
+                <div class="alliance-scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- Stage 2: Assembly Section -->
+        <section class="alliance-assembly-section">
+            <div class="container">
+                <div class="alliance-wrapper">
+                    <div class="alliance-glass-panel alliance-glass-content">
+                        <div class="alliance-bg-accent"></div>
+                        <p class="alliance-quote-text">
+                            "Tata ClassEdge and ENpower have formed a strategic partnership, announced in December 2025,
+                            to integrate entrepreneurship and future-skills education into K-12 schools, with Tata
+                            ClassEdge taking an equity stake in ENpower. This collaboration focuses on delivering
+                            experiential learning, life skills, and design thinking through gamified programs, aiming to
+                            develop confident, creative, and future-ready children beyond traditional academics."
+                        </p>
+                        <div class="alliance-tags-wrapper">
+                            <div class="alliance-tag-item">
+                                <span class="material-symbols-outlined">calendar_today</span>
+                                <span>Announced Dec 2025</span>
+                            </div>
+                            <div class="alliance-tag-item">
+                                <span class="material-symbols-outlined">handshake</span>
+                                <span>Equity Partnership</span>
+                            </div>
+                            <div class="alliance-tag-item">
+                                <span class="material-symbols-outlined">rocket_launch</span>
+                                <span>K-12 Future Skills</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="lets-connect-card" id="card">
@@ -3765,6 +4446,103 @@
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5 mb-5 justify-content-center text-center text-md-start">
+                <div class="col-md-4 col-sm-12">
+                    <div class="d-flex align-items-center gap-2 mb-4 justify-content-center justify-content-md-start">
+                        <!-- <div class="footer-logo">
+                            <span class="material-icons">rocket_launch</span>
+                        </div> -->
+                        <span class="h5 fw-bold mb-0">About ENpower</span>
+                    </div>
+                    <p class="small text-secondary mb-4">
+                        ENpower is India's first comprehensive entrepreneurship learning ecosystem for schools.
+                        Nurture the entrepreneurship mindset of your children; they are the changemakers of the future!
+                    </p>
+                    <div class="d-flex gap-3 justify-content-center justify-content-md-start">
+                        <a href="https://www.facebook.com/Enpowerbschool/" target="_blank" class="footer-social"
+                            aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/enlearning/" target="_blank" class="footer-social"
+                            aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/enpowerbschool/" target="_blank" class="footer-social"
+                            aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6">
+                    <span class="h5 fw-bold mb-4">Quick Links</span>
+                    <ul class="list-unstyled" style="margin-top: 20px !important;">
+                        <li class="mb-3"><a href="indiafuturetycoon.vercel.app" class="footer-link small">IFT</a></li>
+                        <li class="mb-3"><a href="#" class="footer-link small">About Us</a></li>
+                        <li class="mb-3"><a href="#" class="footer-link small">Impact Programs</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <span class="h5 fw-bold mb-4">Labs</span>
+                    <ul class="list-unstyled" style="margin-top: 20px !important;">
+                        <li class="mb-3"><a href="#" class="footer-link small">Future Skills Lab</a></li>
+                        <li class="mb-3"><a href="#" class="footer-link small">Composite Skills Lab</a></li>
+                        <li class="mb-3"><a href="#" class="footer-link small">Tech Innovation Lab</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <!-- <h4 class="h6 fw-bold mb-4">Contact Us</h4> -->
+                    <div class="mb-3">
+                        <p class="h5 fw-bold mb-0.5" style="color: #050505;">Drop Us Mail</p>
+                        <a href="mailto:info@enlearning.in" class="footer-link"
+                            style="font-size: 0.95rem;">info@enlearning.in</a>
+                    </div>
+                    <div>
+                        <p class="h5 fw-bold mb-0.5" style="color: #050505;">Find Us</p>
+                        <p class="small text-secondary mb-0" style="line-height: 1.6;">
+                            Enlearning Skill Development Limited<br />
+                            1402, Dosti Carnation, Antop Hill,<br />
+                            Mumbai - 400037
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-4 border-top">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <p class="small text-secondary mb-0">© 2026 All rights reserved by Enlearning Skill Development
+                            Limited.<br />Designed & Developed by <a href="https://www.techinfinity.io" target="_blank"
+                                class="footer-link">Techinfinity</a></p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <a href="#" class="footer-link small me-4">Privacy Policy</a>
+                        <a href="#" class="footer-link small me-4">Terms of Service</a>
+                        <a href="#" class="footer-link small">Cookie Settings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <span class="material-icons">arrow_upward</span>
+    </button>
 
     <script>
         /* ==========================================================
@@ -4054,6 +4832,7 @@
                             start: "top top",
                             end: () => `+=${getMaxScroll() * 1.5}`, // Adjusted scroll length
                             pin: true,
+                            pinSpacing: true,
                             scrub: 1,
                             invalidateOnRefresh: true
                         }
@@ -4492,6 +5271,116 @@
                     nav.classList.remove('scrolled');
                 }
             }
+        });
+
+        // Back to Top Button functionality
+        const backToTopButton = document.getElementById('backToTop');
+
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        // Scroll to top when button is clicked
+        backToTopButton.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ===== ENPOWER PHILOSOPHY CARD ANIMATION =====
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = gsap.utils.toArray('.enpower-benefit-card');
+            const N = cards.length;
+            const progressFill = document.querySelector('.enpower-progress-fill');
+
+            console.log('ENpower Philosophy: Found', N, 'cards');
+            console.log('Progress fill element:', progressFill);
+
+            if (!cards.length || !progressFill) {
+                console.warn('ENpower Philosophy: Missing elements');
+                return;
+            }
+
+            const FRONT_ROTATION = -8;
+            const ROTATION_STEP = -14;
+
+            function getStackState(q) {
+                return { rotation: FRONT_ROTATION + (q * ROTATION_STEP) };
+            }
+
+            function initCards() {
+                cards.forEach((card, i) => {
+                    const s = getStackState(i);
+                    gsap.set(card, { rotation: s.rotation, x: 0, y: 0, scale: 1, opacity: 1, zIndex: N - i });
+                });
+            }
+            initCards();
+
+            const leftEls = document.querySelectorAll(
+                '.enpower-left-content .tag, .enpower-left-content h2, .enpower-left-content .desc, .enpower-left-content .cta-btn, .enpower-scroll-progress'
+            );
+            ScrollTrigger.create({
+                trigger: '.enpower-section',
+                start: 'top 70%',
+                onEnter: () => { gsap.to(leftEls, { opacity: 1, y: 0, duration: .8, stagger: .1, ease: 'power3.out' }); },
+                once: true,
+            });
+
+            ScrollTrigger.create({
+                trigger: '.enpower-section',
+                start: 'top top',
+                end: `+=${window.innerHeight * 5}`,
+                pin: true,
+                pinSpacing: true,
+                scrub: 0.5,
+                onUpdate: (self) => {
+                    const progress = self.progress;
+                    gsap.set(progressFill, { width: `${progress * 100}%` });
+
+                    const rawIndex = progress * N;
+                    const activeIdx = Math.min(Math.floor(rawIndex), N - 1);
+                    const t = rawIndex - activeIdx;
+
+                    cards.forEach((card, i) => {
+                        if (i < activeIdx) {
+                            gsap.set(card, { rotation: -80, x: -100, y: -600, scale: 0.85, opacity: 0, zIndex: i });
+
+                        } else if (i === activeIdx) {
+                            const easeOut = 1 - Math.pow(1 - t, 3);
+                            const easeInOut = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+                            gsap.set(card, {
+                                rotation: FRONT_ROTATION + (-60 * easeOut),
+                                x: -80 * easeOut,
+                                y: -580 * easeInOut,
+                                scale: 1 - (0.1 * easeOut),
+                                opacity: Math.max(1 - easeInOut, 0),
+                                zIndex: N + 1,
+                            });
+
+                        } else {
+                            const queueNow = i - activeIdx;
+                            const queueNext = queueNow - 1;
+                            const ease = 1 - Math.pow(1 - t, 2.5);
+
+                            const fromRot = FRONT_ROTATION + (queueNow * ROTATION_STEP);
+                            const toRot = FRONT_ROTATION + (queueNext * ROTATION_STEP);
+
+                            gsap.set(card, {
+                                rotation: fromRot + (toRot - fromRot) * ease,
+                                x: 0, y: 0, scale: 1, opacity: 1,
+                                zIndex: N - queueNow,
+                            });
+                        }
+                    });
+                }
+            });
         });
     </script>
 </body>
