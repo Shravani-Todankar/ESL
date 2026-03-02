@@ -16,6 +16,9 @@
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
+    <!-- Material Symbols Outlined -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -563,16 +566,73 @@
             transform: translateY(-50%);
             width: 45%;
             height: 80%;
-            opacity: 0.15;
+            opacity: 0.4;
             pointer-events: none;
             z-index: 0;
         }
 
-        .impact-v2-map-svg {
+        .network-svg {
             width: 100%;
             height: 100%;
-            fill: currentColor;
-            color: #6B21A8;
+        }
+
+        /* Network Nodes */
+        .network-node {
+            opacity: 0;
+        }
+
+        .network-node.node-primary {
+            fill: #6A1BFF;
+        }
+
+        .network-node.node-soft {
+            fill: #BFA2FF;
+        }
+
+        .network-node.node-large {
+            /* Large nodes get enhanced glow via SVG filter */
+        }
+
+        .network-node.node-medium {
+            /* Medium nodes get medium glow via SVG filter */
+        }
+
+        .network-node.node-small {
+            /* Small nodes - minimal or no glow */
+            filter: drop-shadow(0 0 6px currentColor);
+        }
+
+        /* Node Glows (background circles) */
+        .node-glow {
+            opacity: 0;
+        }
+
+        /* Network Lines */
+        .network-line {
+            stroke: #6A1BFF;
+            stroke-width: 1;
+            opacity: 0;
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+            fill: none;
+        }
+
+        /* Sparkles */
+        .sparkles {
+            opacity: 0;
+        }
+
+        /* Milestone Text */
+        .milestone-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            fill: #6A1BFF;
+            letter-spacing: 0.5px;
+        }
+
+        .milestone-bg {
+            filter: drop-shadow(0 4px 12px rgba(106, 27, 255, 0.15));
         }
 
         /* Content Overlay */
@@ -722,7 +782,7 @@
 
         .impact-v2-desc-window {
             position: relative;
-            height: 6rem;
+            height: 4.8rem;
             overflow: hidden;
         }
 
@@ -1586,14 +1646,13 @@
             border: 1px solid rgba(91, 63, 166, 0.15);
             border-radius: 20px;
             padding: 2rem;
-            opacity: 0;
-            transform: translateY(40px);
             box-shadow: 0 8px 40px rgba(91, 63, 166, 0.10);
             transition: box-shadow 0.4s ease;
             transform-style: preserve-3d;
             perspective: 1000px;
             position: relative;
             z-index: 1;
+            will-change: transform, opacity;
         }
 
         .ip-program-card:hover {
@@ -2368,76 +2427,68 @@
             }
         }
 
-        /* ===== TRAINING & CERTIFICATES (ARCH SCROLL) ===== */
-        .arch-container {
+        /* Training & Certificates Section - CSS REMOVED */
+
+        /* ===== ARCHITECTURE SCROLL SECTION ===== */
+        .arch-scroll-container {
             max-width: 1440px;
-            padding-top: 8rem;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
-        .arch-spacer {
+        .arch-scroll-spacer {
             width: 100%;
-            height: 5vh;
+            height: 30vh;
         }
 
-        .arch {
+        .arch-scroll {
             display: flex;
             gap: 60px;
             justify-content: space-between;
-            max-width: 1280px;
+            max-width: 1100px;
             margin-inline: auto;
         }
 
-        .arch__left {
+        .arch-scroll__left {
             display: flex;
             flex-direction: column;
             min-width: 300px;
         }
 
-        .arch__left .arch__info {
-            max-width: 486px;
+        .arch-scroll__left .arch-scroll__info {
+            max-width: 356px;
             height: 100vh;
             display: grid;
             place-items: center;
         }
 
-        .arch__left .arch__info h2.header {
+        .arch-scroll__left .arch-scroll__info h2.header {
+            font-family: Outfit;
+            font-size: 42px;
             font-weight: 800;
             letter-spacing: -0.84px;
         }
 
-        .arch__left .arch__info p.desc {
+        .arch-scroll__left .arch-scroll__info p.desc {
             color: rgba(18, 18, 18, 0.8);
+            font-size: 18px;
             letter-spacing: -0.54px;
             margin-block: 6px 28px;
             line-height: normal;
         }
 
-        .arch__left .arch__info a.link {
+        .arch-scroll__left .arch-scroll__info a.link {
             text-decoration: none;
-            padding: 1rem 2rem;
-            color: #fff;
-            background: #6B21A8;
-            border-radius: 50px;
-            border: none;
+            padding: 16px 18px;
+            color: inherit;
+            border-radius: 40px;
             display: flex;
             gap: 4px;
             width: fit-content;
             align-items: center;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all 0.3s;
         }
 
-        .arch__left .arch__info a.link:hover {
-            background: #7C3AED;
-            transform: scale(1.05);
-        }
-
-        .arch__left .arch__info a.link svg path {
-            fill: #fff;
-        }
-
-        .arch__right {
+        .arch-scroll__right {
             flex-shrink: 1;
             height: 100vh;
             width: 100%;
@@ -2447,7 +2498,7 @@
             flex-direction: column;
         }
 
-        .arch__right .img-wrapper {
+        .arch-scroll__right .img-wrapper {
             position: absolute;
             top: 50%;
             left: 0;
@@ -2458,44 +2509,36 @@
             overflow: hidden;
         }
 
-        .arch__right .img-wrapper img {
+        .arch-scroll__right .img-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center;
         }
 
-        .arch-section-title {
-            font-weight: 800;
-            color: #1a1a1a;
-            text-align: center;
-            letter-spacing: -1.5px;
-            font-size: 3.4rem !important;
-        }
-
         @media (max-width: 900px) {
-            .arch {
+            .arch-scroll {
                 gap: 30px;
             }
         }
 
         @media (max-width: 768px) {
-            .arch {
+            .arch-scroll {
                 flex-direction: column;
                 gap: 20px;
             }
 
-            .arch__left,
-            .arch__right {
+            .arch-scroll__left,
+            .arch-scroll__right {
                 display: contents;
             }
 
-            .arch__right {
+            .arch-scroll__right {
                 height: auto;
                 max-width: 100%;
             }
 
-            .arch__right .img-wrapper {
+            .arch-scroll__right .img-wrapper {
                 position: static;
                 transform: none;
                 height: 360px;
@@ -2503,22 +2546,22 @@
                 margin-bottom: 20px;
             }
 
-            .arch__left .arch__info {
+            .arch-scroll__left .arch-scroll__info {
                 height: auto;
                 padding: 20px 0;
             }
         }
 
         @media (max-width: 560px) {
-            .arch {
+            .arch-scroll {
                 gap: 12px;
             }
 
-            .arch-container {
+            .arch-scroll-container {
                 padding: 10px;
             }
 
-            .arch__right .img-wrapper {
+            .arch-scroll__right .img-wrapper {
                 border-radius: 10px;
                 height: 280px;
             }
@@ -2754,7 +2797,8 @@
         .alliance-assembly-section {
             position: relative;
             z-index: 20;
-            padding-top: 5rem;
+            padding-top: 12rem;
+            margin-top: 8rem;
         }
 
         .alliance-wrapper {
@@ -3317,17 +3361,165 @@
     <section id="impact-scroll-container" class="impact-v2-container">
         <div id="sticky-viewport" class="impact-v2-sticky">
 
-            <!-- Background Map Visualization -->
+            <!-- Abstract Network Visualization -->
             <div id="india-map-container" class="impact-v2-map-container">
-                <svg class="impact-v2-map-svg" viewBox="0 0 600 700">
-                    <path
-                        d="M300,50 L350,100 L400,150 L450,250 L420,400 L380,550 L300,650 L220,550 L180,400 L150,250 L200,150 L250,100 Z"
-                        id="map-outline" opacity="0.2"></path>
-                    <circle class="map-hub" cx="280" cy="200" opacity="0" r="10"></circle>
-                    <circle class="map-hub" cx="220" cy="400" opacity="0" r="15"></circle>
-                    <circle class="map-hub" cx="350" cy="350" opacity="0" r="12"></circle>
-                    <circle class="map-hub" cx="320" cy="550" opacity="0" r="10"></circle>
-                    <circle class="map-hub" cx="400" cy="450" opacity="0" r="14"></circle>
+                <svg class="network-svg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <!-- Soft glow filters for nodes -->
+                        <filter id="glow-large" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+                            <feColorMatrix in="blur" type="matrix"
+                                values="1 0 0 0 0  0 0.6 0 0 0  0 0 1 0 0  0 0 0 0.15 0" />
+                            <feMerge>
+                                <feMergeNode />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                        </filter>
+                        <filter id="glow-medium" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                            <feColorMatrix in="blur" type="matrix"
+                                values="1 0 0 0 0  0 0.6 0 0 0  0 0 1 0 0  0 0 0 0.1 0" />
+                            <feMerge>
+                                <feMergeNode />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                        </filter>
+                    </defs>
+
+                    <!-- Connection Lines -->
+                    <g class="network-lines">
+                        <line id="line-1" class="network-line" x1="140" y1="100" x2="220" y2="180" />
+                        <line id="line-2" class="network-line" x1="220" y1="180" x2="340" y2="140" />
+                        <line id="line-3" class="network-line" x1="340" y1="140" x2="440" y2="220" />
+                        <line id="line-4" class="network-line" x1="220" y1="180" x2="200" y2="320" />
+                        <line id="line-5" class="network-line" x1="200" y1="320" x2="330" y2="340" />
+                        <line id="line-6" class="network-line" x1="330" y1="340" x2="440" y2="220" />
+                        <line id="line-7" class="network-line" x1="330" y1="340" x2="380" y2="450" />
+                        <line id="line-8" class="network-line" x1="200" y1="320" x2="120" y2="400" />
+                        <line id="line-9" class="network-line" x1="120" y1="400" x2="220" y2="480" />
+                        <line id="line-10" class="network-line" x1="220" y1="480" x2="380" y2="450" />
+                        <line id="line-11" class="network-line" x1="280" y1="250" x2="330" y2="340" />
+                        <line id="line-12" class="network-line" x1="280" y1="250" x2="340" y2="140" />
+                        <line id="line-13" class="network-line" x1="500" y1="350" x2="440" y2="220" />
+                        <line id="line-14" class="network-line" x1="60" y1="220" x2="140" y2="100" />
+                    </g>
+
+                    <!-- Node Glows (background layer) -->
+                    <g class="node-glows">
+                        <circle class="node-glow" cx="220" cy="180" r="24" fill="#6A1BFF" opacity="0.08" />
+                        <circle class="node-glow" cx="200" cy="320" r="28" fill="#6A1BFF" opacity="0.1" />
+                        <circle class="node-glow" cx="330" cy="340" r="22" fill="#BFA2FF" opacity="0.08" />
+                        <circle class="node-glow" cx="440" cy="220" r="26" fill="#6A1BFF" opacity="0.09" />
+                    </g>
+
+                    <!-- Network Nodes -->
+                    <g class="network-nodes">
+                        <!-- Large nodes (r=20-24) -->
+                        <g id="node-1">
+                            <circle class="network-node node-large node-primary" cx="220" cy="180" r="22"
+                                filter="url(#glow-large)" />
+                        </g>
+                        <g id="node-2">
+                            <circle class="network-node node-large node-soft" cx="200" cy="320" r="24"
+                                filter="url(#glow-large)" />
+                        </g>
+                        <g id="node-3">
+                            <circle class="network-node node-large node-primary" cx="440" cy="220" r="23"
+                                filter="url(#glow-large)" />
+                        </g>
+
+                        <!-- Medium nodes (r=14-18) -->
+                        <g id="node-4">
+                            <circle class="network-node node-medium node-soft" cx="330" cy="340" r="18"
+                                filter="url(#glow-medium)" />
+                        </g>
+                        <g id="node-5">
+                            <circle class="network-node node-medium node-primary" cx="340" cy="140" r="16"
+                                filter="url(#glow-medium)" />
+                        </g>
+                        <g id="node-6">
+                            <circle class="network-node node-medium node-soft" cx="280" cy="250" r="17"
+                                filter="url(#glow-medium)" />
+                        </g>
+                        <g id="node-7">
+                            <circle class="network-node node-medium node-primary" cx="120" cy="400" r="16"
+                                filter="url(#glow-medium)" />
+                        </g>
+                        <g id="node-8">
+                            <circle class="network-node node-medium node-soft" cx="380" cy="450" r="15"
+                                filter="url(#glow-medium)" />
+                        </g>
+
+                        <!-- Small nodes (r=8-12) -->
+                        <g id="node-9">
+                            <circle class="network-node node-small node-primary" cx="140" cy="100" r="11" />
+                        </g>
+                        <g id="node-10">
+                            <circle class="network-node node-small node-soft" cx="220" cy="480" r="10" />
+                        </g>
+                        <g id="node-11">
+                            <circle class="network-node node-small node-primary" cx="500" cy="350" r="9" />
+                        </g>
+                        <g id="node-12">
+                            <circle class="network-node node-small node-soft" cx="60" cy="220" r="8" />
+                        </g>
+                        <g id="node-13">
+                            <circle class="network-node node-small node-primary" cx="470" cy="120" r="10" />
+                        </g>
+                    </g>
+
+                    <!-- Sparkle Elements -->
+                    <g class="sparkles">
+                        <g id="sparkle-1" opacity="0">
+                            <path d="M 160 140 L 162 145 L 167 147 L 162 149 L 160 154 L 158 149 L 153 147 L 158 145 Z"
+                                fill="#BFA2FF" />
+                        </g>
+                        <g id="sparkle-2" opacity="0">
+                            <path d="M 410 190 L 412 195 L 417 197 L 412 199 L 410 204 L 408 199 L 403 197 L 408 195 Z"
+                                fill="#6A1BFF" />
+                        </g>
+                        <g id="sparkle-3" opacity="0">
+                            <path d="M 260 380 L 262 385 L 267 387 L 262 389 L 260 394 L 258 389 L 253 387 L 258 385 Z"
+                                fill="#BFA2FF" />
+                        </g>
+                        <g id="sparkle-4" opacity="0">
+                            <circle cx="150" cy="470" r="2.5" fill="#6A1BFF" />
+                        </g>
+                        <g id="sparkle-5" opacity="0">
+                            <circle cx="520" cy="280" r="2" fill="#BFA2FF" />
+                        </g>
+                    </g>
+
+                    <!-- Milestone Text Labels with Backgrounds -->
+                    <g class="milestone-texts">
+                        <!-- Milestone 1 -->
+                        <g id="milestone-1" opacity="0">
+                            <rect class="milestone-bg" x="235" y="155" width="140" height="32" rx="16" fill="#6A1BFF"
+                                opacity="0.1" />
+                            <text class="milestone-text" x="305" y="176" text-anchor="middle">Innovation Begins</text>
+                        </g>
+
+                        <!-- Milestone 2 -->
+                        <g id="milestone-2" opacity="0">
+                            <rect class="milestone-bg" x="355" y="115" width="120" height="32" rx="16" fill="#6A1BFF"
+                                opacity="0.1" />
+                            <text class="milestone-text" x="415" y="136" text-anchor="middle">Ideas Connect</text>
+                        </g>
+
+                        <!-- Milestone 3 -->
+                        <g id="milestone-3" opacity="0">
+                            <rect class="milestone-bg" x="215" y="295" width="130" height="32" rx="16" fill="#6A1BFF"
+                                opacity="0.1" />
+                            <text class="milestone-text" x="280" y="316" text-anchor="middle">Growth Unlocked</text>
+                        </g>
+
+                        <!-- Milestone 4 -->
+                        <g id="milestone-4" opacity="0">
+                            <rect class="milestone-bg" x="350" y="315" width="110" height="32" rx="16" fill="#6A1BFF"
+                                opacity="0.1" />
+                            <text class="milestone-text" x="405" y="336" text-anchor="middle">Future Ready</text>
+                        </g>
+                    </g>
                 </svg>
             </div>
 
@@ -3753,73 +3945,72 @@
         </div>
     </section>
 
-    <!-- ===== Training & Certificates Section ===== -->
-    <div class="arch-container">
-        <div class="text-center mb-1">
-            <h2 class="arch-section-title">Training & Certificates</h2>
+    <!-- ===== Architecture Scroll Section ===== -->
+    <div class="arch-scroll-container" id="architecture-scroll-section">
+        <div class="text-center" style="padding-top: 8rem; margin-bottom: 3rem;">
+            <h2
+                style="font-weight: 800; color: #1a1a1a; text-align: center; letter-spacing: -1.5px; font-size: 3.4rem;">
+                Training & Certificates</h2>
         </div>
 
-        <div class="arch">
-            <div class="arch__left">
-                <div class="arch__info" id="green-arch">
+        <div class="arch-scroll" id="arch-scroll-main">
+            <div class="arch-scroll__left">
+                <div class="arch-scroll__info" id="green-arch">
                     <div class="content">
-                        <h2 class="header">Entrepreneurship Fundamentals</h2>
-                        <p class="desc">Comprehensive 6-week training program covering business planning, market
-                            research, financial literacy, and pitching skills. Participants receive a certified
-                            completion certificate recognized by industry partners.</p>
-                        <a class="link" href="#">
+                        <h2 class="header">Green Cityscape</h2>
+                        <p class="desc">Vibrant streets with vertical gardens and solar buildings. This oasis thrives on
+                            renewable energy, smart transport, and green spaces for biodiversity.</p>
+                        <a class="link" href="#" style="background-color: #D5FF37">
                             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
-                                <path fill="#fff"
+                                <path fill="#121212"
                                     d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
                             </svg> <span>Learn More</span></a>
                     </div>
                 </div>
 
-                <div class="arch__info" id="blue-arch">
+                <div class="arch-scroll__info" id="blue-arch">
                     <div class="content">
-                        <h2 class="header">Digital Marketing Mastery</h2>
-                        <p class="desc">Master social media strategy, content creation, SEO, and analytics in this
-                            intensive 4-week course. Earn a professional certificate to showcase your digital marketing
-                            expertise and boost your startup's online presence.</p>
-                        <a class="link" href="#">
+                        <h2 class="header">Blue Urban Oasis</h2>
+                        <p class="desc">Avenues with azure facades and eco-structures. This hub uses clean energy, smart
+                            transit, and parks for urban wildlife.</p>
+                        <a class="link" href="#" style="background-color: #7DD6FF">
                             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
-                                <path fill="#fff"
+                                <path fill="#121212"
                                     d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
                             </svg> <span>Learn More</span></a>
                     </div>
                 </div>
 
-                <div class="arch__info" id="pink-arch">
+                <div class="arch-scroll__info" id="pink-arch">
                     <div class="content">
-                        <h2 class="header">Leadership & Innovation</h2>
-                        <p class="desc">Develop critical leadership skills, design thinking, and innovation
-                            methodologies through hands-on workshops and mentorship sessions. Certificate holders gain
-                            access to our exclusive alumni network and ongoing resources.</p>
-                        <a class="link" href="#">
+                        <h2 class="header">Fluid Architecture</h2>
+                        <p class="desc">Desert refuge with fluid architecture and glowing interiors. This sanctuary
+                            harnesses solar power, sustainable design, and natural harmony for resilient living.</p>
+                        <a class="link" href="#" style="background-color: #FFA0B0">
                             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
-                                <path fill="#fff"
+                                <path fill="#121212"
                                     d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
                             </svg> <span>Learn More</span></a>
                     </div>
                 </div>
 
-                <div class="arch__info" id="orange-arch">
+                <div class="arch-scroll__info" id="orange-arch">
                     <div class="content">
-                        <h2 class="header">Financial Planning & Investment</h2>
-                        <p class="desc">Learn fundraising strategies, investor pitching, financial modeling, and
-                            sustainable growth planning. This advanced certification prepares entrepreneurs for securing
-                            funding and managing startup finances effectively.
+                        <h2 class="header">Martian Arches</h2>
+                        <p class="desc">Ethereal structures arc over tranquil waters, bathed in the glow of a setting
+                            Martian sun. This desolate beauty showcases the stark, captivating landscape of the red
+                            planet.
                         </p>
-                        <a class="link" href="#">
+                        <a class="link" href="#" style="background-color: #FFA17B">
                             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
-                                <path fill="#fff"
+                                <path fill="#121212"
                                     d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
                             </svg> <span>Learn More</span></a>
                     </div>
                 </div>
             </div>
 
-            <div class="arch__right">
+            <div class="arch-scroll__right">
                 <div class="img-wrapper" data-index="4">
                     <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/cu8978xjlsjjpjk52ta0.webp"
                         alt="Green Architecture">
@@ -3843,10 +4034,10 @@
             </div>
         </div>
 
-        <div class="arch-spacer"></div>
+        <div class="arch-scroll-spacer"></div>
 
     </div>
-    <!-- END: Training & Certificates Section -->
+    <!-- END: Architecture Scroll Section -->
 
     <!-- ===== Cinematic Series Video Section ===== -->
     <section class="cinematic-section" id="cinematic-series">
@@ -4681,13 +4872,16 @@
            ========================================================== */
         document.addEventListener('DOMContentLoaded', () => {
             const checkGSAP = setInterval(() => {
-                if (typeof gsap !== 'undefined') {
+                if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
                     clearInterval(checkGSAP);
                     initAnimations();
                 }
             }, 50);
 
             function initAnimations() {
+                // Register GSAP plugins
+                gsap.registerPlugin(ScrollTrigger);
+
                 const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
                 // Nav entrance
@@ -4729,7 +4923,6 @@
                 });
 
                 // --- Impact Section ScrollTrigger ---
-                gsap.registerPlugin(ScrollTrigger);
 
                 // Heading Reveal Animation
                 gsap.to(".impact-title-line", {
@@ -4756,6 +4949,258 @@
                     delay: 0.4,
                     ease: "power2.out"
                 });
+
+                // ===== ENHANCED NETWORK ANIMATION =====
+                const networkNodes = gsap.utils.toArray('.network-node');
+                const networkLines = gsap.utils.toArray('.network-line');
+                const nodeGlows = gsap.utils.toArray('.node-glow');
+                const sparkles = gsap.utils.toArray('.sparkles > g');
+
+                // Enhanced milestone structure with node associations
+                const milestones = [
+                    {
+                        id: 1,
+                        lines: ['#line-1', '#line-2'],
+                        nodes: ['#node-1', '#node-9'],
+                        sparkle: '#sparkle-1',
+                        text: '#milestone-1',
+                        progress: 0.15,
+                        label: 'Innovation Begins'
+                    },
+                    {
+                        id: 2,
+                        lines: ['#line-3', '#line-12'],
+                        nodes: ['#node-3', '#node-5'],
+                        sparkle: '#sparkle-2',
+                        text: '#milestone-2',
+                        progress: 0.35,
+                        label: 'Ideas Connect'
+                    },
+                    {
+                        id: 3,
+                        lines: ['#line-4', '#line-5', '#line-11'],
+                        nodes: ['#node-2', '#node-4', '#node-6'],
+                        sparkle: '#sparkle-3',
+                        text: '#milestone-3',
+                        progress: 0.60,
+                        label: 'Growth Unlocked'
+                    },
+                    {
+                        id: 4,
+                        lines: ['#line-6', '#line-7'],
+                        nodes: ['#node-4', '#node-8'],
+                        sparkle: '#sparkle-4',
+                        text: '#milestone-4',
+                        progress: 0.70,
+                        label: 'Future Ready'
+                    }
+                ];
+
+                // Initial setup
+                gsap.set(networkLines, { strokeDashoffset: 200, opacity: 0 });
+                gsap.set(networkNodes, { scale: 0, opacity: 0, transformOrigin: 'center' });
+                gsap.set(nodeGlows, { scale: 0, opacity: 0, transformOrigin: 'center' });
+
+                // Progressive milestone-based animations with reverse support
+                milestones.forEach((milestone, index) => {
+                    ScrollTrigger.create({
+                        trigger: "#impact-scroll-container",
+                        start: `top+=${milestone.progress * 100}% top`,
+                        end: `top+=${(milestone.progress + 0.15) * 100}% top`,
+                        onEnter: () => {
+                            // 1. Draw lines with smooth animation
+                            milestone.lines.forEach((lineSelector, i) => {
+                                gsap.to(lineSelector, {
+                                    strokeDashoffset: 0,
+                                    opacity: 0.35,
+                                    duration: 0.6,
+                                    ease: "power2.out"
+                                });
+                            });
+
+                            // 2. Animate connected nodes with scale entrance
+                            milestone.nodes.forEach((nodeSelector, i) => {
+                                const nodeGroup = document.querySelector(nodeSelector);
+                                if (!nodeGroup) return;
+
+                                const node = nodeGroup.querySelector('.network-node');
+
+                                gsap.to(node, {
+                                    scale: 1,
+                                    opacity: 1,
+                                    duration: 0.5,
+                                    ease: "back.out(1.7)"
+                                });
+                            });
+
+                            // 3. Activate sparkle near milestone
+                            gsap.to(milestone.sparkle, {
+                                opacity: 1,
+                                duration: 0.3,
+                                ease: "power2.out"
+                            });
+
+                            // 4. Show milestone text
+                            gsap.to(milestone.text, {
+                                opacity: 1,
+                                y: -5,
+                                duration: 0.5,
+                                ease: "back.out(1.5)"
+                            });
+
+                            // 5. Glow pulse effect
+                            const relatedGlows = nodeGlows.slice(index, index + 1);
+                            relatedGlows.forEach(glow => {
+                                gsap.to(glow, {
+                                    scale: 1.2,
+                                    opacity: 0.12,
+                                    duration: 0.6,
+                                    ease: "power2.out"
+                                });
+                            });
+                        },
+                        onLeaveBack: () => {
+                            // REVERSE: Hide lines
+                            milestone.lines.forEach((lineSelector, i) => {
+                                gsap.to(lineSelector, {
+                                    strokeDashoffset: 200,
+                                    opacity: 0,
+                                    duration: 0.5,
+                                    ease: "power2.in"
+                                });
+                            });
+
+                            // REVERSE: Hide nodes
+                            milestone.nodes.forEach((nodeSelector, i) => {
+                                const nodeGroup = document.querySelector(nodeSelector);
+                                if (!nodeGroup) return;
+
+                                const node = nodeGroup.querySelector('.network-node');
+
+                                gsap.to(node, {
+                                    scale: 0,
+                                    opacity: 0,
+                                    duration: 0.4,
+                                    ease: "back.in(1.7)"
+                                });
+                            });
+
+                            // REVERSE: Hide sparkle
+                            gsap.to(milestone.sparkle, {
+                                opacity: 0,
+                                duration: 0.3,
+                                ease: "power2.in"
+                            });
+
+                            // REVERSE: Hide milestone text
+                            gsap.to(milestone.text, {
+                                opacity: 0,
+                                y: 0,
+                                duration: 0.4,
+                                ease: "power2.in"
+                            });
+
+                            // REVERSE: Hide glow
+                            const relatedGlows = nodeGlows.slice(index, index + 1);
+                            relatedGlows.forEach(glow => {
+                                gsap.to(glow, {
+                                    scale: 0,
+                                    opacity: 0,
+                                    duration: 0.5,
+                                    ease: "power2.in"
+                                });
+                            });
+                        }
+                    });
+                });
+
+                // Remaining lines (not part of milestones) - animate subtly
+                const remainingLines = ['#line-8', '#line-9', '#line-10', '#line-13', '#line-14'];
+                remainingLines.forEach((lineSelector, i) => {
+                    gsap.to(lineSelector, {
+                        scrollTrigger: {
+                            trigger: "#impact-scroll-container",
+                            start: "top 20%",
+                            once: true
+                        },
+                        strokeDashoffset: 0,
+                        opacity: 0.12,
+                        duration: 1.8,
+                        delay: 1 + i * 0.25,
+                        ease: "power2.inOut"
+                    });
+                });
+
+                // Remaining nodes (not in milestones) - animate after milestone nodes
+                const remainingNodes = ['#node-7', '#node-10', '#node-11', '#node-12', '#node-13'];
+                remainingNodes.forEach((nodeSelector, i) => {
+                    const nodeGroup = document.querySelector(nodeSelector);
+                    if (!nodeGroup) return;
+
+                    const node = nodeGroup.querySelector('.network-node');
+
+                    gsap.to(node, {
+                        scrollTrigger: {
+                            trigger: "#impact-scroll-container",
+                            start: "top 20%",
+                            once: true
+                        },
+                        scale: 1,
+                        opacity: 0.8,
+                        duration: 0.8,
+                        delay: 1.5 + i * 0.15,
+                        ease: "back.out(1.7)"
+                    });
+                });
+
+                // Continuous floating animation for ALL node groups
+                for (let i = 1; i <= 13; i++) {
+                    const nodeGroup = document.querySelector(`#node-${i}`);
+                    if (!nodeGroup) continue;
+
+                    const duration = 3.5 + Math.random() * 2; // 3.5-5.5 seconds
+                    const xOffset = (Math.random() - 0.5) * 10;
+                    const yOffset = (Math.random() - 0.5) * 10;
+
+                    // Floating position animation only
+                    gsap.to(nodeGroup, {
+                        x: xOffset,
+                        y: yOffset,
+                        duration: duration,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: i * 0.15
+                    });
+                }
+
+                // Continuous sparkle twinkle for remaining sparkles
+                const remainingSparkles = ['#sparkle-5'];
+                remainingSparkles.forEach((sparkleSelector, i) => {
+                    gsap.to(sparkleSelector, {
+                        scrollTrigger: {
+                            trigger: "#impact-scroll-container",
+                            start: "top 20%",
+                            once: true
+                        },
+                        opacity: 0.7,
+                        duration: 0.5,
+                        delay: 2 + i * 0.2,
+                        ease: "power2.out"
+                    });
+
+                    // Continuous twinkle (opacity only, no scale)
+                    gsap.to(sparkleSelector, {
+                        opacity: 0.2,
+                        duration: 1.5,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: 2.5
+                    });
+                });
+
+
 
                 const mainTl = gsap.timeline({
                     scrollTrigger: {
@@ -4819,27 +5264,6 @@
                         duration: 1
                     }, i);
 
-                    // Map Interaction (Activate hubs)
-                    mainTl.to(".map-hub", {
-                        opacity: (index) => (index <= i * 2 ? 0.8 : 0),
-                        scale: (index) => (index <= i * 2 ? 1.5 : 1),
-                        duration: 0.8,
-                        stagger: 0.1
-                    }, i);
-                });
-
-                // Subtle Map Pulse
-                gsap.to(".map-hub", {
-                    scale: 1.8,
-                    opacity: 0.4,
-                    duration: 2,
-                    repeat: -1,
-                    yoyo: true,
-                    ease: "sine.inOut",
-                    stagger: {
-                        each: 0.4,
-                        from: "random"
-                    }
                 });
 
                 // Stories Section Horizontal GSAP Scroll Animation
@@ -4907,20 +5331,22 @@
                     }
                 }
 
-                // --- Training & Certificates (Arch Scroll) ---
-                // Set z-index for images
-                document.querySelectorAll(".arch__right .img-wrapper").forEach((element) => {
+                // --- Training & Certificates - JavaScript REMOVED ---
+
+                // --- Architecture Scroll Section Animation ---
+                // Set z-index for architecture scroll images
+                document.querySelectorAll(".arch-scroll__right .img-wrapper").forEach((element) => {
                     const order = element.getAttribute("data-index");
                     if (order !== null) {
                         element.style.zIndex = order;
                     }
                 });
 
-                // Mobile layout handler
-                function handleMobileLayout() {
+                // Mobile layout handler for architecture scroll
+                function handleArchScrollMobileLayout() {
                     const isMobile = window.matchMedia("(max-width: 768px)").matches;
-                    const leftItems = gsap.utils.toArray(".arch__left .arch__info");
-                    const rightItems = gsap.utils.toArray(".arch__right .img-wrapper");
+                    const leftItems = gsap.utils.toArray(".arch-scroll__left .arch-scroll__info");
+                    const rightItems = gsap.utils.toArray(".arch-scroll__right .img-wrapper");
 
                     if (isMobile) {
                         leftItems.forEach((item, i) => {
@@ -4939,83 +5365,113 @@
                     }
                 }
 
-                let archResizeTimeout;
+                let archScrollResizeTimeout;
                 window.addEventListener("resize", () => {
-                    clearTimeout(archResizeTimeout);
-                    archResizeTimeout = setTimeout(handleMobileLayout, 100);
+                    clearTimeout(archScrollResizeTimeout);
+                    archScrollResizeTimeout = setTimeout(handleArchScrollMobileLayout, 100);
                 });
-                handleMobileLayout();
+                handleArchScrollMobileLayout();
 
-                const archImgs = gsap.utils.toArray(".arch__right .img-wrapper img");
+                const archScrollImgs = gsap.utils.toArray(".arch-scroll__right .img-wrapper img");
+                const archScrollBgColors = ["#EDF9FF", "#FFECF2", "#FFE8DB"];
 
-                ScrollTrigger.matchMedia({
-                    "(min-width: 769px)": function () {
-                        const mainTimeline = gsap.timeline({
-                            scrollTrigger: {
-                                trigger: ".arch",
-                                start: "top top",
-                                end: "bottom bottom",
-                                pin: ".arch__right",
-                                scrub: 1,
-                                anticipatePin: 1
-                            }
-                        });
+                if (archScrollImgs.length) {
+                    console.log("Architecture Scroll: Found", archScrollImgs.length, "images");
 
-                        gsap.set(archImgs, {
-                            clipPath: "inset(0)",
-                            objectPosition: "0px 0%"
-                        });
+                    const archScrollContainer = document.getElementById("architecture-scroll-section");
+                    const archScrollSection = document.getElementById("arch-scroll-main");
 
-                        archImgs.forEach((_, index) => {
-                            const currentImage = archImgs[index];
-                            const nextImage = archImgs[index + 1] ? archImgs[index + 1] : null;
+                    console.log("Container found:", archScrollContainer);
+                    console.log("Section found:", archScrollSection);
 
-                            const sectionTimeline = gsap.timeline();
+                    // Wait for all ScrollTriggers to be created and refresh
+                    setTimeout(() => {
+                        ScrollTrigger.refresh(true);
 
-                            if (nextImage) {
-                                sectionTimeline
-                                    .to(
-                                        currentImage,
-                                        {
-                                            clipPath: "inset(0px 0px 100%)",
-                                            objectPosition: "0px 60%",
-                                            duration: 1.5,
-                                            ease: "none"
-                                        },
-                                        0
-                                    )
-                                    .to(
-                                        nextImage,
-                                        {
-                                            objectPosition: "0px 40%",
-                                            duration: 1.5,
-                                            ease: "none"
-                                        },
-                                        0
-                                    );
-                            }
+                        setTimeout(() => {
+                            ScrollTrigger.matchMedia({
+                                "(min-width: 769px)": function () {
+                                    console.log("Architecture Scroll: Desktop mode activated");
 
-                            mainTimeline.add(sectionTimeline);
-                        });
-                    },
-                    "(max-width: 768px)": function () {
-                        gsap.set(archImgs, {
-                            objectPosition: "0px 60%"
-                        });
+                                    const archScrollRect = archScrollSection.getBoundingClientRect();
+                                    const scrollY = window.scrollY || window.pageYOffset;
+                                    const sectionTopPosition = archScrollRect.top + scrollY;
 
-                        archImgs.forEach((image) => {
-                            gsap.to(image, {
-                                objectPosition: "0px 30%",
-                                scrollTrigger: {
-                                    trigger: image,
-                                    start: "top bottom",
-                                    end: "bottom top",
-                                    scrub: 1
+                                    console.log("Section top position:", sectionTopPosition);
+                                    console.log("Current scroll position:", scrollY);
+
+                                    // First, pin the right side using ID
+                                    ScrollTrigger.create({
+                                        trigger: "#arch-scroll-main",
+                                        start: "top top",
+                                        end: "bottom bottom",
+                                        pin: ".arch-scroll__right",
+                                        pinSpacing: false,
+                                        markers: false,
+                                        id: "architecture-scroll-pin-unique",
+                                        invalidateOnRefresh: true,
+                                        onEnter: () => console.log("Architecture Pin activated!"),
+                                        onLeave: () => console.log("Architecture Pin deactivated!"),
+                                        onEnterBack: () => console.log("Architecture Pin re-activated!"),
+                                        onLeaveBack: () => console.log("Architecture Pin left backwards!")
+                                    });
+
+                                    // Set initial states
+                                    gsap.set(archScrollImgs, {
+                                        clipPath: "inset(0)",
+                                        objectPosition: "0px 50%"
+                                    });
+
+                                    // Create individual ScrollTriggers for each image based on left content
+                                    const archScrollLeftItems = gsap.utils.toArray(".arch-scroll__left .arch-scroll__info");
+
+                                    console.log("Left items found:", archScrollLeftItems.length);
+
+                                    archScrollLeftItems.forEach((item, index) => {
+                                        if (index < archScrollImgs.length - 1) {
+                                            gsap.timeline({
+                                                scrollTrigger: {
+                                                    trigger: item,
+                                                    start: "top center",
+                                                    end: "bottom center",
+                                                    scrub: 1,
+                                                    markers: false,
+                                                    id: "architecture-img-transition-" + index
+                                                }
+                                            })
+                                                .to(archScrollImgs[index], {
+                                                    clipPath: "inset(0% 0% 100% 0%)",
+                                                    objectPosition: "0px 60%",
+                                                    ease: "none"
+                                                });
+                                        }
+                                    });
+                                },
+                                "(max-width: 768px)": function () {
+                                    gsap.set(archScrollImgs, {
+                                        objectPosition: "0px 60%"
+                                    });
+
+                                    archScrollImgs.forEach((image, index) => {
+                                        gsap.timeline({
+                                            scrollTrigger: {
+                                                trigger: image,
+                                                start: "top-=70% top+=50%",
+                                                end: "bottom+=200% bottom",
+                                                scrub: true
+                                            }
+                                        })
+                                            .to(image, {
+                                                objectPosition: "0px 30%",
+                                                duration: 5,
+                                                ease: "none"
+                                            });
+                                    });
                                 }
                             });
-                        });
-                    }
-                });
+                        }, 300); // Additional delay after refresh
+                    }, 1000); // Wait for other ScrollTriggers
+                }
 
                 // --- Cinematic Series Interactive Carousel ---
                 const track = document.getElementById('cardsTrack');
@@ -5103,68 +5559,104 @@
                 }
 
                 // --- Impact Programs Section ScrollTrigger ---
-                const ipTl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: "#ip-impact-section",
-                        start: "top top",
-                        end: "bottom bottom",
-                        scrub: 1
-                    }
-                });
+                const ipCards = document.querySelectorAll('.ip-program-card');
 
-                // Phase 1: Grid lines draw in
-                ipTl.to(".ip-grid-line", {
-                    opacity: 1,
-                    duration: 0.5,
-                    stagger: 0.1
-                })
-                    .from("#ip-h-line-1, #ip-h-line-2, #ip-h-line-3", { scaleX: 0, transformOrigin: "center" }, "<")
-                    .from("#ip-v-line-1, #ip-v-line-2, #ip-v-line-3", { scaleY: 0, transformOrigin: "center" }, "<");
+                if (ipCards.length) {
+                    console.log("Impact Programs: Found", ipCards.length, "cards");
 
-                // Phase 2: Cards reveal
-                ipTl.to(".ip-program-card", {
-                    opacity: 1,
-                    y: 0,
-                    rotateX: 0,
-                    duration: 1,
-                    stagger: 0.2,
-                    ease: "power2.out"
-                }, "+=0.2");
+                    // FORCE initial hidden states immediately
+                    gsap.set(".ip-grid-line", { opacity: 0, clearProps: "all" });
+                    gsap.set(".ip-grid-line", { opacity: 0 });
+                    gsap.set(".ip-grid-line-h", { scaleX: 0, transformOrigin: "center" });
+                    gsap.set(".ip-grid-line-v", { scaleY: 0, transformOrigin: "center" });
 
-                // Phase 3: Icons pop
-                ipTl.from(".ip-module-icon", {
-                    scale: 0.5,
-                    opacity: 0,
-                    duration: 0.5,
-                    stagger: 0.2
-                }, "-=0.8");
+                    gsap.set(".ip-program-card", { clearProps: "all" });
+                    gsap.set(".ip-program-card", { opacity: 0, y: 50, rotateX: 15, force3D: true });
 
-                ipTl.from(".ip-module-title, .ip-module-desc", {
-                    y: 10,
-                    opacity: 0,
-                    duration: 0.5,
-                    stagger: 0.1
-                }, "-=0.5");
+                    gsap.set(".ip-module-icon", { scale: 0.5, opacity: 0 });
+                    gsap.set(".ip-module-title, .ip-module-desc", { y: 10, opacity: 0 });
+                    gsap.set("#ip-connector-v", { height: "0%" });
+                    gsap.set("#ip-connector-h", { width: "0%" });
+                    gsap.set("#ip-text-content", { y: 100, opacity: 0 });
 
-                // Phase 4: Connecting lines extend
-                ipTl.to("#ip-connector-v", {
-                    height: "100%",
-                    duration: 0.8,
-                    ease: "power1.inOut"
-                }, "-=0.2");
+                    console.log("Impact Programs: Initial states set");
 
-                ipTl.to("#ip-connector-h", {
-                    width: "100%",
-                    duration: 0.8,
-                    ease: "power1.inOut"
-                }, "<");
+                    const ipSection = document.getElementById("ip-impact-section");
+                    console.log("Impact Programs section found:", ipSection);
 
-                // Phase 5: Left text parallax
-                ipTl.from("#ip-text-content", {
-                    y: 100,
-                    opacity: 0,
-                    duration: 1
-                }, "0.5");
+                    // Delay to ensure Architecture Scroll is initialized first
+                    setTimeout(() => {
+                        ScrollTrigger.refresh(true);
+
+                        setTimeout(() => {
+                            const ipSectionRect = ipSection.getBoundingClientRect();
+                            const scrollY = window.scrollY || window.pageYOffset;
+                            const ipSectionTopPosition = ipSectionRect.top + scrollY;
+
+                            console.log("Impact Programs section top position:", ipSectionTopPosition);
+                            console.log("Current scroll position:", scrollY);
+
+                            const ipTl = gsap.timeline({
+                                scrollTrigger: {
+                                    trigger: "#ip-impact-section",
+                                    start: "top 80%",
+                                    end: "bottom 20%",
+                                    scrub: 1,
+                                    invalidateOnRefresh: true,
+                                    markers: false,
+                                    id: "impact-programs-animation-unique",
+                                    onEnter: () => console.log("Impact Programs animation started!"),
+                                    onLeave: () => console.log("Impact Programs animation ended!"),
+                                    onUpdate: (self) => console.log("Impact Programs progress:", self.progress)
+                                }
+                            });
+
+                            console.log("Impact Programs timeline created:", ipTl);
+
+                            // Phase 1: Grid lines draw in + Left text starts appearing
+                            ipTl.to(".ip-grid-line", { opacity: 1, duration: 1, stagger: 0.15 })
+                                .to(".ip-grid-line-h", { scaleX: 1, duration: 1 }, "<")
+                                .to(".ip-grid-line-v", { scaleY: 1, duration: 1 }, "<")
+                                .to("#ip-text-content", { y: 0, opacity: 1, duration: 1.5 }, "<0.3");
+
+                            // Phase 2: Cards reveal
+                            ipTl.to(".ip-program-card", {
+                                opacity: 1,
+                                y: 0,
+                                rotateX: 0,
+                                duration: 1.5,
+                                stagger: 0.3,
+                                ease: "power2.out"
+                            }, "-=0.5");
+
+                            // Phase 3: Icons and text pop
+                            ipTl.to(".ip-module-icon", {
+                                scale: 1,
+                                opacity: 1,
+                                duration: 1,
+                                stagger: 0.2
+                            }, "-=1")
+                                .to(".ip-module-title, .ip-module-desc", {
+                                    y: 0,
+                                    opacity: 1,
+                                    duration: 0.8,
+                                    stagger: 0.15
+                                }, "-=0.5");
+
+                            // Phase 4: Connecting lines extend
+                            ipTl.to("#ip-connector-v", {
+                                height: "100%",
+                                duration: 1.2,
+                                ease: "power1.inOut"
+                            }, "-=0.3")
+                                .to("#ip-connector-h", {
+                                    width: "100%",
+                                    duration: 1.2,
+                                    ease: "power1.inOut"
+                                }, "<");
+                        }, 500); // Additional delay
+                    }, 1500); // Wait for Architecture Scroll to complete initialization
+                }
 
                 // 3D Hover tilt for Impact Program cards
                 document.querySelectorAll('.ip-program-card').forEach(card => {
@@ -5298,6 +5790,10 @@
                         cancelAnimationFrame(rafId);
                     });
                 }
+
+                // Refresh ScrollTrigger after all animations are initialized
+                ScrollTrigger.refresh();
+
             } // This closes the initAnimations function
         }); // This closes the DOMContentLoaded event listener
 
