@@ -940,7 +940,6 @@
             position: relative;
             z-index: 10;
             background: #ffffff;
-            height: 550vh;
         }
 
         .stories-section .container-fluid {
@@ -2893,12 +2892,12 @@
             max-width: 1360px;
             height: calc(100vh - 80px);
             border-radius: 32px;
-            background: #ffffff;
+            /* background: #ffffff; */
             display: flex;
             align-items: center;
             overflow: visible;
-            border: 1px solid rgba(0, 0, 0, .06);
-            box-shadow: 0 4px 60px rgba(0, 0, 0, .04), 0 1px 3px rgba(0, 0, 0, .03);
+            /* border: 1px solid rgba(0, 0, 0, .06); */
+            /* box-shadow: 0 4px 60px rgba(0, 0, 0, .04), 0 1px 3px rgba(0, 0, 0, .03); */
         }
 
         .enpower-left-content {
@@ -2911,7 +2910,7 @@
             justify-content: center;
         }
 
-        .enpower-left-content .tag {
+        /* .enpower-left-content .tag {
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -2923,7 +2922,7 @@
             margin-bottom: 22px;
             opacity: 0;
             transform: translateY(16px);
-        }
+        } */
 
         .enpower-left-content .tag::before {
             content: '';
@@ -2949,7 +2948,7 @@
             line-height: 1.75;
             color: #5c566d;
             font-weight: 400;
-            max-width: 430px;
+            /* max-width: 430px; */
             opacity: 0;
             transform: translateY(24px);
         }
@@ -3022,12 +3021,12 @@
         }
 
         .enpower-benefit-card[data-index="0"] {
-            background: linear-gradient(155deg, #7c3aed 0%, #6d28d9 50%, #5b21b6 100%);
+            background: linear-gradient(155deg, #9e44c5 0%, #7f379d 50%, #652b7d 100%);
             box-shadow: 0 12px 45px rgba(124, 58, 237, .25);
         }
 
         .enpower-benefit-card[data-index="1"] {
-            background: linear-gradient(155deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+            background: linear-gradient(155deg, #fcd664 0%, #f7ce55 50%, #facd48 100%);
             box-shadow: 0 10px 40px rgba(245, 158, 11, .25);
         }
 
@@ -3037,13 +3036,29 @@
         }
 
         .enpower-benefit-card[data-index="3"] {
-            background: linear-gradient(155deg, #eab308 0%, #ca8a04 50%, #a16207 100%);
+            background: linear-gradient(155deg, #fbd870 0%, #ffd967 50%, #facd48 100%);
             box-shadow: 0 6px 30px rgba(234, 179, 8, .25);
         }
 
         .enpower-benefit-card[data-index="4"] {
             background: linear-gradient(155deg, #6d28d9 0%, #5b21b6 50%, #4c1d95 100%);
             box-shadow: 0 4px 25px rgba(109, 40, 217, .25);
+        }
+
+        .enpower-benefit-card .card-icon {
+            position: absolute;
+            top: 116px;
+            right: 220px;
+            width: 80px;
+            height: 80px;
+            z-index: 1;
+            opacity: 0.9;
+        }
+
+        .enpower-benefit-card .card-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .enpower-benefit-card .card-title {
@@ -3071,6 +3086,7 @@
             z-index: 10;
             opacity: 0;
             transform: translateY(16px);
+            display: none;
         }
 
         .enpower-progress-track {
@@ -3141,6 +3157,13 @@
 
             .enpower-benefit-card .card-title {
                 font-size: 1.4rem;
+            }
+
+            .enpower-benefit-card .card-icon {
+                width: 50px;
+                height: 50px;
+                top: 26px;
+                right: 26px;
             }
 
             .enpower-left-content h2 {
@@ -3605,8 +3628,8 @@
         <div class="enpower-wrapper">
             <div class="enpower-container">
                 <div class="enpower-left-content">
-                    <div class="tag">ENpower Framework</div>
-                    <h2>The ENpower<br>Philosophy</h2>
+                    <!-- <div class="tag">ENpower Framework</div> -->
+                    <h2>The ENpower Philosophy</h2>
                     <div class="desc">
                         <p>The future of work is evolving faster than education. Global frameworks like OECD, WEF,
                             UNICEF, and India's NEP 2020 stress the need for future-skills, yet most schools stop at
@@ -3621,18 +3644,33 @@
                 <div class="enpower-right-cards">
                     <div class="enpower-card-stack" id="cardStack">
                         <div class="enpower-benefit-card" data-index="0">
+                            <div class="card-icon">
+                                <img src="assets/icons/self-exploration.gif" alt="Self Exploration">
+                            </div>
                             <div class="card-title">Self<br>Exploration</div>
                         </div>
                         <div class="enpower-benefit-card" data-index="1">
+                            <div class="card-icon">
+                                <img src="assets/icons/foundation-literacy.gif" alt="Foundational Literacy">
+                            </div>
                             <div class="card-title">Foundational<br>Literacy</div>
                         </div>
                         <div class="enpower-benefit-card" data-index="2">
+                            <div class="card-icon">
+                                <img src="assets/icons/tech-of-the-future.gif" alt="Tech of the Future">
+                            </div>
                             <div class="card-title">Tech of<br>the Future</div>
                         </div>
                         <div class="enpower-benefit-card" data-index="3">
+                            <div class="card-icon">
+                                <img src="assets/icons/human-skills.gif" alt="Human Skills">
+                            </div>
                             <div class="card-title">Human<br>Skills</div>
                         </div>
                         <div class="enpower-benefit-card" data-index="4">
+                            <div class="card-icon">
+                                <img src="assets/icons/future-competency.gif" alt="Future Competencies">
+                            </div>
                             <div class="card-title">Future<br>Competencies</div>
                         </div>
                     </div>
@@ -4509,8 +4547,9 @@
                     <!-- <h4 class="h6 fw-bold mb-4">Contact Us</h4> -->
                     <div class="mb-3">
                         <p class="h5 fw-bold mb-0.5" style="color: #050505;">Drop Us Mail</p>
-                        <a href="mailto:info@enlearning.in" class="footer-link"
-                            style="font-size: 0.95rem;">info@enlearning.in</a>
+                        <a href="/cdn-cgi/l/email-protection#fc95929a93bc999290999d8e9295929bd29592" class="footer-link"
+                            style="font-size: 0.95rem;"><span class="__cf_email__"
+                                data-cfemail="274e4941486742494b424655494e4940094e49">[email&#160;protected]</span></a>
                     </div>
                     <div>
                         <p class="h5 fw-bold mb-0.5" style="color: #050505;">Find Us</p>
@@ -4544,6 +4583,7 @@
         <span class="material-icons">arrow_upward</span>
     </button>
 
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         /* ==========================================================
            INTERACTIVE LINE CANVAS — Solid wavy lines
@@ -4830,7 +4870,7 @@
                         scrollTrigger: {
                             trigger: storiesSection,
                             start: "top top",
-                            end: () => `+=${getMaxScroll() * 1.5}`, // Adjusted scroll length
+                            end: () => `+=${getMaxScroll()}`, // Exact scroll length - no extra spacing
                             pin: true,
                             pinSpacing: true,
                             scrub: 1,
@@ -5294,94 +5334,114 @@
         });
 
         // ===== ENPOWER PHILOSOPHY CARD ANIMATION =====
-        document.addEventListener('DOMContentLoaded', () => {
+        // Run after page fully loaded so all ScrollTrigger pins are computed
+        window.addEventListener('load', function () {
+            // Small delay to let GSAP finish computing all pinSpacing from stories section
+            setTimeout(initEnpowerPhilosophy, 300);
+        });
+
+        function initEnpowerPhilosophy() {
+            const section = document.querySelector('.enpower-section');
             const cards = gsap.utils.toArray('.enpower-benefit-card');
             const N = cards.length;
             const progressFill = document.querySelector('.enpower-progress-fill');
+            const leftEls = document.querySelectorAll(
+                '.enpower-left-content .tag, .enpower-left-content h2, .enpower-left-content .desc, .enpower-left-content .cta-btn, .enpower-scroll-progress'
+            );
 
-            console.log('ENpower Philosophy: Found', N, 'cards');
-            console.log('Progress fill element:', progressFill);
-
-            if (!cards.length || !progressFill) {
-                console.warn('ENpower Philosophy: Missing elements');
-                return;
-            }
+            if (!section || !cards.length || !progressFill) return;
 
             const FRONT_ROTATION = -8;
             const ROTATION_STEP = -14;
 
-            function getStackState(q) {
-                return { rotation: FRONT_ROTATION + (q * ROTATION_STEP) };
-            }
-
-            function initCards() {
-                cards.forEach((card, i) => {
-                    const s = getStackState(i);
-                    gsap.set(card, { rotation: s.rotation, x: 0, y: 0, scale: 1, opacity: 1, zIndex: N - i });
+            // --- Init card stack positions ---
+            cards.forEach((card, i) => {
+                gsap.set(card, {
+                    rotation: FRONT_ROTATION + i * ROTATION_STEP,
+                    x: 0, y: 0, scale: 1, opacity: 1,
+                    zIndex: N - i,
+                    transformOrigin: '50% 50%'
                 });
-            }
-            initCards();
-
-            const leftEls = document.querySelectorAll(
-                '.enpower-left-content .tag, .enpower-left-content h2, .enpower-left-content .desc, .enpower-left-content .cta-btn, .enpower-scroll-progress'
-            );
-            ScrollTrigger.create({
-                trigger: '.enpower-section',
-                start: 'top 70%',
-                onEnter: () => { gsap.to(leftEls, { opacity: 1, y: 0, duration: .8, stagger: .1, ease: 'power3.out' }); },
-                once: true,
             });
 
+            // --- Left content: fade-in when section enters viewport ---
+            gsap.set(leftEls, { opacity: 0, y: 24 });
             ScrollTrigger.create({
-                trigger: '.enpower-section',
+                trigger: section,
+                start: 'top 75%',
+                once: true,
+                onEnter: () => gsap.to(leftEls, { opacity: 1, y: 0, duration: .8, stagger: .12, ease: 'power3.out' })
+            });
+
+            // --- Card stack: pin section and animate cards on scroll ---
+            ScrollTrigger.create({
+                trigger: section,
                 start: 'top top',
-                end: `+=${window.innerHeight * 5}`,
+                end: () => '+=' + (window.innerHeight * 5),
                 pin: true,
                 pinSpacing: true,
-                scrub: 0.5,
+                scrub: 0.6,
+                invalidateOnRefresh: true,
                 onUpdate: (self) => {
                     const progress = self.progress;
-                    gsap.set(progressFill, { width: `${progress * 100}%` });
+
+                    // Update progress bar
+                    gsap.set(progressFill, { width: (progress * 100) + '%' });
 
                     const rawIndex = progress * N;
                     const activeIdx = Math.min(Math.floor(rawIndex), N - 1);
-                    const t = rawIndex - activeIdx;
+                    const t = rawIndex - activeIdx;  // 0..1 within this card slot
 
                     cards.forEach((card, i) => {
+
                         if (i < activeIdx) {
-                            gsap.set(card, { rotation: -80, x: -100, y: -600, scale: 0.85, opacity: 0, zIndex: i });
+                            // Already flipped off — hide above/left
+                            gsap.set(card, {
+                                rotation: -80,
+                                x: -120,
+                                y: -500,
+                                scale: 0.85,
+                                opacity: 0,
+                                zIndex: i
+                            });
 
                         } else if (i === activeIdx) {
+                            // Currently animating out
                             const easeOut = 1 - Math.pow(1 - t, 3);
-                            const easeInOut = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                            const easeInOut = t < 0.5
+                                ? 4 * t * t * t
+                                : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
                             gsap.set(card, {
                                 rotation: FRONT_ROTATION + (-60 * easeOut),
-                                x: -80 * easeOut,
-                                y: -580 * easeInOut,
-                                scale: 1 - (0.1 * easeOut),
-                                opacity: Math.max(1 - easeInOut, 0),
-                                zIndex: N + 1,
+                                x: -100 * easeOut,
+                                y: -500 * easeInOut,
+                                scale: 1 - (0.12 * easeOut),
+                                opacity: Math.max(1 - easeInOut * 1.2, 0),
+                                zIndex: N + 1
                             });
 
                         } else {
-                            const queueNow = i - activeIdx;
-                            const queueNext = queueNow - 1;
+                            // Queued — shift one step forward in the fan
+                            const qNow = i - activeIdx;
+                            const qNext = qNow - 1;
                             const ease = 1 - Math.pow(1 - t, 2.5);
-
-                            const fromRot = FRONT_ROTATION + (queueNow * ROTATION_STEP);
-                            const toRot = FRONT_ROTATION + (queueNext * ROTATION_STEP);
+                            const fromRot = FRONT_ROTATION + qNow * ROTATION_STEP;
+                            const toRot = FRONT_ROTATION + qNext * ROTATION_STEP;
 
                             gsap.set(card, {
                                 rotation: fromRot + (toRot - fromRot) * ease,
                                 x: 0, y: 0, scale: 1, opacity: 1,
-                                zIndex: N - queueNow,
+                                zIndex: N - i
                             });
                         }
                     });
                 }
             });
-        });
+
+            // Refresh ScrollTrigger so positions are recalculated with new pins
+            ScrollTrigger.refresh();
+        }
     </script>
 </body>
 
