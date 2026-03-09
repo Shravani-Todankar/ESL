@@ -1307,67 +1307,33 @@
         .engagements-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            /* grid-template-rows: repeat(2, 340px); */
+            grid-template-rows: repeat(2, 340px);
             gap: 1.5rem;
         }
 
         .eng-card {
             position: relative;
             border-radius: 1.5rem;
-            background: transparent;
-            perspective: 1000px;
-            cursor: pointer;
-        }
-
-        .eng-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            min-height: 400px;
-            text-align: left;
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
-        }
-
-        .eng-card:hover .eng-card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .eng-card-front,
-        .eng-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            border-radius: 1.5rem;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .eng-card-front {
             background: #1a1a1a;
             color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
-        .eng-card-back {
-            background: linear-gradient(135deg, #6B21A8 0%, #8B5CF6 100%);
-            color: white;
-            transform: rotateY(180deg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2.5rem;
+        .eng-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(107, 33, 168, 0.15);
         }
 
         .eng-card-wide {
-            grid-column: span 3;
+            grid-column: span 2;
         }
 
-        /* .eng-card-tall {
+        .eng-card-tall {
             grid-column: 3;
             grid-row: span 2;
-        } */
+        }
 
         .eng-bg {
             position: absolute;
@@ -1401,7 +1367,7 @@
             z-index: 1;
         }
 
-        .eng-card-front:hover .eng-bg {
+        .eng-card:hover .eng-bg {
             transform: scale(1.05);
         }
 
@@ -1481,77 +1447,6 @@
             font-weight: 500;
         }
 
-        /* Back side content styling */
-        .eng-back-content {
-            width: 100%;
-        }
-
-        .eng-back-content h3 {
-            font-size: 1.1rem !important;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            color: #fff;
-        }
-
-        .eng-back-content p {
-            font-size: 0.78rem !important;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: #fff;
-        }
-
-        .eng-features {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 2rem 0;
-        }
-
-        .eng-features li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
-            font-size: 0.7rem;
-            line-height: 1.5;
-        }
-
-        .eng-features li .material-icons {
-            font-size: 20px;
-            color: #FCD34D;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .eng-back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1.5rem;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            color: white;
-            text-decoration: none;
-            border-radius: 2rem;
-            font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-            font-size: 0.7rem !important;
-        }
-
-        .eng-back-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateX(5px);
-            color: white;
-        }
-
-        .eng-back-btn .material-icons {
-            font-size: 18px;
-            transition: transform 0.3s ease;
-        }
-
-        .eng-back-btn:hover .material-icons {
-            transform: translateX(3px);
-        }
-
         @media (max-width: 1024px) {
             .engagements-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -1571,18 +1466,6 @@
 
             .eng-card {
                 min-height: 380px;
-            }
-
-            .eng-card-inner {
-                min-height: 380px;
-            }
-
-            .eng-back-content h3 {
-                font-size: 1.5rem !important;
-            }
-
-            .eng-features li {
-                font-size: 0.9rem;
             }
         }
 
@@ -1606,25 +1489,6 @@
 
             .overlay-side {
                 background: linear-gradient(to top, rgba(107, 33, 168, 0.95) 0%, rgba(107, 33, 168, 0.4) 60%, transparent 100%);
-            }
-
-            .eng-back-content {
-                padding: 1rem;
-            }
-
-            .eng-back-content h3 {
-                font-size: 1.3rem !important;
-                margin-bottom: 1rem;
-            }
-
-            .eng-features li {
-                font-size: 0.85rem;
-                margin-bottom: 0.75rem;
-            }
-
-            .eng-back-btn {
-                padding: 0.75rem 1.5rem;
-                font-size: 0.9rem;
             }
         }
 
@@ -1818,7 +1682,7 @@
             font-weight: 700;
             color: #1c1430;
             margin-bottom: 0.5rem;
-            font-size: 1.25rem !important;
+            font-size: 1.5rem !important;
         }
 
         .ip-module-desc {
@@ -3306,9 +3170,7 @@
             height: 100%;
             border-radius: 22px;
             display: flex;
-            align-items: flex-start;
-            flex-direction: column;
-            justify-content: flex-end;
+            align-items: flex-end;
             padding: 36px 34px;
             will-change: transform, opacity;
             overflow: hidden;
@@ -3351,8 +3213,8 @@
 
         .enpower-benefit-card .card-icon {
             position: absolute;
-            top: 16px;
-            right: 20px;
+            top: 116px;
+            right: 220px;
             width: 80px;
             height: 80px;
             z-index: 1;
@@ -3373,47 +3235,11 @@
             color: #fff;
             position: relative;
             z-index: 1;
-            margin-bottom: 1rem;
         }
 
         .enpower-benefit-card[data-index="1"] .card-title,
         .enpower-benefit-card[data-index="3"] .card-title {
             color: #1e1b2e;
-        }
-
-        .card-subpoints {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            position: relative;
-            z-index: 1;
-            font-size: 0.85rem;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .card-subpoints li {
-            padding-left: 1.2rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-        }
-
-        .card-subpoints li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: bold;
-        }
-
-        .enpower-benefit-card[data-index="1"] .card-subpoints,
-        .enpower-benefit-card[data-index="3"] .card-subpoints {
-            color: rgba(30, 27, 46, 0.85);
-        }
-
-        .enpower-benefit-card[data-index="1"] .card-subpoints li::before,
-        .enpower-benefit-card[data-index="3"] .card-subpoints li::before {
-            color: rgba(30, 27, 46, 0.6);
         }
 
         .enpower-scroll-progress {
@@ -3469,15 +3295,6 @@
 
             .enpower-benefit-card .card-title {
                 font-size: 1.7rem;
-                margin-bottom: 0.75rem;
-            }
-
-            .card-subpoints {
-                font-size: 0.75rem;
-            }
-
-            .card-subpoints li {
-                margin-bottom: 0.4rem;
             }
         }
 
@@ -3506,7 +3323,6 @@
 
             .enpower-benefit-card .card-title {
                 font-size: 1.4rem;
-                margin-bottom: 0.6rem;
             }
 
             .enpower-benefit-card .card-icon {
@@ -3514,15 +3330,6 @@
                 height: 50px;
                 top: 26px;
                 right: 26px;
-            }
-
-            .card-subpoints {
-                font-size: 0.7rem;
-            }
-
-            .card-subpoints li {
-                margin-bottom: 0.35rem;
-                padding-left: 1rem;
             }
 
             .enpower-left-content h2 {
@@ -4070,7 +3877,7 @@
                         <!-- Right Side: Contextual Detail -->
                         <div class="impact-v2-right" id="context-container">
 
-                            <!-- <div class="impact-v2-desc-window">
+                            <div class="impact-v2-desc-window">
                                 <div id="description-roller" class="impact-v2-desc-roller">
                                     <p class="description-item">
                                         Extending our reach across the vast geographic diversity of the Indian
@@ -4088,10 +3895,10 @@
                                         Expert mentors dedicated to nurturing curiosity and structured problem-solving.
                                     </p>
                                 </div>
-                            </div> -->
+                            </div>
 
                             <!-- Navigation / Progress Indicator -->
-                            <!-- <div class="impact-v2-progress">
+                            <div class="impact-v2-progress">
                                 <div class="progress-dot">
                                     <div class="progress-fill"></div>
                                 </div>
@@ -4104,7 +3911,7 @@
                                 <div class="progress-dot">
                                     <div class="progress-fill"></div>
                                 </div>
-                            </div> -->
+                            </div>
 
                         </div>
                     </div>
@@ -4138,57 +3945,30 @@
                                 <img src="assets/icons/self-exploration.gif" alt="Self Exploration">
                             </div>
                             <div class="card-title">Self<br>Exploration</div>
-                            <ul class="card-subpoints">
-                                <li>Self-discovery, Interest & Values</li>
-                                <li>Personality Development & Communication</li>
-                                <li>Connecting to the World</li>
-                            </ul>
                         </div>
                         <div class="enpower-benefit-card" data-index="1">
                             <div class="card-icon">
                                 <img src="assets/icons/foundation-literacy.gif" alt="Foundational Literacy">
                             </div>
                             <div class="card-title">Foundational<br>Literacy</div>
-                            <ul class="card-subpoints">
-                                <li>Digital, Media & Data Literacy</li>
-                                <li>Financial & Economic Literacy</li>
-                                <li>Environmental & Sustainability Literacy</li>
-                            </ul>
                         </div>
                         <div class="enpower-benefit-card" data-index="2">
                             <div class="card-icon">
                                 <img src="assets/icons/tech-of-the-future.gif" alt="Tech of the Future">
                             </div>
                             <div class="card-title">Tech of<br>the Future</div>
-                            <ul class="card-subpoints">
-                                <li>Smart Systems, IoT</li>
-                                <li>AI, Coding, ML, Robotics</li>
-                                <li>Design, Emerging Tech</li>
-                            </ul>
                         </div>
                         <div class="enpower-benefit-card" data-index="3">
                             <div class="card-icon">
                                 <img src="assets/icons/human-skills.gif" alt="Human Skills">
                             </div>
                             <div class="card-title">Human<br>Skills</div>
-                            <ul class="card-subpoints">
-                                <li>Critical Thinking & Problem Solving</li>
-                                <li>Creativity & Innovation</li>
-                                <li>Collaboration</li>
-                                <li>Emotional Intelligence (SEL)</li>
-                            </ul>
                         </div>
                         <div class="enpower-benefit-card" data-index="4">
                             <div class="card-icon">
                                 <img src="assets/icons/future-competency.gif" alt="Future Competencies">
                             </div>
                             <div class="card-title">Future<br>Competencies</div>
-                            <ul class="card-subpoints">
-                                <li>Design Thinking</li>
-                                <li>Entrepreneurial Mindset</li>
-                                <li>Global Citizenship & Cross-cultural Awareness</li>
-                                <li>Readiness for the 'Future of Work'</li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -4218,152 +3998,52 @@
             <div class="engagements-grid">
                 <!-- Box 1 (Wide Top Left) -->
                 <div class="eng-card eng-card-wide">
-                    <div class="eng-card-inner">
-                        <div class="eng-card-front">
-                            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=1200&h=600&fit=crop&q=80"
-                                class="eng-bg" alt="Students in Lab">
-                            <div class="overlay-side"></div>
-                            <div class="eng-content">
-                                <div class="eng-icon"><span class="material-icons">architecture</span></div>
-                                <h3>Future Skills Lab</h3>
-                                <p>India's first Integrated Future-Skills Ecosystem for schools. Transforming Your
-                                    School Into A
-                                    Future-Skills Ecosystem.</p>
-                            </div>
-                        </div>
-                        <div class="eng-card-back">
-                            <div class="eng-back-content">
-                                <h3>Future Skills Lab</h3>
-                                <p>Transforming Your School Into A Future-Skills Ecosystem enabling every child to grow
-                                    into confident thinkers, leaders, and job creators.
-                                </p>
-                                <ul class="eng-features">
-                                    <li><span class="material-icons">check_circle</span>State-of-the-art experiential
-                                        learning space</li>
-                                    <li><span class="material-icons">check_circle</span> 17 Future-Skill pillars with 5
-                                        student outcomes
-                                    </li>
-                                    <li><span class="material-icons">check_circle</span> Personalized learning goals
-                                    </li>
-                                    <li><span class="material-icons">check_circle</span> Challenge-based pedagogy
-                                    </li>
-                                    <li><span class="material-icons">check_circle</span> Competency-based assessments
-                                        through a Skill Passport
-                                    </li>
-                                    <li><span class="material-icons">check_circle</span> School-to-career Pathways</li>
-                                    <li><span class="material-icons">check_circle</span> Idea Mentorships</li>
-                                    <li><span class="material-icons">check_circle</span> Implementation & management
-                                        through ENpower's Thinking Coaches</li>
-                                </ul>
-                                <p>
-                                    Future Skill Labs reimagines the role of skill labs in schools from isolated spaces
-                                    to catalysts for systemic change.
-                                </p>
-                                <a href="#" class="eng-back-btn">Learn More <span
-                                        class="material-icons">arrow_forward</span></a>
-                            </div>
-                        </div>
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=1200&h=600&fit=crop&q=80"
+                        class="eng-bg" alt="Students in Lab">
+                    <div class="overlay-side"></div>
+                    <div class="eng-content">
+                        <div class="eng-icon"><span class="material-icons">architecture</span></div>
+                        <h3>Future Skills Lab</h3>
+                        <p>India's first Integrated Future-Skills Ecosystem for schools. Transforming Your School Into A
+                            Future-Skills Ecosystem.</p>
                     </div>
                 </div>
 
                 <!-- Box 2 (Tall Right) -->
                 <div class="eng-card eng-card-tall">
-                    <div class="eng-card-inner">
-                        <div class="eng-card-front">
-                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=1000&fit=crop&q=80"
-                                class="eng-bg" alt="Student collaboration">
-                            <div class="overlay-dark"></div>
-                            <div class="eng-content">
-                                <div class="eng-icon"><span class="material-icons">extension</span></div>
-                                <h3>Composite Skills Lab</h3>
-                                <p>One-stop Solution For CSL & Kaushal Bodh Implementation. ENpower's Composite Skill
-                                    Lab
-                                    transforms CBSE's CSL & Kaushal Bodh mandate.</p>
-                            </div>
-                        </div>
-                        <div class="eng-card-back">
-                            <div class="eng-back-content">
-                                <h3>Composite Skills Lab</h3>
-                                <p>ENpower's Composite Skill Lab transforms CBSE's CSL & Kaushal Bodh mandate into an
-                                    innovation-driven learning experience. Designed for Grades 6-8, CSL blends
-                                    project-based learning with Design Thinking & Entrepreneurship, helping students
-                                    move beyond textbook skills to hands-on problem solving across life forms, machines
-                                    & materials, and human services.
-                                </p>
-                                <a href="#" class="eng-back-btn">Learn More <span
-                                        class="material-icons">arrow_forward</span></a>
-                            </div>
-                        </div>
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=1000&fit=crop&q=80"
+                        class="eng-bg" alt="Student collaboration">
+                    <div class="overlay-dark"></div>
+                    <div class="eng-content">
+                        <div class="eng-icon"><span class="material-icons">extension</span></div>
+                        <h3>Composite Skills Lab</h3>
+                        <p>One-stop Solution For CSL & Kaushal Bodh Implementation. ENpower's Composite Skill Lab
+                            transforms CBSE's CSL & Kaushal Bodh mandate. groups</p>
                     </div>
                 </div>
 
                 <!-- Box 3 (Bottom Left) -->
                 <div class="eng-card">
-                    <div class="eng-card-inner">
-                        <div class="eng-card-front">
-                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=600&fit=crop&q=80"
-                                class="eng-bg" alt="Tech Innovation">
-                            <div class="overlay-purple"></div>
-                            <div class="eng-content">
-                                <div class="eng-icon"><span class="material-icons">psychology</span></div>
-                                <h3>Tech Innovation Labs</h3>
-                                <p>Transforming Traditional STEM Learning With Design Thinking & Entrepreneurship.</p>
-                            </div>
-                        </div>
-                        <div class="eng-card-back">
-                            <div class="eng-back-content">
-                                <h3>Tech Innovation Labs</h3>
-                                <p>Future Skill Labs Tech innovation Lab is a powerful innovation space that goes far
-                                    beyond a traditional STEM lab, serving as a launchpad for young innovators.
-
-                                    The lab delivers extensive STEM learning across six tech pillars:
-                                </p>
-                                <ul class="eng-features">
-                                    <li><span class="material-icons">check_circle</span> Smart Systems</li>
-                                    <li><span class="material-icons">check_circle</span> AI Studio</li>
-                                    <li><span class="material-icons">check_circle</span> Coding</li>
-                                    <li><span class="material-icons">check_circle</span> Robotics</li>
-                                    <li><span class="material-icons">check_circle</span> Designing (3D + rapid
-                                        prototyping)</li>
-                                    <li><span class="material-icons">check_circle</span> Emerging Technologies (AR/VR,
-                                        green tech, cybersecurity)</li>
-                                </ul>
-                                <a href="#" class="eng-back-btn">Learn More <span
-                                        class="material-icons">arrow_forward</span></a>
-                            </div>
-                        </div>
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=600&fit=crop&q=80"
+                        class="eng-bg" alt="Tech Innovation">
+                    <div class="overlay-purple"></div>
+                    <div class="eng-content">
+                        <div class="eng-icon"><span class="material-icons">psychology</span></div>
+                        <h3>Tech Innovation Labs</h3>
+                        <p>Transforming Traditional STEM Learning With Design Thinking & Entrepreneurship.</p>
                     </div>
                 </div>
 
-                <!-- Box 4 (Bottom Middle) -->
+                <!-- Box 4 (Bottom Middle) - Light Card styled like verdura -->
                 <div class="eng-card">
-                    <div class="eng-card-inner">
-                        <div class="eng-card-front">
-                            <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&h=600&fit=crop&q=80"
-                                class="eng-bg" alt="Future Tycoons">
-                            <div class="overlay-purple"></div>
-                            <div class="eng-content">
-                                <div class="eng-icon"><span class="material-icons">emoji_events</span></div>
-                                <h3>Training & Certification Academy</h3>
-                                <p>Empowering Educators To Shaping Future Learners</p>
-                            </div>
-                        </div>
-                        <div class="eng-card-back">
-                            <div class="eng-back-content">
-                                <h3>Training & Certification Academy</h3>
-                                <p>ENpower's Training & Certification Academy bridges the critical skill gap in
-                                    education by equipping teachers, trainers,facilitators, and aspiring educators with
-                                    Design Thinking, Technology, Entrepreneurship & Future Skills. Through experiential
-                                    certifications and real-world application, we transform educators into confident
-                                    facilitators of innovation.
-
-                                    Design Thinking for Educators Certification
-                                    STEM & Technology Integration Certification
-                                </p>
-                                <a href="#" class="eng-back-btn">Learn More <span
-                                        class="material-icons">arrow_forward</span></a>
-                            </div>
-                        </div>
+                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&h=600&fit=crop&q=80"
+                        class="eng-bg" alt="Future Tycoons">
+                    <div class="overlay-purple"></div>
+                    <div class="eng-content">
+                        <div class="eng-icon"><span class="material-icons">emoji_events</span></div>
+                        <h3>India's Future Tycoons</h3>
+                        <p>India's first-ever entrepreneurship search and mentorship platform for young adults(13-18).
+                        </p>
                     </div>
                 </div>
             </div>
@@ -4375,14 +4055,14 @@
         <div class="text-center" style="margin-bottom: 2rem;">
             <h2
                 style="font-weight: 800; color: #1a1a1a; text-align: center; letter-spacing: -1.5px; font-size: 3.4rem !important;">
-                India’s Future Tycoons</h2>
+                Training & Certificates</h2>
         </div>
 
         <div class="arch-scroll" id="arch-scroll-main">
             <div class="arch-scroll__left">
                 <div class="arch-scroll__info" id="green-arch">
                     <div class="content">
-                        <h2 class="header">Opportunity To Innovate & Solve-Problems</h2>
+                        <h2 class="header">Entrepreneurship Fundamentals</h2>
                         <p class="desc">Master the essentials of entrepreneurship through our comprehensive 8-week
                             program. Learn business planning, market research, financial literacy, and effective
                             pitching. Receive an industry-recognized certificate upon completion.</p>
@@ -4396,7 +4076,7 @@
 
                 <div class="arch-scroll__info" id="blue-arch">
                     <div class="content">
-                        <h2 class="header">Access To Entrepreneurship Tools</h2>
+                        <h2 class="header">Digital Innovation & Tech Skills</h2>
                         <p class="desc">Dive into the world of coding, AI, and emerging technologies. This 6-week
                             intensive program covers app development, machine learning basics, and digital product
                             design with hands-on projects and mentorship.</p>
@@ -4410,7 +4090,7 @@
 
                 <div class="arch-scroll__info" id="pink-arch">
                     <div class="content">
-                        <h2 class="header">Expert-Led Mentorship</h2>
+                        <h2 class="header">Leadership & Social Impact</h2>
                         <p class="desc">Develop leadership qualities and learn to create meaningful social impact. This
                             transformative 10-week course includes design thinking workshops, community project
                             management, and access to our exclusive alumni network.</p>
@@ -4424,7 +4104,7 @@
 
                 <div class="arch-scroll__info" id="orange-arch">
                     <div class="content">
-                        <h2 class="header">Founders Bootcamp</h2>
+                        <h2 class="header">Advanced Pitch & Funding Mastery</h2>
                         <p class="desc">Learn the art of fundraising and investor relations in this elite 4-week
                             bootcamp. Master financial modeling, pitch deck creation, and investor networking. Connect
                             with real VCs and angel investors through our program.
@@ -4754,7 +4434,7 @@
                                                 </path>
                                             </svg>
                                         </div>
-                                        <h3 class="ip-module-title">Entrepreneurship & Livelihood Program</h3>
+                                        <h3 class="ip-module-title">Composite Skills Labs</h3>
                                         <p class="ip-module-desc">Advanced technical foundations for modern industrial
                                             integration.</p>
                                     </div>
@@ -4772,7 +4452,7 @@
                                                 </path>
                                             </svg>
                                         </div>
-                                        <h3 class="ip-module-title">I.D.E.A Labs</h3>
+                                        <h3 class="ip-module-title">Tech Innovation Labs</h3>
                                         <p class="ip-module-desc">Incubating disruptive technologies for localized
                                             challenges.</p>
                                     </div>
@@ -4790,7 +4470,7 @@
                                                 </path>
                                             </svg>
                                         </div>
-                                        <h3 class="ip-module-title">Idea-To-Venture Platform</h3>
+                                        <h3 class="ip-module-title">Livelihood Programs</h3>
                                         <p class="ip-module-desc">Scalable entrepreneurship models for community
                                             sustainability.</p>
                                     </div>
@@ -4806,7 +4486,7 @@
                                                     stroke-linejoin="round" stroke-width="2"></path>
                                             </svg>
                                         </div>
-                                        <h3 class="ip-module-title">Design ThinkingFor Educators</h3>
+                                        <h3 class="ip-module-title">Idea-to-Venture</h3>
                                         <p class="ip-module-desc">End-to-end platform for commercializing grassroots
                                             innovation.</p>
                                     </div>
