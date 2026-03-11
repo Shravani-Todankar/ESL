@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Skill Lab</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f6f0fa;
+            overflow-x: hidden;
+        }
+
+        /* FSL Hero Section */
+
+        .fsl-hero-section {
+            width: 100%;
+            background: #f6f0fa;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        #fslWaveCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .fsl-hero-section>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ── FSL Sparkle Stars ── */
+        .fsl-deco {
+            position: absolute;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .fsl-sparkle {
+            color: #E5A817;
+            font-size: 2rem;
+            line-height: 1;
+            animation: fslSparklePulse 2.5s ease-in-out infinite;
+        }
+
+        .fsl-sparkle-1 {
+            top: 15%;
+            left: 8%;
+            font-size: 1.8rem;
+            animation-delay: 0s;
+        }
+
+        .fsl-sparkle-2 {
+            top: 30%;
+            left: 31%;
+            font-size: 1rem;
+            animation-delay: 0.8s;
+        }
+
+        .fsl-sparkle-3 {
+            bottom: 18%;
+            right: 25%;
+            font-size: 1.6rem;
+            animation-delay: 1.2s;
+        }
+
+        .fsl-sparkle-4 {
+            bottom: 25%;
+            left: 6%;
+            font-size: 1.2rem;
+            animation-delay: 0.4s;
+        }
+
+        .fsl-sparkle-5 {
+            top: 30%;
+            right: 8%;
+            font-size: 1rem;
+            animation-delay: 1.6s;
+        }
+
+        @keyframes fslSparklePulse {
+
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: scale(1) rotate(0deg);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.3) rotate(15deg);
+            }
+        }
+
+        /* ── FSL Top section: text block + right pill ── */
+        .fsl-top-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        /* ── FSL Text block ── */
+        .fsl-text-block {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        /* ── FSL Row 1: "From CBSE" — left-most ── */
+        .fsl-row-1 {
+            font-size: 42px;
+            font-weight: 400;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1c1c1c;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            align-self: flex-start;
+            padding-left: 50px;
+        }
+
+        .fsl-row-1 .fsl-cbse {
+            font-size: 80px;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #6c32a8;
+            letter-spacing: -2px;
+        }
+
+        /* ── FSL Row 2: "Mandate" — indented right ── */
+        .fsl-row-2 {
+            font-size: 80px;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #6c32a8;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            align-self: flex-start;
+            padding-left: 360px;
+            margin-top: -6px;
+            margin-bottom: 10px;
+        }
+
+        /* ── FSL Bottom section: left pill + right text ── */
+        .fsl-bottom-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 0px;
+        }
+
+        /* ── FSL Row 3: "To Meaningful" — more indented ── */
+        .fsl-row-3 {
+            font-size: 42px;
+            font-weight: 400;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1c1c1c;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            align-self: flex-start;
+            padding-left: 30px;
+            margin-top: 4px;
+        }
+
+        .fsl-row-3 .fsl-meaningful {
+            font-size: 80px;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #e5a93e;
+            letter-spacing: -2px;
+        }
+
+        /* ── FSL Row 4: "Transformation" — most indented ── */
+        .fsl-row-4 {
+            font-size: 80px;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #e5a93e;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            align-self: flex-start;
+            padding-left: 80px;
+            margin-top: -6px;
+        }
+
+        /* ── FSL Pills ── */
+        .fsl-pill {
+            border-radius: 999px;
+            overflow: hidden;
+            background: #d0d0d0;
+            flex-shrink: 0;
+        }
+
+        .fsl-pill img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* FSL Right pill (sits beside row1+row2) */
+        .fsl-pill-right {
+            width: 320px;
+            height: 100px;
+        }
+
+        /* FSL Left pill (sits beside row3+row4) */
+        .fsl-pill-left {
+            width: 320px;
+            height: 100px;
+        }
+
+        /* ── FSL Sub text ── */
+        .fsl-subtext {
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .fsl-subtext .fsl-s1 {
+            display: block;
+            font-size: 20px;
+            font-weight: 400;
+            color: #1c1c1c;
+        }
+
+        .fsl-subtext .fsl-s2 {
+            display: block;
+            font-size: 17px;
+            font-weight: 300;
+            color: #555;
+            margin-top: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+
+    <!-- FSL Hero Section -->
+    <div class="fsl-hero-section">
+        <canvas id="fslWaveCanvas"></canvas>
+
+        <!-- Sparkle Stars -->
+        <div class="fsl-deco fsl-sparkle fsl-sparkle-1">✦</div>
+        <div class="fsl-deco fsl-sparkle fsl-sparkle-2">✦</div>
+        <div class="fsl-deco fsl-sparkle fsl-sparkle-3">✦</div>
+        <div class="fsl-deco fsl-sparkle fsl-sparkle-4">✦</div>
+        <div class="fsl-deco fsl-sparkle fsl-sparkle-5">✦</div>
+
+        <!-- Top: "From CBSE / Mandate" + right pill -->
+        <div class="fsl-top-section">
+            <div class="fsl-text-block">
+                <span class="fsl-row-1"><span class="fsl-cbse">India's First Integrated</span></span>
+                <span class="fsl-row-2">Future Skills</span>
+            </div>
+            <div class="fsl-pill fsl-pill-right">
+                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=700&q=80" alt="placeholder" />
+            </div>
+        </div>
+
+        <!-- Bottom: left pill + "To Meaningful / Transformation" -->
+        <div class="fsl-bottom-section">
+            <div class="fsl-pill fsl-pill-left">
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" alt="placeholder" />
+            </div>
+            <div class="fsl-text-block">
+                <span class="fsl-row-3"><span class="fsl-meaningful">Ecosystem</span></span>
+                <span class="fsl-row-4">for Schools</span>
+            </div>
+        </div>
+
+        <!-- Sub text -->
+        <div class="fsl-subtext">
+            <span class="fsl-s1">From CSL Compliance to School Leadership</span>
+            <span class="fsl-s2">Think beyond Composite Skills Labs &amp; STEM programs</span>
+        </div>
+
+    </div>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        /* ==========================================================
+           LOAD HEADER AND FOOTER
+           ========================================================== */
+        // Load Header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+
+                // Animate header entrance after it's loaded
+                const mainNav = document.querySelector('.en-main-nav');
+                if (mainNav && typeof gsap !== 'undefined') {
+                    gsap.to(mainNav, { opacity: 1, y: 0, duration: 0.8, delay: 0.2 });
+                }
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load Footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+
+                // Initialize Back to Top Button after footer is loaded
+                const backToTopButton = document.getElementById('backToTop');
+                if (backToTopButton) {
+                    // Show/hide button based on scroll position
+                    window.addEventListener('scroll', function () {
+                        if (window.pageYOffset > 300) {
+                            backToTopButton.classList.add('show');
+                        } else {
+                            backToTopButton.classList.remove('show');
+                        }
+                    });
+
+                    // Scroll to top when button is clicked
+                    backToTopButton.addEventListener('click', function () {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    });
+                }
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        /* ==========================================================
+           CSL WAVE CANVAS ANIMATION
+           ========================================================== */
+        (function () {
+            const canvas = document.getElementById('cslWaveCanvas');
+            const ctx = canvas.getContext('2d');
+
+            let width, height;
+            let mouseX = -1000, mouseY = -1000;
+            let scrollY = 0;
+            const WAVE_COUNT = 24; // Number of wave lines (same as esl-home)
+            const INFLUENCE_RADIUS = 250;
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            document.addEventListener('mouseleave', () => {
+                mouseX = -1000;
+                mouseY = -1000;
+            });
+            window.addEventListener('scroll', () => { scrollY = window.scrollY; });
+
+            const waves = [];
+            // Create waves with same logic as esl-home (grouped ribbons)
+            for (let i = 0; i < WAVE_COUNT; i++) {
+                const group = Math.floor(i / 8);
+                waves.push({
+                    position: 0.3 + group * 0.2 + (Math.random() * 0.05), // Grouped positioning
+                    amplitude: 40 + Math.random() * 50, // Larger, more sweeping waves
+                    frequency: 0.001 + Math.random() * 0.001, // Gentler frequency
+                    speed: 0.0002 + Math.random() * 0.0003,
+                    phase: i * 0.2, // Offset phases to create the mesh effect
+                    opacity: 0.08 + Math.random() * 0.05,
+                    thickness: 0.5 + Math.random() * 0.5 // Hair-thin lines
+                });
+            }
+
+            let time = 0;
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                const parallaxOffset = scrollY * 0.1;
+
+                for (let w = 0; w < waves.length; w++) {
+                    const wave = waves[w];
+
+                    // Purple/pink palette to match hero section
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(180, 120, 220, ${wave.opacity})`;
+                    ctx.lineWidth = wave.thickness;
+
+                    const step = 6;
+                    // Draw diagonal waves from bottom-left to top-right
+                    for (let x = -10; x <= width + 10; x += step) {
+                        // Calculate diagonal position (transform x to diagonal coordinate)
+                        // For bottom-left to top-right: when x increases, y should decrease
+                        const diagonalPos = (x / width) + (wave.position - 0.5);
+                        let y = height - (diagonalPos * height) + parallaxOffset;
+
+                        // Complex sine combination for fluid ribbon motion (same as esl-home)
+                        y += Math.sin(x * wave.frequency + time * wave.speed * 1000 + wave.phase) * wave.amplitude;
+                        y += Math.sin(x * wave.frequency * 0.5 + time * wave.speed * 500) * (wave.amplitude * 0.3);
+
+                        const dx = x - mouseX;
+                        const dy = y - mouseY;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < INFLUENCE_RADIUS) {
+                            const influence = 1 - dist / INFLUENCE_RADIUS;
+                            const smoothInfluence = influence * influence * (3 - 2 * influence);
+                            const pushStrength = 40 * smoothInfluence;
+                            const angle = Math.atan2(dy, dx);
+                            y += Math.sin(angle) * pushStrength;
+                        }
+
+                        if (x === -10) { ctx.moveTo(x, y); }
+                        else { ctx.lineTo(x, y); }
+                    }
+                    ctx.stroke();
+                }
+
+                time = performance.now() / 1000;
+                requestAnimationFrame(draw);
+            }
+
+            draw();
+        })();
+
+        /* ==========================================================
+           GSAP ANIMATIONS FOR HEADER
+           ========================================================== */
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkGSAP = setInterval(() => {
+                if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                    clearInterval(checkGSAP);
+                    initAnimations();
+                }
+            }, 50);
+
+            function initAnimations() {
+                // Register GSAP plugins
+                gsap.registerPlugin(ScrollTrigger);
+
+                const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+                // Nav entrance animation
+                tl.to('.en-main-nav', { opacity: 1, y: 0, duration: 0.8, delay: 0.2 });
+
+                // Floating animation for CSL pills (similar to capsules)
+                document.querySelectorAll('.csl-pill').forEach((pill, index) => {
+                    const offset = index * 0.3; // Different offset for each pill
+                    gsap.to(pill, {
+                        y: -8,
+                        duration: 2.2 + offset * 0.3,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: 'sine.inOut',
+                        delay: offset
+                    });
+                });
+
+                // Hero section fade out when video section appears
+                gsap.to('.csl-hero-section', {
+                    opacity: 0,
+                    ease: 'power2.in',
+                    scrollTrigger: {
+                        trigger: '.csl-video-section',
+                        start: 'top bottom',
+                        end: 'top center',
+                        scrub: 1,
+                        invalidateOnRefresh: true
+                    }
+                });
+
+                // Cards stacking animation with scale
+                const cards = gsap.utils.toArray('.csl-card');
+                cards.forEach((card, index) => {
+                    // Skip the last card (no need to scale it)
+                    if (index < cards.length - 1) {
+                        gsap.to(card, {
+                            scale: 0.95 - (index * 0.02),
+                            opacity: 0.8,
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: cards[index + 1],
+                                start: 'top bottom',
+                                end: 'top 120px',
+                                scrub: 1,
+                                invalidateOnRefresh: true
+                            }
+                        });
+                    }
+                });
+
+                // Horizontal scroll animation for process cards
+                const processSection = document.querySelector('.csl-process-section');
+                const processCards = document.querySelector('.csl-process-cards');
+
+                if (processSection && processCards) {
+                    // Calculate the total scroll distance needed
+                    const cardsArray = gsap.utils.toArray('.csl-process-card');
+                    const cardWidth = 320; // Card width from CSS
+                    const gap = 30; // Gap from CSS
+                    const totalWidth = (cardWidth + gap) * cardsArray.length;
+                    const containerWidth = document.querySelector('.csl-process-cards-container').offsetWidth;
+                    const scrollDistance = totalWidth - containerWidth + gap;
+
+                    // Create the horizontal scroll animation
+                    gsap.to(processCards, {
+                        x: -scrollDistance,
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger: processSection,
+                            start: 'top top',
+                            end: () => `+=${scrollDistance * 2}`, // Adjust scroll distance for smooth effect
+                            scrub: 1,
+                            pin: true,
+                            anticipatePin: 1,
+                            invalidateOnRefresh: true
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

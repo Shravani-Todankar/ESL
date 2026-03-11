@@ -99,6 +99,19 @@
     .back-to-top .material-icons {
         font-size: 24px;
     }
+
+    @media (max-width: 768px) {
+        .back-to-top {
+            width: 45px;
+            height: 45px;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .back-to-top .material-icons {
+            font-size: 20px;
+        }
+    }
 </style>
 
 <!-- Footer -->
@@ -193,25 +206,3 @@
 <button id="backToTop" class="back-to-top" aria-label="Back to top">
     <span class="material-icons">arrow_upward</span>
 </button>
-
-<script>
-    // Back to Top Button functionality
-    const backToTopButton = document.getElementById('backToTop');
-
-    // Show/hide button based on scroll position
-    window.addEventListener('scroll', function () {
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('show');
-        } else {
-            backToTopButton.classList.remove('show');
-        }
-    });
-
-    // Scroll to top when button is clicked
-    backToTopButton.addEventListener('click', function () {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-</script>

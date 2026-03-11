@@ -324,7 +324,7 @@
 
         .csl-cta-container {
             width: 100%;
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
             border-radius: 24px;
@@ -457,11 +457,13 @@
         }
 
         .csl-card {
-            width: 1200px;
+            width: 100%;
+            max-width: 1200px;
             display: grid;
             grid-template-columns: 400px 1fr;
             gap: 0;
             background: linear-gradient(135deg, #efdeff 0%, #fffce3 100%);
+            border: 1px solid #8a5cf637;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
@@ -492,7 +494,8 @@
         }
 
         .csl-card-image {
-            width: 400px;
+            width: 100%;
+            max-width: 400px;
             height: 350px;
             overflow: hidden;
             border-radius: 16px;
@@ -517,38 +520,51 @@
             font-weight: 400;
             color: #666;
             line-height: 1.6;
-            width: 500px;
+            width: 100%;
+            max-width: 500px;
         }
 
         /* CSL Responsive */
         @media (max-width: 768px) {
+            /* Hero Section Mobile */
+            .csl-hero-section {
+                padding: 100px 20px 60px;
+                min-height: auto;
+            }
 
             .csl-row-1,
             .csl-row-3 {
-                font-size: 24px;
+                font-size: 20px;
+                text-align: center;
             }
 
             .csl-row-1 .csl-cbse,
             .csl-row-2,
             .csl-row-3 .csl-meaningful,
             .csl-row-4 {
-                font-size: 36px;
+                font-size: 32px;
             }
 
             .csl-pill-right {
-                width: 180px;
-                height: 60px;
+                width: 120px;
+                height: 40px;
             }
 
             .csl-pill-left {
-                width: 160px;
-                height: 55px;
+                width: 120px;
+                height: 40px;
             }
 
             .csl-top-section,
             .csl-bottom-section {
                 flex-direction: column;
                 gap: 20px;
+                align-items: center;
+            }
+
+            .csl-text-block {
+                align-items: center;
+                text-align: center;
             }
 
             .csl-row-1,
@@ -556,61 +572,928 @@
             .csl-row-3,
             .csl-row-4 {
                 padding-left: 0;
+                align-self: center;
+            }
+
+            .csl-subtext {
+                margin-top: 40px;
+                padding: 0 10px;
+            }
+
+            .csl-subtext .csl-s1 {
+                font-size: 16px;
+            }
+
+            .csl-subtext .csl-s2 {
+                font-size: 14px;
+            }
+
+            .csl-sparkle {
+                display: none;
+            }
+
+            /* Video Section Mobile */
+            .csl-video-section {
+                padding: 40px 20px;
+                min-height: auto;
             }
 
             .csl-video-wrapper {
-                border-radius: 16px;
+                border-radius: 12px;
+            }
+
+            /* CTA Section Mobile */
+            .csl-cta-section {
+                padding: 60px 20px;
+                min-height: auto;
+            }
+
+            .csl-cta-container {
+                padding: 40px 20px;
             }
 
             .csl-cta-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 30px;
             }
 
             .csl-cta-heading {
-                font-size: 2rem;
-            }
-
-            .csl-cta-subheading {
-                font-size: 1rem;
+                font-size: 1.8rem;
+                width: 100%;
+                text-align: center;
             }
 
             .csl-cta-button {
                 padding: 14px 28px;
-                font-size: 1rem;
+                font-size: 0.95rem;
+                align-self: center;
             }
 
-            .csl-cta-image-wrapper {
-                border-radius: 16px;
+            .csl-cta-right {
+                justify-content: center;
+            }
+
+            /* Cards Section Mobile */
+            .csl-cards-section {
+                padding: 60px 20px;
+                min-height: auto;
             }
 
             .csl-cards-header {
-                justify-content: flex-start;
+                justify-content: center;
                 margin-bottom: 40px;
             }
 
             .csl-cards-heading {
                 font-size: 2rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .csl-cards-wrapper {
+                gap: 30px;
             }
 
             .csl-card {
+                width: 100%;
                 grid-template-columns: 1fr;
                 gap: 0;
+                padding: 30px 20px;
+                position: static !important;
+                top: auto !important;
+            }
+
+            .csl-card:hover {
+                transform: none;
             }
 
             .csl-card-image {
-                height: 250px;
+                width: 100%;
+                height: 220px;
+                margin-bottom: 20px;
             }
 
             .csl-card-content {
-                padding: 30px;
-            }
-
-            .csl-card-title {
-                font-size: 1.5rem;
+                padding: 0;
+                align-items: flex-start;
             }
 
             .csl-card-description {
+                font-size: 0.95rem;
+                width: 100%;
+            }
+
+            /* Bento Section Mobile */
+            .csl-bento-section {
+                padding: 60px 20px;
+            }
+
+            .csl-bento-heading {
+                font-size: 2rem;
+                margin-bottom: 40px;
+                line-height: 1.3;
+            }
+
+            .csl-bento-grid {
+                width: 100%;
+                grid-template-columns: 1fr;
+                grid-auto-rows: auto;
+                gap: 16px;
+            }
+
+            .csl-bento-box {
+                padding: 25px 20px;
+                min-height: 160px;
+            }
+
+            .csl-bento-box:nth-child(1),
+            .csl-bento-box:nth-child(2),
+            .csl-bento-box:nth-child(3),
+            .csl-bento-box:nth-child(4),
+            .csl-bento-box:nth-child(5),
+            .csl-bento-box:nth-child(6),
+            .csl-bento-box:nth-child(7),
+            .csl-bento-box:nth-child(8) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .csl-bento-number {
+                font-size: 3rem;
+                top: 10px;
+                right: 10px;
+            }
+
+            .csl-bento-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 22px;
+            }
+
+            .csl-bento-title {
+                font-size: 1.1rem;
+            }
+
+            /* Process Section Mobile */
+            .csl-process-section {
+                min-height: auto;
+            }
+
+            .csl-process-wrapper {
+                min-height: auto;
+                padding: 60px 0;
+            }
+
+            .csl-process-container {
+                flex-direction: column;
+                gap: 30px;
+                padding: 0 20px;
+            }
+
+            .csl-process-heading-wrapper {
+                width: 100%;
+            }
+
+            .csl-process-heading {
+                font-size: 2rem;
+                position: static;
+                transform: none;
+                text-align: center;
+            }
+
+            .csl-process-cards {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .csl-process-card {
+                width: 100%;
+                padding: 30px 25px;
+            }
+
+            .csl-process-card-title {
+                font-size: 1.4rem;
+            }
+
+            /* Path Section Mobile */
+            .csl-path-section {
+                padding: 60px 20px;
+            }
+
+            .csl-path-heading {
+                font-size: 2rem;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            .csl-path-content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin-bottom: 40px;
+            }
+
+            .csl-path-text {
+                font-size: 0.95rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .csl-path-image {
+                height: 220px;
+            }
+
+            /* Table Mobile */
+            .csl-comparison-table {
+                font-size: 0.85rem;
+                border-radius: 12px;
+            }
+
+            .csl-comparison-table thead th {
+                padding: 16px 12px;
+                font-size: 0.95rem;
+            }
+
+            .csl-comparison-table thead th:first-child {
+                width: 40%;
+            }
+
+            .csl-comparison-table tbody td {
+                padding: 14px 12px;
+                font-size: 0.85rem;
+            }
+
+            /* Projects Section Mobile */
+            .csl-projects-section {
+                padding: 60px 20px;
+            }
+
+            .csl-projects-heading {
+                font-size: 2rem;
+                margin-bottom: 40px;
+                line-height: 1.3;
+            }
+
+            .csl-projects-wrapper {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .csl-project-image {
+                max-width: 100%;
+                height: 380px;
+            }
+
+            /* Final CTA Mobile */
+            .csl-final-cta-section {
+                padding: 60px 20px;
+                min-height: auto;
+            }
+
+            .csl-final-cta-container {
+                padding: 30px 20px;
+            }
+
+            .csl-cta-heading-final {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+
+            .csl-cta-paragraph {
+                font-size: 0.95rem;
+                line-height: 1.7;
+                text-align: center;
+            }
+        }
+
+        /* ── CSL Bento Boxes Section ── */
+        .csl-bento-section {
+            position: relative;
+            width: 100%;
+            background: linear-gradient(180deg, #f6f0fa 0%, #faf5ff 100%);
+            padding: 100px 20px 120px;
+        }
+
+        .csl-bento-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .csl-bento-heading {
+            font-size: 3.5rem;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, #6c32a8 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            letter-spacing: -2px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .csl-bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 240px;
+            gap: 24px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .csl-bento-box {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(108, 50, 168, 0.1);
+            height: 100%;
+        }
+
+        .csl-bento-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6c32a8, #8b5cf6);
+            transform: scaleX(0);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* .csl-bento-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(108, 50, 168, 0.2);
+            border-color: rgba(108, 50, 168, 0.3);
+        } */
+
+        /* .csl-bento-box:hover::before {
+            transform: scaleX(1);
+        } */
+
+        /* Bento Grid Layout - Rearranged positions */
+        .csl-bento-box:nth-child(1) {
+            grid-column: span 2;
+            grid-row: 1;
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+        }
+
+        .csl-bento-box:nth-child(2) {
+            grid-column: span 2;
+            grid-row: 1;
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+        }
+
+        .csl-bento-box:nth-child(3) {
+            grid-column: span 1;
+            grid-row: 2;
+            order: 0;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+        }
+
+        .csl-bento-box:nth-child(4) {
+            grid-column: span 2;
+            grid-row: 2;
+            background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+        }
+
+        .csl-bento-box:nth-child(5) {
+            grid-column: span 1;
+            grid-row: 2;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+        }
+
+        .csl-bento-box:nth-child(6) {
+            grid-column: span 1;
+            grid-row: 3;
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+        }
+
+        .csl-bento-box:nth-child(7) {
+            grid-column: span 1;
+            grid-row: 3;
+            background: linear-gradient(135deg, #fefce8 0%, #fef08a 100%);
+        }
+
+        .csl-bento-box:nth-child(8) {
+            grid-column: span 2;
+            grid-row: 3;
+            background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+        }
+
+        .csl-bento-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .csl-bento-number {
+            font-size: 5rem;
+            font-weight: 900;
+            font-family: 'Space Grotesk', sans-serif;
+            color: rgba(0, 0, 0, 0.05);
+            line-height: 0.8;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1;
+        }
+
+        .csl-bento-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(108, 50, 168, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c32a8;
+            font-size: 28px;
+            z-index: 2;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .csl-bento-box:hover .csl-bento-icon {
+            background: #6c32a8;
+            color: #ffee00;
+        }
+
+        .csl-bento-content {
+            flex: 1;
+            z-index: 2;
+            position: relative;
+        }
+
+        .csl-bento-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1c1c1c;
+            line-height: 1.3;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* Responsive Bento Grid */
+        @media (max-width: 768px) {
+            .csl-bento-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: auto;
+                gap: 16px;
+            }
+
+            .csl-bento-box {
+                padding: 30px;
+            }
+
+            .csl-bento-box:nth-child(1),
+            .csl-bento-box:nth-child(2),
+            .csl-bento-box:nth-child(3),
+            .csl-bento-box:nth-child(4),
+            .csl-bento-box:nth-child(5),
+            .csl-bento-box:nth-child(6),
+            .csl-bento-box:nth-child(7),
+            .csl-bento-box:nth-child(8) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .csl-bento-heading {
+                font-size: 2.2rem;
+            }
+
+            .csl-bento-number {
+                font-size: 3.5rem;
+                top: 15px;
+                right: 15px;
+            }
+
+            .csl-bento-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 24px;
+            }
+
+            .csl-bento-title {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* ── CSL Implementation Process Section ── */
+        .csl-process-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background: #f6f0fa;
+            overflow: hidden;
+        }
+
+        .csl-process-wrapper {
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            padding: 80px 0;
+        }
+
+        .csl-process-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+            display: flex;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .csl-process-heading-wrapper {
+            flex-shrink: 0;
+            width: 400px;
+        }
+
+        .csl-process-heading {
+            font-size: 3.5rem;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1c1c1c;
+            line-height: 1.2;
+            letter-spacing: -2px;
+            position: sticky;
+            top: 50%;
+            /* transform: translateY(-50%); */
+        }
+
+        .csl-process-heading span {
+            display: block;
+        }
+
+        .csl-process-heading .highlight {
+            /* background: linear-gradient(180deg, #6c32a8 0%, #fef08a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text; */
+            color: #6c32a8;
+        }
+
+        .csl-process-heading .highlight2 {
+            color: #e5a93e;
+        }
+
+        .csl-process-cards-container {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .csl-process-cards {
+            display: flex;
+            gap: 30px;
+            will-change: transform;
+        }
+
+        .csl-process-card {
+            flex-shrink: 0;
+            width: 320px;
+            /* background: #ffffff; */
+            background: linear-gradient(135deg, #efdeff 0%, #fffce3 100%);
+            border-radius: 24px;
+            padding: 60px 45px;
+            /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); */
+            border: 1px solid rgba(108, 50, 168, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .csl-process-card:hover {
+            /* transform: translateY(-8px); */
+            /* box-shadow: 0 16px 48px rgba(108, 50, 168, 0.15); */
+            border-color: rgba(108, 50, 168, 0.3);
+        }
+
+        .csl-process-card-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .csl-process-card-icon .material-icons {
+            font-size: 32px;
+            color: #6c32a8;
+        }
+
+        .csl-process-card-title {
+            font-size: 2rem;
+            font-weight: 400;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1c1c1c;
+            line-height: 1.2;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .csl-process-container {
+                flex-direction: column;
+                gap: 40px;
+                padding: 0 20px;
+            }
+
+            .csl-process-heading-wrapper {
+                width: 100%;
+            }
+
+            .csl-process-heading {
+                font-size: 2.5rem;
+                position: static;
+                transform: none;
+            }
+
+            .csl-process-card {
+                width: 280px;
+            }
+        }
+
+        /* ── CSL Path Section ── */
+        .csl-path-section {
+            position: relative;
+            width: 100%;
+            background: linear-gradient(180deg, #f6f0fa 0%, #ffffff 100%);
+            padding: 100px 20px;
+        }
+
+        .csl-path-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .csl-path-heading {
+            font-size: 3.5rem;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1c1c1c;
+            line-height: 1.2;
+            letter-spacing: -2px;
+            margin-bottom: 60px;
+            text-align: left;
+        }
+
+        .csl-path-content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .csl-path-text {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #555;
+            line-height: 1.8;
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            max-width: 550px;
+        }
+
+        .csl-path-image {
+            width: 100%;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .csl-path-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Comparison Table */
+        .csl-comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .csl-comparison-table thead {
+            background: linear-gradient(135deg, #6c32a8 0%, #8b5cf6 100%);
+        }
+
+        .csl-comparison-table thead th {
+            padding: 24px 30px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #ffffff;
+            text-align: left;
+            border: none;
+        }
+
+        .csl-comparison-table thead th:first-child {
+            width: 35%;
+        }
+
+        .csl-comparison-table tbody tr {
+            background: #ffffff;
+            transition: background 0.3s ease;
+        }
+
+        .csl-comparison-table tbody tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .csl-comparison-table tbody tr:hover {
+            background: #f5f3ff;
+        }
+
+        .csl-comparison-table tbody td {
+            padding: 20px 30px;
+            font-size: 1rem;
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .csl-comparison-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .csl-comparison-table tbody td:first-child {
+            font-weight: 600;
+            color: #1c1c1c;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .csl-path-heading {
+                font-size: 2.5rem;
+            }
+
+            .csl-path-content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .csl-path-text {
+                font-size: 1rem;
+            }
+
+            .csl-path-image {
+                height: 250px;
+            }
+
+            .csl-comparison-table thead th,
+            .csl-comparison-table tbody td {
+                padding: 16px 20px;
+                font-size: 0.9rem;
+            }
+
+            .csl-comparison-table thead th {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* ── CSL Projects Section ── */
+        .csl-projects-section {
+            position: relative;
+            width: 100%;
+            background: #ffffff;
+            padding: 100px 20px;
+        }
+
+        .csl-projects-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .csl-projects-heading {
+            font-size: 3.5rem;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #6c32a8;
+            line-height: 1.2;
+            letter-spacing: -2px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .csl-projects-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 100px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .csl-project-image {
+            flex: 1;
+            max-width: 300px;
+            height: 390px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .csl-project-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .csl-project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .csl-projects-heading {
+                font-size: 2.5rem;
+            }
+
+            .csl-projects-wrapper {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .csl-project-image {
+                max-width: 100%;
+                height: 400px;
+            }
+        }
+
+        /* ── CSL Final CTA Section ── */
+        .csl-final-cta-section {
+            position: relative;
+            width: 100%;
+            min-height: 80vh;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #ffffff 0%, #f6f0fa 100%);
+        }
+
+        .csl-final-cta-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 2px solid #6b32a820;
+            border-radius: 24px;
+            padding: 80px;
+            background: #f5e5ff;
+        }
+
+        .csl-cta-heading-final {
+            font-size: 2.5rem;
+            font-weight: 500;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1c1c1c;
+            line-height: 1.1;
+            letter-spacing: 0px;
+        }
+
+        .csl-cta-paragraph {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #666;
+            line-height: 2;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .csl-final-cta-container {
+                padding: 40px 20px;
+            }
+
+            .csl-cta-paragraph {
                 font-size: 1rem;
             }
         }
@@ -787,6 +1670,346 @@
         </div>
     </section>
 
+    <!-- CSL Bento Boxes Section -->
+    <section class="csl-bento-section">
+        <div class="csl-bento-container">
+            <h2 class="csl-bento-heading">One-stop solution for<br />Kaushal Bodh & CSL Mandates</h2>
+
+            <div class="csl-bento-grid">
+                <!-- Bento Box 1 -->
+                <div class="csl-bento-box">
+                    <div class="csl-bento-number">01</div>
+                    <div class="csl-bento-header">
+                        <div class="csl-bento-icon">
+                            <span class="material-icons">flash_on</span>
+                        </div>
+                    </div>
+                    <div class="csl-bento-content">
+                        <h3 class="csl-bento-title">45 Day Lab Implementation</h3>
+                    </div>
+                </div>
+
+                <!-- Bento Box 2 -->
+                <div class="csl-bento-box">
+                    <div class="csl-bento-number">02</div>
+                    <div class="csl-bento-header">
+                        <div class="csl-bento-icon">
+                            <span class="material-icons">event_note</span>
+                        </div>
+                    </div>
+                    <div class="csl-bento-content">
+                        <h3 class="csl-bento-title">Seamless Timetable Integration</h3>
+                    </div>
+                </div>
+
+                <!-- Bento Box 3 -->
+                <div class="csl-bento-box">
+                    <div class="csl-bento-number">03</div>
+                    <div class="csl-bento-header">
+                        <div class="csl-bento-icon">
+                            <span class="material-icons">psychology</span>
+                        </div>
+                    </div>
+                    <div class="csl-bento-content">
+                        <h3 class="csl-bento-title">Challenge Based Pedagogy</h3>
+                    </div>
+                </div>
+
+                <!-- Bento Box 4 -->
+                <div class="csl-bento-box">
+                    <div class="csl-bento-number">04</div>
+                    <div class="csl-bento-header">
+                        <div class="csl-bento-icon">
+                            <span class="material-icons">rocket_launch</span>
+                        </div>
+                    </div>
+                    <div class="csl-bento-content">
+                        <h3 class="csl-bento-title">Ready To Go 18+ Projects</h3>
+                    </div>
+                </div>
+
+                <!-- Bento Box 5 -->
+                <div class="csl-bento-box">
+                    <div class="csl-bento-number">05</div>
+                    <div class="csl-bento-header">
+                        <div class="csl-bento-icon">
+                            <span class="material-icons">school</span>
+                        </div>
+                    </div>
+                    <div class="csl-bento-content">
+                        <h3 class="csl-bento-title">Teacher Training or Thinking Coach</h3>
+                    </div>
+                </div>
+
+                <!-- Bento Box 6 -->
+                <div class="csl-bento-box">
+                    <div class="csl-bento-number">06</div>
+                    <div class="csl-bento-header">
+                        <div class="csl-bento-icon">
+                            <span class="material-icons">construction</span>
+                        </div>
+                    </div>
+                    <div class="csl-bento-content">
+                        <h3 class="csl-bento-title">Equipping Lab with Kaushal Bodh Resources</h3>
+                    </div>
+                </div>
+
+                <!-- Bento Box 7 -->
+                <div class="csl-bento-box">
+                    <div class="csl-bento-number">07</div>
+                    <div class="csl-bento-header">
+                        <div class="csl-bento-icon">
+                            <span class="material-icons">assessment</span>
+                        </div>
+                    </div>
+                    <div class="csl-bento-content">
+                        <h3 class="csl-bento-title">Competency-based Assessment + Digital Portfolio</h3>
+                    </div>
+                </div>
+
+                <!-- Bento Box 8 -->
+                <div class="csl-bento-box">
+                    <div class="csl-bento-number">08</div>
+                    <div class="csl-bento-header">
+                        <div class="csl-bento-icon">
+                            <span class="material-icons">celebration</span>
+                        </div>
+                    </div>
+                    <div class="csl-bento-content">
+                        <h3 class="csl-bento-title">Culmination of Kaushal Mela</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSL Implementation Process Section -->
+    <section class="csl-process-section">
+        <div class="csl-process-wrapper">
+            <div class="csl-process-container">
+                <!-- Left: Sticky Heading -->
+                <div class="csl-process-heading-wrapper">
+                    <h2 class="csl-process-heading">
+                        <span class="highlight">ENpower's</span>
+                        <span>8 step</span>
+                        <span class="highlight2">implementation</span>
+                        <span>process</span>
+                    </h2>
+                </div>
+
+                <!-- Right: Horizontal Scrolling Cards -->
+                <div class="csl-process-cards-container">
+                    <div class="csl-process-cards">
+                        <!-- Card 1 -->
+                        <div class="csl-process-card">
+                            <div class="csl-process-card-icon">
+                                <span class="material-icons">visibility</span>
+                            </div>
+                            <h3 class="csl-process-card-title">Readiness Assessment & Vision Alignment</h3>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="csl-process-card">
+                            <div class="csl-process-card-icon">
+                                <span class="material-icons">architecture</span>
+                            </div>
+                            <h3 class="csl-process-card-title">Infrastructure Setup & Lab Design</h3>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="csl-process-card">
+                            <div class="csl-process-card-icon">
+                                <span class="material-icons">menu_book</span>
+                            </div>
+                            <h3 class="csl-process-card-title">Curriculum Integration & Content Mapping</h3>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="csl-process-card">
+                            <div class="csl-process-card-icon">
+                                <span class="material-icons">school</span>
+                            </div>
+                            <h3 class="csl-process-card-title">Teacher Training & Capacity Building</h3>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div class="csl-process-card">
+                            <div class="csl-process-card-icon">
+                                <span class="material-icons">calendar_month</span>
+                            </div>
+                            <h3 class="csl-process-card-title">Timetable Integration & Resource Allocation</h3>
+                        </div>
+
+                        <!-- Card 6 -->
+                        <div class="csl-process-card">
+                            <div class="csl-process-card-icon">
+                                <span class="material-icons">play_circle</span>
+                            </div>
+                            <h3 class="csl-process-card-title">Pilot Launch & Feedback Loop</h3>
+                        </div>
+
+                        <!-- Card 7 -->
+                        <div class="csl-process-card">
+                            <div class="csl-process-card-icon">
+                                <span class="material-icons">analytics</span>
+                            </div>
+                            <h3 class="csl-process-card-title">Assessment Framework & Digital Portfolio</h3>
+                        </div>
+
+                        <!-- Card 8 -->
+                        <div class="csl-process-card">
+                            <div class="csl-process-card-icon">
+                                <span class="material-icons">celebration</span>
+                            </div>
+                            <h3 class="csl-process-card-title">Kaushal Mela & Annual Showcase</h3>
+                        </div>
+
+                        <!-- Card 9 -->
+                        <div class="csl-process-card">
+                            <div class="csl-process-card-icon">
+                                <span class="material-icons">support_agent</span>
+                            </div>
+                            <h3 class="csl-process-card-title">Ongoing Support & Continuous Improvement</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSL Path Selection Section -->
+    <section class="csl-path-section">
+        <div class="csl-path-container">
+            <!-- Heading -->
+            <h2 class="csl-path-heading">Choose Your CSL<br />Implementation Path</h2>
+
+            <!-- Content with Image -->
+            <div class="csl-path-content-wrapper">
+                <div class="csl-path-text">
+                    Move from CBSE compliance to future-ready learning whenever you are ready. If you are looking to
+                    implement CSL smoothly and meet CBSE requirements with a structured, guided setup - Start with
+                    Foundation & upgrade to Plus when you want to go beyond compliance and build Design Thinking Skills,
+                    Entrepreneurship Mindset, student portfolios, and visible innovation outcomes.
+                </div>
+                <div class="csl-path-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80"
+                        alt="CSL Implementation">
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <table class="csl-comparison-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>ENpower CSL Foundation</th>
+                        <th>ENpower CSL Plus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Objective</td>
+                        <td>Compliance with CBSE Mandate</td>
+                        <td>Compliance with CBSE + Entrepreneurship, Design Thinking & Tech Skill Building</td>
+                    </tr>
+                    <tr>
+                        <td>Choice of Kaushal Bodh Projects To Select From</td>
+                        <td>09</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td>Program Outcome</td>
+                        <td>Students learn skills via limited number of Kaushal Bodh Projects</td>
+                        <td>Students learn real-life problem-solving through Design Thinking along with Kaushal Bodh
+                            Projects</td>
+                    </tr>
+                    <tr>
+                        <td>Tech Learning</td>
+                        <td>Basic</td>
+                        <td>Electronics + Coding + IoT + AI</td>
+                    </tr>
+                    <tr>
+                        <td>Lab Setup</td>
+                        <td>Equipments only for 9 projects – CSL compliant</td>
+                        <td>Equipments for 18 projects + basic tech elements – CSL compliant</td>
+                    </tr>
+                    <tr>
+                        <td>Teacher Capacity Building</td>
+                        <td>Basic (Virtual)</td>
+                        <td>Intense (Hybrid)</td>
+                    </tr>
+                    <tr>
+                        <td>ENpower Thinking Coach Option</td>
+                        <td>Not Applicable</td>
+                        <td>Applicable</td>
+                    </tr>
+                    <tr>
+                        <td>Skill Assessment and Reporting</td>
+                        <td>Competency Reporting – Basic</td>
+                        <td>Personalised Skill Competency Report aligned to HPC</td>
+                    </tr>
+                    <tr>
+                        <td>Support for Kaushal Mela</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- CSL Projects Section -->
+    <section class="csl-projects-section">
+        <div class="csl-projects-container">
+            <!-- Heading -->
+            <h2 class="csl-projects-heading">3 Projects in a year,<br />covering each form of work</h2>
+
+            <!-- Images in Column -->
+            <div class="csl-projects-wrapper">
+                <div class="csl-project-image">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80" alt="Project 1">
+                </div>
+                <div class="csl-project-image">
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1200&q=80" alt="Project 2">
+                </div>
+                <div class="csl-project-image">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80" alt="Project 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSL Final CTA Section -->
+    <section class="csl-final-cta-section">
+        <div class="csl-final-cta-container">
+            <div class="csl-cta-grid">
+                <!-- Left Grid: Heading, Paragraph and Button -->
+                <div class="csl-cta-left">
+                    <h2 class="csl-cta-heading-final">Ready to Get Started?</h2>
+                    <p class="csl-cta-paragraph">
+                        Select your pathway and book a readiness call with ENpower. Not sure which plan fits your
+                        school? Book a 30-minute CSL readiness call — we'll help you decide
+                    </p>
+                    <button class="csl-cta-button">
+                        Connect With Us
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Right Grid: Image -->
+                <div class="csl-cta-right">
+                    <div class="csl-cta-image-wrapper">
+                        <img src="assets/Group 47.png" alt="Students in classroom" class="csl-cta-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer will be loaded here -->
     <div id="footer-placeholder"></div>
 
@@ -802,6 +2025,12 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-placeholder').innerHTML = data;
+
+                // Animate header entrance after it's loaded
+                const mainNav = document.querySelector('.en-main-nav');
+                if (mainNav && typeof gsap !== 'undefined') {
+                    gsap.to(mainNav, { opacity: 1, y: 0, duration: 0.8, delay: 0.2 });
+                }
             })
             .catch(error => console.error('Error loading header:', error));
 
@@ -810,6 +2039,27 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-placeholder').innerHTML = data;
+
+                // Initialize Back to Top Button after footer is loaded
+                const backToTopButton = document.getElementById('backToTop');
+                if (backToTopButton) {
+                    // Show/hide button based on scroll position
+                    window.addEventListener('scroll', function () {
+                        if (window.pageYOffset > 300) {
+                            backToTopButton.classList.add('show');
+                        } else {
+                            backToTopButton.classList.remove('show');
+                        }
+                    });
+
+                    // Scroll to top when button is clicked
+                    backToTopButton.addEventListener('click', function () {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    });
+                }
             })
             .catch(error => console.error('Error loading footer:', error));
 
@@ -974,6 +2224,35 @@
                         });
                     }
                 });
+
+                // Horizontal scroll animation for process cards
+                const processSection = document.querySelector('.csl-process-section');
+                const processCards = document.querySelector('.csl-process-cards');
+
+                if (processSection && processCards) {
+                    // Calculate the total scroll distance needed
+                    const cardsArray = gsap.utils.toArray('.csl-process-card');
+                    const cardWidth = 320; // Card width from CSS
+                    const gap = 30; // Gap from CSS
+                    const totalWidth = (cardWidth + gap) * cardsArray.length;
+                    const containerWidth = document.querySelector('.csl-process-cards-container').offsetWidth;
+                    const scrollDistance = totalWidth - containerWidth + gap;
+
+                    // Create the horizontal scroll animation
+                    gsap.to(processCards, {
+                        x: -scrollDistance,
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger: processSection,
+                            start: 'top top',
+                            end: () => `+=${scrollDistance * 2}`, // Adjust scroll distance for smooth effect
+                            scrub: 1,
+                            pin: true,
+                            anticipatePin: 1,
+                            invalidateOnRefresh: true
+                        }
+                    });
+                }
             }
         });
     </script>
