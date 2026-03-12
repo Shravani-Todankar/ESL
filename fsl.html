@@ -134,29 +134,36 @@
         /* ── FSL Top section: text block + right pill ── */
         .fsl-top-section {
             display: flex;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
             gap: 32px;
+            text-align: center;
+            margin-top: 50px;
         }
 
         /* ── FSL Text block ── */
         .fsl-text-block {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            gap: 20px;
+            align-items: center;
+            gap: 15px;
+            text-align: center;
         }
 
-        /* ── FSL Row 1: "From CBSE" — left-most ── */
+        /* ── FSL Row 1: "From CBSE" — centered start ── */
         .fsl-row-1 {
-            font-size: 42px;
+            display: flex;
+            row-gap: 24px;
+            flex-direction: column;
+            font-size: 80px;
             font-weight: 400;
             font-family: 'Space Grotesk', sans-serif;
             color: #1c1c1c;
             line-height: 1.1;
             letter-spacing: -1.5px;
             align-self: flex-start;
-            padding-left: 50px;
+            padding-left: 0px;
         }
 
         .fsl-row-1 .fsl-cbse {
@@ -165,18 +172,19 @@
             font-family: 'Space Grotesk', sans-serif;
             color: #6c32a8;
             letter-spacing: -2px;
+            padding-left: 162px;
         }
 
-        /* ── FSL Row 2: "Mandate" — indented right ── */
+        /* ── FSL Row 2: "Mandate" — centered ── */
         .fsl-row-2 {
             font-size: 80px;
             font-weight: 800;
             font-family: 'Space Grotesk', sans-serif;
-            color: #6c32a8;
+            color: #e5a93e;
             line-height: 1.1;
             letter-spacing: -2px;
-            align-self: flex-start;
-            padding-left: 360px;
+            align-self: center;
+            padding-left: 0px;
             margin-top: -6px;
             margin-bottom: 10px;
         }
@@ -184,22 +192,24 @@
         /* ── FSL Bottom section: left pill + right text ── */
         .fsl-bottom-section {
             display: flex;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
             gap: 32px;
-            margin-top: 0px;
+            margin-top: 20px;
+            text-align: center;
         }
 
-        /* ── FSL Row 3: "To Meaningful" — more indented ── */
+        /* ── FSL Row 3: "To Meaningful" — centered ── */
         .fsl-row-3 {
-            font-size: 42px;
+            font-size: 80px;
             font-weight: 400;
             font-family: 'Space Grotesk', sans-serif;
             color: #1c1c1c;
             line-height: 1.1;
             letter-spacing: -1.5px;
-            align-self: flex-start;
-            padding-left: 30px;
+            align-self: center;
+            padding-left: 0px;
             margin-top: 4px;
         }
 
@@ -211,7 +221,7 @@
             letter-spacing: -2px;
         }
 
-        /* ── FSL Row 4: "Transformation" — most indented ── */
+        /* ── FSL Row 4: "Transformation" — centered ── */
         .fsl-row-4 {
             font-size: 80px;
             font-weight: 800;
@@ -219,8 +229,8 @@
             color: #e5a93e;
             line-height: 1.1;
             letter-spacing: -2px;
-            align-self: flex-start;
-            padding-left: 80px;
+            align-self: center;
+            padding-left: 0px;
             margin-top: -6px;
         }
 
@@ -243,6 +253,9 @@
         .fsl-pill-right {
             width: 320px;
             height: 100px;
+            position: absolute;
+            right: 30px;
+            top: 0px;
         }
 
         /* FSL Left pill (sits beside row3+row4) */
@@ -271,6 +284,398 @@
             color: #555;
             margin-top: 13px;
         }
+
+        /* ── FSL Video Section ── */
+        .fsl-video-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 120px;
+            background: #f6f0fa;
+        }
+
+        .fsl-video-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .fsl-video-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .fsl-video {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+
+        /* ── FSL CTA Section ── */
+        .fsl-cta-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px;
+        }
+
+        .fsl-cta-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border-radius: 24px;
+            padding: 80px;
+        }
+
+        .fsl-cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .fsl-cta-left {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .fsl-cta-heading {
+            font-size: 2.5rem;
+            font-weight: 500;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1c1c1c;
+            line-height: 1.1;
+            letter-spacing: 0px;
+            width: 200px;
+        }
+
+        .fsl-cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            background: #6c32a8;
+            color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            align-self: flex-start;
+        }
+
+        .fsl-cta-button:hover {
+            background: #7C3AED;
+            transform: translateY(-3px);
+        }
+
+        .fsl-cta-button svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .fsl-cta-button:hover svg {
+            transform: translateX(4px);
+        }
+
+        .fsl-cta-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .fsl-cta-image-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .fsl-cta-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* ── FSL 3D Tour Section ── */
+        .fsl-tour-section {
+            position: relative;
+            width: 100%;
+            background: #f6f0fa;
+            padding: 100px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fsl-tour-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .fsl-tour-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -2px;
+            text-align: center;
+            color: #6c32a8;
+        }
+
+        .fsl-tour-heading .tour-highlight {
+            font-size: 5rem;
+            font-weight: 900;
+            color: #e5a93e;
+            letter-spacing: -3px;
+            display: inline;
+        }
+
+        .fsl-tour-video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .fsl-tour-video {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .fsl-tour-section {
+                padding: 60px 20px;
+            }
+
+            .fsl-tour-heading {
+                font-size: 2rem;
+            }
+
+            .fsl-tour-heading .tour-highlight {
+                font-size: 3rem;
+            }
+
+            .fsl-tour-video-wrapper {
+                border-radius: 12px;
+            }
+        }
+
+        /* ── FSL Path Section ── */
+        .fsl-path-section {
+            position: relative;
+            width: 100%;
+            background: #f6f0fa;
+            padding: 100px 20px;
+        }
+
+        .fsl-path-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .fsl-path-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -2px;
+            text-align: left;
+            color: #6c32a8;
+        }
+
+        .fsl-path-heading .matter-highlight {
+            font-size: 5rem;
+            font-weight: 900;
+            color: #e5a93e;
+            letter-spacing: -3px;
+            display: inline;
+        }
+
+        .fsl-path-content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .fsl-path-text {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #555;
+            line-height: 1.8;
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            max-width: 550px;
+        }
+
+        .fsl-path-image {
+            width: 100%;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .fsl-path-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .fsl-path-section {
+                padding: 60px 20px;
+            }
+
+            .fsl-path-heading {
+                font-size: 2.5rem;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            .fsl-path-content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                margin-bottom: 40px;
+            }
+
+            .fsl-path-text {
+                font-size: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .fsl-path-image {
+                height: 250px;
+            }
+        }
+
+        /* ── FSL grid1 Section ── */
+        .fsl-path-section1 {
+            position: relative;
+            width: 100%;
+            background: #f6f0fa;
+            padding: 100px 20px;
+        }
+
+        .fsl-path-container1 {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .fsl-path-heading1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -2px;
+            text-align: left;
+            color: #6c32a8;
+        }
+
+        .fsl-path-heading1 .matter-highlight1 {
+            font-size: 5rem;
+            font-weight: 900;
+            color: #e5a93e;
+            letter-spacing: -3px;
+            display: inline;
+        }
+
+        .fsl-path-content-wrapper1 {
+            display: grid;
+            grid-template-columns: 1fr 550px;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .fsl-path-text1 {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #555;
+            line-height: 1.8;
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            max-width: 550px;
+        }
+
+        .fsl-path-image1 {
+            width: 80%;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .fsl-path-image1 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .fsl-path-section1 {
+                padding: 60px 20px;
+            }
+
+            .fsl-path-heading1 {
+                font-size: 2.5rem;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            .fsl-path-content-wrapper1 {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                margin-bottom: 40px;
+            }
+
+            .fsl-path-text1 {
+                font-size: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .fsl-path-image1 {
+                height: 250px;
+            }
+        }
     </style>
 </head>
 
@@ -292,8 +697,8 @@
         <!-- Top: "From CBSE / Mandate" + right pill -->
         <div class="fsl-top-section">
             <div class="fsl-text-block">
-                <span class="fsl-row-1"><span class="fsl-cbse">India's First Integrated</span></span>
-                <span class="fsl-row-2">Future Skills</span>
+                <span class="fsl-row-1">India's<br /><span class="fsl-cbse">First Integrated</span></span>
+                <span class="fsl-row-2">Future Skills Ecosystem</span>
             </div>
             <div class="fsl-pill fsl-pill-right">
                 <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=700&q=80" alt="placeholder" />
@@ -306,8 +711,8 @@
                 <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" alt="placeholder" />
             </div>
             <div class="fsl-text-block">
-                <span class="fsl-row-3"><span class="fsl-meaningful">Ecosystem</span></span>
-                <span class="fsl-row-4">for Schools</span>
+                <!-- <span class="fsl-row-3"><span class="fsl-meaningful">Ecosystem</span></span> -->
+                <span class="fsl-row-3">for Schools</span>
             </div>
         </div>
 
@@ -318,6 +723,118 @@
         </div>
 
     </div>
+
+    <!-- FSL Video Section -->
+    <div class="fsl-video-section" id="fslVideoSection">
+        <div class="fsl-video-container">
+            <div class="fsl-video-wrapper">
+                <iframe class="fsl-video"
+                    src="https://www.youtube.com/embed/i3kHrKy34yM?autoplay=1&mute=1&loop=1&playlist=i3kHrKy34yM&controls=0&showinfo=0&rel=0&modestbranding=1"
+                    title="FSL Video" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- FSL CTA Section -->
+    <section class="fsl-cta-section">
+        <div class="fsl-cta-container">
+            <div class="fsl-cta-grid">
+                <!-- Left Grid: Heading and Button -->
+                <div class="fsl-cta-left">
+                    <h2 class="fsl-cta-heading">Book a 30-min readiness call</h2>
+                    <button class="fsl-cta-button">
+                        Contact Us
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Right Grid: Image -->
+                <div class="fsl-cta-right">
+                    <div class="fsl-cta-image-wrapper">
+                        <img src="assets/Group 47.png" alt="Students in classroom" class="fsl-cta-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FSL 3D Tour Section -->
+    <section class="fsl-tour-section">
+        <div class="fsl-tour-container">
+            <!-- Heading -->
+            <h2 class="fsl-tour-heading">
+                Take a <span class="tour-highlight">3D Tour</span> of our<br />
+                Future Skills Lab.
+            </h2>
+
+            <!-- Video -->
+            <div class="fsl-tour-video-wrapper">
+                <iframe class="fsl-tour-video"
+                    src="https://www.youtube.com/embed/i3kHrKy34yM?controls=1&showinfo=1&rel=0&modestbranding=1"
+                    title="3D Tour of Future Skills Lab" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FSL Path Selection Section -->
+    <section class="fsl-path-section">
+        <div class="fsl-path-container">
+            <!-- Heading -->
+            <h2 class="fsl-path-heading">Why Do<br /><span class="matter-highlight">Future Skills</span><br />Matter?
+            </h2>
+
+            <!-- Content with Image -->
+            <div class="fsl-path-content-wrapper">
+                <div class="fsl-path-text">
+                    The future of work is evolving rapidly. To nurture today's school children as tomorrow's global
+                    workforce, school education must move beyond traditional boundaries. Global Skill Frameworks, NEP
+                    2020, and Indian Educational Boards emphasize the need to build competencies in 21st-century life
+                    skills, emerging technologies, innovative thinking, and entrepreneurial mindsets, calling for a
+                    comprehensive skill framework.
+                </div>
+                <div class="fsl-path-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80"
+                        alt="FSL Implementation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FSL grid section -->
+    <section class="fsl-path-section1">
+        <div class="fsl-path-container1">
+            <!-- Heading -->
+            <h2 class="fsl-path-heading1">ENpower's<br /><span class="matter-highlight1">Future Skills</span><br />Labs
+            </h2>
+
+            <!-- Content with Image -->
+            <div class="fsl-path-content-wrapper1">
+                <div class="fsl-path-image1">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80"
+                        alt="FSL Implementation">
+                </div>
+                <div class="fsl-path-text1">
+                    India's first Integrated Future-Skills Ecosystem that transforms the way your school prepares
+                    children for the future. It is the preferred choice for schools that prioritize holistic
+                    development. It offers structured skill programs based on globally identified 'Skills of the Future'
+                    frameworks, covering 17 future-ready skills, along with state-of-the-art experiential learning
+                    spaces, personalized learning goals, competency-based skill assessments, and support ENpower's
+                    Thinking Coaches. ENpower enables every child to grow into confident thinkers, leaders, and job
+                    creators.
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer will be loaded here -->
     <div id="footer-placeholder"></div>
@@ -373,10 +890,10 @@
             .catch(error => console.error('Error loading footer:', error));
 
         /* ==========================================================
-           CSL WAVE CANVAS ANIMATION
+           FSL WAVE CANVAS ANIMATION
            ========================================================== */
         (function () {
-            const canvas = document.getElementById('cslWaveCanvas');
+            const canvas = document.getElementById('fslWaveCanvas');
             const ctx = canvas.getContext('2d');
 
             let width, height;

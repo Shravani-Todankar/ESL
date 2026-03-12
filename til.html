@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Innovation Labs - ENpower</title>
+    <meta name="description"
+        content="ENpower's Tech Innovation Labs - Transforming Traditional STEM Learning With Design Thinking & Entrepreneurship.">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f6f0fa;
+            overflow-x: hidden;
+        }
+
+        /* CSL Hero Section */
+
+        .csl-hero-section {
+            width: 100%;
+            background: #f6f0fa;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        #cslWaveCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .csl-hero-section>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ── CSL Sparkle Stars ── */
+        .csl-deco {
+            position: absolute;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .csl-sparkle {
+            color: #E5A817;
+            font-size: 2rem;
+            line-height: 1;
+            animation: cslSparklePulse 2.5s ease-in-out infinite;
+        }
+
+        .csl-sparkle-1 {
+            top: 15%;
+            left: 8%;
+            font-size: 1.8rem;
+            animation-delay: 0s;
+        }
+
+        .csl-sparkle-2 {
+            top: 30%;
+            left: 31%;
+            font-size: 1rem;
+            animation-delay: 0.8s;
+        }
+
+        .csl-sparkle-3 {
+            bottom: 18%;
+            right: 25%;
+            font-size: 1.6rem;
+            animation-delay: 1.2s;
+        }
+
+        .csl-sparkle-4 {
+            bottom: 25%;
+            left: 6%;
+            font-size: 1.2rem;
+            animation-delay: 0.4s;
+        }
+
+        .csl-sparkle-5 {
+            top: 30%;
+            right: 8%;
+            font-size: 1rem;
+            animation-delay: 1.6s;
+        }
+
+        @keyframes cslSparklePulse {
+
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: scale(1) rotate(0deg);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.3) rotate(15deg);
+            }
+        }
+
+        /* ── CSL Top section: text block + right pill ── */
+        .csl-top-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        /* ── CSL Text block ── */
+        .csl-text-block {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        /* ── CSL Row 1: "From CBSE" — left-most ── */
+        .csl-row-1 {
+            font-size: 42px;
+            font-weight: 400;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1c1c1c;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            align-self: flex-start;
+            padding-left: 50px;
+        }
+
+        .csl-row-1 .csl-cbse {
+            font-size: 80px;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #6c32a8;
+            letter-spacing: -2px;
+        }
+
+        /* ── CSL Row 2: "Mandate" — indented right ── */
+        .csl-row-2 {
+            font-size: 80px;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #6c32a8;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            align-self: flex-start;
+            padding-left: 160px;
+            margin-top: -6px;
+            margin-bottom: 10px;
+        }
+
+        /* ── CSL Bottom section: left pill + right text ── */
+        .csl-bottom-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 0px;
+        }
+
+        /* ── CSL Row 3: "To Meaningful" — more indented ── */
+        .csl-row-3 {
+            font-size: 42px;
+            font-weight: 400;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1c1c1c;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            align-self: flex-start;
+            padding-left: 30px;
+            margin-top: 4px;
+        }
+
+        .csl-row-3 .csl-meaningful {
+            font-size: 80px;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #e5a93e;
+            letter-spacing: -2px;
+        }
+
+        /* ── CSL Row 4: "Transformation" — most indented ── */
+        .csl-row-4 {
+            font-size: 80px;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #e5a93e;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            align-self: flex-start;
+            padding-left: 80px;
+            margin-top: -6px;
+        }
+
+        /* ── CSL Pills ── */
+        .csl-pill {
+            border-radius: 999px;
+            overflow: hidden;
+            background: #d0d0d0;
+            flex-shrink: 0;
+        }
+
+        .csl-pill img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* CSL Right pill (sits beside row1+row2) */
+        .csl-pill-right {
+            width: 320px;
+            height: 100px;
+        }
+
+        /* CSL Left pill (sits beside row3+row4) */
+        .csl-pill-left {
+            width: 320px;
+            height: 100px;
+        }
+
+        /* ── CSL Sub text ── */
+        .csl-subtext {
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .csl-subtext .csl-s1 {
+            display: block;
+            font-size: 20px;
+            font-weight: 400;
+            color: #1c1c1c;
+        }
+
+        .csl-subtext .csl-s2 {
+            display: block;
+            font-size: 17px;
+            font-weight: 300;
+            color: #555;
+            margin-top: 13px;
+        }
+
+        /* ── CSL Video Section ── */
+        .csl-video-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 120px;
+            background: #f6f0fa;
+        }
+
+        .csl-video-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .csl-video-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .csl-video {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+
+        /* ── CSL CTA Section ── */
+        .csl-cta-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px;
+        }
+
+        .csl-cta-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border-radius: 24px;
+            padding: 80px;
+        }
+
+        .csl-cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .csl-cta-left {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .csl-cta-heading {
+            font-size: 2.5rem;
+            font-weight: 500;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1c1c1c;
+            line-height: 1.1;
+            letter-spacing: 0px;
+            width: 200px;
+        }
+
+        .csl-cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            background: #6c32a8;
+            color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            align-self: flex-start;
+        }
+
+        .csl-cta-button:hover {
+            background: #7C3AED;
+            transform: translateY(-3px);
+        }
+
+        .csl-cta-button svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .csl-cta-button:hover svg {
+            transform: translateX(4px);
+        }
+
+        .csl-cta-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .csl-cta-image-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .csl-cta-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* CSL Responsive */
+        @media (max-width: 768px) {
+            /* Hero Section Mobile */
+            .csl-hero-section {
+                padding: 100px 20px 60px;
+                min-height: auto;
+            }
+
+            .csl-row-1,
+            .csl-row-3 {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .csl-row-1 .csl-cbse,
+            .csl-row-2,
+            .csl-row-3 .csl-meaningful,
+            .csl-row-4 {
+                font-size: 32px;
+            }
+
+            .csl-pill-right {
+                width: 120px;
+                height: 40px;
+            }
+
+            .csl-pill-left {
+                width: 120px;
+                height: 40px;
+            }
+
+            .csl-top-section,
+            .csl-bottom-section {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+
+            .csl-text-block {
+                align-items: center;
+                text-align: center;
+            }
+
+            .csl-row-1,
+            .csl-row-2,
+            .csl-row-3,
+            .csl-row-4 {
+                padding-left: 0;
+                align-self: center;
+            }
+
+            .csl-subtext {
+                margin-top: 40px;
+                padding: 0 10px;
+            }
+
+            .csl-subtext .csl-s1 {
+                font-size: 16px;
+            }
+
+            .csl-subtext .csl-s2 {
+                font-size: 14px;
+            }
+
+            .csl-sparkle {
+                display: none;
+            }
+
+            /* Video Section Mobile */
+            .csl-video-section {
+                padding: 40px 20px;
+                min-height: auto;
+            }
+
+            .csl-video-wrapper {
+                border-radius: 12px;
+            }
+
+            /* CTA Section Mobile */
+            .csl-cta-section {
+                padding: 60px 20px;
+                min-height: auto;
+            }
+
+            .csl-cta-container {
+                padding: 40px 20px;
+            }
+
+            .csl-cta-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .csl-cta-heading {
+                font-size: 1.8rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .csl-cta-button {
+                padding: 14px 28px;
+                font-size: 0.95rem;
+                align-self: center;
+            }
+
+            .csl-cta-right {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+
+    <!-- CSL Hero Section -->
+    <div class="csl-hero-section">
+        <canvas id="cslWaveCanvas"></canvas>
+
+        <!-- Sparkle Stars -->
+        <div class="csl-deco csl-sparkle csl-sparkle-1">✦</div>
+        <div class="csl-deco csl-sparkle csl-sparkle-2">✦</div>
+        <div class="csl-deco csl-sparkle csl-sparkle-3">✦</div>
+        <div class="csl-deco csl-sparkle csl-sparkle-4">✦</div>
+        <div class="csl-deco csl-sparkle csl-sparkle-5">✦</div>
+
+        <!-- Top: "From CBSE / Mandate" + right pill -->
+        <div class="csl-top-section">
+            <div class="csl-text-block">
+                <span class="csl-row-1">From <span class="csl-cbse">CBSE</span></span>
+                <span class="csl-row-2">Mandate</span>
+            </div>
+            <div class="csl-pill csl-pill-right">
+                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=700&q=80" alt="placeholder" />
+            </div>
+        </div>
+
+        <!-- Bottom: left pill + "To Meaningful / Transformation" -->
+        <div class="csl-bottom-section">
+            <div class="csl-pill csl-pill-left">
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" alt="placeholder" />
+            </div>
+            <div class="csl-text-block">
+                <span class="csl-row-3">To <span class="csl-meaningful">Meaningful</span></span>
+                <span class="csl-row-4">Transformation</span>
+            </div>
+        </div>
+
+        <!-- Sub text -->
+        <div class="csl-subtext">
+            <span class="csl-s1">Simplifying Composite Skills Lab &amp; Kaushal Bodh Implementation</span>
+            <span class="csl-s2">For Grades 6–8 | Fully aligned with NEP 2020</span>
+        </div>
+
+    </div>
+
+    <!-- CSL Video Section -->
+    <div class="csl-video-section" id="cslVideoSection">
+        <div class="csl-video-container">
+            <div class="csl-video-wrapper">
+                <iframe class="csl-video"
+                    src="https://www.youtube.com/embed/i3kHrKy34yM?autoplay=1&mute=1&loop=1&playlist=i3kHrKy34yM&controls=0&showinfo=0&rel=0&modestbranding=1"
+                    title="CSL Video" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- CSL CTA Section -->
+    <section class="csl-cta-section">
+        <div class="csl-cta-container">
+            <div class="csl-cta-grid">
+                <!-- Left Grid: Heading and Button -->
+                <div class="csl-cta-left">
+                    <h2 class="csl-cta-heading">Book a 30-min readiness call</h2>
+                    <button class="csl-cta-button">
+                        Contact Us
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Right Grid: Image -->
+                <div class="csl-cta-right">
+                    <div class="csl-cta-image-wrapper">
+                        <img src="assets/Group 47.png" alt="Students in classroom" class="csl-cta-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        /* ==========================================================
+           LOAD HEADER AND FOOTER
+           ========================================================== */
+        // Load Header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+
+                // Animate header entrance after it's loaded
+                const mainNav = document.querySelector('.en-main-nav');
+                if (mainNav && typeof gsap !== 'undefined') {
+                    gsap.to(mainNav, { opacity: 1, y: 0, duration: 0.8, delay: 0.2 });
+                }
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load Footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+
+                // Initialize Back to Top Button after footer is loaded
+                const backToTopButton = document.getElementById('backToTop');
+                if (backToTopButton) {
+                    // Show/hide button based on scroll position
+                    window.addEventListener('scroll', function () {
+                        if (window.pageYOffset > 300) {
+                            backToTopButton.classList.add('show');
+                        } else {
+                            backToTopButton.classList.remove('show');
+                        }
+                    });
+
+                    // Scroll to top when button is clicked
+                    backToTopButton.addEventListener('click', function () {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    });
+                }
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        /* ==========================================================
+           CSL WAVE CANVAS ANIMATION
+           ========================================================== */
+        (function () {
+            const canvas = document.getElementById('cslWaveCanvas');
+            const ctx = canvas.getContext('2d');
+
+            let width, height;
+            let mouseX = -1000, mouseY = -1000;
+            let scrollY = 0;
+            const WAVE_COUNT = 24;
+            const INFLUENCE_RADIUS = 250;
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            document.addEventListener('mouseleave', () => {
+                mouseX = -1000;
+                mouseY = -1000;
+            });
+            window.addEventListener('scroll', () => { scrollY = window.scrollY; });
+
+            const waves = [];
+            for (let i = 0; i < WAVE_COUNT; i++) {
+                const group = Math.floor(i / 8);
+                waves.push({
+                    position: 0.3 + group * 0.2 + (Math.random() * 0.05),
+                    amplitude: 40 + Math.random() * 50,
+                    frequency: 0.001 + Math.random() * 0.001,
+                    speed: 0.0002 + Math.random() * 0.0003,
+                    phase: i * 0.2,
+                    opacity: 0.08 + Math.random() * 0.05,
+                    thickness: 0.5 + Math.random() * 0.5
+                });
+            }
+
+            let time = 0;
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                const parallaxOffset = scrollY * 0.1;
+
+                for (let w = 0; w < waves.length; w++) {
+                    const wave = waves[w];
+
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(180, 120, 220, ${wave.opacity})`;
+                    ctx.lineWidth = wave.thickness;
+
+                    const step = 6;
+                    for (let x = -10; x <= width + 10; x += step) {
+                        const diagonalPos = (x / width) + (wave.position - 0.5);
+                        let y = height - (diagonalPos * height) + parallaxOffset;
+
+                        y += Math.sin(x * wave.frequency + time * wave.speed * 1000 + wave.phase) * wave.amplitude;
+                        y += Math.sin(x * wave.frequency * 0.5 + time * wave.speed * 500) * (wave.amplitude * 0.3);
+
+                        const dx = x - mouseX;
+                        const dy = y - mouseY;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < INFLUENCE_RADIUS) {
+                            const influence = 1 - dist / INFLUENCE_RADIUS;
+                            const smoothInfluence = influence * influence * (3 - 2 * influence);
+                            const pushStrength = 40 * smoothInfluence;
+                            const angle = Math.atan2(dy, dx);
+                            y += Math.sin(angle) * pushStrength;
+                        }
+
+                        if (x === -10) { ctx.moveTo(x, y); }
+                        else { ctx.lineTo(x, y); }
+                    }
+                    ctx.stroke();
+                }
+
+                time = performance.now() / 1000;
+                requestAnimationFrame(draw);
+            }
+
+            draw();
+        })();
+
+        /* ==========================================================
+           GSAP ANIMATIONS FOR HEADER
+           ========================================================== */
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkGSAP = setInterval(() => {
+                if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                    clearInterval(checkGSAP);
+                    initAnimations();
+                }
+            }, 50);
+
+            function initAnimations() {
+                // Register GSAP plugins
+                gsap.registerPlugin(ScrollTrigger);
+
+                const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+                // Nav entrance animation
+                tl.to('.en-main-nav', { opacity: 1, y: 0, duration: 0.8, delay: 0.2 });
+
+                // Floating animation for CSL pills
+                document.querySelectorAll('.csl-pill').forEach((pill, index) => {
+                    const offset = index * 0.3;
+                    gsap.to(pill, {
+                        y: -8,
+                        duration: 2.2 + offset * 0.3,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: 'sine.inOut',
+                        delay: offset
+                    });
+                });
+
+                // Hero section fade out when video section appears
+                gsap.to('.csl-hero-section', {
+                    opacity: 0,
+                    ease: 'power2.in',
+                    scrollTrigger: {
+                        trigger: '.csl-video-section',
+                        start: 'top bottom',
+                        end: 'top center',
+                        scrub: 1,
+                        invalidateOnRefresh: true
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

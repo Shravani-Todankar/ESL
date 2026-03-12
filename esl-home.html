@@ -1056,7 +1056,7 @@
             padding-left: max(5vw, calc((100vw - 1200px) / 2));
             padding-right: calc((100vw - 400px) / 2);
             align-items: center;
-            overflow-x: auto;
+            /* overflow-x: auto; - Removed to let GSAP handle horizontal scroll */
             /* Center items vertically */
         }
 
@@ -5519,6 +5519,12 @@
                 const storyCards = gsap.utils.toArray('.story-card');
                 const heading = document.getElementById('stories-heading');
 
+                console.log('Stories Debug:', {
+                    storiesSection: !!storiesSection,
+                    storiesScroll: !!storiesScroll,
+                    storyCardsCount: storyCards.length
+                });
+
                 if (storiesSection && storiesScroll && storyCards.length > 0) {
                     // Calculate total scroll width
                     const getScrollWidth = () => {
@@ -5554,6 +5560,8 @@
                         ease: "none",
                         duration: 1
                     });
+
+                    console.log('Stories horizontal scroll initialized. Max scroll:', getMaxScroll());
 
                     // Navigation Buttons (manual overrides)
                     const storyPrev = document.getElementById('story-prev');
