@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENpower — Nurturing Future Creators</title>
+    <meta name="description"
+        content="ENpower is nurturing a generation of future creators through innovation labs, robotics, AI learning, and design thinking workshops.">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <!-- Material Symbols Outlined -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- ===== NAVIGATION ===== -->
+    <div id="header-placeholder"></div>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+        <canvas id="waveCanvas"></canvas>
+
+        <!-- ===== DECORATIVE ELEMENTS ===== -->
+
+        <!-- Sparkle stars -->
+        <div class="deco sparkle sparkle-1">✦</div>
+        <div class="deco sparkle sparkle-2">✦</div>
+        <div class="deco sparkle sparkle-3">✦</div>
+        <div class="deco sparkle sparkle-4">✦</div>
+        <div class="deco sparkle sparkle-5">✦</div>
+
+
+
+        <!-- Rocket doodle (hand-drawn style) -->
+        <svg class="deco rocket-deco" viewBox="0 0 180 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Rocket body -->
+            <path
+                d="M90 20 C92 18 100 30 105 50 C112 75 115 110 112 140 C110 155 105 165 100 170 L80 170 C75 165 70 155 68 140 C65 110 68 75 75 50 C80 30 88 18 90 20Z"
+                stroke="#2D2D2D" stroke-width="2.5" stroke-linecap="round" fill="none" />
+            <!-- Window -->
+            <ellipse cx="90" cy="90" rx="14" ry="16" stroke="#2D2D2D" stroke-width="2.5" fill="none" />
+            <ellipse cx="90" cy="90" rx="8" ry="9" stroke="#C4A0E0" stroke-width="1.5" fill="rgba(196,160,224,0.15)" />
+            <!-- Nose cone -->
+            <path d="M85 30 Q90 15 95 30" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round" fill="none" />
+            <!-- Left fin -->
+            <path d="M68 135 C55 145 48 165 50 175 C55 172 65 168 72 160" stroke="#2D2D2D" stroke-width="2.5"
+                stroke-linecap="round" fill="none" />
+            <!-- Right fin -->
+            <path d="M112 135 C125 145 132 165 130 175 C125 172 115 168 108 160" stroke="#2D2D2D" stroke-width="2.5"
+                stroke-linecap="round" fill="none" />
+            <!-- Exhaust flames -->
+            <path d="M82 170 Q85 190 90 200 Q95 190 98 170" stroke="#E5A817" stroke-width="2" stroke-linecap="round"
+                fill="none" opacity="0.7" />
+            <path d="M86 170 Q88 185 90 192 Q92 185 94 170" stroke="#E5A817" stroke-width="1.5" stroke-linecap="round"
+                fill="none" opacity="0.5" />
+        </svg>
+
+        <!-- ===== HERO CONTENT ===== -->
+        <div class="hero-content">
+            <h1 class="heading">
+                <!-- Line 1 -->
+                <span class="heading-line">
+                    Nurturing a
+                    <span class="capsule capsule-sm" data-float-offset="0">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=250&fit=crop&q=80"
+                            alt="Students working on hydroponics">
+                    </span>
+                </span>
+
+                <!-- Line 2 -->
+                <span class="heading-line">
+                    Generation of
+                    <span class="capsule capsule-md" data-float-offset="1.2">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=350&fit=crop&q=80"
+                            alt="Indian students group activity">
+                    </span>
+                </span>
+
+                <!-- Line 3 -->
+                <span class="heading-line">
+                    <span class="capsule capsule-lg" data-float-offset="0.6">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=700&h=350&fit=crop&q=80"
+                            alt="Students collaborating">
+                    </span>
+                    <span class="highlight">Future</span>
+                </span>
+
+                <!-- Line 4 -->
+                <span class="heading-line">
+                    <span class="highlight">Creators</span>
+                    <span class="capsule capsule-xl" data-float-offset="1.8">
+                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=500&h=300&fit=crop&q=80"
+                            alt="Student group collaboration">
+                    </span>
+                </span>
+            </h1>
+
+            <div class="hero-bottom">
+                <p class="hero-subtitle">
+                    Empowering children with future skills and entrepreneurial mindsets to Think. Create. Lead.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STORIES SECTION ===== -->
+    <section class="stories-section" id="stories">
+        <!-- Navigation Arrows positioned at right end -->
+        <div class="stories-nav-arrows">
+            <button class="nav-arrow" id="story-prev">
+                <span class="material-icons">chevron_left</span>
+            </button>
+            <button class="nav-arrow" id="story-next">
+                <span class="material-icons">chevron_right</span>
+            </button>
+        </div>
+        <div class="container-fluid">
+            <div class="horizontal-scroll-section" id="stories-scroll">
+                <!-- Add heading for ESL home page specific formatting -->
+                <div class="stories-heading-container" id="stories-heading">
+                    <div class="stories-gif gif-left"><img src="assets/recognition.gif" alt="Recognition"></div>
+                    <h2>Recognised<br>Innovations</h2>
+                    <div class="stories-gif gif-right"><img src="assets/idea.gif" alt="Idea"></div>
+                </div>
+                <!-- Story 1 -->
+                <div class="story-card snap-center">
+                    <div class="story-image">
+                        <img src="assets/slider/aryan-singh.png"
+                            alt="Young student entrepreneur presenting a prototype" />
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600; font-size: 1.2rem !important;">
+                                    Aryan Singh</h3>
+                                <p class="small mb-0" style="color: #6B21A8; font-weight: 500;">Grade 12,
+                                    Rajasthan</p>
+                            </div>
+                            <span class="story-badge">Social Impact</span>
+                        </div>
+                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563; font-size: 0.9rem !important;">
+                            "Aryan's Mera Sathi Agrotech combines tech of the future with empathy & innovation - his
+                            idea earned recognition from Hon'ble PM of India for solving real agricultural challenges."
+                        </p>
+                        <div class="pt-3 border-top" style="border-top: 1px solid #e5e7eb !important;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold" style="font-weight: 600;">Agri-Tech</span>
+                                <span class="small text-secondary" style="color: #6B7280;">Nationally Recognized</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 2 -->
+                <div class="story-card snap-center">
+                    <div class="story-image">
+                        <img src="assets/slider/Atulya.png" alt="Group of students brainstorming with sticky notes" />
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600; font-size: 1.2rem !important;">
+                                    Atulya</h3>
+                                <p class="small mb-0" style="color: #6B21A8; font-weight: 500;">Grade 10,
+                                    Bihar</p>
+                            </div>
+                            <span class="story-badge">Green Mobility</span>
+                        </div>
+                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563; font-size: 0.9rem !important;">
+                            "Atulya solved daily village commute challenges by developing an E-cycle - an idea that was
+                            recognised by the Hon'ble PM of India at the 3rd NEP Anniversary"
+                        </p>
+                        <div class="pt-3 border-top" style="border-top: 1px solid #e5e7eb !important;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold" style="font-weight: 600;">Eco-Transport</span>
+                                <span class="small text-secondary" style="color: #6B7280;">Nationally Recognized</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 3 -->
+                <div class="story-card snap-center">
+                    <div class="story-image">
+                        <img src="assets/slider/Divya.avif" alt="Enthusiastic students receiving an award" />
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600; font-size: 1.2rem !important;">
+                                    Divya & Parth</h3>
+                                <p class="small mb-0" style="color: #6B21A8; font-weight: 500;">Grade 12,
+                                    Mumbai</p>
+                            </div>
+                            <span class="story-badge">Sustainable Consumption</span>
+                        </div>
+                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563; font-size: 0.9rem !important;">
+                            "Divya & Parth built Tyron - a profit-making startup that creates job-opportunities for acid
+                            attack survivors. They won NFTE's global challenge and was recognized by Unstop & Better
+                            India platforms."
+                        </p>
+                        <div class="pt-3 border-top" style="border-top: 1px solid #e5e7eb !important;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold" style="font-weight: 600;">Eco-Fashion</span>
+                                <span class="small text-secondary" style="color: #6B7280;">World Champions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 4 -->
+                <div class="story-card snap-center">
+                    <div class="story-image">
+                        <img src="assets/slider/Akshit.png" alt="Student working on creative project" />
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600; font-size: 1.2rem !important;">
+                                    Akshit</h3>
+                                <p class="small mb-0" style="color: #6B21A8; font-weight: 500;">Grade 12,
+                                    Delhi</p>
+                            </div>
+                            <span class="story-badge">Smart Prosthetic</span>
+                        </div>
+                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563; font-size: 0.9rem !important;">
+                            "Mentored by ENpower, Akshit turned The Bionic Hand prototype into an investor-backed
+                            prosthetic powered by design thinking and entrepreneurial skills"
+                        </p>
+                        <div class="pt-3 border-top" style="border-top: 1px solid #e5e7eb !important;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold" style="font-weight: 600;">Health-Tech</span>
+                                <span class="small text-secondary" style="color: #6B7280;">Secured Funding</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 5 -->
+                <div class="story-card snap-center">
+                    <div class="story-image">
+                        <img src="assets/slider/Prathamesh.png" alt="Team collaboration session" />
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600; font-size: 1.2rem !important;">
+                                    Prathamesh, Prasad & Shivam</h3>
+                                <p class="small mb-0" style="color: #6B21A8; font-weight: 500;">Grade 9,
+                                    Maharashtra</p>
+                            </div>
+                            <span class="story-badge">Farm Automation</span>
+                        </div>
+                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563; font-size: 0.9rem !important;">
+                            "Prathamesh, Prasad & Shivam from Dharashiv engineered a low-cost seed sowing machine for
+                            helping local farmers reduce manual labour applying STEM to problem-solving."
+                        </p>
+                        <div class="pt-3 border-top" style="border-top: 1px solid #e5e7eb !important;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold" style="font-weight: 600;">Agri-Tech</span>
+                                <span class="small text-secondary" style="color: #6B7280;">Market-Live Product</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 6 -->
+                <div class="story-card snap-center">
+                    <div class="story-image">
+                        <img src="assets/slider/Pushpak.png" alt="Student presenting to audience" />
+                    </div>
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="h5 fw-bold mb-1" style="font-weight: 600; font-size: 1.2rem !important;">
+                                    Pushpak, Tanuja & Utkarsha</h3>
+                                <p class="small mb-0" style="color: #6B21A8; font-weight: 500;">Grade 10,
+                                    Maharashtra</p>
+                            </div>
+                            <span class="story-badge">Ethical Sourcing</span>
+                        </div>
+                        <p class="text-secondary fst-italic mb-4" style="color: #4B5563; font-size: 0.9rem !important;">
+                            "Empowered by an entrepreneurial mindset, Pushpak, Tanuja & Utkarsha have built a
+                            profit-generating FSSAI-certified spice brand turning adversity into opportunity, creating
+                            livelihood for many."
+                        </p>
+                        <div class="pt-3 border-top" style="border-top: 1px solid #e5e7eb !important;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold" style="font-weight: 600;">Agri-Supply Chain</span>
+                                <span class="small text-secondary" style="color: #6B7280;">Market-Live Product</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== IMPACT SECTION (LARGE SCALE REVEAL) ===== -->
+    <section id="impact-scroll-container" class="impact-v2-container">
+        <div id="sticky-viewport" class="impact-v2-sticky">
+
+            <!-- Grid Background -->
+            <div class="impact-structural-grid" id="impact-structural-grid">
+                <div class="impact-grid-line impact-grid-line-h" id="impact-h-line-1"></div>
+                <div class="impact-grid-line impact-grid-line-h" id="impact-h-line-2"></div>
+                <div class="impact-grid-line impact-grid-line-h" id="impact-h-line-3"></div>
+                <div class="impact-grid-line impact-grid-line-v" id="impact-v-line-1"></div>
+                <div class="impact-grid-line impact-grid-line-v" id="impact-v-line-2"></div>
+                <div class="impact-grid-line impact-grid-line-v" id="impact-v-line-3"></div>
+            </div>
+
+            <!-- Content Overlay -->
+            <div class="impact-v2-content-overlay">
+                <div class="impact-v2-inner">
+                    <!-- Introduction Hook -->
+                    <div class="impact-v2-intro" id="intro-text">
+                        <h3 class="impact-v2-subtitle impact-reveal-element">The ENpower Footprint</h3>
+                        <h2 class="impact-v2-title">
+                            <span style="display: block; overflow: hidden;">
+                                <span class="impact-title-line"
+                                    style="display: block; transform: translateY(100%);">CREATING</span>
+                            </span>
+                            <span style="display: block; overflow: hidden;">
+                                <span class="impact-title-line text-enpowerPurple"
+                                    style="display: block; transform: translateY(100%);">LARGE-SCALE</span>
+                            </span>
+                            <span style="display: block; overflow: hidden;">
+                                <span class="impact-title-line"
+                                    style="display: block; transform: translateY(100%);">IMPACT.</span>
+                            </span>
+                        </h2>
+                        <h3 class="impact-v2-subtitle2 impact-reveal-element">And these are just a few stories, here's
+                            how ENpower's future-skills ecosystem is shaping
+                            young innovators across the nation.</h3>
+                    </div>
+
+                    <!-- Counter Grid -->
+                    <div class="impact-v2-grid">
+
+                        <!-- Left Side: Contextual Detail -->
+                        <div class="impact-v2-left" id="context-container">
+
+                            <!-- <div class="impact-v2-desc-window">
+                                <div id="description-roller" class="impact-v2-desc-roller">
+                                    <p class="description-item">
+                                        Extending our reach across the vast geographic diversity of the Indian
+                                        subcontinent.
+                                    </p>
+                                    <p class="description-item">
+                                        Transforming educational institutions into hubs of innovation and
+                                        entrepreneurial spirit.
+                                    </p>
+                                    <p class="description-item">
+                                        Empowering the next generation with mindsets that thrive in the 21st-century
+                                        economy.
+                                    </p>
+                                    <p class="description-item">
+                                        Expert mentors dedicated to nurturing curiosity and structured problem-solving.
+                                    </p>
+                                </div>
+                            </div> -->
+
+                            <!-- Navigation / Progress Indicator -->
+                            <!-- <div class="impact-v2-progress">
+                                <div class="progress-dot">
+                                    <div class="progress-fill"></div>
+                                </div>
+                                <div class="progress-dot">
+                                    <div class="progress-fill"></div>
+                                </div>
+                                <div class="progress-dot">
+                                    <div class="progress-fill"></div>
+                                </div>
+                                <div class="progress-dot">
+                                    <div class="progress-fill"></div>
+                                </div>
+                            </div> -->
+
+                        </div>
+
+                        <!-- Right Side: Dynamic Number & Label -->
+                        <div class="impact-v2-right" id="counter-display">
+
+                            <div class="impact-v2-number-window">
+                                <div id="number-roller" class="impact-v2-number-roller">
+                                    <div class="impact-v2-roller-item">7+</div>
+                                    <div class="impact-v2-roller-item">680+</div>
+                                    <div class="impact-v2-roller-item">180,000+</div>
+                                    <div class="impact-v2-roller-item">145+</div>
+                                </div>
+                            </div>
+
+                            <div class="impact-v2-label-window">
+                                <div id="label-roller" class="impact-v2-label-roller">
+                                    <div class="impact-v2-label-item">States in India</div>
+                                    <div class="impact-v2-label-item">Partner Schools</div>
+                                    <div class="impact-v2-label-item">Future Leaders</div>
+                                    <div class="impact-v2-label-item">Thinking Coaches</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENpower Philosophy Section -->
+    <section class="enpower-section">
+        <div class="enpower-wrapper">
+            <div class="enpower-container">
+                <div class="enpower-left-content">
+                    <!-- <div class="tag">ENpower Framework</div> -->
+                    <h2>The ENpower <span>Philosophy</span></h2>
+                    <div class="desc">
+                        <p>The future of work is evolving faster than education systems can adapt. While global
+                            frameworks like OECD, WEF, UNICEF, and India's NEP 2020 stress future skills, most schools
+                            still focus on isolated STEM programs. </p>
+                        <p>ENpower bridges this gap through a holistic future-skills ecosystem for schools. Built on 17
+                            essential skills and 5 future-ready outcomes, it enables students to move from learning
+                            concepts to solving real-world problems and becoming confident future leaders.</p>
+                    </div>
+                    <a href="#" class="cta-btn">Learn More</a>
+                </div>
+
+                <div class="enpower-right-cards">
+                    <div class="enpower-radial-wrap" id="enpowerRadialWrap">
+                        <svg id="enpower-radial-svg" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="enpowerCGrad" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#ffffff" />
+                                    <stop offset="100%" stop-color="#f0ede6" />
+                                </radialGradient>
+                                <filter id="enpowerSoftShadow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feDropShadow dx="0" dy="3" stdDeviation="8" flood-color="rgba(0,0,0,0.12)" />
+                                </filter>
+                            </defs>
+                            <g id="enpowerSegGroup"></g>
+                            <!-- Center -->
+                            <circle cx="260" cy="260" r="82" class="enpower-center-bg" fill="url(#enpowerCGrad)"
+                                filter="url(#enpowerSoftShadow)" />
+                            <circle cx="260" cy="260" r="88" class="enpower-center-ring" />
+                            <text x="260" y="260" class="enpower-ct-num" id="enpowerCtNum">Skill Pillar</text>
+                        </svg>
+                        <div class="enpower-info-card" id="enpowerInfoCard"></div>
+                    </div>
+                </div>
+
+                <div class="enpower-scroll-progress">
+                    <div class="enpower-progress-track">
+                        <div class="enpower-progress-fill"></div>
+                    </div>
+                    <span class="enpower-progress-label">Scroll to explore</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ENGAGEMENTS SECTION (BENTO GRID) ===== -->
+    <section class="engagements-section">
+        <div class="engagements-container">
+            <div class="engagements-header">
+                <h2 class="engagements-title">ENpower's <span class="italic-blue">Engagements</span></h2>
+                <p class="engagements-subtitle">
+                    One ecosystem. Multiple pathways for future readiness. Each supporting a distinct vision for
+                    future-skilling aligned with Global Skills Frameworks and NEP 2020 Goals.
+                </p>
+            </div>
+
+            <div class="engagements-grid">
+                <!-- Box 1 (Wide Top) -->
+                <div class="eng-card eng-card-wide">
+                    <div class="eng-card-inner">
+                        <div class="eng-card-front">
+                            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=1200&h=600&fit=crop&q=80"
+                                class="eng-bg" alt="Students in Lab">
+                            <div class="overlay-side"></div>
+                            <div class="eng-content">
+                                <div class="eng-icon"><span class="material-icons">architecture</span></div>
+                                <h3 class="eng-content-fsl-head">Future Skills Lab</h3>
+                                <p class="eng-content-fsl-para">India's First Integrated Future-Skills Ecosystem for
+                                    Schools</p>
+                            </div>
+                        </div>
+                        <div class="eng-card-back">
+                            <div class="eng-back-content">
+                                <h3 class="eng-back-content-fsl-head">Future Skills Lab</h3>
+                                <p class="eng-back-content-fsl-para">
+                                    Transform your school into a future-skills ecosystem where students Think. Create.
+                                    Lead. through experiential labs, 17 future-skill pillars, challenge-based pedagogy,
+                                    Skill Passports, mentorship, and school-to-career pathways, ENpower's Thinking
+                                    Coaches enable students to become confident thinkers, innovators, and job creators.
+                                </p>
+
+                                <a href="#" class="eng-back-btn eng-back-btn-fsl">
+                                    Explore <span class="material-icons">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box 2 (Regular Card) -->
+                <div class="eng-card">
+                    <div class="eng-card-inner">
+                        <div class="eng-card-front">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=1000&fit=crop&q=80"
+                                class="eng-bg" alt="Student collaboration">
+                            <div class="overlay-dark"></div>
+                            <div class="eng-content">
+                                <div class="eng-icon"><span class="material-icons">extension</span></div>
+                                <h3>Composite Skills Lab</h3>
+                                <p>One-Stop Solution for CSL & Kaushal Bodh Implementation</p>
+                            </div>
+                        </div>
+                        <div class="eng-card-back">
+                            <div class="eng-back-content">
+                                <h3>Composite Skills Lab</h3>
+                                <p>ENpower's Composite Skills Lab turns the CBSE CSL & Kaushal Bodh mandate into
+                                    experiential learning. Students build 9–18 real-world projects using Design Thinking
+                                    and Entrepreneurship while schools benefit from seamless implementation,
+                                    competency-based assessments, and Kaushal Mela showcases, moving beyond compliance
+                                    to true skill development.</p>
+                                <a href="#" class="eng-back-btn">
+                                    Explore <span class="material-icons">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box 3 (Regular Card) -->
+                <div class="eng-card">
+                    <div class="eng-card-inner">
+                        <div class="eng-card-front">
+                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=600&fit=crop&q=80"
+                                class="eng-bg" alt="Tech Innovation">
+                            <div class="overlay-purple"></div>
+                            <div class="eng-content">
+                                <div class="eng-icon"><span class="material-icons">psychology</span></div>
+                                <h3>Tech Innovation Labs</h3>
+                                <p>Transforming STEM Learning Through Innovation</p>
+                            </div>
+                        </div>
+                        <div class="eng-card-back">
+                            <div class="eng-back-content">
+                                <h3>Tech Innovation Labs</h3>
+                                <p>ENpower's Tech Innovation Lab combines AI, robotics, coding, smart systems, design,
+                                    and emerging technologies with Design Thinking and Entrepreneurship. Through
+                                    challenge-based learning and rapid prototyping, students build real-world solutions
+                                    while developing computational thinking and innovation capability for future
+                                    careers.</p>
+                                <a href="#" class="eng-back-btn">
+                                    Explore <span class="material-icons">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box 4 (Regular Card) -->
+                <div class="eng-card">
+                    <div class="eng-card-inner">
+                        <div class="eng-card-front">
+                            <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&h=600&fit=crop&q=80"
+                                class="eng-bg" alt="Future Tycoons">
+                            <div class="overlay-purple"></div>
+                            <div class="eng-content">
+                                <div class="eng-icon"><span class="material-icons">emoji_events</span></div>
+                                <h3>Training & Certification Academy</h3>
+                                <p>Empowering Educators to Shape Future Learners</p>
+                            </div>
+                        </div>
+                        <div class="eng-card-back">
+                            <div class="eng-back-content">
+                                <h3>Training & Certification Academy</h3>
+                                <p>ENpower's Training & Certification Academy equips educators with Design Thinking,
+                                    technology integration, entrepreneurship, and future-skills pedagogy. Through
+                                    experiential certifications like Design Thinking for Educators and STEM & Technology
+                                    Integration, teachers become confident facilitators of innovation and real-world
+                                    learning.</p>
+                                <a href="#" class="eng-back-btn">
+                                    Explore <span class="material-icons">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Architecture Scroll Section ===== -->
+    <div class="arch-scroll-container" id="architecture-scroll-section">
+        <div class="text-center"
+            style="margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center;">
+            <h2
+                style="font-weight: 800; color: #1a1a1a; text-align: center; letter-spacing: -1.5px; font-size: 3.4rem !important;">
+                India's Future Tycoons</h2>
+            <p style="font-weight: 800;">India's first-ever entrepreneurship search and mentorship platform for young
+                adults(13-18).</p>
+            <p style="width: 1100px;">
+                IFT is a launchpad for young innovators to showcase their ideas on a national platform and gain
+                recognition. It empowers them to identify real-world problems, build solutions using design thinking and
+                an entrepreneurial mindset. Students convert ideas into scalable ventures with expert mentorship and
+                pitch them on a national stage.
+            </p>
+        </div>
+
+        <div class="arch-scroll" id="arch-scroll-main">
+            <div class="arch-scroll__left">
+                <div class="arch-scroll__info" id="green-arch">
+                    <div class="content">
+                        <h2 class="header">Innovation Journey</h2>
+                        <p class="desc">Students identify real-world problems and build solutions through an
+                            experiential innovation journey that develops creativity, initiative, and problem-solving.
+                        </p>
+                        <!-- <a class="link" href="#" style="background-color: #652b7d">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                                <path fill="#fff"
+                                    d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+                            </svg> <span style="color: #fff">Enroll Now</span></a> -->
+                    </div>
+                </div>
+
+                <div class="arch-scroll__info" id="blue-arch">
+                    <div class="content">
+                        <h2 class="header">Mentorship & Tools</h2>
+                        <p class="desc">Access entrepreneurship tools, expert-led mentorship, and Founder's Bootcamps
+                            that guide students from early ideas to refined, real-world solutions.</p>
+                        <!-- <a class="link" href="#" style="background-color: #652b7d">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                                <path fill="#fff"
+                                    d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+                            </svg> <span style="color: #fff">Enroll Now</span></a> -->
+                    </div>
+                </div>
+
+                <div class="arch-scroll__info" id="pink-arch">
+                    <div class="content">
+                        <h2 class="header">National Pitch Stage</h2>
+                        <p class="desc">Students showcase their ideas on a national pitch platform before a prestigious
+                            jury panel, gaining visibility and recognition.</p>
+                        <!-- <a class="link" href="#" style="background-color: #652b7d">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                                <path fill="#fff"
+                                    d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+                            </svg> <span style="color: #fff">Enroll Now</span></a> -->
+                    </div>
+                </div>
+
+                <div class="arch-scroll__info" id="orange-arch">
+                    <div class="content">
+                        <h2 class="header">Recognition & Growth</h2>
+                        <p class="desc">Top ideas receive awards, seed funding, and opportunities to showcase on
+                            national and global platforms, building confidence and entrepreneurial pathways.
+                        </p>
+                        <!-- <a class="link" href="#" style="background-color: #652b7d">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                                <path fill="#fff"
+                                    d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+                            </svg> <span style="color: #fff">Enroll Now</span></a> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="arch-scroll__right">
+                <div class="img-wrapper" data-index="4">
+                    <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/cu8978xjlsjjpjk52ta0.webp"
+                        alt="Green Architecture">
+                </div>
+
+                <div class="img-wrapper" data-index="3">
+                    <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/trh7c8ufv1dqfrofdytd.webp"
+                        alt="Blue Architecture">
+                </div>
+
+                <div class="img-wrapper" data-index="2">
+                    <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/aw6qwur0pggp5r03whjq.webp"
+                        alt="Pink Architecture">
+                </div>
+
+                <div class="img-wrapper" data-index="1">
+                    <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/sqwn8u84zd1besgl0zpd.webp"
+                        alt="Orange Architecture">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="arch-scroll-spacer"></div>
+
+    </div>
+    <!-- END: Architecture Scroll Section -->
+
+    <!-- ===== Cinematic Series Video Section ===== -->
+    <section class="cinematic-section" id="cinematic-series">
+        <!-- LEFT -->
+        <div class="left-content">
+            <!-- <div class="label-row">
+                <div class="label-line"></div>
+                <span class="label-text">Cinematic Series</span>
+            </div> -->
+            <div class="nav-controls">
+                <button class="nav-btn" id="prevBtn" aria-label="Previous">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                </button>
+                <button class="nav-btn" id="nextBtn" aria-label="Next">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </button>
+                <div class="slide-counter">
+                    <span class="current" id="currentSlide">01</span>
+                    <span class="divider">/</span>
+                    <span class="total">05</span>
+                </div>
+            </div>
+
+            <h1 class="main-heading">
+                Stories of<br>
+                <span class="italic-blue">Transformation</span>
+            </h1>
+
+            <p class="description">
+                ENpower students build empathy-driven innovations using AI, ML, IoT, sensors, and coding from bionic
+                hands to safety and mobility solutions. Their work has gained recognition on platforms like Atal
+                Marathon, INSPIRE MANAK, UNGCNI, and NFTE WYEC, with several ideas progressing to real-world deployment
+                through seed funding.
+            </p>
+
+            <!-- <div class="channel-link">
+                <span>Want more stories?</span>
+                <a href="#">Join our channel</a>
+                <span class="arrow">↗</span>
+            </div> -->
+        </div>
+
+        <!-- RIGHT CAROUSEL -->
+        <div class="right-carousel">
+            <div class="cards-track" id="cardsTrack">
+
+                <!-- Card 1 -->
+                <div class="video-card" data-video="https://www.youtube.com/embed/TqVj_70hI18">
+                    <img class="card-bg" src="https://img.youtube.com/vi/TqVj_70hI18/maxresdefault.jpg" alt="Video 1">
+                    <div class="card-overlay">
+                        <div class="card-top">
+                            <span class="category-badge">Innovation</span>
+                            <button class="play-btn" aria-label="Play video">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="card-bottom">
+                            <!-- <div class="card-meta">
+                                <div class="meta-item"><span class="dot"></span> 1.2M</div>
+                                <div class="meta-item"><span class="dot"></span> 12:45</div>
+                            </div> -->
+                            <h3 class="card-title">Akshit's Solution For Farmers Of Haryana</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="video-card" data-video="https://www.youtube.com/embed/P84CbiAhDqk">
+                    <img class="card-bg" src="https://img.youtube.com/vi/P84CbiAhDqk/maxresdefault.jpg" alt="Video 2">
+                    <div class="card-overlay">
+                        <div class="card-top">
+                            <span class="category-badge">Technology</span>
+                            <button class="play-btn" aria-label="Play video">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="card-bottom">
+                            <!-- <div class="card-meta">
+                                <div class="meta-item"><span class="dot"></span> 850K</div>
+                                <div class="meta-item"><span class="dot"></span> 15:20</div>
+                            </div> -->
+                            <h3 class="card-title">Divya & Parth's Global Success</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="video-card" data-video="https://www.youtube.com/embed/ssXEcRjjd6w">
+                    <img class="card-bg" src="https://img.youtube.com/vi/ssXEcRjjd6w/maxresdefault.jpg" alt="Video 3">
+                    <div class="card-overlay">
+                        <div class="card-top">
+                            <span class="category-badge">Impact</span>
+                            <button class="play-btn" aria-label="Play video">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="card-bottom">
+                            <!-- <div class="card-meta">
+                                <div class="meta-item"><span class="dot"></span> 2.4M</div>
+                                <div class="meta-item"><span class="dot"></span> 18:30</div>
+                            </div> -->
+                            <h3 class="card-title">From Mumbai To New York: Sindhuja's Success</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="video-card" data-video="https://www.youtube.com/embed/NPay9NdDqPs">
+                    <img class="card-bg" src="https://img.youtube.com/vi/NPay9NdDqPs/maxresdefault.jpg" alt="Video 4">
+                    <div class="card-overlay">
+                        <div class="card-top">
+                            <span class="category-badge">Business</span>
+                            <button class="play-btn" aria-label="Play video">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="card-bottom">
+                            <!-- <div class="card-meta">
+                                <div class="meta-item"><span class="dot"></span> 1.8M</div>
+                                <div class="meta-item"><span class="dot"></span> 22:10</div>
+                            </div> -->
+                            <h3 class="card-title">Making Sure No Lives Are Lost At Traffic Stops</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="video-card" data-video="https://www.youtube.com/embed/ZIuQ1-4KEkE">
+                    <img class="card-bg" src="https://img.youtube.com/vi/ZIuQ1-4KEkE/maxresdefault.jpg" alt="Video 5">
+                    <div class="card-overlay">
+                        <div class="card-top">
+                            <span class="category-badge">Wellness</span>
+                            <button class="play-btn" aria-label="Play video">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="card-bottom">
+                            <!-- <div class="card-meta">
+                                <div class="meta-item"><span class="dot"></span> 3.1M</div>
+                                <div class="meta-item"><span class="dot"></span> 10:55</div>
+                            </div> -->
+                            <h3 class="card-title">Achieving Profits & SDG 12 Goals: Team Golharwadi</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Progress bar -->
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 20%;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">✕</button>
+            <iframe id="videoFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+    <!-- END: Cinematic Series Video Section -->
+
+    <!-- ===== New Counter Section ===== -->
+    <div class="new-counter-section">
+        <div class="engagements-header">
+            <h2 class="engagements-title">& A <span class="italic-blue">Growing Number of Ideas </span> Across The
+                Nation...</h2>
+        </div>
+        <div class="new-counter-grid">
+            <div class="new-counter-item">
+                <div class="new-counter-number" data-target="5000">0</div>
+                <div class="new-counter-label">Ideas Developed</div>
+            </div>
+            <div class="new-counter-item">
+                <div class="new-counter-number" data-target="110">0</div>
+                <div class="new-counter-label">Ideas Recognized At National-Level</div>
+            </div>
+            <div class="new-counter-item">
+                <div class="new-counter-number" data-target="40">0</div>
+                <div class="new-counter-label">Ideas Implemented</div>
+            </div>
+            <div class="new-counter-item">
+                <div class="new-counter-number" data-target="10">0</div>
+                <div class="new-counter-label">Ideas Funded For Implementation</div>
+            </div>
+        </div>
+    </div>
+    <!-- END: New Counter Section -->
+
+    <!-- ===== Impact Programs Section ===== -->
+    <section class="ip-scroll-container" id="ip-impact-section">
+        <div class="ip-sticky-wrapper">
+
+            <!-- Grid Background -->
+            <div class="ip-structural-grid" id="ip-structural-grid">
+                <div class="ip-grid-line ip-grid-line-h" id="ip-h-line-1"></div>
+                <div class="ip-grid-line ip-grid-line-h" id="ip-h-line-2"></div>
+                <div class="ip-grid-line ip-grid-line-h" id="ip-h-line-3"></div>
+                <div class="ip-grid-line ip-grid-line-v" id="ip-v-line-1"></div>
+                <div class="ip-grid-line ip-grid-line-v" id="ip-v-line-2"></div>
+                <div class="ip-grid-line ip-grid-line-v" id="ip-v-line-3"></div>
+            </div>
+
+            <!-- Blobs -->
+            <div class="ip-blob ip-blob-1"></div>
+            <div class="ip-blob ip-blob-2"></div>
+
+            <!-- Main Layout -->
+            <div class="container ip-pos-relative ip-z-10">
+                <div class="d-flex flex-column align-items-center gap-5">
+
+                    <!-- TOP: Text Content -->
+                    <div class="w-100" id="ip-text-content">
+                        <div class="d-flex flex-column gap-4 text-center align-items-center"
+                            style="max-width: 900px; margin: 0 auto;">
+                            <div>
+                                <span class="ip-badge">Impact Programs</span>
+                            </div>
+                            <h1 class="ip-headline">
+                                Grassroot <span>Entrepreneurship &amp; Livelihood Empowerment </span>At Scale
+                            </h1>
+                            <p class="ip-subtext">
+                                We partner with corporates and foundations to deliver scalable programs that bring
+                                future skills, entrepreneurship, and technology-enabled learning to underserved schools
+                                and youth. Partners can choose or combine any of our interventions to create deeper,
+                                system-level impact.
+                            </p>
+                            <div>
+                                <button class="ip-glass-btn">
+                                    Explore Impact
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BOTTOM: Program Matrix -->
+                    <div class="col-lg-10">
+                        <div class="ip-program-matrix-wrap ip-pos-relative">
+
+                            <!-- Connectors -->
+                            <div class="ip-connector-v" id="ip-connector-v"></div>
+                            <div class="ip-connector-h" id="ip-connector-h"></div>
+
+                            <!-- 3x2 Grid -->
+                            <div class="row g-4 ip-pos-relative ip-z-10" id="ip-program-matrix">
+
+                                <!-- Module 1 -->
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="ip-program-card h-100" data-purpose="program-module">
+                                        <div class="ip-module-icon-wrap ip-module-icon">
+                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="ip-module-title">Entrepreneurship Programs</h3>
+                                        <p class="ip-module-desc">An experiential learning journey from ideas to
+                                            ventures</p>
+                                    </div>
+                                </div>
+
+                                <!-- Module 2 -->
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="ip-program-card h-100" data-purpose="program-module">
+                                        <div class="ip-module-icon-wrap ip-module-icon">
+                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="ip-module-title">Livelihood Initiatives</h3>
+                                        <p class="ip-module-desc">Launchpad for young innovators turning vocations into
+                                            ventures</p>
+                                    </div>
+                                </div>
+
+                                <!-- Module 3 -->
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="ip-program-card h-100" data-purpose="program-module">
+                                        <div class="ip-module-icon-wrap ip-module-icon">
+                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="ip-module-title">ATL Enhancement</h3>
+                                        <p class="ip-module-desc">Reviving NITI Aayog's ATLs in schools for design-led
+                                            innovation</p>
+                                    </div>
+                                </div>
+
+                                <!-- Module 4 -->
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="ip-program-card h-100" data-purpose="program-module">
+                                        <div class="ip-module-icon-wrap ip-module-icon">
+                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2"></path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="ip-module-title">I.D.E.A Labs</h3>
+                                        <p class="ip-module-desc">A tech innovation hub for building real-world
+                                            solutions</p>
+                                    </div>
+                                </div>
+
+                                <!-- Module 5 -->
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="ip-program-card h-100" data-purpose="program-module">
+                                        <div class="ip-module-icon-wrap ip-module-icon">
+                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2"></path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="ip-module-title">Idea-To-Venture Platform</h3>
+                                        <p class="ip-module-desc">Mentorship & showcase platform for impactful venture
+                                            ideas</p>
+                                    </div>
+                                </div>
+
+                                <!-- Module 6 -->
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="ip-program-card h-100" data-purpose="program-module">
+                                        <div class="ip-module-icon-wrap ip-module-icon">
+                                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2"></path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="ip-module-title">Design Thinking For Educators</h3>
+                                        <p class="ip-module-desc">Building teacher capacity for empowered learning</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END: Impact Programs Section -->
+
+    <!-- Partners & Engagements Section -->
+    <section class="partners-section" id="partners">
+        <div class="container">
+            <div class="section-label">
+                Our Partners
+            </div>
+
+            <!-- Row 1: Left to Right -->
+            <!-- CSR Logo -->
+            <div class="marquee-container">
+                <div class="marquee-row-ltr">
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/microsoft.jpg" alt="Microsoft" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/snapchat.webp" alt="Snapchat" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/ajinkya-dypatil.png" alt="Ajeenkya DY Patil University"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/navneet.jpeg" alt="NavNeet" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/kotak.png" alt="Kotak Mahindra Bank" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/hafele.png" alt="Hafele" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/L&T.webp" alt="Larsen & Toubro" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/NITIaim.webp" alt="NITI Aayog AIM" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/accelium.jpg" alt="Accelium" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/raskik.webp" alt="Raskik" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/bayer.webp" alt="Bayer" class="partner-logo">
+                    </div>
+
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/un-global-compact.webp" alt="UN Global Compact" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/tata-capital.webp" alt="Tata Capital" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/indusind.webp" alt="IndusInd" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/inoxap.webp" alt="Inoxap" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/aaramco.webp" alt="Aaramco" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/axis-bank.webp" alt="Axis Bank" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/hsbc.webp" alt="HSBC" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/sbf.webp" alt="SBF" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/udaan.webp" alt="Udaan" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/manipal-foundation.webp" alt="Manipal Foundation"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/csr-logo/yuva.webp" alt="Yuva" class="partner-logo">
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Row 2: Right to Left -->
+            <!-- School Logo -->
+            <div class="marquee-container">
+                <div class="marquee-row-rtl">
+                    <div class="partner-logo-item">
+                        <img src="assets/school-logo/Arya-vidya-mandir.png" alt="Arya Vidya Mandir"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/school-logo/DCM YES School.avif" alt="DCM YES School" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/school-logo/DYPatil.jpeg" alt="DY Patil" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/school-logo/Little-Angels.jpeg" alt="Little Angels" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/school-logo/SIES High School.png" alt="SIES High School" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/school-logo/Shishuvan-School.png" alt="Shishuvan School" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/school-logo/The Andhra Education Society.jpeg"
+                            alt="The Andhra Education Society" class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/school-logo/garodia-international.svg" alt="Garodia International"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/school-logo/mount-litera-school.png" alt="Mount Litera School"
+                            class="partner-logo">
+                    </div>
+                    <div class="partner-logo-item">
+                        <img src="assets/school-logo/the_cathedral_and_john_connon.jpeg"
+                            alt="The Cathedral and John Connon" class="partner-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alliance Section -->
+    <main class="alliance-main-wrapper alliance-grid-pattern">
+        <!-- Stage 1: Hero Visual -->
+        <section class="alliance-hero-section">
+            <!-- Background Orbs -->
+            <div class="alliance-orb alliance-orb-1"></div>
+            <div class="alliance-orb alliance-orb-2"></div>
+
+            <div class="alliance-hero-content">
+                <span class="alliance-partnership-badge alliance-fade-in-up alliance-fade-delay-1">Strategic Partnership
+                    2025</span>
+                <h1 class="alliance-hero-heading alliance-fade-in-up alliance-fade-delay-2">
+                    About ENpower &amp;<br />
+                    <span class="alliance-text-primary">TATA ClassEdge Alliance</span>
+                </h1>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="alliance-scroll-indicator">
+                <span>Scroll to explore</span>
+                <div class="alliance-scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- Stage 2: Assembly Section -->
+        <section class="alliance-assembly-section alliance-grid-pattern">
+            <div class="container">
+                <div class="alliance-wrapper-with-image">
+                    <div class="alliance-image-container">
+                        <img src="assets/TCE.jpg" alt="Tata ClassEdge Partnership" class="alliance-image">
+                    </div>
+                    <div class="alliance-glass-panel alliance-glass-content">
+                        <div class="alliance-bg-accent"></div>
+                        <p class="alliance-quote-text">
+                            "Tata ClassEdge and ENpower have formed a strategic partnership, announced in December 2025,
+                            to integrate entrepreneurship and future-skills education into K-12 schools, with Tata
+                            ClassEdge taking an equity stake in ENpower. This collaboration focuses on delivering
+                            experiential learning, life skills, and design thinking through gamified programs, aiming to
+                            develop confident, creative, and future-ready children beyond traditional academics."
+                        </p>
+                        <div class="alliance-tags-wrapper">
+                            <div class="alliance-tag-item">
+                                <span class="material-symbols-outlined">calendar_today</span>
+                                <span>Announced Dec 2025</span>
+                            </div>
+                            <div class="alliance-tag-item">
+                                <span class="material-symbols-outlined">handshake</span>
+                                <span>Equity Partnership</span>
+                            </div>
+                            <div class="alliance-tag-item">
+                                <span class="material-symbols-outlined">rocket_launch</span>
+                                <span>K-12 Future Skills</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="lets-connect-card" id="card">
+            <div class="glow-border" id="glowBorder"></div>
+            <svg id="arrow-svg" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"
+                        markerUnits="strokeWidth">
+                        <polyline points="1,1 9,5 1,9" fill="none" stroke="#6B21A8" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </marker>
+                </defs>
+                <path id="arrow-path" marker-end="url(#arrowhead)" />
+            </svg>
+
+            <div class="card-body">
+                <h2 class="card-heading">Ready to Build a Future-Ready School?</h2>
+                <div class="card-subtext">
+                    <p>Join 680+ schools building confident Thinkers, Creators & Leaders. Go beyond compliance and
+                        traditional STEM with a complete future-skills ecosystem aligned to NEP 2020.</p>
+                </div>
+                <button class="connect-btn" id="connectBtn">Let's Connect!</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Form Popup -->
+    <div id="partnerFormPopup" class="form-popup-overlay">
+        <div class="form-popup-container">
+            <button class="form-popup-close" id="closePopupBtn">&times;</button>
+
+            <div class="form-popup-header">
+                <h2>Partner with ENpower for Future-Ready Learning</h2>
+                <p>Create measurable impact by building future skills, STEM, and entrepreneurship education.</p>
+            </div>
+
+            <form id="partnerForm" class="partner-form" novalidate>
+                <div class="form-group">
+                    <label for="partnerName">Name <span class="required">*</span></label>
+                    <input type="text" id="partnerName" name="name" required placeholder="Enter your name"
+                        pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed">
+                    <span class="error-message" id="nameError">Please enter a valid name (letters only)</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="partnerRepresent">I represent <span class="required">*</span></label>
+                    <select id="partnerRepresent" name="represent" required>
+                        <option value="" selected hidden>Select an option</option>
+                        <option value="school">School</option>
+                        <option value="institute">Institute</option>
+                        <option value="organization">Organization</option>
+                        <option value="foundation">Foundation</option>
+                    </select>
+                    <span class="error-message" id="representError">Please select an option</span>
+                </div>
+
+                <div class="form-group" id="schoolRoleGroup" style="display: none;">
+                    <label for="schoolRole">I am a <span class="required">*</span></label>
+                    <select id="schoolRole" name="schoolRole">
+                        <option value="" selected hidden>Select your role</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="principal">Principal</option>
+                        <option value="school-leader">School Leader</option>
+                    </select>
+                    <span class="error-message" id="schoolRoleError">Please select your role</span>
+                </div>
+
+                <div class="form-group" id="designationGroup" style="display: none;">
+                    <label for="designation">Designation <span class="required">*</span></label>
+                    <input type="text" id="designation" name="designation" placeholder="Enter your designation"
+                        pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed">
+                    <span class="error-message" id="designationError">Please enter a valid designation (letters
+                        only)</span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="partnerEmail">Email ID <span class="required">*</span></label>
+                        <input type="email" id="partnerEmail" name="email" required placeholder="Enter your email">
+                        <span class="error-message" id="emailError">Please enter a valid email</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="partnerContact">Contact Number <span class="required">*</span></label>
+                        <input type="tel" id="partnerContact" name="contact" required
+                            placeholder="Enter your contact number" pattern="[0-9]{10}" maxlength="10"
+                            title="Please enter 10 digits only">
+                        <span class="error-message" id="contactError">Please enter a valid 10-digit number</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="form-submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
