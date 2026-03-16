@@ -940,7 +940,8 @@ body {
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1px;
+    letter-spacing: 1.5px;
+    text-align: center;
 }
 
 .stories-heading-container {
@@ -961,6 +962,7 @@ body {
     position: relative;
     z-index: 2;
     font-size: 3.4rem !important;
+    text-align: center;
 }
 
 /* Fun GIF Elements */
@@ -2978,7 +2980,7 @@ footer p {
     z-index: 20;
     display: flex;
     align-items: center;
-    padding: 4rem 0;
+    padding-bottom: 4rem;
     /* background: #f5f0fa; */
 }
 
@@ -3201,12 +3203,12 @@ footer p {
     align-items: center;
     margin-top: 30px;
     padding: 13px 32px;
-    background: #7c3aed;
+    background: #6c32a8;
     color: #fff;
     font-family: 'Poppins', sans-serif;
     font-size: .84rem;
     font-weight: 600;
-    border-radius: 50px;
+    border-radius: 15px;
     border: none;
     cursor: pointer;
     text-decoration: none;
@@ -4461,7 +4463,7 @@ footer p {
 
 .resources-heading {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2.2rem, 4.5vw, 4.2rem);
+    font-size: 3rem !important;
     font-weight: 800;
     line-height: 1.2;
     letter-spacing: -2px;
