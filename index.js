@@ -1165,7 +1165,32 @@ document.addEventListener('DOMContentLoaded', () => {
             nextBtn.addEventListener('click', resetAutoScroll);
         }
 
-        // --- Impact Programs Section ScrollTrigger --- (REMOVED)
+        // --- Impact Programs Section ScrollTrigger ---
+        // Animation removed as per user request
+
+        // Slide-in animation for cards
+        const ipCards = gsap.utils.toArray('.ip-slide-in-card');
+
+        console.log('Impact Programs: Found', ipCards.length, 'cards');
+
+        // Animate cards one by one
+        ipCards.forEach((card, index) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 90%",
+                    toggleActions: "play none none none",
+                    markers: false,
+                    once: true,
+                    onEnter: () => console.log(`Card ${index + 1} animated!`)
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.6,
+                delay: index * 0.1,
+                ease: "power2.out"
+            });
+        });
 
         // 3D Hover tilt for Impact Program cards
         document.querySelectorAll('.ip-program-card').forEach(card => {
@@ -1300,30 +1325,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // ===== ALLIANCE ASSEMBLY SECTION ANIMATION =====
-        const assemblySection = document.querySelector('.alliance-assembly-section');
-        const assemblyImage = document.querySelector('.alliance-image-container');
-        const assemblyPanel = document.querySelector('.alliance-glass-panel');
-
-        if (assemblySection && assemblyImage && assemblyPanel) {
-            // Use gsap.from() to animate from hidden state
-            gsap.from([assemblyImage, assemblyPanel], {
-                scrollTrigger: {
-                    trigger: assemblySection,
-                    start: "top 70%",
-                    toggleActions: "play none none none",
-                    once: true,
-                    // markers: true // Uncomment for debugging
-                },
-                opacity: 0,
-                y: 100,
-                duration: 1.2,
-                stagger: 0.15,
-                ease: "power3.out",
-                clearProps: "none" // Keep the final animated state
-            });
-        }
-
         // Refresh ScrollTrigger after all animations are initialized
         ScrollTrigger.refresh();
 
@@ -1358,11 +1359,11 @@ function initEnpowerPhilosophy() {
 
     // --- Radial Scroll Visualization ---
     const ICON_GIFS = [
-        'assets/icons/self-exploration.gif',
-        'assets/icons/foundation-literacy.gif',
-        'assets/icons/tech-of-the-future.gif',
-        'assets/icons/human-skills.gif',
-        'assets/icons/future-competency.gif'
+        'assets/donut-icon/self-exploration.svg',
+        'assets/donut-icon/foundation-literacy.svg',
+        'assets/donut-icon/tech-of-the-future.svg',
+        'assets/donut-icon/human-skills.svg',
+        'assets/donut-icon/future-competency.svg'
     ];
 
     const SEG_DATA = [
@@ -1390,7 +1391,7 @@ function initEnpowerPhilosophy() {
 
     const CX = 260, CY = 260;
     const INNER = 96, OUTER = 226;
-    const GAP = 5;
+    const GAP = 2;
     const EACH = (360 - GAP * SEG_DATA.length) / SEG_DATA.length;
     const OFFSET = -90;
 
@@ -1419,7 +1420,7 @@ function initEnpowerPhilosophy() {
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
         path.setAttribute("d", arc(s, e, INNER, OUTER));
         path.setAttribute("fill", seg.color);
-        path.setAttribute("opacity", "0.35");
+        path.setAttribute("opacity", "1");
         path.setAttribute("class", "enpower-seg-arc");
         path.setAttribute("data-i", i);
         segGroup.appendChild(path);
@@ -1431,20 +1432,20 @@ function initEnpowerPhilosophy() {
         lbl.setAttribute("class", "enpower-seg-label");
         lbl.setAttribute("text-anchor", "middle");
         lbl.setAttribute("dominant-baseline", "middle");
-        lbl.setAttribute("opacity", "0.25");
+        lbl.setAttribute("opacity", "0.1");
         lbl.setAttribute("data-i", i);
         lbl.textContent = seg.label;
         segGroup.appendChild(lbl);
 
         const midR = (INNER + OUTER) / 2;
         const [ix, iy] = pt(midR, mid);
-        const iconSize = 50;
+        const iconSize = 65;
         const foreignObj = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject");
         foreignObj.setAttribute("x", ix - iconSize / 2);
         foreignObj.setAttribute("y", iy - iconSize / 2);
         foreignObj.setAttribute("width", iconSize);
         foreignObj.setAttribute("height", iconSize);
-        foreignObj.setAttribute("opacity", "0.4");
+        foreignObj.setAttribute("opacity", "0.1");
         foreignObj.setAttribute("class", "enpower-seg-icon");
         foreignObj.setAttribute("data-i", i);
         foreignObj.innerHTML = `<img src="${ICON_GIFS[i]}" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;" />`;
@@ -1528,7 +1529,7 @@ function initEnpowerPhilosophy() {
         enpowerCurrent = idx;
 
         segGroup.querySelectorAll('.enpower-seg-arc').forEach((a, i) => {
-            a.style.opacity = i === idx ? '1' : i < idx ? '0.65' : '0.35';
+            a.style.opacity = i === idx ? '1' : i < idx ? '0.65' : '0.95';
             a.style.filter = i === idx ? `drop-shadow(0 3px 12px ${SEG_DATA[i].color}55)` : 'none';
         });
         segGroup.querySelectorAll('.enpower-seg-label').forEach((l, i) => {
@@ -1586,3 +1587,4 @@ function initEnpowerPhilosophy() {
 
     ScrollTrigger.refresh();
 }
+
