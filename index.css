@@ -1797,8 +1797,8 @@ a.eng-back-btn.eng-back-btn-fsl {
 }
 
 .ip-slide-in-card {
-    opacity: 0;
-    transform: translateY(50px);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .ip-slide-in-card.ip-card-animated {
