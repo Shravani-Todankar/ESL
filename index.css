@@ -937,10 +937,10 @@ body {
     background: rgba(101, 43, 125, 0.1);
     color: #6c32a8;
     /* using purple accent */
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.1px;
 }
 
 .stories-heading-container {
@@ -1793,7 +1793,7 @@ a.eng-back-btn.eng-back-btn-fsl {
     opacity: 1;
     transform: translateY(0);
     transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ip-slide-in-card {
