@@ -157,9 +157,9 @@
             row-gap: 24px;
             flex-direction: column;
             font-size: 80px;
-            font-weight: 400;
+            font-weight: 700;
             font-family: 'Space Grotesk', sans-serif;
-            color: #1c1c1c;
+            color: #6c32a8;
             line-height: 1.1;
             letter-spacing: -1.5px;
             align-self: flex-start;
@@ -203,9 +203,9 @@
         /* ── FSL Row 3: "To Meaningful" — centered ── */
         .fsl-row-3 {
             font-size: 80px;
-            font-weight: 400;
+            font-weight: 700;
             font-family: 'Space Grotesk', sans-serif;
-            color: #1c1c1c;
+            color: #e5a93e;
             line-height: 1.1;
             letter-spacing: -1.5px;
             align-self: center;
@@ -590,6 +590,7 @@
             width: 100%;
             background: #f6f0fa;
             padding: 100px 20px;
+            padding-top: 0;
         }
 
         .fsl-path-container1 {
@@ -601,11 +602,12 @@
         .fsl-path-heading1 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 3.5rem;
-            font-weight: 800;
+            font-weight: 900;
             line-height: 1.2;
             letter-spacing: -2px;
-            text-align: left;
+            text-align: center;
             color: #6c32a8;
+            margin-bottom: 60px;
         }
 
         .fsl-path-heading1 .matter-highlight1 {
@@ -674,6 +676,338 @@
 
             .fsl-path-image1 {
                 height: 250px;
+            }
+        }
+
+        /* ── FSL Continuous Carousel Section ── */
+        .fsl-carousel-section {
+            position: relative;
+            width: 100%;
+            background: #f6f0fa;
+            padding: 100px 20px;
+            overflow: hidden;
+            padding-top: 0px;
+        }
+
+        .fsl-carousel-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .fsl-carousel-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .fsl-carousel-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            letter-spacing: -2px;
+            color: #6c32a8;
+            margin-bottom: 20px;
+        }
+
+        .fsl-carousel-desc {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #555;
+            line-height: 1.8;
+            font-family: 'Poppins', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .fsl-carousel-wrapper {
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
+        }
+
+        .fsl-carousel-track {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 40px 0;
+        }
+
+        .fsl-carousel-card {
+            position: relative;
+            width: 340px;
+            height: 480px;
+            border: 1px solid #6b32a865;
+            border-radius: 40px;
+            /* background: #8b5ac7; */
+            background: linear-gradient(135deg, #efdeff 0%, #fffce3 100%);
+            flex-shrink: 0;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        /* Default cards - no opacity or scale */
+        .fsl-carousel-card {
+            opacity: 0.9;
+            transform: scale(0.95);
+        }
+
+        /* Hover card styling with yellow border */
+        .fsl-carousel-card:hover {
+            border: 2px solid #e5a817;
+            background: #ffffff;
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px #00000026;
+            opacity: 1;
+        }
+
+        .fsl-card-image {
+            width: 100%;
+            height: 220px;
+            background: #000000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 25px;
+        }
+
+        .fsl-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .fsl-card-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Adjust text color based on hover state */
+        .fsl-carousel-card .fsl-card-content {
+            color: #ffffff;
+        }
+
+        .fsl-carousel-card:hover .fsl-card-content {
+            color: #1a1a1a;
+        }
+
+        .fsl-card-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin: 0;
+            color: #6c32a8;
+        }
+
+        .fsl-card-description {
+            font-size: 0.7rem;
+            line-height: 1.6;
+            margin: 0;
+            opacity: 1;
+            max-height: none;
+            overflow: visible;
+            transition: all 0.3s ease;
+            color: #1a1a1a;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .fsl-carousel-section {
+                padding: 60px 20px;
+            }
+
+            .fsl-carousel-card {
+                min-width: 320px;
+                height: 450px;
+            }
+
+            .fsl-card-title {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* ── FSL Comparison Table Section ── */
+        .fsl-table-section {
+            position: relative;
+            width: 100%;
+            background: #f6f0fa;
+            padding: 100px 20px;
+            padding-top: 0px;
+        }
+
+        .fsl-table-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .fsl-table-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .fsl-table-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            letter-spacing: -2px;
+            color: #6c32a8;
+            margin-bottom: 20px;
+        }
+
+        .fsl-table-desc {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #555;
+            line-height: 1.8;
+            font-family: 'Poppins', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .fsl-comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .fsl-comparison-table thead {
+            background: linear-gradient(135deg, #dec1fc 0%, #d1bcff 100%);
+        }
+
+        .fsl-comparison-table thead th {
+            padding: 24px 30px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1a1a1a;
+            text-align: left;
+            border: none;
+        }
+
+        .fsl-comparison-table thead th:first-child {
+            width: 35%;
+        }
+
+        .fsl-comparison-table tbody tr {
+            background: #ffffff;
+            transition: background 0.3s ease;
+        }
+
+        .fsl-comparison-table tbody tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .fsl-comparison-table tbody tr:hover {
+            background: #f5f3ff;
+        }
+
+        .fsl-comparison-table tbody td {
+            padding: 20px 30px;
+            font-size: 1rem;
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .fsl-comparison-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .fsl-comparison-table tbody td:first-child {
+            font-weight: 600;
+            color: #1c1c1c;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .fsl-table-section {
+                padding: 60px 20px;
+            }
+
+            .fsl-comparison-table {
+                font-size: 0.85rem;
+                border-radius: 12px;
+            }
+
+            .fsl-comparison-table thead th {
+                padding: 16px 12px;
+                font-size: 0.95rem;
+            }
+
+            .fsl-comparison-table thead th:first-child {
+                width: 40%;
+            }
+
+            .fsl-comparison-table tbody td {
+                padding: 14px 12px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ── FSL Final CTA Section ── */
+        .fsl-final-cta-section {
+            position: relative;
+            width: 100%;
+            min-height: 80vh;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #ffffff 0%, #f6f0fa 100%);
+        }
+
+        .fsl-final-cta-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 2px solid #6b32a820;
+            border-radius: 24px;
+            padding: 80px;
+            background: #f5e5ff;
+        }
+
+        .fsl-cta-heading-final {
+            font-size: 2.5rem;
+            font-weight: 500;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1c1c1c;
+            line-height: 1.1;
+            letter-spacing: 0px;
+        }
+
+        .fsl-cta-paragraph {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #666;
+            line-height: 2;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .fsl-final-cta-container {
+                padding: 40px 20px;
+            }
+
+            .fsl-cta-paragraph {
+                font-size: 1rem;
             }
         }
     </style>
@@ -814,7 +1148,7 @@
     <section class="fsl-path-section1">
         <div class="fsl-path-container1">
             <!-- Heading -->
-            <h2 class="fsl-path-heading1">ENpower's<br /><span class="matter-highlight1">Future Skills</span><br />Labs
+            <h2 class="fsl-path-heading1">ENpower's <span class="matter-highlight1">Future Skills</span> Labs
             </h2>
 
             <!-- Content with Image -->
@@ -831,6 +1165,241 @@
                     spaces, personalized learning goals, competency-based skill assessments, and support ENpower's
                     Thinking Coaches. ENpower enables every child to grow into confident thinkers, leaders, and job
                     creators.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FSL Continuous Carousel Section -->
+    <section class="fsl-carousel-section">
+        <div class="fsl-carousel-container">
+            <!-- Heading and Description -->
+            <div class="fsl-carousel-header">
+                <h2 class="fsl-carousel-heading">A Complete Future-Skill Ecosystem</h2>
+                <p class="fsl-carousel-desc">Move beyond traditional academic boundaries by integrating space,
+                    curriculum, assessment, and reporting into a single seamless model.</p>
+            </div>
+
+            <div class="fsl-carousel-wrapper">
+                <div class="fsl-carousel-track" id="fslCarouselTrack">
+                    <!-- Card 1 -->
+                    <div class="fsl-carousel-card">
+                        <div class="fsl-card-image">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80"
+                                alt="Integrated Learning Framework">
+                        </div>
+                        <div class="fsl-card-content">
+                            <h3 class="fsl-card-title">Integrated Learning Framework</h3>
+                            <p class="fsl-card-description">The 17 Future-ready Skills across 5 Student Outcomes are
+                                designed to help children evolve into 15 Skill Profiles, representing the archetypes of
+                                the
+                                21st-century learner such as "Creative Innovators," "Ethical Leaders," and "Green
+                                Guardians".</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="fsl-carousel-card">
+                        <div class="fsl-card-image">
+                            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80"
+                                alt="Experiential Learning Spaces">
+                        </div>
+                        <div class="fsl-card-content">
+                            <h3 class="fsl-card-title">Experiential Learning Spaces</h3>
+                            <p class="fsl-card-description">A cluster-based environment with two size variations,
+                                featuring
+                                dedicated zones for Future Tech, Entrepreneurship, Communication, and Sustainability in
+                                addition to specialised studios including Woodworking Studio, Hi-tech Zone (laser, 3D
+                                printing), and Self-exploration spaces.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="fsl-carousel-card">
+                        <div class="fsl-card-image">
+                            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80"
+                                alt="Challenge-Based Pedagogy">
+                        </div>
+                        <div class="fsl-card-content">
+                            <h3 class="fsl-card-title">Challenge-Based Pedagogy</h3>
+                            <p class="fsl-card-description">An experiential, inquiry-driven learning approach that
+                                transforms every session from a "Big Idea" into a real-world challenge using challenge
+                                cards
+                                & guided reflections, empowering children to think, build, and apply their knowledge in
+                                meaningful contexts.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="fsl-carousel-card">
+                        <div class="fsl-card-image">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80"
+                                alt="Skill Passport">
+                        </div>
+                        <div class="fsl-card-content">
+                            <h3 class="fsl-card-title">Skill Passport</h3>
+                            <p class="fsl-card-description">A 360-degree digital visualization of each child's skill
+                                progress across 17 sub-pillars through competency-based assessments. It consolidates
+                                achievements and reflections into distinct "Learner Profiles," offering a holistic,
+                                data-driven view of a child's future-readiness beyond traditional academics.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="fsl-carousel-card">
+                        <div class="fsl-card-image">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80"
+                                alt="School To Career Pathways">
+                        </div>
+                        <div class="fsl-card-content">
+                            <h3 class="fsl-card-title">School To Career Pathways</h3>
+                            <p class="fsl-card-description">Exclusive access to live projects, expert-led masterclasses,
+                                and
+                                internships opportunities that bridge the gap between school and the global workforce.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="fsl-carousel-card">
+                        <div class="fsl-card-image">
+                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80"
+                                alt="Idea Mentorship with IFT">
+                        </div>
+                        <div class="fsl-card-content">
+                            <h3 class="fsl-card-title">Idea Mentorship with IFT</h3>
+                            <p class="fsl-card-description">Children gain access to India's Future Tycoons (IFT),
+                                India's
+                                First-ever Entrepreneurship Search & Mentorship Platform, to validate and scale their
+                                ideas
+                                with expert-led mentorship. IFT opens the doors to various national & international
+                                recognition platforms.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 -->
+                    <div class="fsl-carousel-card">
+                        <div class="fsl-card-image">
+                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80"
+                                alt="Thinking Coach Support">
+                        </div>
+                        <div class="fsl-card-content">
+                            <h3 class="fsl-card-title">Thinking Coach Support</h3>
+                            <p class="fsl-card-description">To ensure quality and reduce implementation stress each
+                                school
+                                is supported by professionally trained facilitators certified in activity-based
+                                pedagogy,
+                                design thinking and entrepreneurial mindset.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 8 -->
+                    <div class="fsl-carousel-card">
+                        <div class="fsl-card-image">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80"
+                                alt="School Dashboard">
+                        </div>
+                        <div class="fsl-card-content">
+                            <h3 class="fsl-card-title">School Dashboard</h3>
+                            <p class="fsl-card-description">A digital interface for real-time visibility into class,
+                                grade &
+                                school-level performance. It is aligned with CBSE/NEP outcomes to support data-driven
+                                reporting, & audits with parents and stakeholders.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- FSL Comparison Table Section -->
+    <section class="fsl-table-section">
+        <div class="fsl-table-container">
+            <!-- Heading and Description -->
+            <div class="fsl-table-header">
+                <h2 class="fsl-table-heading">Two Unique Propositions For<br />Future-Ready Schools</h2>
+                <p class="fsl-table-desc">Tailored to meet your objectives & grow when you're ready!</p>
+            </div>
+
+            <table class="fsl-comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Future-Skills Lab (FSL)</th>
+                        <th>Future-Skills Makerspace (FSM)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ideal For</td>
+                        <td>Schools that are ready to differentiate</td>
+                        <td>Future-ready leader schools aiming for the highest impact</td>
+                    </tr>
+                    <tr>
+                        <td>Grades</td>
+                        <td>1–10</td>
+                        <td>1–10</td>
+                    </tr>
+                    <tr>
+                        <td>Physical Space</td>
+                        <td>800–1000 sq. ft.</td>
+                        <td>1200–1500 sq. ft.</td>
+                    </tr>
+                    <tr>
+                        <td>Learning Hours</td>
+                        <td>60–110 hours per year</td>
+                        <td>60–110 hours per year</td>
+                    </tr>
+                    <tr>
+                        <td>Core Offering</td>
+                        <td>17 Skill Pillars, CSL + Design Thinking + Entrepreneurship</td>
+                        <td>All FSL features plus Maker Space & Idea Mentorship</td>
+                    </tr>
+                    <tr>
+                        <td>Tech Integration</td>
+                        <td>Moderate</td>
+                        <td>Extensive</td>
+                    </tr>
+                    <tr>
+                        <td>Competency-based Assessment</td>
+                        <td>Skill Passport</td>
+                        <td>Skill Passport</td>
+                    </tr>
+                    <tr>
+                        <td>Student Experience</td>
+                        <td>Focused on building future-ready competencies and projects</td>
+                        <td>High-degree prototyping, real-world UN SDG alignment, and industry exposure</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- FSL Final CTA Section -->
+    <section class="fsl-final-cta-section">
+        <div class="fsl-final-cta-container">
+            <div class="fsl-cta-grid">
+                <!-- Left Grid: Heading, Paragraph and Button -->
+                <div class="fsl-cta-left">
+                    <h2 class="fsl-cta-heading-final">Ready to Get Started?</h2>
+                    <p class="fsl-cta-paragraph">
+                        Select your pathway and book a readiness call with ENpower.<br />Not sure which plan fits your
+                        school? Book a 30-minute CSL readiness call — we'll help you decide
+                    </p>
+                    <button class="fsl-cta-button">
+                        Connect With Us
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Right Grid: Image -->
+                <div class="fsl-cta-right">
+                    <div class="fsl-cta-image-wrapper">
+                        <img src="assets/Group 47.png" alt="Students in classroom" class="fsl-cta-image">
+                    </div>
                 </div>
             </div>
         </div>
@@ -1080,6 +1649,75 @@
                     });
                 }
             }
+        });
+
+        /* ==========================================================
+           FSL CAROUSEL FUNCTIONALITY
+           ========================================================== */
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('fslCarouselTrack');
+
+            if (!track) return;
+
+            const originalCards = Array.from(track.children);
+            const totalSlides = originalCards.length;
+
+            // Clone ALL cards and append to end for seamless infinite loop
+            originalCards.forEach(card => {
+                const clone = card.cloneNode(true);
+                track.appendChild(clone);
+            });
+
+            let currentIndex = 0;
+            const cardWidth = 340 + 20; // card width + gap
+            let isTransitioning = false;
+
+            function updateCarousel(smooth = true) {
+                if (smooth) {
+                    track.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                } else {
+                    track.style.transition = 'none';
+                }
+                const offset = -currentIndex * cardWidth;
+                track.style.transform = `translateX(${offset}px)`;
+            }
+
+            function handleTransitionEnd() {
+                // When we reach the cloned set, instantly jump back to the start
+                if (currentIndex >= totalSlides) {
+                    track.style.transition = 'none';
+                    currentIndex = 0;
+                    track.style.transform = `translateX(0px)`;
+                }
+                isTransitioning = false;
+            }
+
+            track.addEventListener('transitionend', handleTransitionEnd);
+
+            // Auto-play carousel every 3 seconds
+            let autoPlayInterval = setInterval(() => {
+                if (isTransitioning) return;
+                isTransitioning = true;
+                currentIndex++;
+                updateCarousel();
+            }, 3000);
+
+            // Pause autoplay on hover
+            track.addEventListener('mouseenter', () => {
+                clearInterval(autoPlayInterval);
+            });
+
+            track.addEventListener('mouseleave', () => {
+                autoPlayInterval = setInterval(() => {
+                    if (isTransitioning) return;
+                    isTransitioning = true;
+                    currentIndex++;
+                    updateCarousel();
+                }, 3000);
+            });
+
+            // Initialize
+            updateCarousel(false);
         });
     </script>
 </body>

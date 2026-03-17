@@ -424,7 +424,7 @@
 
         .csl-cards-header {
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
             margin-bottom: 60px;
         }
 
@@ -437,7 +437,7 @@
             letter-spacing: -1px;
             text-align: left;
             /* max-width: 100px; */
-            width: 600px;
+            /* width: 600px; */
         }
 
         .csl-cards-heading-1 {
@@ -526,6 +526,7 @@
 
         /* CSL Responsive */
         @media (max-width: 768px) {
+
             /* Hero Section Mobile */
             .csl-hero-section {
                 padding: 100px 20px 60px;
@@ -886,10 +887,11 @@
             font-size: 3.5rem;
             font-weight: 800;
             font-family: 'Space Grotesk', sans-serif;
-            background: linear-gradient(135deg, #6c32a8 0%, #8b5cf6 100%);
+            color: #6c32a8;
+            /* background: linear-gradient(135deg, #6c32a8 0%, #8b5cf6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            background-clip: text; */
             line-height: 1.2;
             letter-spacing: -2px;
             text-align: center;
@@ -1120,14 +1122,14 @@
 
         .csl-process-heading-wrapper {
             flex-shrink: 0;
-            width: 400px;
+            width: 450px;
         }
 
         .csl-process-heading {
             font-size: 3.5rem;
             font-weight: 800;
             font-family: 'Space Grotesk', sans-serif;
-            color: #1c1c1c;
+            color: #6c32a8;
             line-height: 1.2;
             letter-spacing: -2px;
             position: sticky;
@@ -1137,18 +1139,6 @@
 
         .csl-process-heading span {
             display: block;
-        }
-
-        .csl-process-heading .highlight {
-            /* background: linear-gradient(180deg, #6c32a8 0%, #fef08a 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text; */
-            color: #6c32a8;
-        }
-
-        .csl-process-heading .highlight2 {
-            color: #e5a93e;
         }
 
         .csl-process-cards-container {
@@ -1197,11 +1187,11 @@
         }
 
         .csl-process-card-title {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 400;
             font-family: 'Space Grotesk', sans-serif;
             color: #1c1c1c;
-            line-height: 1.2;
+            line-height: 1.5;
             margin: 0;
             letter-spacing: -0.5px;
         }
@@ -1247,7 +1237,7 @@
             font-size: 3.5rem;
             font-weight: 800;
             font-family: 'Space Grotesk', sans-serif;
-            color: #1c1c1c;
+            color: #6c32a8;
             line-height: 1.2;
             letter-spacing: -2px;
             margin-bottom: 60px;
@@ -1297,7 +1287,7 @@
         }
 
         .csl-comparison-table thead {
-            background: linear-gradient(135deg, #6c32a8 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #dec1fc 0%, #d1bcff 100%);
         }
 
         .csl-comparison-table thead th {
@@ -1378,7 +1368,7 @@
         .csl-projects-section {
             position: relative;
             width: 100%;
-            background: #ffffff;
+            background: #f6f0fa;
             padding: 100px 20px;
         }
 
@@ -1592,10 +1582,10 @@
             <!-- Heading positioned on right -->
             <div class="csl-cards-header">
                 <h2 class="csl-cards-heading">
-                    <span class="csl-cards-heading-1">What is</span><br>
-                    <span class="csl-cards-heading-2">ENpower's</span><br>
-                    <span class="csl-cards-heading-2">Composite Skills</span><br>
-                    <span class="csl-cards-heading-1">Lab?</span>
+                    <span class="csl-cards-heading-2">What is</span>
+                    <span class="csl-cards-heading-1">ENpower's</span>
+                    <span class="csl-cards-heading-1">Composite Skills</span>
+                    <span class="csl-cards-heading-2">Lab?</span>
                 </h2>
             </div>
 
@@ -1790,9 +1780,9 @@
                 <!-- Left: Sticky Heading -->
                 <div class="csl-process-heading-wrapper">
                     <h2 class="csl-process-heading">
-                        <span class="highlight">ENpower's</span>
-                        <span>8 step</span>
-                        <span class="highlight2">implementation</span>
+                        <span>ENpower's 8 step</span>
+                        <!-- <span>8 step</span> -->
+                        <span>implementation</span>
                         <span>process</span>
                     </h2>
                 </div>
@@ -1805,7 +1795,7 @@
                             <div class="csl-process-card-icon">
                                 <span class="material-icons">visibility</span>
                             </div>
-                            <h3 class="csl-process-card-title">Readiness Assessment & Vision Alignment</h3>
+                            <h3 class="csl-process-card-title">School Recce</h3>
                         </div>
 
                         <!-- Card 2 -->
@@ -1813,7 +1803,7 @@
                             <div class="csl-process-card-icon">
                                 <span class="material-icons">architecture</span>
                             </div>
-                            <h3 class="csl-process-card-title">Infrastructure Setup & Lab Design</h3>
+                            <h3 class="csl-process-card-title">Aligned With NEP & NCF</h3>
                         </div>
 
                         <!-- Card 3 -->
@@ -1821,7 +1811,8 @@
                             <div class="csl-process-card-icon">
                                 <span class="material-icons">menu_book</span>
                             </div>
-                            <h3 class="csl-process-card-title">Curriculum Integration & Content Mapping</h3>
+                            <h3 class="csl-process-card-title">Blending Tech Of The Future, Composite Skill Lab &
+                                Entrepreneurship Mindset</h3>
                         </div>
 
                         <!-- Card 4 -->
@@ -1829,7 +1820,7 @@
                             <div class="csl-process-card-icon">
                                 <span class="material-icons">school</span>
                             </div>
-                            <h3 class="csl-process-card-title">Teacher Training & Capacity Building</h3>
+                            <h3 class="csl-process-card-title">To Facilitate Project-Based Learning</h3>
                         </div>
 
                         <!-- Card 5 -->
@@ -1837,7 +1828,7 @@
                             <div class="csl-process-card-icon">
                                 <span class="material-icons">calendar_month</span>
                             </div>
-                            <h3 class="csl-process-card-title">Timetable Integration & Resource Allocation</h3>
+                            <h3 class="csl-process-card-title">Competency-Based Assessments</h3>
                         </div>
 
                         <!-- Card 6 -->
@@ -1845,7 +1836,7 @@
                             <div class="csl-process-card-icon">
                                 <span class="material-icons">play_circle</span>
                             </div>
-                            <h3 class="csl-process-card-title">Pilot Launch & Feedback Loop</h3>
+                            <h3 class="csl-process-card-title">Reporting On The Student Dashboard</h3>
                         </div>
 
                         <!-- Card 7 -->
@@ -1853,7 +1844,7 @@
                             <div class="csl-process-card-icon">
                                 <span class="material-icons">analytics</span>
                             </div>
-                            <h3 class="csl-process-card-title">Assessment Framework & Digital Portfolio</h3>
+                            <h3 class="csl-process-card-title">Student Project Showcase At Kaushal Mela</h3>
                         </div>
 
                         <!-- Card 8 -->
@@ -1861,17 +1852,38 @@
                             <div class="csl-process-card-icon">
                                 <span class="material-icons">celebration</span>
                             </div>
-                            <h3 class="csl-process-card-title">Kaushal Mela & Annual Showcase</h3>
+                            <h3 class="csl-process-card-title">National & Global Showcase Opportunities</h3>
                         </div>
 
                         <!-- Card 9 -->
                         <div class="csl-process-card">
                             <div class="csl-process-card-icon">
-                                <span class="material-icons">support_agent</span>
+                                <span class="material-icons">lightbulb</span>
                             </div>
-                            <h3 class="csl-process-card-title">Ongoing Support & Continuous Improvement</h3>
+                            <h3 class="csl-process-card-title">Composite Skill Lab</h3>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSL Projects Section -->
+    <section class="csl-projects-section">
+        <div class="csl-projects-container">
+            <!-- Heading -->
+            <h2 class="csl-projects-heading">3 Projects in a year,<br />covering each form of work</h2>
+
+            <!-- Images in Column -->
+            <div class="csl-projects-wrapper">
+                <div class="csl-project-image">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80" alt="Project 1">
+                </div>
+                <div class="csl-project-image">
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1200&q=80" alt="Project 2">
+                </div>
+                <div class="csl-project-image">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80" alt="Project 3">
                 </div>
             </div>
         </div>
@@ -1958,27 +1970,6 @@
         </div>
     </section>
 
-    <!-- CSL Projects Section -->
-    <section class="csl-projects-section">
-        <div class="csl-projects-container">
-            <!-- Heading -->
-            <h2 class="csl-projects-heading">3 Projects in a year,<br />covering each form of work</h2>
-
-            <!-- Images in Column -->
-            <div class="csl-projects-wrapper">
-                <div class="csl-project-image">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80" alt="Project 1">
-                </div>
-                <div class="csl-project-image">
-                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1200&q=80" alt="Project 2">
-                </div>
-                <div class="csl-project-image">
-                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80" alt="Project 3">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CSL Final CTA Section -->
     <section class="csl-final-cta-section">
         <div class="csl-final-cta-container">
@@ -1987,7 +1978,7 @@
                 <div class="csl-cta-left">
                     <h2 class="csl-cta-heading-final">Ready to Get Started?</h2>
                     <p class="csl-cta-paragraph">
-                        Select your pathway and book a readiness call with ENpower. Not sure which plan fits your
+                        Select your pathway and book a readiness call with ENpower.<br />Not sure which plan fits your
                         school? Book a 30-minute CSL readiness call — we'll help you decide
                     </p>
                     <button class="csl-cta-button">
