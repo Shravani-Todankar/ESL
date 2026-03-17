@@ -435,14 +435,6 @@ body {
     fill: #BFA2FF;
 }
 
-.network-node.node-large {
-    /* Large nodes get enhanced glow via SVG filter */
-}
-
-.network-node.node-medium {
-    /* Medium nodes get medium glow via SVG filter */
-}
-
 .network-node.node-small {
     /* Small nodes - minimal or no glow */
     filter: drop-shadow(0 0 6px currentColor);
