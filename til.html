@@ -10,15 +10,14 @@
 
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
-
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -214,7 +213,7 @@
             text-align: center;
         }
 
-        /* ── TIL Row 3: "To Meaningful" — centered ── */
+        /* ── TIL Row 3 ── */
         .til-row-3 {
             font-size: 80px;
             font-weight: 700;
@@ -225,27 +224,6 @@
             align-self: center;
             padding-left: 0px;
             margin-top: 4px;
-        }
-
-        .til-row-3 .til-meaningful {
-            font-size: 80px;
-            font-weight: 800;
-            font-family: 'Space Grotesk', sans-serif;
-            color: #e5a93e;
-            letter-spacing: -2px;
-        }
-
-        /* ── TIL Row 4: "Transformation" — centered ── */
-        .til-row-4 {
-            font-size: 80px;
-            font-weight: 800;
-            font-family: 'Space Grotesk', sans-serif;
-            color: #e5a93e;
-            line-height: 1.1;
-            letter-spacing: -2px;
-            align-self: center;
-            padding-left: 0px;
-            margin-top: -6px;
         }
 
         /* ── TIL Pills ── */
@@ -286,14 +264,6 @@
             font-size: 20px;
             font-weight: 400;
             color: #1c1c1c;
-        }
-
-        .til-subtext .til-s2 {
-            display: block;
-            font-size: 17px;
-            font-weight: 300;
-            color: #555;
-            margin-top: 13px;
         }
 
         /* ── TIL Video Section ── */
@@ -507,6 +477,700 @@
             line-height: 1.2;
         }
 
+        /* ── TIL Info Section ── */
+        .til-info-section {
+            position: relative;
+            width: 100%;
+            /* background: linear-gradient(180deg, #f6f0fa 0%, #ffffff 100%); */
+            padding: 100px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .til-info-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .til-info-heading {
+            font-size: 3rem;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #6c32a8;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .til-info-description {
+            font-size: 1.2rem;
+            font-weight: 400;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            margin-bottom: 60px;
+        }
+
+        /* ── TIA Component ── */
+        .tia-wrap * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .tia-wrap {
+            font-family: 'Poppins', sans-serif;
+            background: #d3d3d317;
+            color: #111827;
+            display: flex;
+            flex-direction: column;
+            width: 1250px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            /* box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); */
+        }
+
+        .tia-header {
+            padding: 28px 40px 22px;
+            /* border-bottom: 1px solid #f3f4f6; */
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .tia-header-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: -0.3px;
+            color: #111827;
+        }
+
+        .tia-header-current {
+            text-align: right;
+        }
+
+        .tia-header-current-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #9ca3af;
+            margin-bottom: 4px;
+        }
+
+        .tia-header-current-value {
+            font-size: 15px;
+            font-weight: 700;
+            color: #e5a93e;
+            transition: color 0.3s;
+        }
+
+        .tia-description {
+            padding: 18px 40px;
+            /* border-bottom: 1px solid #f3f4f6; */
+        }
+
+        .tia-description-inner {
+            /* max-width: 860px; */
+        }
+
+        .tia-description p {
+            font-size: 1.02rem;
+            line-height: 1.75;
+            color: #374151;
+        }
+
+        .tia-description p+p {
+            margin-top: 10px;
+        }
+
+        .tia-description strong {
+            color: #1e1b4b;
+            font-weight: 600;
+        }
+
+        .tia-tabs {
+            padding: 0 40px;
+            border-bottom: 1px solid #fffce3;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tia-tab-btn {
+            flex: 0 1 auto;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 12px 20px 10px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            cursor: pointer;
+            transition: border-color 0.2s;
+            gap: 10px;
+        }
+
+        .tia-tab-btn:hover .tia-tab-num,
+        .tia-tab-btn:hover .tia-tab-name {
+            color: #374151;
+        }
+
+        .tia-tab-btn.tia-active {
+            border-bottom-color: #6c32a8;
+        }
+
+        .tia-tab-btn.tia-active .tia-tab-name {
+            color: #6c32a8;
+        }
+
+        .tia-tab-icon {
+            font-size: 24px;
+            transition: transform 0.2s, color 0.2s;
+            line-height: 1;
+            color: #e5a93e;
+        }
+
+        .tia-tab-btn:hover .tia-tab-icon,
+        .tia-tab-btn.tia-active .tia-tab-icon {
+            transform: scale(1.15);
+            color: #6c32a8;
+        }
+
+        .tia-tab-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #e5a93e;
+            text-align: center;
+            transition: color 0.2s;
+        }
+
+        .tia-panel {
+            flex: 1;
+            padding: 28px 40px;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .tia-panel.tia-fade {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+
+        .tia-panel-inner {
+            display: flex;
+            gap: 36px;
+            height: 100%;
+            /* max-width: 860px; */
+        }
+
+        .tia-hero {
+            flex: 0 0 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .tia-hero-icon {
+            width: 88px;
+            height: 88px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            background: #ede9fe;
+        }
+
+        .tia-hero-icon .material-icons {
+            font-size: 48px;
+            color: #6c32a8;
+        }
+
+        .tia-hero-num {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 4px;
+            -webkit-text-stroke: 2px #6c32a8;
+            color: #ede9fe;
+        }
+
+        .tia-hero-title {
+            font-size: 22px;
+            font-weight: 900;
+            color: #111827;
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+
+        .tia-hero-tagline {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #6b7280;
+            margin-bottom: 16px;
+        }
+
+        .tia-hero-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tia-badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 99px;
+        }
+
+        .tia-badge-accent {
+            background: #ede9fe;
+            color: #6c32a8;
+        }
+
+        .tia-badge-neutral {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .tia-vline {
+            flex: 0 0 1px;
+            align-self: stretch;
+            border-radius: 99px;
+            background: linear-gradient(to bottom, transparent, rgba(229, 169, 62, 0.4), transparent);
+        }
+
+        .tia-topics {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tia-topics-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #9ca3af;
+            margin-bottom: 4px;
+        }
+
+        .tia-topic-card {
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1.5px solid #e5e7eb;
+            background: #f9fafb;
+            transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+        }
+
+        .tia-topic-card.tia-open {
+            background: #fef6e7;
+            border-color: #e5a93e;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        .tia-topic-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 18px;
+        }
+
+        .tia-topic-idx {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 900;
+            background: #e5e7eb;
+            color: #6b7280;
+            flex-shrink: 0;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .tia-topic-card.tia-open .tia-topic-idx {
+            background: #e5a93e;
+            color: white;
+        }
+
+        .tia-topic-name {
+            flex: 1;
+            font-size: 13px;
+            font-weight: 600;
+            color: #374151;
+            transition: color 0.2s;
+        }
+
+        .tia-topic-card.tia-open .tia-topic-name {
+            color: #e5a93e;
+        }
+
+        .tia-topic-chevron {
+            font-size: 10px;
+            color: #e5a93e;
+            transition: transform 0.25s;
+        }
+
+        .tia-topic-card.tia-open .tia-topic-chevron {
+            transform: rotate(180deg);
+        }
+
+        .tia-topic-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .tia-topic-body.tia-open {
+            max-height: 80px;
+        }
+
+        .tia-topic-desc {
+            padding: 0 18px 14px;
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .tia-nav-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid #f3f4f6;
+        }
+
+        .tia-nav-btn {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 10px;
+            border: 1.5px solid #e5e7eb;
+            background: #f3f4f6;
+            color: #374151;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tia-nav-btn:disabled {
+            background: #f9fafb;
+            color: #d1d5db;
+            cursor: not-allowed;
+            border-color: #e5e7eb;
+        }
+
+        .tia-nav-btn.tia-next-btn:not(:disabled) {
+            background: #ede9fe;
+            color: #6c32a8;
+            border-color: #6c32a8;
+        }
+
+        .tia-nav-count {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        .tia-pillars {
+            border-top: 1px solid #f3f4f6;
+            /* background: #fafafa; */
+            padding: 14px 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .tia-pillar-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: white;
+            border: 1px solid #f3f4f6;
+            border-radius: 12px;
+            padding: 18px 12px;
+        }
+
+        .tia-pillar-item:nth-child(1) {
+            background: #9a69ad;
+        }
+
+        .tia-pillar-item:nth-child(2) {
+            background: #632b7d;
+        }
+
+        .tia-pillar-item:nth-child(3) {
+            background: #421e5a;
+        }
+
+        .tia-pillar-item:nth-child(4) {
+            background: #a33d97;
+        }
+
+        .tia-pillar-icon {
+            font-size: 20px;
+            color: #e5a93e;
+        }
+
+        .tia-pillar-label {
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.3;
+            font-family: 'Space Grotesk';
+        }
+
+        /* ── TIL Gallery Section ── */
+        .til-gallery-section {
+            position: relative;
+            width: 100%;
+            /* background: #ffffff; */
+            padding: 100px 0;
+            overflow: hidden;
+            padding-top: 0;
+        }
+
+        .til-gallery-header {
+            text-align: center;
+            padding: 0 20px;
+            margin-bottom: 60px;
+        }
+
+        .til-gallery-heading {
+            font-size: 3rem;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #6c32a8;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .til-gallery-description {
+            font-size: 1.1rem;
+            font-weight: 400;
+            font-family: 'Poppins', sans-serif;
+            color: #555;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .til-marquee-container {
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .til-marquee {
+            display: flex;
+            gap: 30px;
+            animation: tilScrollLeft 40s linear infinite;
+        }
+
+        .til-marquee-reverse {
+            display: flex;
+            gap: 30px;
+            animation: tilScrollRight 40s linear infinite;
+        }
+
+        .til-marquee-item {
+            flex-shrink: 0;
+            width: 300px;
+            height: 250px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .til-marquee-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(108, 50, 168, 0.2);
+        }
+
+        .til-marquee-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @keyframes tilScrollLeft {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes tilScrollRight {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* ── TIL Benefits Section ── */
+        .til-benefits-section {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px;
+            padding-top: 0;
+        }
+
+        .til-benefits-wrapper {
+            width: 100%;
+            max-width: 1300px;
+            background: linear-gradient(135deg, #efdeff 0%, #fffce3 100%);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            opacity: 0;
+            transform: translateY(24px);
+            animation: til-benefits-fadeUp 0.7s ease forwards;
+        }
+
+        @keyframes til-benefits-fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .til-benefits-panel-left {
+            padding: 3.5rem 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .til-benefits-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.22;
+            color: #6c32a8;
+        }
+
+        .til-benefits-title-accent {
+            color: #e5a93e;
+        }
+
+        .til-benefits-media {
+            width: 500px;
+            height: 220px;
+            /* aspect-ratio: 16 / 9; */
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+            background: linear-gradient(135deg, #E1F5EE 0%, #9FE1CB 60%, #1D9E75 100%);
+        }
+
+        .til-benefits-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .til-benefits-panel-right {
+            padding: 3.5rem 3rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .til-benefits-services-list {
+            list-style: none;
+            width: 100%;
+        }
+
+        .til-benefits-service-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateX(16px);
+            transition: background 0.2s ease;
+        }
+
+        .til-benefits-service-row:first-child {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .til-benefits-service-row:hover {
+            background: #ddc1fc7c;
+            border-radius: 8px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin: 0 -10px;
+        }
+
+        .til-benefits-service-row.til-benefits-visible {
+            animation: til-benefits-slideIn 0.45s ease forwards;
+        }
+
+        @keyframes til-benefits-slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .til-benefits-service-index {
+            font-size: 12px;
+            color: #9a9a94;
+            min-width: 22px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .til-benefits-service-label {
+            font-size: 15px;
+            font-weight: 500;
+            color: #1a1a18;
+            flex: 1;
+            line-height: 1.4;
+        }
+
+        .til-benefits-check-badge {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #E1F5EE;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 1px solid #9FE1CB;
+        }
+
+        .til-benefits-check-badge svg {
+            width: 11px;
+            height: 11px;
+        }
+
         /* TIL Responsive */
         @media (max-width: 768px) {
 
@@ -573,6 +1237,258 @@
             .til-comparison-table tbody td {
                 padding: 14px 12px;
                 font-size: 0.85rem;
+            }
+
+            /* Info Section Mobile */
+            .til-info-section {
+                padding: 60px 20px;
+            }
+
+            .til-info-heading {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+
+            .til-info-description {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+
+            /* Gallery Section Mobile */
+            .til-gallery-section {
+                padding: 60px 0;
+            }
+
+            .til-gallery-header {
+                margin-bottom: 40px;
+            }
+
+            .til-gallery-heading {
+                font-size: 1.8rem;
+            }
+
+            .til-gallery-description {
+                font-size: 0.95rem;
+            }
+
+            .til-marquee-item {
+                width: 300px;
+                height: 225px;
+            }
+
+            /* Benefits Section Mobile */
+            .til-benefits-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .til-benefits-panel-left {
+                border-right: none;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                padding: 2.5rem 1.75rem;
+            }
+
+            .til-benefits-panel-right {
+                padding: 2.5rem 1.75rem;
+            }
+
+            .til-benefits-title {
+                font-size: 22px;
+            }
+        }
+
+        /* ── AI Readiness Assessment Section ── */
+        :root {
+            --enp-assess-bg: #f4f5f7;
+            --enp-assess-grid-line: rgba(180, 190, 210, 0.25);
+            --enp-assess-card-bg: #ffffff;
+            --enp-assess-card-border: rgba(180, 190, 210, 0.35);
+            --enp-assess-card-shadow: 0 2px 16px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(180, 190, 210, 0.18);
+            --enp-assess-card-shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(100, 120, 160, 0.22);
+            --enp-assess-heading-dark: #1a1d24;
+            --enp-assess-heading-accent: #e5a93e;
+            --enp-assess-phase-label: #6c32a8;
+            --enp-assess-phase-title: #1a1d24;
+            --enp-assess-phase-desc: #6b7280;
+            --enp-assess-subtext: #1a1a1a;
+            --enp-assess-radius: 14px;
+        }
+
+        .enp-assess-wrapper {
+            position: relative;
+            /* max-width: 960px; */
+            margin: 0 auto;
+            padding: 80px 100px;
+        }
+
+        .enp-assess-gridbg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background-image: linear-gradient(var(--enp-assess-grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--enp-assess-grid-line) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.7;
+        }
+
+        .enp-assess-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            line-height: 1.2;
+            color: var(--enp-assess-heading-dark);
+            margin-bottom: 28px;
+            max-width: 700px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: enpAssessFadeUp 0.8s ease forwards;
+            position: relative;
+            z-index: 1;
+        }
+
+        .enp-assess-heading .enp-assess-accent {
+            color: var(--enp-assess-heading-accent);
+        }
+
+        .enp-assess-subtext {
+            font-size: 1.4rem;
+            color: var(--enp-assess-subtext);
+            margin-bottom: 40px;
+            letter-spacing: 0.02em;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: enpAssessFadeUp 0.7s 0.25s ease forwards;
+            position: relative;
+            z-index: 1;
+        }
+
+        .enp-assess-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 640px) {
+            .enp-assess-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .enp-assess-card {
+            background: var(--enp-assess-card-bg);
+            border: 1px solid var(--enp-assess-card-border);
+            border-radius: var(--enp-assess-radius);
+            padding: 32px 30px 30px;
+            box-shadow: var(--enp-assess-card-shadow);
+            cursor: default;
+            transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(36px);
+        }
+
+        .enp-assess-card:hover {
+            box-shadow: var(--enp-assess-card-shadow-hover);
+            transform: translateY(-3px);
+            border-color: #dca3ff;
+            border-radius: 14px;
+        }
+
+        .enp-assess-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.35rem;
+            color: var(--enp-assess-phase-title);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .enp-assess-desc {
+            font-size: 0.92rem;
+            color: var(--enp-assess-phase-desc);
+            line-height: 1.55;
+            font-weight: 400;
+        }
+
+        @keyframes enpAssessFadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .enp-assess-card.enp-assess-visible {
+            animation: enpAssessFadeUp 0.65s ease forwards;
+        }
+
+        .enp-assess-card:nth-child(1).enp-assess-visible {
+            animation-delay: 0.35s;
+        }
+
+        .enp-assess-card:nth-child(2).enp-assess-visible {
+            animation-delay: 0.50s;
+        }
+
+        .enp-assess-card:nth-child(3).enp-assess-visible {
+            animation-delay: 0.65s;
+        }
+
+        .enp-assess-card:nth-child(4).enp-assess-visible {
+            animation-delay: 0.80s;
+        }
+
+        /* ── TIL Final CTA Section ── */
+        .til-final-cta-section {
+            position: relative;
+            width: 100%;
+            min-height: 80vh;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #f6f0fa 0%, #ffffff 100%);
+        }
+
+        .til-final-cta-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 2px solid #6b32a820;
+            border-radius: 24px;
+            padding: 80px;
+            background: #f5e5ff;
+        }
+
+        .til-cta-heading-final {
+            font-size: 2.5rem;
+            font-weight: 500;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1c1c1c;
+            line-height: 1.1;
+            letter-spacing: 0px;
+        }
+
+        .til-cta-paragraph {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #666;
+            line-height: 2;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .til-final-cta-container {
+                padding: 40px 20px;
+            }
+
+            .til-cta-paragraph {
+                font-size: 1rem;
             }
         }
     </style>
@@ -747,11 +1663,335 @@
         </div>
     </section>
 
+    <!-- TIL Info Section -->
+    <section class="til-info-section">
+        <div class="til-info-container">
+            <h2 class="til-info-heading">What Is ENpower's Tech Innovation Lab?</h2>
+            <p class="til-info-description">
+                ENpower's Tech Innovation Lab is a powerful innovation space that goes far beyond a traditional STEM
+                lab, serving as a launchpad for young innovators.
+            </p>
+        </div>
+
+        <!-- TIA Component -->
+        <div class="tia-wrap">
+            <div class="tia-header">
+                <div>
+                    <div class="tia-header-title">Our Tech Innovation Architecture</div>
+                </div>
+                <div class="tia-header-current">
+                    <div class="tia-header-current-label">Currently Exploring</div>
+                    <div class="tia-header-current-value" id="tia-headerCurrent"></div>
+                </div>
+            </div>
+            <div class="tia-description">
+                <div class="tia-description-inner">
+                    <p>The model is built on <strong>6 integrated tech pillars</strong>: Smart Systems, AI Studio,
+                        Coding, Robotics, Designing, and Emerging Technologies, giving students hands-on exposure to
+                        <em>'Tech of the Future'</em> — electronics, AI, programming, automation, product design, and
+                        future-ready domains like AR/VR, green tech, and cybersecurity.
+                    </p>
+                    <p>Learning is delivered through a framework powered by <strong>Design Thinking</strong>,
+                        <strong>Enquiry-based learning</strong>, and continuous <strong>Teacher Training &amp;
+                            Handholding</strong>.
+                    </p>
+                </div>
+            </div>
+            <div class="tia-tabs" id="tia-tabs"></div>
+            <div class="tia-panel" id="tia-panel">
+                <div class="tia-panel-inner">
+                    <div class="tia-hero" id="tia-hero"></div>
+                    <div class="tia-vline" id="tia-vline"></div>
+                    <div class="tia-topics" id="tia-topics"></div>
+                </div>
+            </div>
+            <div class="tia-pillars" id="tia-pillars"></div>
+        </div>
+    </section>
+
+    <!-- TIL Gallery Section -->
+    <section class="til-gallery-section">
+        <div class="til-gallery-header">
+            <h2 class="til-gallery-heading">Student Innovation Showcase</h2>
+            <p class="til-gallery-description">
+                Explore the incredible projects created by students in our Tech Innovation Labs - from robotics and IoT
+                solutions to AI-powered applications and sustainable innovations.
+            </p>
+        </div>
+
+        <!-- First Marquee: Left to Right -->
+        <div class="til-marquee-container">
+            <div class="til-marquee">
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1581092583537-20d51b2e4b77?w=800&q=80"
+                        alt="Students working on robotics">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80"
+                        alt="STEM project development">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1581093458791-9d42e2e7c2e6?w=800&q=80"
+                        alt="Innovation lab workspace">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
+                        alt="Students coding">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80"
+                        alt="Team collaboration">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
+                        alt="Group project work">
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1581092583537-20d51b2e4b77?w=800&q=80"
+                        alt="Students working on robotics">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80"
+                        alt="STEM project development">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1581093458791-9d42e2e7c2e6?w=800&q=80"
+                        alt="Innovation lab workspace">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
+                        alt="Students coding">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80"
+                        alt="Team collaboration">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
+                        alt="Group project work">
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Marquee: Right to Left -->
+        <div class="til-marquee-container">
+            <div class="til-marquee-reverse">
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=800&q=80"
+                        alt="3D printing project">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80"
+                        alt="Electronics prototyping">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&q=80"
+                        alt="Student presenting project">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&q=80"
+                        alt="Innovation workshop">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+                        alt="Teamwork and brainstorming">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80"
+                        alt="Students learning together">
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=800&q=80"
+                        alt="3D printing project">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80"
+                        alt="Electronics prototyping">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&q=80"
+                        alt="Student presenting project">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&q=80"
+                        alt="Innovation workshop">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+                        alt="Teamwork and brainstorming">
+                </div>
+                <div class="til-marquee-item">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80"
+                        alt="Students learning together">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIL Benefits Section -->
+    <section class="til-benefits-section">
+        <div class="til-benefits-wrapper" id="tilBenefitsSection">
+
+            <!-- LEFT COLUMN -->
+            <div class="til-benefits-panel-left">
+                <!-- <p class="til-benefits-eyebrow">Benefits</p> -->
+
+                <h2 class="til-benefits-title">
+                    Upgrade From <span class="til-benefits-title-accent">STEM</span><br />
+                    To Tech Innovation Labs
+                </h2>
+
+                <div class="til-benefits-media">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80"
+                        alt="Tech Innovation Lab">
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="til-benefits-panel-right">
+                <!-- <p class="til-benefits-eyebrow">Services</p> -->
+
+                <ul class="til-benefits-services-list" id="tilBenefitsServicesList">
+                    <li class="til-benefits-service-row">
+                        <span class="til-benefits-service-index">01</span>
+                        <span class="til-benefits-service-label">Modular Infrastructure Setup</span>
+                        <span class="til-benefits-check-badge">
+                            <svg viewBox="0 0 11 11" fill="none">
+                                <path d="M2 5.5l2.8 2.8L9 3" stroke="#1D9E75" stroke-width="1.6" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </li>
+                    <li class="til-benefits-service-row">
+                        <span class="til-benefits-service-index">02</span>
+                        <span class="til-benefits-service-label">Structured Curriculum (48–72 Hours per Year)</span>
+                        <span class="til-benefits-check-badge">
+                            <svg viewBox="0 0 11 11" fill="none">
+                                <path d="M2 5.5l2.8 2.8L9 3" stroke="#1D9E75" stroke-width="1.6" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </li>
+                    <li class="til-benefits-service-row">
+                        <span class="til-benefits-service-index">03</span>
+                        <span class="til-benefits-service-label">Teacher Training & Capacity Building</span>
+                        <span class="til-benefits-check-badge">
+                            <svg viewBox="0 0 11 11" fill="none">
+                                <path d="M2 5.5l2.8 2.8L9 3" stroke="#1D9E75" stroke-width="1.6" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </li>
+                    <li class="til-benefits-service-row">
+                        <span class="til-benefits-service-index">04</span>
+                        <span class="til-benefits-service-label">Design Thinking–Led Project Frameworks</span>
+                        <span class="til-benefits-check-badge">
+                            <svg viewBox="0 0 11 11" fill="none">
+                                <path d="M2 5.5l2.8 2.8L9 3" stroke="#1D9E75" stroke-width="1.6" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </li>
+                    <li class="til-benefits-service-row">
+                        <span class="til-benefits-service-index">05</span>
+                        <span class="til-benefits-service-label">Student Innovation Challenges</span>
+                        <span class="til-benefits-check-badge">
+                            <svg viewBox="0 0 11 11" fill="none">
+                                <path d="M2 5.5l2.8 2.8L9 3" stroke="#1D9E75" stroke-width="1.6" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </li>
+                    <li class="til-benefits-service-row">
+                        <span class="til-benefits-service-index">06</span>
+                        <span class="til-benefits-service-label">Assessment Rubrics</span>
+                        <span class="til-benefits-check-badge">
+                            <svg viewBox="0 0 11 11" fill="none">
+                                <path d="M2 5.5l2.8 2.8L9 3" stroke="#1D9E75" stroke-width="1.6" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </li>
+                    <li class="til-benefits-service-row">
+                        <span class="til-benefits-service-index">07</span>
+                        <span class="til-benefits-service-label">Implementation Support</span>
+                        <span class="til-benefits-check-badge">
+                            <svg viewBox="0 0 11 11" fill="none">
+                                <path d="M2 5.5l2.8 2.8L9 3" stroke="#1D9E75" stroke-width="1.6" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- AI Readiness Assessment Section -->
+    <section class="enp-assess-wrapper">
+        <div class="enp-assess-gridbg"></div>
+        <h1 class="enp-assess-heading">
+            Are you ready for an upgrade from traditional <span class="enp-assess-accent">AI, Coding &amp;
+                Robotics?</span>
+        </h1>
+        <p class="enp-assess-subtext">Let's assess:</p>
+
+        <div class="enp-assess-grid">
+            <div class="enp-assess-card" data-phase="1">
+                <div class="enp-assess-title">Your current infrastructure</div>
+                <div class="enp-assess-desc">Compute, connectivity, and physical spatial logic.</div>
+            </div>
+            <div class="enp-assess-card" data-phase="2">
+                <div class="enp-assess-title">Student Readiness</div>
+                <div class="enp-assess-desc">Baseline logic assessment and cognitive load mapping.</div>
+            </div>
+            <div class="enp-assess-card" data-phase="3">
+                <div class="enp-assess-title">Teacher Capacity</div>
+                <div class="enp-assess-desc">Instructional bandwidth and technical autonomy.</div>
+            </div>
+            <div class="enp-assess-card" data-phase="4">
+                <div class="enp-assess-title">Implementation roadmap</div>
+                <div class="enp-assess-desc">The 36-month transition to professional-grade AI.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIL Final CTA Section -->
+    <section class="til-final-cta-section">
+        <div class="til-final-cta-container">
+            <div class="til-cta-grid">
+                <!-- Left Grid: Heading, Paragraph and Button -->
+                <div class="til-cta-left">
+                    <h2 class="til-cta-heading-final">Ready to Get Started?</h2>
+                    <p class="til-cta-paragraph">
+                        Select your pathway and book a readiness call with ENpower.<br />Not sure which plan fits your
+                        school? Book a 30-minute TIL readiness call — we'll help you decide
+                    </p>
+                    <button class="til-cta-button">
+                        Connect With Us
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Right Grid: Image -->
+                <div class="til-cta-right">
+                    <div class="til-cta-image-wrapper">
+                        <img src="assets/Group 47.png" alt="Students in classroom" class="til-cta-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer will be loaded here -->
     <div id="footer-placeholder"></div>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         /* ==========================================================
@@ -937,6 +2177,128 @@
                 });
             }
         });
+
+        /* ==========================================================
+           TIL BENEFITS SECTION - STAGGERED ANIMATION
+           ========================================================== */
+        // Staggered reveal for service rows
+        const tilBenefitsRows = document.querySelectorAll('.til-benefits-service-row');
+
+        const tilBenefitsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    [...tilBenefitsRows].forEach((row, i) => {
+                        setTimeout(() => {
+                            row.classList.add('til-benefits-visible');
+                            row.style.animationDelay = '0s';
+                        }, i * 80);
+                    });
+                    tilBenefitsObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const benefitsServicesList = document.getElementById('tilBenefitsServicesList');
+        if (benefitsServicesList) {
+            tilBenefitsObserver.observe(benefitsServicesList);
+        }
+
+        /* ==========================================================
+           TIA COMPONENT - TECH INNOVATION ARCHITECTURE
+           ========================================================== */
+        const tiaModules = [
+            { id: "01", title: "Smart Systems", icon: "sensors", tagline: "Building intelligent connected environments", topics: [{ name: "Basic Electronics", desc: "Circuits, components, and fundamentals of hardware design." }, { name: "Sensors & Applications", desc: "Real-world sensing, data collection, and automation." }, { name: "Internet of Things", desc: "Connected devices, protocols, and smart ecosystems." }], color: "#7c3aed", colorLight: "#ede9fe", colorMid: "#a78bfa", badge: "Foundation" },
+            { id: "02", title: "AI Studio", icon: "psychology", tagline: "Harnessing artificial intelligence for real impact", topics: [{ name: "AI Applications", desc: "Practical use-cases, tools, and industry applications of AI." }, { name: "Coding & Prompt Engineering", desc: "Structured prompting, model interaction, and workflow automation." }, { name: "AI & Machine Learning", desc: "Supervised learning, neural networks, and data-driven models." }], color: "#9333ea", colorLight: "#fae8ff", colorMid: "#d946ef", badge: "Advanced" },
+            { id: "03", title: "Coding", icon: "code", tagline: "Logic, structure, and the art of programming", topics: [{ name: "Computational Thinking", desc: "Breaking problems into logical steps and algorithmic solutions." }, { name: "Block Based Programming", desc: "Visual coding with drag-and-drop paradigms for core concepts." }, { name: "Data & Logic", desc: "Variables, conditions, loops, and structured data manipulation." }], color: "#4f46e5", colorLight: "#eef2ff", colorMid: "#818cf8", badge: "Core" },
+            { id: "04", title: "Robotics", icon: "precision_manufacturing", tagline: "Engineering machines that move and think", topics: [{ name: "Mechanical Systems", desc: "Gears, structures, actuators, and physical design principles." }, { name: "Motor Controlled Systems", desc: "Servo motors, speed control, and precision movement." }, { name: "Automations with Robotics", desc: "Autonomous tasks, sensor-feedback loops, and robot programming." }], color: "#6d28d9", colorLight: "#f5f3ff", colorMid: "#8b5cf6", badge: "Applied" },
+            { id: "05", title: "Designing", icon: "palette", tagline: "From ideas to physical prototypes", topics: [{ name: "3D Designing", desc: "CAD tools, spatial thinking, and digital model creation." }, { name: "3D Printing", desc: "Additive manufacturing, materials, and printer operations." }, { name: "Rapid Prototyping", desc: "Iterative making, testing, and refining physical products." }], color: "#c026d3", colorLight: "#fdf4ff", colorMid: "#e879f9", badge: "Creative" },
+            { id: "06", title: "Emerging Technologies", icon: "explore", tagline: "Exploring the frontiers of technology", topics: [{ name: "AR / VR", desc: "Augmented and virtual reality tools, development, and experiences." }, { name: "Green Technology", desc: "Sustainable tech, renewable energy systems, and eco-innovation." }, { name: "Cybersecurity & Digital Safety", desc: "Threats, defenses, ethical hacking, and safe digital practices." }], color: "#7c3aed", colorLight: "#f5f3ff", colorMid: "#a78bfa", badge: "Future" },
+        ];
+        const tiaPillars = [
+            { label: "Theme / Challenge Based", icon: "flag" },
+            { label: "Design Thinking", icon: "lightbulb" },
+            { label: "Enquiry Based Approach", icon: "search" },
+            { label: "Teacher Training & Handholding", icon: "handshake" },
+        ];
+        let tiaActive = 0, tiaOpenTopic = 0, tiaAnimating = false;
+
+        function tiaSwitchModule(idx) {
+            if (idx === tiaActive || tiaAnimating || idx < 0 || idx >= tiaModules.length) return;
+            tiaAnimating = true; tiaOpenTopic = 0;
+            const p = document.getElementById('tia-panel');
+            p.classList.add('tia-fade');
+            setTimeout(() => { tiaActive = idx; tiaRender(); p.classList.remove('tia-fade'); tiaAnimating = false; }, 200);
+        }
+        function tiaToggleTopic(idx) { tiaOpenTopic = tiaOpenTopic === idx ? null : idx; tiaRenderTopics(); }
+        function tiaRenderTabs() {
+            document.getElementById('tia-tabs').innerHTML = tiaModules.map((m, i) =>
+                `<button class="tia-tab-btn ${i === tiaActive ? 'tia-active' : ''}" onclick="tiaSwitchModule(${i})">
+          <span class="material-icons tia-tab-icon">${m.icon}</span>
+          <span class="tia-tab-name">${m.title}</span>
+        </button>`
+            ).join('');
+        }
+        function tiaRenderHero() {
+            const m = tiaModules[tiaActive];
+            document.getElementById('tia-hero').innerHTML =
+                `<div style="display: ruby;">
+          <div class="tia-hero-icon"><span class="material-icons">${m.icon}</span></div>
+          <div class="tia-hero-num">${m.id}</div>
+          <div class="tia-hero-title">${m.title}</div>
+          <div class="tia-hero-tagline">${m.tagline}</div>
+          <div class="tia-hero-badges">
+            <span class="tia-badge tia-badge-accent">${m.badge}</span>
+            <span class="tia-badge tia-badge-neutral">3 Core Topics</span>
+          </div>
+        </div>`;
+        }
+        function tiaRenderTopics() {
+            const m = tiaModules[tiaActive];
+            document.getElementById('tia-topics').innerHTML =
+                `<div class="tia-topics-label">Topics Covered</div>
+        ${m.topics.map((t, i) =>
+                    `<div class="tia-topic-card ${tiaOpenTopic === i ? 'tia-open' : ''}" onclick="tiaToggleTopic(${i})">
+            <div class="tia-topic-header">
+              <div class="tia-topic-idx">${String(i + 1).padStart(2, '0')}</div>
+              <span class="tia-topic-name">${t.name}</span>
+              <span class="tia-topic-chevron">▼</span>
+            </div>
+            <div class="tia-topic-body ${tiaOpenTopic === i ? 'tia-open' : ''}">
+              <div class="tia-topic-desc">${t.desc}</div>
+            </div>
+          </div>`
+                ).join('')}
+        <div class="tia-nav-row">
+          <button class="tia-nav-btn" onclick="tiaSwitchModule(${tiaActive - 1})" ${tiaActive === 0 ? 'disabled' : ''}>← Previous</button>
+          <span class="tia-nav-count">${tiaActive + 1} of ${tiaModules.length}</span>
+          <button class="tia-nav-btn tia-next-btn" onclick="tiaSwitchModule(${tiaActive + 1})" ${tiaActive === tiaModules.length - 1 ? 'disabled' : ''}>Next →</button>
+        </div>`;
+        }
+        function tiaRenderPillars() {
+            document.getElementById('tia-pillars').innerHTML = tiaPillars.map(p =>
+                `<div class="tia-pillar-item"><span class="material-icons tia-pillar-icon">${p.icon}</span><span class="tia-pillar-label">${p.label}</span></div>`
+            ).join('');
+        }
+        function tiaUpdateHeader() {
+            const m = tiaModules[tiaActive];
+            document.getElementById('tia-headerCurrent').textContent = `${m.id} — ${m.title}`;
+        }
+        function tiaRender() { tiaUpdateHeader(); tiaRenderTabs(); tiaRenderHero(); tiaRenderTopics(); }
+        tiaRenderPillars(); tiaRender();
+
+        /* ==========================================================
+           AI READINESS ASSESSMENT - STAGGERED CARD ANIMATION
+           ========================================================== */
+        const enpAssessObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('enp-assess-visible');
+                    enpAssessObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.enp-assess-card').forEach(card => enpAssessObserver.observe(card));
     </script>
 </body>
 
