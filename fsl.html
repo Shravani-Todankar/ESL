@@ -969,7 +969,7 @@
             align-items: center;
             justify-content: center;
             padding: 100px 20px;
-            background: linear-gradient(180deg, #ffffff 0%, #f6f0fa 100%);
+            /* background: linear-gradient(180deg, #ffffff 0%, #f6f0fa 100%); */
         }
 
         .fsl-final-cta-container {
@@ -1008,6 +1008,245 @@
 
             .fsl-cta-paragraph {
                 font-size: 1rem;
+            }
+        }
+
+        /* ── FSL Alliance Section ── */
+        .fsl-alliance-section {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--surface, #ffffff);
+            border-radius: 15px;
+            border: 1px solid rgba(108, 50, 168, 0.12);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 40px rgba(108, 50, 168, 0.08), 0 1px 4px rgba(108, 50, 168, 0.06);
+            margin: 0 auto;
+        }
+
+        /* .fsl-alliance-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #6c32a8 0%, #e5a817 50%, #6c32a8 100%);
+            z-index: 10;
+        } */
+
+        /* Left Panel */
+        .fsl-alliance-left-panel {
+            padding: 64px 52px 64px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 1px solid rgba(108, 50, 168, 0.12);
+            position: relative;
+            z-index: 2;
+        }
+
+        .fsl-alliance-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 34px;
+            font-weight: 700;
+            line-height: 1.18;
+            color: #6c32a8;
+            margin-bottom: 10px;
+        }
+
+        .fsl-alliance-divider {
+            width: 40px;
+            height: 1.5px;
+            background: rgba(108, 50, 168, 0.12);
+            margin-bottom: 28px;
+        }
+
+        .fsl-alliance-body-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 13.5px;
+            line-height: 1.82;
+            color: #4a3960;
+            font-weight: 300;
+        }
+
+        .fsl-alliance-body-text+.fsl-alliance-body-text {
+            margin-top: 14px;
+        }
+
+        /* Right Panel */
+        .fsl-alliance-right-panel {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background: #ede7f6;
+            overflow: hidden;
+        }
+
+        .fsl-alliance-right-panel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(108, 50, 168, 0.12) 1px, transparent 1px);
+            background-size: 24px 24px;
+            pointer-events: none;
+        }
+
+        /* 3D Tilt Card */
+        .fsl-alliance-photo-card {
+            position: relative;
+            width: 100%;
+            max-width: 90%;
+            aspect-ratio: 4/3;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        .fsl-alliance-photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px rgba(108, 50, 168, 0.18), 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-radius: 15px;
+        }
+
+        /* Frosted veil */
+        .fsl-alliance-frosted-veil {
+            position: absolute;
+            inset: 0;
+            backdrop-filter: blur(14px) saturate(0.4) brightness(1.1);
+            -webkit-backdrop-filter: blur(14px) saturate(0.4) brightness(1.1);
+            background: rgba(237, 231, 246, 0.58);
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .fsl-alliance-lens-mask {
+            position: absolute;
+            inset: 0;
+            z-index: 4;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        /* Lens ring */
+        .fsl-alliance-lens-ring {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid rgba(108, 50, 168, 0.65);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2), 0 4px 20px rgba(108, 50, 168, 0.25);
+            pointer-events: none;
+            z-index: 9997;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        .fsl-alliance-lens-ring::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            border: 1.5px solid rgba(108, 50, 168, 0.45);
+            border-radius: 50%;
+        }
+
+        .fsl-alliance-lens-ring::before {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border-radius: 50%;
+            border: 1px dashed rgba(108, 50, 168, 0.2);
+        }
+
+        .fsl-alliance-photo-hint {
+            position: absolute;
+            bottom: -28px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Poppins', sans-serif;
+            font-size: 9.5px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #7a6a90;
+            opacity: 0.55;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        .fsl-alliance-card-shadow {
+            position: absolute;
+            bottom: -20px;
+            left: 8%;
+            right: 8%;
+            height: 40px;
+            background: radial-gradient(ellipse, rgba(108, 50, 168, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .fsl-alliance-corner-mark {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            pointer-events: none;
+        }
+
+        .fsl-alliance-corner-mark.tl {
+            top: 10px;
+            left: 10px;
+            border-top: 1.5px solid #e5a817;
+            border-left: 1.5px solid #e5a817;
+        }
+
+        .fsl-alliance-corner-mark.tr {
+            top: 10px;
+            right: 10px;
+            border-top: 1.5px solid #e5a817;
+            border-right: 1.5px solid #e5a817;
+        }
+
+        .fsl-alliance-corner-mark.bl {
+            bottom: 10px;
+            left: 10px;
+            border-bottom: 1.5px solid #e5a817;
+            border-left: 1.5px solid #e5a817;
+        }
+
+        .fsl-alliance-corner-mark.br {
+            bottom: 10px;
+            right: 10px;
+            border-bottom: 1.5px solid #e5a817;
+            border-right: 1.5px solid #e5a817;
+        }
+
+        @media (max-width: 720px) {
+            .fsl-alliance-section {
+                grid-template-columns: 1fr;
+            }
+
+            .fsl-alliance-left-panel {
+                border-right: none;
+                border-bottom: 1px solid rgba(108, 50, 168, 0.12);
+                padding: 48px 32px;
+            }
+
+            .fsl-alliance-right-panel {
+                padding: 48px 32px 64px;
+            }
+
+            .fsl-alliance-heading {
+                font-size: 26px;
             }
         }
     </style>
@@ -1374,6 +1613,38 @@
         </div>
     </section>
 
+    <!-- FSL Alliance Section -->
+    <section style="background: #f6f0fa; padding: 100px 20px; padding-top: 10px;">
+        <div class="fsl-alliance-section">
+            <!-- LEFT PANEL -->
+            <div class="fsl-alliance-left-panel">
+                <h2 class="fsl-alliance-heading">About ENpower &amp; TATA ClassEdge Alliance</h2>
+                <div class="fsl-alliance-divider"></div>
+                <p class="fsl-alliance-body-text">
+                    Tata ClassEdge and ENpower have formed a strategic partnership, announced in December 2025, to
+                    integrate entrepreneurship and future-skills education into K-12 schools, with Tata ClassEdge taking
+                    an equity stake in ENpower (Enlearning Skill Development Ltd.). This collaboration focuses on
+                    delivering experiential learning, life skills, and design thinking through gamified programs, aiming
+                    to develop confident, creative, and future-ready children beyond traditional academics, leveraging
+                    ENpower's expertise with Tata ClassEdge's digital learning solutions.
+                </p>
+            </div>
+
+            <!-- RIGHT PANEL -->
+            <div class="fsl-alliance-right-panel">
+                <div class="fsl-alliance-corner-mark tl"></div>
+                <div class="fsl-alliance-corner-mark tr"></div>
+                <div class="fsl-alliance-corner-mark bl"></div>
+                <div class="fsl-alliance-corner-mark br"></div>
+                <div class="fsl-alliance-card-shadow" id="fslAllianceCardShadow"></div>
+
+                <div class="fsl-alliance-photo-card" id="fslAlliancePhotoCard">
+                    <img src="assets/TCE.jpg" alt="ENpower & TATA ClassEdge team photo" />
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FSL Final CTA Section -->
     <section class="fsl-final-cta-section">
         <div class="fsl-final-cta-container">
@@ -1719,6 +1990,54 @@
             // Initialize
             updateCarousel(false);
         });
+
+        /* ==========================================================
+           FSL ALLIANCE SECTION - 3D TILT EFFECT
+           ========================================================== */
+        (function () {
+            const card = document.getElementById('fslAlliancePhotoCard');
+            const shadow = document.getElementById('fslAllianceCardShadow');
+            const panel = card ? card.closest('.fsl-alliance-right-panel') : null;
+
+            if (!card || !panel) return;
+
+            let rect;
+            const upd = () => {
+                rect = card.getBoundingClientRect();
+            };
+            upd();
+            window.addEventListener('resize', upd);
+            window.addEventListener('scroll', upd);
+
+            let tx = 0, ty = 0, ttx = 0, tty = 0;
+
+            panel.addEventListener('mouseenter', () => {
+                upd();
+            });
+
+            panel.addEventListener('mouseleave', () => {
+                ttx = 0;
+                tty = 0;
+            });
+
+            panel.addEventListener('mousemove', e => {
+                upd();
+                const cx = rect.left + rect.width / 2, cy = rect.top + rect.height / 2;
+                tty = ((e.clientX - cx) / (rect.width / 2)) * 14;
+                ttx = -((e.clientY - cy) / (rect.height / 2)) * 10;
+            });
+
+            (function anim() {
+                tx += (ttx - tx) * 0.1;
+                ty += (tty - ty) * 0.1;
+                card.style.transform = `perspective(900px) rotateX(${tx}deg) rotateY(${ty}deg) scale3d(1.025,1.025,1.025)`;
+                if (shadow) {
+                    shadow.style.transform = `translateX(${ty * 1.2}px) scaleX(${1 + Math.abs(ty) * 0.015})`;
+                    shadow.style.opacity = 0.2 + Math.abs(tx) * 0.015 + Math.abs(ty) * 0.01;
+                }
+                requestAnimationFrame(anim);
+            })();
+        })();
     </script>
 </body>
 

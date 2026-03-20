@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Academy - ENpower</title>
+    <meta name="description" content="ENpower's Training Academy - Professional Development for Educators">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f6f0fa;
+            overflow-x: hidden;
+        }
+
+        /* TA Hero Section */
+
+        .ta-hero-section {
+            width: 100%;
+            background: #f6f0fa;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            margin-top: 40px;
+        }
+
+        #taWaveCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .ta-hero-section>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ── TA Sparkle Stars ── */
+        .ta-deco {
+            position: absolute;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .ta-sparkle {
+            color: #E5A817;
+            font-size: 2rem;
+            line-height: 1;
+            animation: taSparklePulse 2.5s ease-in-out infinite;
+        }
+
+        .ta-sparkle-1 {
+            top: 15%;
+            left: 8%;
+            font-size: 1.8rem;
+            animation-delay: 0s;
+        }
+
+        .ta-sparkle-2 {
+            top: 30%;
+            left: 31%;
+            font-size: 1rem;
+            animation-delay: 0.8s;
+        }
+
+        .ta-sparkle-3 {
+            bottom: 18%;
+            right: 25%;
+            font-size: 1.6rem;
+            animation-delay: 1.2s;
+        }
+
+        .ta-sparkle-4 {
+            bottom: 25%;
+            left: 6%;
+            font-size: 1.2rem;
+            animation-delay: 0.4s;
+        }
+
+        .ta-sparkle-5 {
+            top: 30%;
+            right: 8%;
+            font-size: 1rem;
+            animation-delay: 1.6s;
+        }
+
+        @keyframes taSparklePulse {
+
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: scale(1) rotate(0deg);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.3) rotate(15deg);
+            }
+        }
+
+        /* ── TA Top section: text block + right pill ── */
+        .ta-top-section {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            text-align: center;
+            /* margin-top: 30px; */
+        }
+
+        /* ── TA Text block ── */
+        .ta-text-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            text-align: center;
+        }
+
+        /* ── TA Row 1: Main heading ── */
+        .ta-row-1 {
+            font-size: 80px;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #6c32a8;
+            line-height: 1.1;
+            letter-spacing: -2px;
+        }
+
+        /* ── TA Row 2: "Evolve for a" text ── */
+        .ta-row-2 {
+            font-size: 80px;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #6c32a8;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-top: 10px;
+        }
+
+        /* ── TA Row 2b: Orange "Changing Future" text ── */
+        .ta-row-2b {
+            font-size: 80px;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #e5a93e;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-top: 10px;
+        }
+
+        /* ── TA Row 3: Two-color heading ── */
+        .ta-row-3 {
+            font-size: 30px;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .ta-row-3 .purple-text {
+            color: #6c32a8;
+        }
+
+        .ta-row-3 .orange-text {
+            color: #e5a93e;
+        }
+
+        /* ── TA Pills ── */
+        .ta-pill {
+            border-radius: 999px;
+            overflow: hidden;
+            background: #d0d0d0;
+            flex-shrink: 0;
+        }
+
+        .ta-pill img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* TA Right pill (sits beside heading) */
+        .ta-pill-right {
+            width: 280px;
+            height: 90px;
+        }
+
+        /* TA Left pill (sits on left side) */
+        .ta-pill-left {
+            width: 280px;
+            height: 90px;
+        }
+
+        /* ── TA Description text ── */
+        .ta-description {
+            text-align: center;
+            margin-top: 20px;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .ta-description p {
+            font-size: 18px;
+            font-weight: 400;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ── TA Skills Text ── */
+        .ta-skills-text {
+            text-align: center;
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+
+        .ta-skills-text p {
+            font-size: 18px;
+            font-weight: 500;
+            color: #1c1c1c;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .ta-skills-text .dot {
+            color: #e5a93e;
+            font-weight: 700;
+            margin: 0 8px;
+        }
+
+        /* ── TA Call to Action Section ── */
+        .ta-cta-section {
+            text-align: center;
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+
+        .ta-cta-section p {
+            font-size: 18px;
+            font-weight: 400;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+            margin-bottom: 30px;
+        }
+
+        .ta-explore-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #421174;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            padding: 16px 40px;
+            border-radius: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .ta-explore-btn:hover {
+            background: #6c32a8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(108, 50, 168, 0.3);
+        }
+
+        .ta-explore-btn .arrow {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .ta-explore-btn:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        /* ══════════════════════════════════════════════════════════
+           TA IMPACT SECTION
+           ══════════════════════════════════════════════════════════ */
+
+        :root {
+            --ta-impact-primary: #7a2ece;
+            --ta-impact-primary-dim: #6e1bc1;
+            --ta-impact-primary-fixed: #bd87ff;
+            --ta-impact-primary-container: #bd87ff;
+            --ta-impact-on-primary: #faefff;
+            --ta-impact-secondary: #7e3fa0;
+            --ta-impact-secondary-container: #edc2ff;
+            --ta-impact-on-secondary: #feeeff;
+            --ta-impact-tertiary: #9f364d;
+            --ta-impact-tertiary-container: #ff90a1;
+            --ta-impact-on-tertiary: #ffeff0;
+            --ta-impact-error: #b41340;
+            --ta-impact-surface: #fff3fe;
+            --ta-impact-surface-container-lowest: #ffffff;
+            --ta-impact-surface-container-low: #fdebff;
+            --ta-impact-surface-container-highest: #f3d1ff;
+            --ta-impact-on-surface: #3d2549;
+            --ta-impact-on-surface-variant: #6c5279;
+        }
+
+        .ta-impact-section {
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 1.5rem;
+            background-color: var(--ta-impact-surface);
+        }
+
+        @media (min-width: 768px) {
+            .ta-impact-section {
+                padding: 6rem 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .ta-impact-section {
+                padding: 6rem 6rem;
+            }
+        }
+
+        .ta-impact-blob {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .ta-impact-blob-top-right {
+            top: 0;
+            right: 0;
+            width: 600px;
+            height: 600px;
+            transform: translate(25%, -50%);
+            background: rgba(189, 135, 255, 0.10);
+            filter: blur(120px);
+        }
+
+        .ta-impact-blob-bottom-left {
+            bottom: 0;
+            left: 0;
+            width: 400px;
+            height: 400px;
+            transform: translate(-25%, 50%);
+            background: rgba(237, 194, 255, 0.10);
+            filter: blur(100px);
+        }
+
+        .ta-impact-font-headline {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .ta-impact-primary-gradient {
+            background: linear-gradient(135deg, var(--ta-impact-primary) 0%, var(--ta-impact-primary-fixed) 100%);
+        }
+
+        .ta-impact-text-gradient {
+            background: linear-gradient(135deg, var(--ta-impact-primary) 0%, var(--ta-impact-primary-fixed) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .ta-impact-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.375rem 1rem;
+            border-radius: 9999px;
+            background-color: var(--ta-impact-surface-container-highest);
+            color: var(--ta-impact-primary);
+            font-size: 0.8125rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .ta-impact-tab-group {
+            background-color: var(--ta-impact-surface-container-low);
+            padding: 0.5rem;
+            border-radius: 1rem;
+        }
+
+        .ta-impact-tab-row {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .ta-impact-tab-btn {
+            flex: 1;
+            padding: 1rem 1.25rem;
+            border-radius: 0.75rem;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            background: transparent;
+        }
+
+        .ta-impact-tab-btn.active {
+            background-color: var(--ta-impact-surface-container-lowest);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .ta-impact-tab-btn:not(.active) {
+            color: var(--ta-impact-on-surface-variant);
+        }
+
+        .ta-impact-tab-btn:not(.active):hover {
+            background-color: rgba(243, 209, 255, 0.5);
+        }
+
+        .ta-impact-tab-btn .ta-impact-tab-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: var(--ta-impact-on-surface);
+            line-height: 1;
+        }
+
+        .ta-impact-tab-btn .ta-impact-tab-sub {
+            font-size: 0.75rem;
+            color: var(--ta-impact-on-surface-variant);
+            margin-top: 0.25rem;
+        }
+
+        .ta-impact-tab-quote {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 0.75rem;
+            border: 1px solid rgba(194, 162, 206, 0.1);
+            font-size: 0.875rem;
+            font-style: italic;
+            line-height: 1.75;
+            color: rgba(61, 37, 73, 0.8);
+            margin-top: 0.5rem;
+        }
+
+        .ta-impact-tab-content-panel {
+            display: none;
+        }
+
+        .ta-impact-tab-content-panel.active {
+            display: block;
+        }
+
+        .ta-impact-btn-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            border: none;
+            font-weight: 700;
+            color: var(--ta-impact-on-primary);
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(122, 46, 206, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .ta-impact-btn-cta:hover {
+            transform: scale(1.05);
+        }
+
+        .ta-impact-bento-card {
+            background-color: var(--ta-impact-surface-container-lowest);
+            border-radius: 1.5rem;
+            border: 1px solid rgba(194, 162, 206, 0.1);
+            padding: 2rem;
+            transition: border-color 0.2s;
+        }
+
+        .ta-impact-bento-card:hover {
+            border-color: rgba(122, 46, 206, 0.2);
+        }
+
+        .ta-impact-bento-card-muted {
+            background-color: var(--ta-impact-surface-container-highest);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ta-impact-bento-card-gradient {
+            border-radius: 1.5rem;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            color: var(--ta-impact-on-primary);
+        }
+
+        .ta-impact-bento-card-impact {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem 2rem;
+            background-color: var(--ta-impact-surface-container-lowest);
+            border-radius: 1.5rem;
+            border: 1px solid rgba(194, 162, 206, 0.1);
+        }
+
+        .ta-impact-stat-bar-track {
+            height: 8px;
+            width: 100%;
+            background-color: var(--ta-impact-surface-container-highest);
+            border-radius: 9999px;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .ta-impact-stat-bar-fill {
+            height: 100%;
+            border-radius: 9999px;
+            box-shadow: 0 0 12px rgba(122, 46, 206, 0.3);
+        }
+
+        .ta-impact-compare-track {
+            height: 6px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+
+        .ta-impact-compare-fill {
+            height: 100%;
+            border-radius: 9999px;
+        }
+
+        .ta-impact-ghost-icon {
+            position: absolute;
+            right: -1rem;
+            bottom: -1rem;
+            opacity: 0.05;
+            font-size: 9rem !important;
+            transition: transform 0.5s;
+            pointer-events: none;
+        }
+
+        .ta-impact-bento-card-muted:hover .ta-impact-ghost-icon {
+            transform: scale(1.1);
+        }
+
+        .ta-impact-ghost-icon-top {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 1rem;
+            pointer-events: none;
+        }
+
+        .ta-impact-icon-box {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 1rem;
+            background: rgba(237, 194, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .ta-impact-chip-urgent {
+            padding: 0.25rem 0.75rem;
+            background: rgba(159, 54, 77, 0.1);
+            color: var(--ta-impact-tertiary);
+            font-size: 0.7rem;
+            font-weight: 700;
+            border-radius: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .ta-impact-divider-white {
+            border-top: 1px solid rgba(250, 239, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+
+    <!-- TA Hero Section -->
+    <div class="ta-hero-section">
+        <canvas id="taWaveCanvas"></canvas>
+
+        <!-- Sparkle Stars -->
+        <div class="ta-deco ta-sparkle ta-sparkle-1">✦</div>
+        <div class="ta-deco ta-sparkle ta-sparkle-2">✦</div>
+        <div class="ta-deco ta-sparkle ta-sparkle-3">✦</div>
+        <div class="ta-deco ta-sparkle ta-sparkle-4">✦</div>
+        <div class="ta-deco ta-sparkle ta-sparkle-5">✦</div>
+
+        <!-- Row 1: Learners Must + pill -->
+        <div class="ta-top-section">
+            <div class="ta-text-block">
+                <span class="ta-row-1">Learners Must</span>
+            </div>
+            <div class="ta-pill ta-pill-right">
+                <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=700&q=80"
+                    alt="Students learning together" />
+            </div>
+        </div>
+
+        <!-- Row 2: Evolve for a -->
+        <div class="ta-top-section">
+            <div class="ta-text-block">
+                <span class="ta-row-2">Evolve for a</span>
+            </div>
+        </div>
+
+        <!-- Row 2b: pill + Changing Future... -->
+        <div class="ta-top-section">
+            <div class="ta-pill ta-pill-left">
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=700&q=80"
+                    alt="Learning environment" />
+            </div>
+            <div class="ta-text-block">
+                <span class="ta-row-2b">Changing Future...</span>
+            </div>
+        </div>
+
+        <!-- Row 3: Educators & Schools Must Lead That Evolution. -->
+        <div class="ta-top-section">
+            <div class="ta-text-block">
+                <span class="ta-row-3">
+                    <span class="purple-text">Educators & Schools</span>
+                    <span class="orange-text"> Must Lead That Evolution.</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- Description text -->
+        <div class="ta-description">
+            <p>Bridging the skill gap in education by empowering schools and educator ecosystems with practical,
+                industry-aligned future skills.</p>
+        </div>
+
+        <!-- Skills Text -->
+        <div class="ta-skills-text">
+            <p>
+                <span class="dot">•</span> Design Thinking
+                <span class="dot">•</span> STEM
+                <span class="dot">•</span> Technology
+                <span class="dot">•</span> Entrepreneurship
+                <span class="dot">•</span> 21st-Century Life Skills
+            </p>
+        </div>
+
+        <!-- Call to Action Section -->
+        <div class="ta-cta-section">
+            <a href="#programs" class="ta-explore-btn">
+                Explore Programs
+                <span class="arrow">→</span>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- TA Impact Section -->
+    <section class="ta-impact-section">
+
+        <div class="ta-impact-blob ta-impact-blob-top-right"></div>
+        <div class="ta-impact-blob ta-impact-blob-bottom-left"></div>
+
+        <div class="container-xl">
+            <div class="row g-5 align-items-start">
+
+                <!-- LEFT COLUMN -->
+                <div class="col-12 col-lg-5 d-flex flex-column gap-4">
+
+                    <div class="d-flex flex-column gap-3">
+                        <span class="ta-impact-badge-pill">
+                            <span class="material-symbols-outlined"
+                                style="font-size:1rem; font-variation-settings:'FILL' 1;">verified</span>
+                            IMPACT MISSION
+                        </span>
+
+                        <h2 class="ta-impact-font-headline fw-bold lh-sm"
+                            style="font-size:clamp(2.25rem,5vw,3.25rem); color:var(--ta-impact-on-surface); letter-spacing:-0.02em;">
+                            Why Educator Training &amp;
+                            <span class="ta-impact-text-gradient">Certification</span> Matters?
+                        </h2>
+
+                        <p
+                            style="color:var(--ta-impact-on-surface-variant); font-size:1.125rem; line-height:1.7; max-width:38rem;">
+                            India has 10M+ teachers, yet under 20% get annual training. Globally, teachers receive 100+
+                            hours, while India averages below 20. With AI classrooms and policy shifts, upskilling is
+                            essential.
+                        </p>
+                    </div>
+
+                    <!-- Tab group -->
+                    <div class="ta-impact-tab-group">
+                        <div class="ta-impact-tab-row">
+
+                            <button class="ta-impact-tab-btn active" id="ta-impact-tab-principal"
+                                onclick="taImpactSwitchTab('principal')">
+                                <span class="material-symbols-outlined" id="ta-impact-icon-principal"
+                                    style="color:var(--ta-impact-primary); font-variation-settings:'FILL' 1;">school</span>
+                                <div class="text-start">
+                                    <p class="ta-impact-tab-title mb-0">I'm a Principal</p>
+                                    <p class="ta-impact-tab-sub mb-0">Lead Institutional Change</p>
+                                </div>
+                            </button>
+
+                            <button class="ta-impact-tab-btn" id="ta-impact-tab-csr" onclick="taImpactSwitchTab('csr')">
+                                <span class="material-symbols-outlined" id="ta-impact-icon-csr">handshake</span>
+                                <div class="text-start">
+                                    <p class="ta-impact-tab-title mb-0">I'm a CSR/Foundation</p>
+                                    <p class="ta-impact-tab-sub mb-0">Scale Social Impact</p>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="ta-impact-tab-content-panel active" id="ta-impact-panel-principal">
+                            <div class="ta-impact-tab-quote">
+                                "I want my teachers certified so our school becomes a future-skills leader."
+                            </div>
+                        </div>
+
+                        <div class="ta-impact-tab-content-panel" id="ta-impact-panel-csr">
+                            <div class="ta-impact-tab-quote">
+                                "I want scalable, measurable educator capacity building at the grassroots."
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <div>
+                        <button class="ta-impact-btn-cta ta-impact-primary-gradient">
+                            Explore Programs
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+
+                </div><!-- /left col -->
+
+
+                <!-- RIGHT COLUMN -->
+                <div class="col-12 col-lg-7">
+                    <div class="row g-4">
+
+                        <!-- Large Stat Card -->
+                        <div class="col-12">
+                            <div class="ta-impact-bento-card">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <span class="material-symbols-outlined"
+                                        style="font-size:2.5rem; color:rgba(122,46,206,0.3);">groups</span>
+                                    <span class="ta-impact-chip-urgent">Urgent Gap</span>
+                                </div>
+                                <div class="mt-4">
+                                    <div class="d-flex align-items-baseline gap-2">
+                                        <span class="ta-impact-font-headline fw-bold"
+                                            style="font-size:4.5rem; color:var(--ta-impact-on-surface); line-height:1; letter-spacing:-0.03em;">10M</span>
+                                        <span class="ta-impact-font-headline fw-bold"
+                                            style="font-size:1.25rem; color:var(--ta-impact-on-surface-variant);">Teachers</span>
+                                    </div>
+                                    <p
+                                        style="color:var(--ta-impact-on-surface-variant); margin-top:0.5rem; font-weight:500;">
+                                        National educator workforce in India requiring immediate AI-readiness and
+                                        competency-based training.
+                                    </p>
+                                </div>
+                                <div class="ta-impact-stat-bar-track">
+                                    <div class="ta-impact-stat-bar-fill ta-impact-primary-gradient" style="width:20%;">
+                                    </div>
+                                </div>
+                                <p class="d-flex align-items-center gap-2 mt-2"
+                                    style="font-size:0.875rem; font-weight:700; color:var(--ta-impact-primary);">
+                                    <span class="material-symbols-outlined" style="font-size:1rem;">trending_up</span>
+                                    Less than 20% receive annual professional development
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Comparison Card -->
+                        <div class="col-12 col-md-6">
+                            <div class="ta-impact-bento-card-muted h-100">
+                                <span class="material-symbols-outlined ta-impact-ghost-icon">schedule</span>
+                                <h4 class="ta-impact-font-headline fw-bold"
+                                    style="font-size:1.125rem; color:var(--ta-impact-primary);">Annual Growth
+                                    Investment</h4>
+                                <div class="d-flex flex-column gap-4 mt-3">
+                                    <div>
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <span
+                                                style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ta-impact-on-surface-variant);">Global
+                                                Standard</span>
+                                            <span
+                                                style="font-size:0.75rem; font-weight:700; color:var(--ta-impact-on-surface);">100+
+                                                Hours</span>
+                                        </div>
+                                        <div class="ta-impact-compare-track">
+                                            <div class="ta-impact-compare-fill"
+                                                style="width:100%; background-color:var(--ta-impact-secondary-container);">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <span
+                                                style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ta-impact-on-surface-variant);">India
+                                                Average</span>
+                                            <span
+                                                style="font-size:0.75rem; font-weight:700; color:var(--ta-impact-error);">Under
+                                                20 Hours</span>
+                                        </div>
+                                        <div class="ta-impact-compare-track">
+                                            <div class="ta-impact-compare-fill"
+                                                style="width:18%; background-color:var(--ta-impact-error);"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vision 2030 Card -->
+                        <div class="col-12 col-md-6">
+                            <div class="ta-impact-bento-card-gradient ta-impact-primary-gradient h-100">
+                                <div class="ta-impact-ghost-icon-top">
+                                    <span class="material-symbols-outlined"
+                                        style="font-size:3.75rem; color:rgba(250,239,255,0.2);">rocket_launch</span>
+                                </div>
+                                <div>
+                                    <p
+                                        style="font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(250,239,255,0.6); margin-bottom:0.5rem;">
+                                        Vision 2030</p>
+                                    <h4 class="ta-impact-font-headline fw-bold"
+                                        style="font-size:2.5rem; line-height:1.1; color:var(--ta-impact-on-primary);">
+                                        1 Crore</h4>
+                                    <p style="font-size:0.875rem; color:rgba(250,239,255,0.8); margin-top:0.25rem;">
+                                        Skilled educators needed to meet rising enrolments and future-skills mandates.
+                                    </p>
+                                </div>
+                                <div class="ta-impact-divider-white">
+                                    <p
+                                        style="font-size:0.875rem; font-weight:500; line-height:1.7; color:var(--ta-impact-on-primary);">
+                                        Upskilling is no longer optional — certification-led growth is the new baseline.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Impact Summary Card -->
+                        <div class="col-12">
+                            <div class="ta-impact-bento-card-impact">
+                                <div class="ta-impact-icon-box">
+                                    <span class="material-symbols-outlined"
+                                        style="font-size:1.75rem; color:var(--ta-impact-secondary);">hub</span>
+                                </div>
+                                <p
+                                    style="color:var(--ta-impact-on-surface-variant); font-size:0.875rem; font-weight:500; font-style:italic; margin:0;">
+                                    "Empowered educators build future-ready learners and institutions that invest in
+                                    teacher capacity lead sustainable transformation. ENpower partners with schools and
+                                    foundations to enable that shift."
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div><!-- /right col -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        /* ==========================================================
+           LOAD HEADER AND FOOTER
+           ========================================================== */
+        // Load Header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+
+                // Animate header entrance after it's loaded
+                const mainNav = document.querySelector('.en-main-nav');
+                if (mainNav && typeof gsap !== 'undefined') {
+                    gsap.to(mainNav, { opacity: 1, y: 0, duration: 0.8, delay: 0.2 });
+                }
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load Footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+
+                // Initialize Back to Top Button after footer is loaded
+                const backToTopButton = document.getElementById('backToTop');
+                if (backToTopButton) {
+                    // Show/hide button based on scroll position
+                    window.addEventListener('scroll', function () {
+                        if (window.pageYOffset > 300) {
+                            backToTopButton.classList.add('show');
+                        } else {
+                            backToTopButton.classList.remove('show');
+                        }
+                    });
+
+                    // Scroll to top when button is clicked
+                    backToTopButton.addEventListener('click', function () {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    });
+                }
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        /* ==========================================================
+           TA WAVE CANVAS ANIMATION
+           ========================================================== */
+        (function () {
+            const canvas = document.getElementById('taWaveCanvas');
+            const ctx = canvas.getContext('2d');
+
+            let width, height;
+            let mouseX = -1000, mouseY = -1000;
+            let scrollY = 0;
+            const WAVE_COUNT = 24;
+            const INFLUENCE_RADIUS = 250;
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            document.addEventListener('mouseleave', () => {
+                mouseX = -1000;
+                mouseY = -1000;
+            });
+            window.addEventListener('scroll', () => { scrollY = window.scrollY; });
+
+            const waves = [];
+            for (let i = 0; i < WAVE_COUNT; i++) {
+                const group = Math.floor(i / 8);
+                waves.push({
+                    position: 0.3 + group * 0.2 + (Math.random() * 0.05),
+                    amplitude: 40 + Math.random() * 50,
+                    frequency: 0.001 + Math.random() * 0.001,
+                    speed: 0.0002 + Math.random() * 0.0003,
+                    phase: i * 0.2,
+                    opacity: 0.08 + Math.random() * 0.05,
+                    thickness: 0.5 + Math.random() * 0.5
+                });
+            }
+
+            let time = 0;
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                const parallaxOffset = scrollY * 0.1;
+
+                for (let w = 0; w < waves.length; w++) {
+                    const wave = waves[w];
+
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(180, 120, 220, ${wave.opacity})`;
+                    ctx.lineWidth = wave.thickness;
+
+                    const step = 6;
+                    for (let x = -10; x <= width + 10; x += step) {
+                        const diagonalPos = (x / width) + (wave.position - 0.5);
+                        let y = height - (diagonalPos * height) + parallaxOffset;
+
+                        y += Math.sin(x * wave.frequency + time * wave.speed * 1000 + wave.phase) * wave.amplitude;
+                        y += Math.sin(x * wave.frequency * 0.5 + time * wave.speed * 500) * (wave.amplitude * 0.3);
+
+                        const dx = x - mouseX;
+                        const dy = y - mouseY;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < INFLUENCE_RADIUS) {
+                            const influence = 1 - dist / INFLUENCE_RADIUS;
+                            const smoothInfluence = influence * influence * (3 - 2 * influence);
+                            const pushStrength = 40 * smoothInfluence;
+                            const angle = Math.atan2(dy, dx);
+                            y += Math.sin(angle) * pushStrength;
+                        }
+
+                        if (x === -10) { ctx.moveTo(x, y); }
+                        else { ctx.lineTo(x, y); }
+                    }
+                    ctx.stroke();
+                }
+
+                time = performance.now() / 1000;
+                requestAnimationFrame(draw);
+            }
+
+            draw();
+        })();
+
+        /* ==========================================================
+           GSAP ANIMATIONS FOR HEADER
+           ========================================================== */
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkGSAP = setInterval(() => {
+                if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                    clearInterval(checkGSAP);
+                    initAnimations();
+                }
+            }, 50);
+
+            function initAnimations() {
+                // Register GSAP plugins
+                gsap.registerPlugin(ScrollTrigger);
+
+                const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+                // Nav entrance animation
+                tl.to('.en-main-nav', { opacity: 1, y: 0, duration: 0.8, delay: 0.2 });
+
+                // Floating animation for TA pills
+                document.querySelectorAll('.ta-pill').forEach((pill, index) => {
+                    const offset = index * 0.3;
+                    gsap.to(pill, {
+                        y: -8,
+                        duration: 2.2 + offset * 0.3,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: 'sine.inOut',
+                        delay: offset
+                    });
+                });
+
+                // Fade in animation for skills text (on page load)
+                gsap.from('.ta-skills-text', {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.8,
+                    delay: 0.6,
+                    ease: 'power2.out'
+                });
+
+                // Fade in animation for CTA section (on page load)
+                gsap.from('.ta-cta-section', {
+                    opacity: 0,
+                    y: 30,
+                    duration: 1,
+                    delay: 0.8,
+                    ease: 'power2.out'
+                });
+
+                // Hero section fade out when scrolling down
+                gsap.to('.ta-hero-section', {
+                    opacity: 0,
+                    ease: 'power2.in',
+                    scrollTrigger: {
+                        trigger: '.ta-hero-section',
+                        start: 'bottom center',
+                        end: 'bottom top',
+                        scrub: 1,
+                        invalidateOnRefresh: true
+                    }
+                });
+            }
+        });
+
+        /* ==========================================================
+           TA IMPACT SECTION - TAB SWITCHING
+           ========================================================== */
+        function taImpactSwitchTab(tab) {
+            document.getElementById('ta-impact-tab-principal').classList.toggle('active', tab === 'principal');
+            document.getElementById('ta-impact-tab-csr').classList.toggle('active', tab === 'csr');
+
+            var iconP = document.getElementById('ta-impact-icon-principal');
+            var iconC = document.getElementById('ta-impact-icon-csr');
+            if (tab === 'principal') {
+                iconP.style.color = 'var(--ta-impact-primary)';
+                iconP.style.fontVariationSettings = "'FILL' 1";
+                iconC.style.color = 'var(--ta-impact-on-surface-variant)';
+                iconC.style.fontVariationSettings = "'FILL' 0";
+            } else {
+                iconC.style.color = 'var(--ta-impact-primary)';
+                iconC.style.fontVariationSettings = "'FILL' 1";
+                iconP.style.color = 'var(--ta-impact-on-surface-variant)';
+                iconP.style.fontVariationSettings = "'FILL' 0";
+            }
+
+            document.getElementById('ta-impact-panel-principal').classList.toggle('active', tab === 'principal');
+            document.getElementById('ta-impact-panel-csr').classList.toggle('active', tab === 'csr');
+        }
+    </script>
+</body>
+
+</html>
