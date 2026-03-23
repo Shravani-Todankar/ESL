@@ -323,23 +323,23 @@
            ══════════════════════════════════════════════════════════ */
 
         :root {
-            --ta-impact-primary: #7a2ece;
-            --ta-impact-primary-dim: #6e1bc1;
-            --ta-impact-primary-fixed: #bd87ff;
-            --ta-impact-primary-container: #bd87ff;
-            --ta-impact-on-primary: #faefff;
-            --ta-impact-secondary: #7e3fa0;
-            --ta-impact-secondary-container: #edc2ff;
-            --ta-impact-on-secondary: #feeeff;
-            --ta-impact-tertiary: #9f364d;
-            --ta-impact-tertiary-container: #ff90a1;
-            --ta-impact-on-tertiary: #ffeff0;
+            --ta-impact-primary: #6c32a8;
+            --ta-impact-primary-dim: #5a2891;
+            --ta-impact-primary-fixed: #8e5ac7;
+            --ta-impact-primary-container: #8e5ac7;
+            --ta-impact-on-primary: #ffffff;
+            --ta-impact-secondary: #E5A817;
+            --ta-impact-secondary-container: #f5c550;
+            --ta-impact-on-secondary: #ffffff;
+            --ta-impact-tertiary: #d4941f;
+            --ta-impact-tertiary-container: #ffd480;
+            --ta-impact-on-tertiary: #ffffff;
             --ta-impact-error: #b41340;
-            --ta-impact-surface: #fff3fe;
+            --ta-impact-surface: #f6f0fa;
             --ta-impact-surface-container-lowest: #ffffff;
-            --ta-impact-surface-container-low: #fdebff;
-            --ta-impact-surface-container-highest: #f3d1ff;
-            --ta-impact-on-surface: #3d2549;
+            --ta-impact-surface-container-low: #faf7fc;
+            --ta-impact-surface-container-highest: #ede6f3;
+            --ta-impact-on-surface: #2d1f3a;
             --ta-impact-on-surface-variant: #6c5279;
         }
 
@@ -356,12 +356,6 @@
             }
         }
 
-        @media (min-width: 1024px) {
-            .ta-impact-section {
-                padding: 6rem 6rem;
-            }
-        }
-
         .ta-impact-blob {
             position: absolute;
             border-radius: 50%;
@@ -369,22 +363,22 @@
         }
 
         .ta-impact-blob-top-right {
-            top: 0;
+            top: 50%;
             right: 0;
             width: 600px;
             height: 600px;
             transform: translate(25%, -50%);
-            background: rgba(189, 135, 255, 0.10);
+            background: rgba(108, 50, 168, 0.08);
             filter: blur(120px);
         }
 
         .ta-impact-blob-bottom-left {
-            bottom: 0;
+            bottom: 50%;
             left: 0;
             width: 400px;
             height: 400px;
             transform: translate(-25%, 50%);
-            background: rgba(237, 194, 255, 0.10);
+            background: rgba(229, 168, 23, 0.06);
             filter: blur(100px);
         }
 
@@ -393,14 +387,11 @@
         }
 
         .ta-impact-primary-gradient {
-            background: linear-gradient(135deg, var(--ta-impact-primary) 0%, var(--ta-impact-primary-fixed) 100%);
+            background: linear-gradient(135deg, var(--ta-impact-primary) 0%, #6b21a8 100%);
         }
 
         .ta-impact-text-gradient {
-            background: linear-gradient(135deg, var(--ta-impact-primary) 0%, var(--ta-impact-primary-fixed) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #E5A817;
         }
 
         .ta-impact-badge-pill {
@@ -468,13 +459,13 @@
 
         .ta-impact-tab-quote {
             padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.5);
             border-radius: 0.75rem;
-            border: 1px solid rgba(194, 162, 206, 0.1);
+            border: 1px solid rgba(108, 50, 168, 0.1);
             font-size: 0.875rem;
             font-style: italic;
             line-height: 1.75;
-            color: rgba(61, 37, 73, 0.8);
+            color: rgba(45, 31, 58, 0.85);
             margin-top: 0.5rem;
         }
 
@@ -491,12 +482,12 @@
             align-items: center;
             gap: 0.5rem;
             padding: 1rem 2rem;
-            border-radius: 9999px;
+            border-radius: 15px;
             border: none;
             font-weight: 700;
             color: var(--ta-impact-on-primary);
             cursor: pointer;
-            box-shadow: 0 8px 24px rgba(122, 46, 206, 0.3);
+            box-shadow: 0 8px 24px rgba(108, 50, 168, 0.3);
             transition: transform 0.3s;
         }
 
@@ -507,13 +498,14 @@
         .ta-impact-bento-card {
             background-color: var(--ta-impact-surface-container-lowest);
             border-radius: 1.5rem;
-            border: 1px solid rgba(194, 162, 206, 0.1);
+            border: 1px solid rgba(108, 50, 168, 0.1);
             padding: 2rem;
             transition: border-color 0.2s;
+            height: 240px;
         }
 
         .ta-impact-bento-card:hover {
-            border-color: rgba(122, 46, 206, 0.2);
+            border-color: rgba(108, 50, 168, 0.25);
         }
 
         .ta-impact-bento-card-muted {
@@ -539,7 +531,7 @@
             padding: 1.5rem 2rem;
             background-color: var(--ta-impact-surface-container-lowest);
             border-radius: 1.5rem;
-            border: 1px solid rgba(194, 162, 206, 0.1);
+            border: 1px solid rgba(108, 50, 168, 0.1);
         }
 
         .ta-impact-stat-bar-track {
@@ -554,7 +546,7 @@
         .ta-impact-stat-bar-fill {
             height: 100%;
             border-radius: 9999px;
-            box-shadow: 0 0 12px rgba(122, 46, 206, 0.3);
+            box-shadow: 0 0 12px rgba(108, 50, 168, 0.3);
         }
 
         .ta-impact-compare-track {
@@ -596,7 +588,7 @@
             width: 4rem;
             height: 4rem;
             border-radius: 1rem;
-            background: rgba(237, 194, 255, 0.2);
+            background: rgba(108, 50, 168, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -605,8 +597,8 @@
 
         .ta-impact-chip-urgent {
             padding: 0.25rem 0.75rem;
-            background: rgba(159, 54, 77, 0.1);
-            color: var(--ta-impact-tertiary);
+            background: rgba(229, 168, 23, 0.15);
+            color: #E5A817;
             font-size: 0.7rem;
             font-weight: 700;
             border-radius: 0.5rem;
@@ -632,6 +624,658 @@
             white-space: nowrap;
             direction: ltr;
             -webkit-font-smoothing: antialiased;
+        }
+
+        /* ══════════════════════════════════════════════════════════
+           TA OFFER SECTION
+           ══════════════════════════════════════════════════════════ */
+
+        .ta-offer-section {
+            padding: 5rem 1.5rem;
+            background-color: #f6f0fa;
+        }
+
+        .ta-offer-header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.4rem, 5vw, 3.75rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #6c32a8;
+            margin-bottom: 1.25rem;
+        }
+
+        .ta-offer-highlight {
+            color: #E5A817;
+        }
+
+        .ta-offer-header p {
+            color: #6c5279;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            max-width: 42rem;
+        }
+
+        .ta-compare-shell {
+            background-color: #ede6f3;
+            border-radius: 2rem;
+            padding: 1rem;
+            overflow: hidden;
+        }
+
+        .ta-compare-scroll {
+            overflow-x: auto;
+        }
+
+        .ta-compare-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 20px 0;
+            min-width: 800px;
+        }
+
+        .ta-compare-table .ta-col-label {
+            width: 25%;
+        }
+
+        .ta-compare-table .ta-col-a {
+            width: 37.5%;
+        }
+
+        .ta-compare-table .ta-col-b {
+            width: 37.5%;
+        }
+
+        .ta-thead-label {
+            padding: 2rem;
+            text-align: left;
+            vertical-align: bottom;
+        }
+
+        .ta-thead-label span {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            /* letter-spacing: 0.15em; */
+            /* text-transform: uppercase; */
+            color: #E5A817;
+        }
+
+        .ta-thead-prog-a,
+        .ta-thead-prog-b {
+            padding: 2rem;
+            text-align: left;
+            vertical-align: bottom;
+        }
+
+        .ta-thead-prog-b1,
+        .ta-thead-prog-b2 {
+            padding: 2rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .ta-thead-prog-a {
+            background-color: #ffffff;
+            border-radius: 2rem 2rem 0 0;
+        }
+
+        .ta-thead-prog-b {
+            background-color: #fff4d4;
+            border-radius: 2rem 2rem 0 0;
+        }
+
+        .ta-thead-prog-b1 {
+            background-color: #fff4d4;
+            /* border-radius: 2rem 2rem 0 0; */
+        }
+
+        .ta-thead-prog-b2 {
+            background-color: #fff4d4;
+            /* border-radius: 2rem 2rem 0 0; */
+        }
+
+        .ta-prog-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.35rem;
+        }
+
+        .ta-thead-prog-a .ta-prog-title {
+            color: #6c32a8;
+        }
+
+        .ta-thead-prog-b .ta-prog-title {
+            color: #5a2891;
+        }
+
+        .ta-prog-tagline {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #6c5279;
+        }
+
+        .ta-row-label {
+            padding: 2rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: #6c32a8;
+            /* border-right: 1px solid rgba(108, 50, 168, 0.15); */
+            vertical-align: top;
+        }
+
+        .ta-cell-a,
+        .ta-cell-b {
+            padding: 2rem;
+            vertical-align: top;
+        }
+
+        .ta-cell-a {
+            background-color: #ffffff;
+            /* border-right: 1px solid rgba(108, 50, 168, 0.15); */
+        }
+
+        .ta-cell-b {
+            background-color: #fff4d4;
+        }
+
+        .ta-row-tinted .ta-row-label {
+            background-color: rgba(246, 240, 250, 0.5);
+        }
+
+        .ta-row-tinted .ta-cell-a {
+            background-color: #ffffff;
+        }
+
+        .ta-row-tinted .ta-cell-b {
+            background-color: #fff4d4;
+        }
+
+        .ta-duration-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 500;
+        }
+
+        .ta-cell-a .ta-duration-row .material-symbols-outlined {
+            color: #6c32a8;
+        }
+
+        .ta-cell-b .ta-duration-row .material-symbols-outlined {
+            color: #5a2891;
+        }
+
+        .ta-bullet-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .ta-bullet-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .ta-cell-a .ta-bullet-list li .material-symbols-outlined {
+            margin-top: 2px;
+            color: #6c32a8;
+            flex-shrink: 0;
+        }
+
+        .ta-cell-b .ta-bullet-list li .material-symbols-outlined {
+            margin-top: 2px;
+            color: #5a2891;
+            flex-shrink: 0;
+        }
+
+        .ta-outcome-heading {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #6c5279;
+            margin-bottom: 1rem;
+        }
+
+        .ta-outcome-numberedlist {
+            margin: 0;
+            padding-left: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .ta-outcome-numberedlist li::marker {
+            color: #E5A817;
+            font-weight: 700;
+        }
+
+        .ta-cta-cell {
+            padding: 2rem;
+            vertical-align: middle;
+        }
+
+        .ta-cta-cell-a {
+            background-color: #ffffff;
+            border-bottom-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+            /* border-right: 1px solid rgba(108, 50, 168, 0.15); */
+        }
+
+        .ta-cta-cell-b {
+            background-color: #fff4d4;
+            border-bottom-right-radius: 2rem;
+            border-bottom-left-radius: 2rem;
+        }
+
+        .ta-btn-certify {
+            display: block;
+            width: 50%;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 0.75rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.18s ease;
+            margin-top: 1rem;
+        }
+
+        .ta-btn-certify:hover {
+            transform: scale(1.02);
+        }
+
+        .ta-btn-certify:active {
+            transform: scale(0.96);
+        }
+
+        .ta-btn-certify-purple {
+            background: linear-gradient(135deg, #6c32a8, #8e5ac7);
+            color: #ffffff;
+        }
+
+        .ta-btn-certify-violet {
+            background: linear-gradient(135deg, #5a2891, #6c32a8);
+            color: #ffffff;
+        }
+
+        .ta-focus-sublabel {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: #6c5279;
+            margin-top: 0.35rem;
+        }
+
+        /* ── TA Final CTA Section ── */
+        .ta-final-cta-section {
+            position: relative;
+            width: 100%;
+            min-height: 80vh;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #f6f0fa 0%, #ffffff 100%);
+        }
+
+        .ta-final-cta-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 2px solid #6b32a820;
+            border-radius: 24px;
+            padding: 80px;
+            background: #f5e5ff;
+        }
+
+        .ta-cta-heading-final {
+            font-size: 2.1rem;
+            font-weight: 500;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1c1c1c;
+            line-height: 1.1;
+            letter-spacing: 0px;
+        }
+
+        .ta-cta-paragraph {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #666;
+            line-height: 2;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+
+        .ta-cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            background: #6c32a8;
+            color: #ffffff;
+            border: none;
+            border-radius: 15px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            align-self: flex-start;
+        }
+
+        .ta-cta-button:hover {
+            background: #7C3AED;
+            transform: translateY(-3px);
+        }
+
+        .ta-cta-button svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .ta-cta-button:hover svg {
+            transform: translateX(4px);
+        }
+
+        .ta-cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .ta-cta-left {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .ta-cta-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .ta-cta-image-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .ta-cta-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .ta-final-cta-container {
+                padding: 40px 20px;
+            }
+
+            .ta-cta-paragraph {
+                font-size: 1rem;
+            }
+
+            .ta-cta-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .ta-cta-heading-final {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+
+            .ta-cta-button {
+                padding: 14px 28px;
+                font-size: 0.95rem;
+                align-self: center;
+            }
+
+            .ta-cta-right {
+                justify-content: center;
+            }
+        }
+
+        /* ══════════════════════════════════════════════════════════
+           FORM POPUP STYLES
+           ══════════════════════════════════════════════════════════ */
+
+        .form-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .form-popup-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .form-popup-container {
+            background: white;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 92vh;
+            overflow-y: auto;
+            padding: 2rem 2.5rem;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(107, 33, 168, 0.3);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .form-popup-overlay.active .form-popup-container {
+            transform: scale(1);
+        }
+
+        .form-popup-close {
+            position: absolute;
+            top: 0.7rem;
+            right: 1rem;
+            background: #f5f3ff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c32a8;
+            transition: all 0.3s ease;
+        }
+
+        .form-popup-close:hover {
+            background: #6c32a8;
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .form-popup-header {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-popup-header h2 {
+            font-family: 'Space Grotesk', sans-serif !important;
+            font-size: 1.6rem !important;
+            font-weight: 700 !important;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem !important;
+            line-height: 1.3 !important;
+        }
+
+        .form-popup-header p {
+            font-family: 'Poppins', sans-serif !important;
+            font-size: 0.88rem !important;
+            color: #666;
+            line-height: 1.5 !important;
+            margin: 0 !important;
+        }
+
+        .partner-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .form-group label {
+            font-family: 'Poppins', sans-serif !important;
+            font-size: 0.85rem !important;
+            font-weight: 600 !important;
+            color: #1a1a1a;
+        }
+
+        .form-group .required {
+            color: #e74c3c;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.75rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif !important;
+            font-size: 0.9rem !important;
+            color: #1a1a1a;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #6c32a8;
+            box-shadow: 0 0 0 3px rgba(107, 33, 168, 0.1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #999;
+        }
+
+        .form-group input.error,
+        .form-group select.error,
+        .form-group textarea.error {
+            border-color: #e74c3c;
+            background-color: #fff5f5;
+        }
+
+        .form-group .error-message {
+            font-family: 'Poppins', sans-serif !important;
+            font-size: 0.75rem !important;
+            color: #e74c3c;
+            margin-top: 0.2rem;
+            display: none;
+        }
+
+        .form-group .error-message.show {
+            display: block;
+        }
+
+        .form-submit-btn {
+            width: 40%;
+            padding: 0.85rem 2rem;
+            background: #6c32a8;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-family: 'Poppins', sans-serif !important;
+            font-size: 0.95rem !important;
+            font-weight: 600 !important;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .form-submit-btn:hover {
+            background: #7C3AED;
+            box-shadow: 0 6px 25px rgba(107, 33, 168, 0.4);
+        }
+
+        .form-submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .form-popup-container {
+                padding: 2rem 1.5rem;
+                max-height: 85vh;
+            }
+
+            .form-popup-header h2 {
+                font-size: 1.5rem !important;
+            }
+
+            .form-popup-header p {
+                font-size: 0.9rem !important;
+            }
+
+            .form-popup-close {
+                width: 35px;
+                height: 35px;
+                top: 1rem;
+                right: 1rem;
+                font-size: 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .form-submit-btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -709,7 +1353,7 @@
 
         <!-- Call to Action Section -->
         <div class="ta-cta-section">
-            <a href="#programs" class="ta-explore-btn">
+            <a href="#get-certified" class="ta-explore-btn" onclick="event.preventDefault(); scrollToGetCertified();">
                 Explore Programs
                 <span class="arrow">→</span>
             </a>
@@ -730,15 +1374,9 @@
                 <div class="col-12 col-lg-5 d-flex flex-column gap-4">
 
                     <div class="d-flex flex-column gap-3">
-                        <span class="ta-impact-badge-pill">
-                            <span class="material-symbols-outlined"
-                                style="font-size:1rem; font-variation-settings:'FILL' 1;">verified</span>
-                            IMPACT MISSION
-                        </span>
-
                         <h2 class="ta-impact-font-headline fw-bold lh-sm"
-                            style="font-size:clamp(2.25rem,5vw,3.25rem); color:var(--ta-impact-on-surface); letter-spacing:-0.02em;">
-                            Why Educator Training &amp;
+                            style="font-size: 3rem; color:#6c32a8; letter-spacing:-0.02em;">
+                            Why <span class="ta-impact-text-gradient">Educator Training</span> &amp;
                             <span class="ta-impact-text-gradient">Certification</span> Matters?
                         </h2>
 
@@ -788,9 +1426,8 @@
 
                     <!-- CTA -->
                     <div>
-                        <button class="ta-impact-btn-cta ta-impact-primary-gradient">
-                            Explore Programs
-                            <span class="material-symbols-outlined">arrow_forward</span>
+                        <button class="ta-impact-btn-cta ta-impact-primary-gradient" onclick="scrollToGetCertified()">
+                            Explore Programs →
                         </button>
                     </div>
 
@@ -804,15 +1441,10 @@
                         <!-- Large Stat Card -->
                         <div class="col-12">
                             <div class="ta-impact-bento-card">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <span class="material-symbols-outlined"
-                                        style="font-size:2.5rem; color:rgba(122,46,206,0.3);">groups</span>
-                                    <span class="ta-impact-chip-urgent">Urgent Gap</span>
-                                </div>
-                                <div class="mt-4">
+                                <div>
                                     <div class="d-flex align-items-baseline gap-2">
                                         <span class="ta-impact-font-headline fw-bold"
-                                            style="font-size:4.5rem; color:var(--ta-impact-on-surface); line-height:1; letter-spacing:-0.03em;">10M</span>
+                                            style="font-size:3.2rem; color:var(--ta-impact-on-surface); line-height:1; letter-spacing:-0.02em;">10M</span>
                                         <span class="ta-impact-font-headline fw-bold"
                                             style="font-size:1.25rem; color:var(--ta-impact-on-surface-variant);">Teachers</span>
                                     </div>
@@ -834,68 +1466,30 @@
                             </div>
                         </div>
 
-                        <!-- Comparison Card -->
-                        <div class="col-12 col-md-6">
-                            <div class="ta-impact-bento-card-muted h-100">
-                                <span class="material-symbols-outlined ta-impact-ghost-icon">schedule</span>
-                                <h4 class="ta-impact-font-headline fw-bold"
-                                    style="font-size:1.125rem; color:var(--ta-impact-primary);">Annual Growth
-                                    Investment</h4>
-                                <div class="d-flex flex-column gap-4 mt-3">
-                                    <div>
-                                        <div class="d-flex justify-content-between mb-2">
-                                            <span
-                                                style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ta-impact-on-surface-variant);">Global
-                                                Standard</span>
-                                            <span
-                                                style="font-size:0.75rem; font-weight:700; color:var(--ta-impact-on-surface);">100+
-                                                Hours</span>
-                                        </div>
-                                        <div class="ta-impact-compare-track">
-                                            <div class="ta-impact-compare-fill"
-                                                style="width:100%; background-color:var(--ta-impact-secondary-container);">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="d-flex justify-content-between mb-2">
-                                            <span
-                                                style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ta-impact-on-surface-variant);">India
-                                                Average</span>
-                                            <span
-                                                style="font-size:0.75rem; font-weight:700; color:var(--ta-impact-error);">Under
-                                                20 Hours</span>
-                                        </div>
-                                        <div class="ta-impact-compare-track">
-                                            <div class="ta-impact-compare-fill"
-                                                style="width:18%; background-color:var(--ta-impact-error);"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <!-- Vision 2030 Card -->
-                        <div class="col-12 col-md-6">
-                            <div class="ta-impact-bento-card-gradient ta-impact-primary-gradient h-100">
-                                <div class="ta-impact-ghost-icon-top">
+                        <div class="col-12">
+                            <div class="ta-impact-bento-card-muted" style="height: 230px;">
+                                <h4 class="ta-impact-font-headline fw-bold d-flex align-items-center gap-2"
+                                    style="font-size:1.125rem; color:var(--ta-impact-primary);">
                                     <span class="material-symbols-outlined"
-                                        style="font-size:3.75rem; color:rgba(250,239,255,0.2);">rocket_launch</span>
-                                </div>
-                                <div>
+                                        style="font-size:1.5rem;">rocket_launch</span>
+                                    Vision 2030
+                                </h4>
+                                <div class="mt-3">
+                                    <div class="d-flex align-items-baseline gap-2 mb-3">
+                                        <span class="ta-impact-font-headline fw-bold"
+                                            style="font-size:2.5rem; color:var(--ta-impact-on-surface); line-height:1; letter-spacing:-0.02em;">1
+                                            Crore</span>
+                                        <span
+                                            style="font-size:0.875rem; color:var(--ta-impact-on-surface-variant); font-weight:600;">Skilled
+                                            Educators</span>
+                                    </div>
                                     <p
-                                        style="font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(250,239,255,0.6); margin-bottom:0.5rem;">
-                                        Vision 2030</p>
-                                    <h4 class="ta-impact-font-headline fw-bold"
-                                        style="font-size:2.5rem; line-height:1.1; color:var(--ta-impact-on-primary);">
-                                        1 Crore</h4>
-                                    <p style="font-size:0.875rem; color:rgba(250,239,255,0.8); margin-top:0.25rem;">
+                                        style="font-size:0.875rem; color:var(--ta-impact-on-surface-variant); line-height:1.6; margin-bottom:1rem;">
                                         Skilled educators needed to meet rising enrolments and future-skills mandates.
                                     </p>
-                                </div>
-                                <div class="ta-impact-divider-white">
                                     <p
-                                        style="font-size:0.875rem; font-weight:500; line-height:1.7; color:var(--ta-impact-on-primary);">
+                                        style="font-size:0.875rem; font-weight:500; line-height:1.7; color:var(--ta-impact-on-surface); padding-top:1rem; border-top:1px solid rgba(108,50,168,0.1);">
                                         Upskilling is no longer optional — certification-led growth is the new baseline.
                                     </p>
                                 </div>
@@ -907,7 +1501,7 @@
                             <div class="ta-impact-bento-card-impact">
                                 <div class="ta-impact-icon-box">
                                     <span class="material-symbols-outlined"
-                                        style="font-size:1.75rem; color:var(--ta-impact-secondary);">hub</span>
+                                        style="font-size:1.75rem; color:#6c32a8;">hub</span>
                                 </div>
                                 <p
                                     style="color:var(--ta-impact-on-surface-variant); font-size:0.875rem; font-weight:500; font-style:italic; margin:0;">
@@ -925,8 +1519,404 @@
         </div>
     </section>
 
+    <!-- TA Offer Section -->
+    <section class="ta-offer-section" id="programs">
+        <div class="container-xl">
+            <!-- Page Header -->
+            <header class="ta-offer-header mb-5">
+                <h1>What We <span class="ta-offer-highlight">Offer</span></h1>
+                <p>
+                    Explore our specialized curriculum designed for the modern educator. Compare our flagship
+                    programs to find the path that aligns with your institutional goals and professional growth.
+                </p>
+            </header>
+
+            <!-- Comparison Table -->
+            <div class="ta-compare-shell">
+                <div class="ta-compare-scroll">
+                    <table class="ta-compare-table">
+                        <thead>
+                            <tr>
+                                <th class="ta-thead-label ta-col-label">
+                                    <span>Program</span>
+                                </th>
+                                <th class="ta-thead-prog-a ta-col-a">
+                                    <div class="ta-prog-title">Design Thinking for Educators:<br>Certification Program
+                                    </div>
+                                </th>
+                                <th class="ta-thead-prog-b ta-col-b">
+                                    <div class="ta-prog-title">STEM & Technology Educator Certification Course</div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class="ta-row-label">
+                                    Tagline
+                                </th>
+                                <th class="ta-cell-a" style="padding: 0 2rem;">
+                                    <div class="ta-prog-tagline">Transforms the entire learning ecosystem: reimagines
+                                        classrooms, systems, students, stakeholders, and school culture.</div>
+                                </th>
+                                <th class="ta-thead-prog-b1" style="padding: 0 2rem;">
+                                    <div class="ta-prog-tagline">Builds educator confidence to deliver STEM & technology
+                                        through hands-on innovation-led learning.</div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th class="ta-thead-label"></th>
+                                <th class="ta-cell-a" style="padding: 0; padding-left: 2rem;">
+                                    <button class="ta-btn-certify ta-btn-certify-purple"
+                                        onclick="scrollToGetCertified()">Get Certified →</button>
+                                </th>
+                                <th class="ta-thead-prog-b2" style="padding: 0; padding-left: 2rem;">
+                                    <button class="ta-btn-certify ta-btn-certify-violet"
+                                        onclick="scrollToGetCertified()">Get Certified →</button>
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <!-- Duration -->
+                            <tr>
+                                <td class="ta-row-label">Duration</td>
+                                <td class="ta-cell-a">
+                                    <div class="ta-duration-row">
+                                        <span class="material-symbols-outlined">schedule</span>
+                                        <span class="fw-medium">Min: 6-40 hrs</span>
+                                    </div>
+                                </td>
+                                <td class="ta-cell-b">
+                                    <div class="ta-duration-row">
+                                        <span class="material-symbols-outlined">timer</span>
+                                        <span class="fw-medium">Min: 40-80 hrs</span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Focus -->
+                            <tr class="ta-row-tinted">
+                                <td class="ta-row-label">Focus</td>
+                                <td class="ta-cell-a">
+                                    <ul class="ta-bullet-list">
+                                        <li>
+                                            <span class="material-symbols-outlined">design_services</span>
+                                            <span>Apply Design Thinking Across Curriculum & Beyond</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">favorite</span>
+                                            <span>Humanize the Classroom</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">hub</span>
+                                            <span>Reimagine the Learning Ecosystem</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">psychology</span>
+                                            <span>Build Empathy Mindsets Across Stakeholders</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">architecture</span>
+                                            <span>Redefine Traditional & Classroom Structures</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">draw</span>
+                                            <span>Design & Prototype System-Level Solutions</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">autorenew</span>
+                                            <span>Create a Culture of Continuous Innovation</span>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="ta-cell-b">
+                                    <ul class="ta-bullet-list">
+                                        <li>
+                                            <span class="material-symbols-outlined">memory</span>
+                                            <span>Build Foundational STEM & Computational Thinking</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">construction</span>
+                                            <span>Prototype Driven Learning</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">lightbulb</span>
+                                            <span>Foster Creativity, Innovation & Maker Mindset</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">explore</span>
+                                            <span>Enable Real-World Problem Identification & Solution Design</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">group</span>
+                                            <span>Enhance Collaboration, Communication & 21st Century Skills</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">rocket_launch</span>
+                                            <span>Prepare Students for Future Careers & Lifelong Learning</span>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <!-- Outcomes -->
+                            <tr>
+                                <td class="ta-row-label">Outcomes</td>
+                                <td class="ta-cell-a">
+                                    <p class="ta-outcome-heading">You will be able to:</p>
+                                    <ul class="ta-bullet-list">
+                                        <li>
+                                            <span class="material-symbols-outlined">check_circle</span>
+                                            <span>Design learner-centric learning experiences across curriculum,
+                                                environments, and systems to address engagement gaps and learning
+                                                challenges.</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">check_circle</span>
+                                            <span>Embed experimentation and continuous improvement into school
+                                                culture</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">check_circle</span>
+                                            <span>Build collaboration, ownership, and mindset shifts among teams</span>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="ta-cell-b">
+                                    <p class="ta-outcome-heading">You will be able to:</p>
+                                    <ul class="ta-bullet-list">
+                                        <li>
+                                            <span class="material-symbols-outlined">check_circle</span>
+                                            <span>Apply engineering & design process independently in classroom
+                                                settings, projects and across interdisciplinary kit-based
+                                                activities.</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">check_circle</span>
+                                            <span>Demonstrate functional STEM usage, curiosity & hands-on
+                                                experimentation maker mindset in students through projects, exhibitions,
+                                                and innovative solutions</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">check_circle</span>
+                                            <span>Build creativity, confidence, and a maker mindset in students through
+                                                teamwork, communication, and ethical use of technology in real-world
+                                                contexts.</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">check_circle</span>
+                                            <span>Facilitate problem-based learning using inquiry, design, and iterative
+                                                feedback loops (identify → ideate → test → refine).</span>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <!-- Support -->
+                            <tr class="ta-row-tinted">
+                                <td class="ta-row-label">Support</td>
+                                <td class="ta-cell-a">
+                                    <ul class="ta-bullet-list">
+                                        <li>
+                                            <span class="material-symbols-outlined">frame_source</span>
+                                            <span>Live workshops & examples with classroom integration support</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">description</span>
+                                            <span>Ready templates & tools</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">menu_book</span>
+                                            <span>Syllabus-aligned ecosystem resources & academic guidance</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">people</span>
+                                            <span>Mentorship & handholding from STEM experts</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">school</span>
+                                            <span>Technical & digital resource support</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">forum</span>
+                                            <span>Structured assessment, feedback & reflection mechanisms</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">support_agent</span>
+                                            <span>Support during implementation</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">rocket_launch</span>
+                                            <span>Ready project frameworks aligned to classroom integration</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">speed</span>
+                                            <span>Continuous support during fast track implementation period</span>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="ta-cell-b">
+                                    <ul class="ta-bullet-list">
+                                        <li>
+                                            <span class="material-symbols-outlined">frame_source</span>
+                                            <span>Dual frameworks & examples with real-world problem-solving
+                                                guides</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">connect_without_contact</span>
+                                            <span>Connect classroom learning to market-based / real-world
+                                                problem-solving, career pathways, and career relevance.</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">groups</span>
+                                            <span>Guide students in identifying solutions, test, ideate, and improve
+                                                with informed iteration.</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">design_services</span>
+                                            <span>Apply deep design and maker led-thinking to find solutions with
+                                                resources & academic guidance</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">people</span>
+                                            <span>Mentorship & handholding from STEM experts</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">school</span>
+                                            <span>Technical & digital resource support</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">forum</span>
+                                            <span>Structured assessment, feedback & reflection mechanisms</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">support_agent</span>
+                                            <span>Outcome-based, demonstration support during implementation</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">rocket_launch</span>
+                                            <span>Ready project frameworks aligned to classroom integration</span>
+                                        </li>
+                                        <li>
+                                            <span class="material-symbols-outlined">speed</span>
+                                            <span>Continuous support during fast track implementation period</span>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <!-- CTA -->
+                            <tr>
+                                <td class="ta-row-label" style="border-right:none;">CTA</td>
+                                <td class="ta-cta-cell ta-cta-cell-a">
+                                    <button class="ta-btn-certify ta-btn-certify-purple" style="margin-top:0;"
+                                        onclick="scrollToGetCertified()">Get Certified →</button>
+                                </td>
+                                <td class="ta-cta-cell ta-cta-cell-b">
+                                    <button class="ta-btn-certify ta-btn-certify-violet" style="margin-top:0;"
+                                        onclick="scrollToGetCertified()">Get Certified →</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TA Final CTA Section -->
+    <section class="ta-final-cta-section" id="get-certified">
+        <div class="ta-final-cta-container">
+            <div class="ta-cta-grid">
+                <!-- Left Grid: Heading, Paragraph and Button -->
+                <div class="ta-cta-left">
+                    <h2 class="ta-cta-heading-final">Are you an Aspiring Educator, Trainer or Facilitator willing to
+                        upskill?</h2>
+                    <p class="ta-cta-paragraph">
+                        Build Design Thinking or STEM skills, get certified, and develop the confidence to lead
+                        future-ready education/learners.
+                    </p>
+                    <button class="ta-cta-button" onclick="openEducatorPopup()">
+                        Get Certified →
+                    </button>
+                </div>
+
+                <!-- Right Grid: Image -->
+                <div class="ta-cta-right">
+                    <div class="ta-cta-image-wrapper">
+                        <img src="assets/Group 47.png" alt="Educator Training" class="ta-cta-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer will be loaded here -->
     <div id="footer-placeholder"></div>
+
+    <!-- Form Popup -->
+    <div id="educatorFormPopup" class="form-popup-overlay">
+        <div class="form-popup-container">
+            <button class="form-popup-close" id="closeEducatorPopupBtn">&times;</button>
+            <div class="form-popup-header">
+                <h2>Let's Build Educator Capacity Together</h2>
+            </div>
+            <form id="educatorForm" class="partner-form" novalidate>
+                <!-- Name, Email, Phone Row -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="educatorName">Name <span class="required">*</span></label>
+                        <input type="text" id="educatorName" name="name" placeholder="Your name" required>
+                        <span class="error-message">Please enter your name</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="educatorEmail">Email <span class="required">*</span></label>
+                        <input type="email" id="educatorEmail" name="email" placeholder="your@email.com" required>
+                        <span class="error-message">Please enter a valid email</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="educatorPhone">Phone <span class="required">*</span></label>
+                        <input type="tel" id="educatorPhone" name="phone" placeholder="Your phone number" required>
+                        <span class="error-message">Please enter your phone number</span>
+                    </div>
+                </div>
+
+                <!-- I am & I'm Interested in - Same Row -->
+                <div class="form-row" style="grid-template-columns: 1fr 1fr;">
+                    <!-- I am Dropdown -->
+                    <div class="form-group">
+                        <label for="educatorRole">I am: <span class="required">*</span></label>
+                        <select id="educatorRole" name="role" required>
+                            <option value="" selected disabled>Select your role</option>
+                            <option value="educator">An Educator</option>
+                            <option value="school-leader">A School Leader</option>
+                            <option value="csr">A CSR/Foundation Representative</option>
+                        </select>
+                        <span class="error-message">Please select your role</span>
+                    </div>
+
+                    <!-- I'm Interested in Dropdown -->
+                    <div class="form-group">
+                        <label for="educatorInterest">I'm Interested in: <span class="required">*</span></label>
+                        <select id="educatorInterest" name="interest" required>
+                            <option value="" selected disabled>Select a program</option>
+                            <option value="design-thinking">Prog 1</option>
+                            <option value="stem-tech">Prog 2</option>
+                        </select>
+                        <span class="error-message">Please select a program</span>
+                    </div>
+                </div>
+
+                <!-- Write to us Textarea -->
+                <div class="form-group">
+                    <label for="educatorMessage">Write to us:</label>
+                    <textarea id="educatorMessage" name="message"
+                        placeholder="Tell us about your goals, institution, or any specific questions..."></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="form-submit-btn">Get Started →</button>
+            </form>
+        </div>
+    </div>
 
     <script>
         /* ==========================================================
@@ -1155,6 +2145,121 @@
             document.getElementById('ta-impact-panel-principal').classList.toggle('active', tab === 'principal');
             document.getElementById('ta-impact-panel-csr').classList.toggle('active', tab === 'csr');
         }
+
+        /* ==========================================================
+           SCROLL TO GET CERTIFIED SECTION
+           ========================================================== */
+        function scrollToGetCertified() {
+            const ctaSection = document.getElementById('get-certified');
+            if (ctaSection) {
+                ctaSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        /* ==========================================================
+           EDUCATOR FORM POPUP FUNCTIONALITY
+           ========================================================== */
+        function openEducatorPopup() {
+            const popup = document.getElementById('educatorFormPopup');
+            if (popup) {
+                popup.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+
+        function closeEducatorPopup() {
+            const popup = document.getElementById('educatorFormPopup');
+            if (popup) {
+                popup.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        }
+
+        // Close popup when clicking the close button
+        document.addEventListener('DOMContentLoaded', () => {
+            const closeBtn = document.getElementById('closeEducatorPopupBtn');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closeEducatorPopup);
+            }
+
+            // Close popup when clicking outside the form container
+            const overlay = document.getElementById('educatorFormPopup');
+            if (overlay) {
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) {
+                        closeEducatorPopup();
+                    }
+                });
+            }
+
+            // Close popup on ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeEducatorPopup();
+                }
+            });
+
+            // Form submission handling
+            const educatorForm = document.getElementById('educatorForm');
+            if (educatorForm) {
+                educatorForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    // Basic validation
+                    let isValid = true;
+                    const requiredFields = educatorForm.querySelectorAll('[required]');
+
+                    requiredFields.forEach(field => {
+                        const formGroup = field.closest('.form-group');
+                        const errorMsg = formGroup.querySelector('.error-message');
+
+                        if (!field.value.trim()) {
+                            field.classList.add('error');
+                            if (errorMsg) errorMsg.classList.add('show');
+                            isValid = false;
+                        } else {
+                            field.classList.remove('error');
+                            if (errorMsg) errorMsg.classList.remove('show');
+
+                            // Email validation
+                            if (field.type === 'email') {
+                                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                                if (!emailRegex.test(field.value)) {
+                                    field.classList.add('error');
+                                    if (errorMsg) {
+                                        errorMsg.textContent = 'Please enter a valid email';
+                                        errorMsg.classList.add('show');
+                                    }
+                                    isValid = false;
+                                }
+                            }
+                        }
+                    });
+
+                    if (isValid) {
+                        // Here you would typically send the form data to your server
+                        console.log('Form submitted successfully');
+                        alert('Thank you for your interest! We will get back to you soon.');
+                        closeEducatorPopup();
+                        educatorForm.reset();
+                    }
+                });
+
+                // Clear error on input
+                const formInputs = educatorForm.querySelectorAll('input, select, textarea');
+                formInputs.forEach(input => {
+                    input.addEventListener('input', () => {
+                        input.classList.remove('error');
+                        const formGroup = input.closest('.form-group');
+                        const errorMsg = formGroup.querySelector('.error-message');
+                        if (errorMsg) errorMsg.classList.remove('show');
+                    });
+                });
+            }
+        });
     </script>
 </body>
 

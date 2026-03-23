@@ -212,6 +212,26 @@ Mumbai - 400037
 
 ## 📝 Recent Updates
 
+### CSL Page (csl.html) - Updated March 23, 2026
+**Implementation Process Section - Icon to Number Redesign:**
+- Replaced Material Icons with numbered indicators (01-09) in all process cards
+- Applied Bento Box watermark styling to numbers:
+  - Font size: 8rem (extra large)
+  - Font weight: 900 (extra bold)
+  - Color: `#ff960030` (subtle orange tint with transparency)
+  - Position: Absolute positioning in top-right corner
+  - Effect: Large, subtle watermark numbers in background
+- **Special Card 9 Treatment:**
+  - Removed number "09" from final card
+  - Added animated GIF (`assets/idea.gif`) as central visual element
+  - Positioned GIF at center (top: 32%, centered horizontally)
+  - Updated card title styling:
+    - Font size: 2rem
+    - Font weight: 900
+    - Text align: center
+  - Opacity: 0.8 for subtle integration
+- Enhanced visual hierarchy with z-index layering (GIF: z-index 1, Title: z-index 2)
+
 ### TIL Page (til.html) - Completed March 2026
 - Added Bootstrap 5.3.2 integration
 - Implemented animated wave canvas background
@@ -221,7 +241,8 @@ Mumbai - 400037
 - Implemented AI Readiness Assessment section
 - Added final CTA section with smooth gradient transition to footer
 - Fixed footer structure with Bootstrap grid
+- Added TIL Upgrade Section before footer (similar to CSL upgrade section)
 
 ---
 
-**Last Updated:** March 18, 2026
+**Last Updated:** March 23, 2026
