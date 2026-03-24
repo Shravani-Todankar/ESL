@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact Programs - ENpower</title>
+    <meta name="description" content="ENpower's Impact Programs - Transforming Education Through Scalable Solutions">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f6f0fa;
+            overflow-x: hidden;
+        }
+
+        /* IP Hero Section */
+
+        .ip-hero-section {
+            width: 100%;
+            background: #f6f0fa;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            margin-top: 40px;
+        }
+
+        #ipHeroWaveCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .ip-hero-section>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ── IP Hero Sparkle Stars ── */
+        .ip-hero-deco {
+            position: absolute;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .ip-hero-sparkle {
+            color: #E5A817;
+            font-size: 2rem;
+            line-height: 1;
+            animation: ipHeroSparklePulse 2.5s ease-in-out infinite;
+        }
+
+        .ip-hero-sparkle-1 {
+            top: 15%;
+            left: 8%;
+            font-size: 1.8rem;
+            animation-delay: 0s;
+        }
+
+        .ip-hero-sparkle-2 {
+            top: 30%;
+            left: 31%;
+            font-size: 1rem;
+            animation-delay: 0.8s;
+        }
+
+        .ip-hero-sparkle-3 {
+            bottom: 18%;
+            right: 25%;
+            font-size: 1.6rem;
+            animation-delay: 1.2s;
+        }
+
+        .ip-hero-sparkle-4 {
+            bottom: 32%;
+            left: 6%;
+            font-size: 1.2rem;
+            animation-delay: 0.4s;
+        }
+
+        .ip-hero-sparkle-5 {
+            top: 30%;
+            right: 8%;
+            font-size: 1rem;
+            animation-delay: 1.6s;
+        }
+
+        @keyframes ipHeroSparklePulse {
+
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: scale(1) rotate(0deg);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.3) rotate(15deg);
+            }
+        }
+
+        /* ── IP Hero Top section: text block + right pill ── */
+        .ip-hero-top-section {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* ── IP Hero Text block ── */
+        .ip-hero-text-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            text-align: center;
+        }
+
+        /* ── IP Hero Row 1: Main heading ── */
+        .ip-hero-row-1 {
+            font-size: 60px;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #6c32a8;
+            line-height: 1.1;
+            letter-spacing: -2px;
+        }
+
+        /* ── IP Hero Row 2: "Evolve for a" text ── */
+        .ip-hero-row-2 {
+            font-size: 60px;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #6c32a8;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-top: 18px;
+        }
+
+        /* ── IP Hero Row 2b: Orange "Changing Future" text ── */
+        .ip-hero-row-2b {
+            font-size: 60px;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #e5a93e;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-top: 18px;
+        }
+
+        /* ── IP Hero Row 3: Two-color heading ── */
+        .ip-hero-row-3 {
+            font-size: 30px;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .ip-hero-row-3 .purple-text {
+            color: #6c32a8;
+        }
+
+        .ip-hero-row-3 .orange-text {
+            color: #e5a93e;
+        }
+
+        /* ── IP Hero Pills ── */
+        .ip-hero-pill {
+            border-radius: 999px;
+            overflow: hidden;
+            background: #d0d0d0;
+            flex-shrink: 0;
+        }
+
+        .ip-hero-pill img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* IP Hero Right pill (sits beside heading) */
+        .ip-hero-pill-right {
+            width: 280px;
+            height: 90px;
+        }
+
+        /* IP Hero Left pill (sits on left side) */
+        .ip-hero-pill-left {
+            width: 280px;
+            height: 90px;
+        }
+
+        /* ── IP Hero Description text ── */
+        .ip-hero-description {
+            text-align: center;
+            margin-top: 20px;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .ip-hero-description p {
+            font-size: 18px;
+            font-weight: 400;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ── IP Hero Subheading ── */
+        .ip-hero-subheading {
+            text-align: center;
+            margin-top: 40px;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .ip-hero-subheading h3 {
+            font-size: 26px;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #6c32a8;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* ── IP Hero Description ── */
+        .ip-hero-description-text {
+            text-align: center;
+            margin-top: 20px;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .ip-hero-description-text p {
+            font-size: 18px;
+            font-weight: 400;
+            color: #666;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* ── IP Hero Call to Action Section ── */
+        .ip-hero-cta-section {
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .ip-hero-explore-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #421174;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            padding: 13px 30px;
+            border-radius: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .ip-hero-explore-btn:hover {
+            background: #6c32a8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(108, 50, 168, 0.3);
+        }
+
+        .ip-hero-explore-btn .arrow {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .ip-hero-explore-btn:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        /* ── IP Brands Section ── */
+        .ip-brands-section {
+            padding: 5rem 0;
+            /* border-top: 1px solid rgba(255, 215, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            background-color: rgba(249, 249, 249, 0.4); */
+        }
+
+        .ip-brands-section .ip-brands-label {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .ip-brands-marquee-container {
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            padding-top: 2rem;
+        }
+
+        .ip-brands-marquee-row-rtl,
+        .ip-brands-marquee-row-ltr {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+
+            .ip-brands-marquee-row-rtl,
+            .ip-brands-marquee-row-ltr {
+                gap: 2rem;
+            }
+        }
+
+        .ip-brands-marquee-row-rtl {
+            animation: ip-brands-scroll-rtl 30s linear infinite;
+        }
+
+        .ip-brands-marquee-row-ltr {
+            animation: ip-brands-scroll-ltr 30s linear infinite;
+        }
+
+        @keyframes ip-brands-scroll-rtl {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes ip-brands-scroll-ltr {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .ip-brands-logo-item {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            min-width: 180px;
+            height: 100px;
+            animation: ip-brands-fadeInLogo 0.8s ease-in-out;
+        }
+
+        @keyframes ip-brands-fadeInLogo {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .ip-brands-logo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0px 5px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .ip-brands-logo {
+            max-width: 140px;
+            max-height: 60px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .ip-brands-logo-item:hover .ip-brands-logo {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+
+    <!-- IP Hero Section -->
+    <div class="ip-hero-section">
+        <canvas id="ipHeroWaveCanvas"></canvas>
+
+        <!-- Sparkle Stars -->
+        <div class="ip-hero-deco ip-hero-sparkle ip-hero-sparkle-1">✦</div>
+        <div class="ip-hero-deco ip-hero-sparkle ip-hero-sparkle-2">✦</div>
+        <div class="ip-hero-deco ip-hero-sparkle ip-hero-sparkle-3">✦</div>
+        <div class="ip-hero-deco ip-hero-sparkle ip-hero-sparkle-4">✦</div>
+        <div class="ip-hero-deco ip-hero-sparkle ip-hero-sparkle-5">✦</div>
+
+        <!-- Row 1: Future Skills, + pill -->
+        <div class="ip-hero-top-section">
+            <div class="ip-hero-text-block">
+                <span class="ip-hero-row-1" style="margin-left: -300px;">Future Skills,</span>
+            </div>
+            <div class="ip-hero-pill ip-hero-pill-right">
+                <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=700&q=80"
+                    alt="Students learning together" />
+            </div>
+        </div>
+
+        <!-- Row 2: Entrepreneurship & -->
+        <div class="ip-hero-top-section">
+            <div class="ip-hero-text-block">
+                <span class="ip-hero-row-2" style="margin-left: -200px;">Entrepreneurship &amp;</span>
+            </div>
+        </div>
+
+        <!-- Row 3: Livelihood Empowerment -->
+        <div class="ip-hero-top-section">
+            <div class="ip-hero-text-block">
+                <span class="ip-hero-row-2" style="margin-left: 200px;">Livelihood Empowerment</span>
+            </div>
+        </div>
+
+        <!-- Row 4: pill + at Scale -->
+        <div class="ip-hero-top-section">
+            <div class="ip-hero-pill ip-hero-pill-left" style="margin-left: 300px;">
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=700&q=80"
+                    alt="Learning environment" />
+            </div>
+            <div class="ip-hero-text-block">
+                <span class="ip-hero-row-2b">at Scale</span>
+            </div>
+        </div>
+
+        <!-- Subheading -->
+        <div class="ip-hero-subheading">
+            <h3>Building equitable future-ready learning systems</h3>
+        </div>
+
+        <!-- Description Paragraph -->
+        <div class="ip-hero-description-text">
+            <p>ENpower delivers scalable education programs, building future skills, entrepreneurship, and tech-enabled
+                learning in underserved communities.
+            </p>
+        </div>
+
+        <!-- Call to Action Section -->
+        <div class="ip-hero-cta-section">
+            <a href="#programs" class="ip-hero-explore-btn">
+                Explore Partnership
+                <span class="arrow">→</span>
+            </a>
+            <a href="#contact" class="ip-hero-explore-btn">
+                Talk To Us
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Brands Section -->
+    <section class="ip-brands-section" id="ip-brands">
+        <div class="container">
+            <div class="ip-brands-label">
+                brands
+            </div>
+
+            <!-- Row 1: Left to Right -->
+            <!-- CSR Logo -->
+            <div class="ip-brands-marquee-container">
+                <div class="ip-brands-marquee-row-ltr">
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/microsoft.jpg" alt="Microsoft" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/snapchat.webp" alt="Snapchat" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/ajinkya-dypatil.png" alt="Ajeenkya DY Patil University"
+                            class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/navneet.jpeg" alt="NavNeet" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/kotak.png" alt="Kotak Mahindra Bank" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/hafele.png" alt="Hafele" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/L&T.webp" alt="Larsen & Toubro" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/NITIaim.webp" alt="NITI Aayog AIM" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/accelium.jpg" alt="Accelium" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/raskik.webp" alt="Raskik" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/bayer.webp" alt="Bayer" class="ip-brands-logo">
+                    </div>
+
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/un-global-compact.webp" alt="UN Global Compact"
+                            class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/tata-capital.webp" alt="Tata Capital" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/indusind.webp" alt="IndusInd" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/inoxap.webp" alt="Inoxap" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/aaramco.webp" alt="Aaramco" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/axis-bank.webp" alt="Axis Bank" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/hsbc.webp" alt="HSBC" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/sbf.webp" alt="SBF" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/udaan.webp" alt="Udaan" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/manipal-foundation.webp" alt="Manipal Foundation"
+                            class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/yuva.webp" alt="Yuva" class="ip-brands-logo">
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Row 2: Right to Left -->
+            <!-- School Logo -->
+            <div class="ip-brands-marquee-container">
+                <div class="ip-brands-marquee-row-rtl">
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/school-logo/05.png" alt="School Partner" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/school-logo/07.png" alt="School Partner" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/school-logo/09.png" alt="School Partner" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/school-logo/10.png" alt="School Partner" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/school-logo/11.png" alt="School Partner" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/school-logo/14.png" alt="School Partner" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/school-logo/15.png" alt="School Partner" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/school-logo/JBCN.png" alt="JBCN School" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/school-logo/andhra-education.png" alt="Andhra Education Society"
+                            class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/school-logo/dcm.png" alt="DCM School" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/school-logo/dypatil-group.png" alt="DY Patil Group" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/school-logo/garodia-international.png" alt="Garodia International School"
+                            class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/school-logo/mount-litera.png" alt="Mount Litera School" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/school-logo/shishuvan.png" alt="Shishuvan School" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/school-logo/sies.png" alt="SIES School" class="ip-brands-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        /* ==========================================================
+           LOAD HEADER AND FOOTER
+           ========================================================== */
+        // Load Header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+
+                // Animate header entrance after it's loaded
+                const mainNav = document.querySelector('.en-main-nav');
+                if (mainNav && typeof gsap !== 'undefined') {
+                    gsap.to(mainNav, { opacity: 1, y: 0, duration: 0.8, delay: 0.2 });
+                }
+            })
+            .catch(error => console.error('Error loading header:', error));
+
+        // Load Footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+
+                // Initialize Back to Top Button after footer is loaded
+                const backToTopButton = document.getElementById('backToTop');
+                if (backToTopButton) {
+                    // Show/hide button based on scroll position
+                    window.addEventListener('scroll', function () {
+                        if (window.pageYOffset > 300) {
+                            backToTopButton.classList.add('show');
+                        } else {
+                            backToTopButton.classList.remove('show');
+                        }
+                    });
+
+                    // Scroll to top when button is clicked
+                    backToTopButton.addEventListener('click', function () {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    });
+                }
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        /* ==========================================================
+           IP HERO WAVE CANVAS ANIMATION
+           ========================================================== */
+        (function () {
+            const canvas = document.getElementById('ipHeroWaveCanvas');
+            const ctx = canvas.getContext('2d');
+
+            let width, height;
+            let mouseX = -1000, mouseY = -1000;
+            let scrollY = 0;
+            const WAVE_COUNT = 24;
+            const INFLUENCE_RADIUS = 250;
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            document.addEventListener('mouseleave', () => {
+                mouseX = -1000;
+                mouseY = -1000;
+            });
+            window.addEventListener('scroll', () => { scrollY = window.scrollY; });
+
+            const waves = [];
+            for (let i = 0; i < WAVE_COUNT; i++) {
+                const group = Math.floor(i / 8);
+                waves.push({
+                    position: 0.3 + group * 0.2 + (Math.random() * 0.05),
+                    amplitude: 40 + Math.random() * 50,
+                    frequency: 0.001 + Math.random() * 0.001,
+                    speed: 0.0002 + Math.random() * 0.0003,
+                    phase: i * 0.2,
+                    opacity: 0.08 + Math.random() * 0.05,
+                    thickness: 0.5 + Math.random() * 0.5
+                });
+            }
+
+            let time = 0;
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                const parallaxOffset = scrollY * 0.1;
+
+                for (let w = 0; w < waves.length; w++) {
+                    const wave = waves[w];
+
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(180, 120, 220, ${wave.opacity})`;
+                    ctx.lineWidth = wave.thickness;
+
+                    const step = 6;
+                    for (let x = -10; x <= width + 10; x += step) {
+                        const diagonalPos = (x / width) + (wave.position - 0.5);
+                        let y = height - (diagonalPos * height) + parallaxOffset;
+
+                        y += Math.sin(x * wave.frequency + time * wave.speed * 1000 + wave.phase) * wave.amplitude;
+                        y += Math.sin(x * wave.frequency * 0.5 + time * wave.speed * 500) * (wave.amplitude * 0.3);
+
+                        const dx = x - mouseX;
+                        const dy = y - mouseY;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < INFLUENCE_RADIUS) {
+                            const influence = 1 - dist / INFLUENCE_RADIUS;
+                            const smoothInfluence = influence * influence * (3 - 2 * influence);
+                            const pushStrength = 40 * smoothInfluence;
+                            const angle = Math.atan2(dy, dx);
+                            y += Math.sin(angle) * pushStrength;
+                        }
+
+                        if (x === -10) { ctx.moveTo(x, y); }
+                        else { ctx.lineTo(x, y); }
+                    }
+                    ctx.stroke();
+                }
+
+                time = performance.now() / 1000;
+                requestAnimationFrame(draw);
+            }
+
+            draw();
+        })();
+
+        /* ==========================================================
+           GSAP ANIMATIONS FOR HEADER
+           ========================================================== */
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkGSAP = setInterval(() => {
+                if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                    clearInterval(checkGSAP);
+                    initAnimations();
+                }
+            }, 50);
+
+            function initAnimations() {
+                // Register GSAP plugins
+                gsap.registerPlugin(ScrollTrigger);
+
+                const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+                // Nav entrance animation
+                tl.to('.en-main-nav', { opacity: 1, y: 0, duration: 0.8, delay: 0.2 });
+
+                // Floating animation for IP Hero pills
+                document.querySelectorAll('.ip-hero-pill').forEach((pill, index) => {
+                    const offset = index * 0.3;
+                    gsap.to(pill, {
+                        y: -8,
+                        duration: 2.2 + offset * 0.3,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: 'sine.inOut',
+                        delay: offset
+                    });
+                });
+
+                // Fade in animation for subheading (on page load)
+                gsap.from('.ip-hero-subheading', {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.8,
+                    delay: 0.4,
+                    ease: 'power2.out'
+                });
+
+                // Fade in animation for description text (on page load)
+                gsap.from('.ip-hero-description-text', {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.8,
+                    delay: 0.6,
+                    ease: 'power2.out'
+                });
+
+                // Fade in animation for CTA section (on page load)
+                gsap.from('.ip-hero-cta-section', {
+                    opacity: 0,
+                    y: 30,
+                    duration: 1,
+                    delay: 0.8,
+                    ease: 'power2.out'
+                });
+
+                // Hero section fade out when scrolling down
+                gsap.to('.ip-hero-section', {
+                    opacity: 0,
+                    ease: 'power2.in',
+                    scrollTrigger: {
+                        trigger: '.ip-hero-section',
+                        start: 'bottom center',
+                        end: 'bottom top',
+                        scrub: 1,
+                        invalidateOnRefresh: true
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

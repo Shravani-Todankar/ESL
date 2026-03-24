@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - ENpower</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html,
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f6f0fa;
+      min-height: 100%;
+      /* padding-top: 100px; */
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(8px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-8px)
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ============================
+       SHARED
+    ============================ */
+    .section {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 40px 48px 0
+    }
+
+    .section-last {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 48px 60px
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px
+    }
+
+    .eyebrow-bar {
+      width: 28px;
+      height: 3px;
+      border-radius: 99px;
+      background: #6c32a8;
+      flex-shrink: 0
+    }
+
+    .eyebrow-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: #6c32a8;
+      text-transform: uppercase;
+      letter-spacing: .12em
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #ddd6fe, transparent);
+      margin: 36px auto 0;
+      max-width: 1004px
+    }
+
+    /* ============================
+       ABOUT SECTION
+    ============================ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 48px;
+      align-items: center;
+      margin-bottom: 0
+    }
+
+    .about-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: 34px;
+      color: #1e1b4b;
+      line-height: 1.2;
+      margin-bottom: 20px
+    }
+
+    .about-title .ac {
+      color: #6c32a8
+    }
+
+    .about-p {
+      font-size: 15px;
+      line-height: 1.85;
+      color: #4b5563;
+      margin-bottom: 16px
+    }
+
+    .about-p strong {
+      color: #3b0764
+    }
+
+    .about-p:last-child {
+      margin-bottom: 0
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      flex-wrap: wrap
+    }
+
+    .tab-btn {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      border: none;
+      border-radius: 50px;
+      padding: 7px 16px;
+      cursor: pointer;
+      transition: all .2s;
+      background: #f5f3ff;
+      color: #6d28d9
+    }
+
+    .tab-btn.active {
+      background: #6c32a8;
+      color: #fff
+    }
+
+    .slide-card {
+      border-radius: 24px;
+      height: 260px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: 0 16px 48px rgba(124, 58, 237, .18);
+      position: relative;
+      overflow: hidden;
+      animation: fadeSlide .35s ease
+    }
+
+    .slide-card .orb1 {
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .07)
+    }
+
+    .slide-card .orb2 {
+      position: absolute;
+      bottom: -50px;
+      left: -30px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .05)
+    }
+
+    .slide-emoji {
+      font-size: 64px;
+      animation: float 3s ease-in-out infinite;
+      position: relative;
+      z-index: 1
+    }
+
+    .slide-label {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      color: #fff;
+      position: relative;
+      z-index: 1
+    }
+
+    .dots {
+      display: flex;
+      gap: 7px;
+      position: absolute;
+      bottom: 14px;
+      z-index: 1
+    }
+
+    .dot {
+      height: 8px;
+      border-radius: 99px;
+      border: none;
+      cursor: pointer;
+      background: rgba(255, 255, 255, .4);
+      transition: all .25s;
+      padding: 0
+    }
+
+    .dot.active {
+      width: 22px !important;
+      background: #fff
+    }
+
+    .arrows {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 12px
+    }
+
+    .arrow-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      border: none
+    }
+
+    .arrow-prev {
+      border: 1.5px solid #e5e7eb !important;
+      background: #fff;
+      color: #374151
+    }
+
+    .arrow-next {
+      background: #6c32a8;
+      color: #fff
+    }
+
+    /* ============================
+       STRATEGIC PARTNERSHIP
+    ============================ */
+    .partner-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: 30px;
+      color: #1e1b4b;
+      margin-bottom: 20px;
+      line-height: 1.2
+    }
+
+    .partner-title .ac {
+      color: #6c32a8
+    }
+
+    .partner-p {
+      font-size: 15px;
+      line-height: 1.85;
+      color: #4b5563
+    }
+
+    .partner-p strong {
+      color: #3b0764
+    }
+
+    /* ============================
+       VISION / MISSION CARDS
+    ============================ */
+    .vm-grid {
+      display: grid;
+      grid-template-columns: 55% 1fr;
+      gap: 20px;
+      margin-bottom: 0
+    }
+
+    .vision-card {
+      background: linear-gradient(145deg, #4c1d95, #6d28d9, #6c32a8);
+      border-radius: 24px;
+      padding: 44px 40px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 0.35s ease;
+      transform-style: preserve-3d;
+      will-change: transform
+    }
+
+    .vision-card:hover {
+      box-shadow: 0 20px 40px rgba(109, 40, 217, 0.28), 0 0 0 1px rgba(167, 139, 250, 0.2)
+    }
+
+    .vision-card .circle1 {
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      transition: transform 0.5s ease, opacity 0.4s ease
+    }
+
+    .vision-card:hover .circle1 {
+      transform: scale(1.3);
+      opacity: 0.14
+    }
+
+    .vision-card .circle2 {
+      position: absolute;
+      bottom: -50px;
+      left: -30px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      transition: transform 0.5s ease, opacity 0.4s ease
+    }
+
+    .vision-card:hover .circle2 {
+      transform: scale(1.4);
+      opacity: 0.1
+    }
+
+    .tilt-glow {
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 0
+    }
+
+    .vision-card .inner,
+    .mission-card .inner,
+    .mission-card .progress-wrap {
+      position: relative;
+      z-index: 1
+    }
+
+    .vision-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      padding: 4px 14px;
+      margin-bottom: 20px;
+      font-size: 10px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.85);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      transition: background 0.3s, border-color 0.3s
+    }
+
+    .vision-card:hover .vision-chip {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.35)
+    }
+
+    .vision-text {
+      font-weight: 800;
+      font-size: 20px;
+      color: white;
+      line-height: 1.6
+    }
+
+    .vision-text mark {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border-radius: 6px;
+      padding: 1px 8px;
+      transition: background 0.3s
+    }
+
+    .vision-card:hover .vision-text mark {
+      background: rgba(255, 255, 255, 0.32)
+    }
+
+    .vision-card .hover-hint {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.3s, transform 0.3s
+    }
+
+    .vision-card:hover .hover-hint {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .hint-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.2)
+    }
+
+    .mission-card {
+      background: white;
+      border-radius: 24px;
+      border: 1.5px solid #ede9fe;
+      padding: 44px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 0.35s ease, border-color 0.3s;
+      transform-style: preserve-3d;
+      will-change: transform
+    }
+
+    .mission-card:hover {
+      box-shadow: 0 20px 40px rgba(124, 58, 237, 0.14), 0 0 0 1px rgba(196, 181, 253, 0.4);
+      border-color: #c4b5fd
+    }
+
+    .mission-card .circle {
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: #f5f3ff;
+      transition: transform 0.5s ease, background 0.3s
+    }
+
+    .mission-card:hover .circle {
+      transform: scale(1.5);
+      background: #ede9fe
+    }
+
+    .mission-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f5f3ff;
+      border-radius: 50px;
+      padding: 4px 14px;
+      margin-bottom: 20px;
+      font-size: 10px;
+      font-weight: 800;
+      color: #6c32a8;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      transition: background 0.3s
+    }
+
+    .mission-card:hover .mission-chip {
+      background: #ede9fe
+    }
+
+    .mission-text {
+      font-weight: 800;
+      font-size: 20px;
+      color: #1e1b4b;
+      line-height: 1.6
+    }
+
+    .mission-text .accent {
+      color: #6c32a8
+    }
+
+    .progress-wrap {
+      margin-top: 28px
+    }
+
+    .progress-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #9ca3af
+    }
+
+    .progress-track {
+      height: 5px;
+      border-radius: 99px;
+      background: #f3f0ff;
+      overflow: hidden
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, #6c32a8, #a855f7);
+      transition: width 1.2s cubic-bezier(.4, 0, .2, 1)
+    }
+
+    .progress-note {
+      margin-top: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #6c32a8
+    }
+
+    .mission-card .hover-hint {
+      margin-top: 18px;
+      font-size: 11px;
+      font-weight: 800;
+      color: #c4b5fd;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.3s, transform 0.3s
+    }
+
+    .mission-card:hover .hover-hint {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    /* ============================
+       TIMELINE
+    ============================ */
+    .tl-header {
+      padding-top: 40px;
+      margin-bottom: 28px
+    }
+
+    .tl-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: 30px;
+      color: #1e1b4b;
+      margin-top: 10px
+    }
+
+    .tl-title span {
+      color: #6c32a8
+    }
+
+    .tl-body {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 0;
+      position: relative;
+      width: 100%
+    }
+
+    .year-rail {
+      position: relative
+    }
+
+    .year-rail-line {
+      position: absolute;
+      left: 11px;
+      top: 16px;
+      bottom: 16px;
+      width: 2px;
+      background: linear-gradient(to bottom, #ede9fe, #f5f3ff);
+      border-radius: 99px
+    }
+
+    .year-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px 0;
+      width: 100%;
+      position: relative;
+      font-family: 'Poppins', sans-serif
+    }
+
+    .year-btn:hover .year-label {
+      color: #6c32a8
+    }
+
+    .year-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid #ddd6fe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s
+    }
+
+    .year-dot.active {
+      border-color: var(--yc);
+      background: var(--yc);
+      box-shadow: 0 0 0 4px var(--yl)
+    }
+
+    .year-dot-inner {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+      display: none
+    }
+
+    .year-dot.active .year-dot-inner {
+      display: block
+    }
+
+    .year-label {
+      font-weight: 600;
+      font-size: 13px;
+      color: #b0a8c8;
+      transition: all 0.2s
+    }
+
+    .year-label.active {
+      font-weight: 900;
+      font-size: 15px;
+      color: var(--yc);
+      letter-spacing: -0.2px
+    }
+
+    .content-pane {
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .slide-viewport {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .year-panel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(32px);
+      transition: opacity 0.45s ease, transform 0.45s cubic-bezier(.4, 0, .2, 1)
+    }
+
+    .year-panel.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+      position: relative
+    }
+
+    .year-panel.exit-up {
+      opacity: 0;
+      transform: translateY(-32px)
+    }
+
+    .year-panel.exit-down {
+      opacity: 0;
+      transform: translateY(32px)
+    }
+
+    .year-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px
+    }
+
+    .year-badge {
+      border-radius: 14px;
+      padding: 8px 22px;
+      font-weight: 900;
+      font-size: 18px;
+      color: white;
+      letter-spacing: -0.5px
+    }
+
+    .year-line {
+      flex: 1;
+      height: 1px
+    }
+
+    .event-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding-bottom: 16px;
+      margin-bottom: 16px
+    }
+
+    .event-item:not(:last-child) {
+      border-bottom: 1px solid #f5f3ff
+    }
+
+    .event-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-weight: 900;
+      font-size: 11px
+    }
+
+    .event-title {
+      font-weight: 800;
+      font-size: 13.5px;
+      color: #1e1b4b;
+      margin-bottom: 5px;
+      line-height: 1.3
+    }
+
+    .event-desc {
+      font-size: 12.5px;
+      line-height: 1.75;
+      color: #6b7280
+    }
+
+    .year-panel.active .event-item {
+      animation: fadeUp 0.38s ease both
+    }
+
+    .year-panel.active .event-item:nth-child(1) {
+      animation-delay: .04s
+    }
+
+    .year-panel.active .event-item:nth-child(2) {
+      animation-delay: .09s
+    }
+
+    .year-panel.active .event-item:nth-child(3) {
+      animation-delay: .14s
+    }
+
+    .year-panel.active .event-item:nth-child(4) {
+      animation-delay: .19s
+    }
+
+    .year-panel.active .event-item:nth-child(5) {
+      animation-delay: .24s
+    }
+
+    .year-panel.active .event-item:nth-child(6) {
+      animation-delay: .29s
+    }
+
+    .year-panel.active .event-item:nth-child(7) {
+      animation-delay: .34s
+    }
+
+    .tl-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid #f5f3ff
+    }
+
+    .tl-counter {
+      font-size: 12px;
+      font-weight: 700;
+      color: #b0a8c8
+    }
+
+    .arr-wrap {
+      display: flex;
+      gap: 10px
+    }
+
+    .arr-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid #ddd6fe;
+      background: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      color: #6c32a8;
+      transition: all 0.2s;
+      font-family: 'Poppins', sans-serif
+    }
+
+    .arr-btn:hover:not(:disabled) {
+      background: #f5f3ff;
+      border-color: #a78bfa;
+      transform: scale(1.1)
+    }
+
+    .arr-btn:active:not(:disabled) {
+      transform: scale(0.93)
+    }
+
+    .arr-btn:disabled {
+      opacity: 0.28;
+      cursor: not-allowed
+    }
+
+    .scroll-tip {
+      font-size: 11px;
+      font-weight: 700;
+      color: #c4b5fd;
+      letter-spacing: .04em
+    }
+
+    /* ============================
+       ABOUT HERO SECTION
+    ============================ */
+    .about-hero-section {
+      width: 100%;
+      background: #f6f0fa;
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    #aboutHeroWaveCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .about-hero-section>* {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ── About Hero Sparkle Stars ── */
+    .about-hero-deco {
+      position: absolute;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .about-hero-sparkle {
+      color: #E5A817;
+      font-size: 2rem;
+      line-height: 1;
+      animation: aboutHeroSparklePulse 2.5s ease-in-out infinite;
+    }
+
+    .about-hero-sparkle-1 {
+      top: 15%;
+      left: 8%;
+      font-size: 1.8rem;
+      animation-delay: 0s;
+    }
+
+    .about-hero-sparkle-2 {
+      top: 30%;
+      left: 31%;
+      font-size: 1rem;
+      animation-delay: 0.8s;
+    }
+
+    .about-hero-sparkle-3 {
+      bottom: 18%;
+      right: 25%;
+      font-size: 1.6rem;
+      animation-delay: 1.2s;
+    }
+
+    .about-hero-sparkle-4 {
+      bottom: 25%;
+      left: 6%;
+      font-size: 1.2rem;
+      animation-delay: 0.4s;
+    }
+
+    .about-hero-sparkle-5 {
+      top: 30%;
+      right: 8%;
+      font-size: 1rem;
+      animation-delay: 1.6s;
+    }
+
+    @keyframes aboutHeroSparklePulse {
+
+      0%,
+      100% {
+        opacity: 0.6;
+        transform: scale(1) rotate(0deg);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.3) rotate(15deg);
+      }
+    }
+
+    /* ── About Hero Image ── */
+    .about-hero-image-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-hero-image {
+      width: 100%;
+      height: 100vh;
+      max-width: 100%;
+      object-fit: contain;
+      animation: fadeSlide 0.8s ease both;
+    }
+
+    @media (max-width: 768px) {
+      .about-hero-image-wrapper {
+        max-width: 95%;
+      }
+    }
+
+    /* ============================
+       TEAM SECTION
+    ============================ */
+    .team-wrapper {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 64px 48px 80px;
+    }
+
+    .team-section-header {
+      margin-bottom: 40px;
+    }
+
+    .eyebrow-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .section-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 34px;
+      font-weight: 900;
+      color: #1e1b4b;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .section-heading span {
+      color: #6c32a8;
+    }
+
+    .section-sub {
+      font-size: 15px;
+      font-weight: 600;
+      color: #4b5563;
+      line-height: 1.85;
+      max-width: 540px;
+    }
+
+    .section-sub strong {
+      color: #3b0764;
+    }
+
+    .main-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .main-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f5f3ff;
+      color: #6d28d9;
+      border: none;
+      border-radius: 50px;
+      padding: 9px 20px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .main-tab:hover {
+      background: #ede9fe;
+      color: #4c1d95;
+    }
+
+    .main-tab.active {
+      background: #6c32a8;
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(124, 58, 237, 0.25);
+    }
+
+    .main-tab__badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 8px;
+      background: rgba(124, 58, 237, 0.12);
+      color: #6c32a8;
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .main-tab.active .main-tab__badge {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+      animation: fadeSlide 0.35s ease both;
+    }
+
+    .group-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: #1e1b4b;
+      line-height: 1.2;
+      margin-bottom: 28px;
+    }
+
+    .group-heading span {
+      color: #6c32a8;
+    }
+
+    /* Core team */
+    .core-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .core-card {
+      background: #fff;
+      border: 1.5px solid #ede9fe;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(124, 58, 237, 0.06);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .core-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(124, 58, 237, 0.18);
+      border-color: #c4b5fd;
+    }
+
+    .core-card__img-wrap {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      background: #f5f3ff;
+    }
+
+    .core-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.35s ease;
+    }
+
+    .core-card:hover .core-card__img {
+      transform: scale(1.05);
+    }
+
+    .core-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(78, 36, 180, 0.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .core-card__body {
+      padding: 16px 18px 20px;
+    }
+
+    .core-card__name {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #1e1b4b;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .core-card__designation {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #9ca3af;
+      line-height: 1.5;
+      transition: color 0.2s;
+    }
+
+    .core-card:hover .core-card__designation {
+      color: #6c32a8;
+    }
+
+    /* Departments */
+    .dept-section {
+      margin-bottom: 40px;
+    }
+
+    .dept-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .dept-section__heading {
+      font-size: 15px;
+      font-weight: 800;
+      color: #6c32a8;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dept-section__heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, #ddd6fe, transparent);
+    }
+
+    .dept-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    /* Mini card */
+    .mini-card {
+      background: #fff;
+      border: 1.5px solid #ede9fe;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.05);
+    }
+
+    .mini-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(124, 58, 237, 0.14);
+      border-color: #c4b5fd;
+    }
+
+    .mini-card__img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      object-position: top center;
+      background: #f5f3ff;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .mini-card:hover .mini-card__img {
+      transform: scale(1.04);
+    }
+
+    .mini-card__body {
+      padding: 14px 16px 16px;
+    }
+
+    .mini-card__name {
+      font-size: 13px;
+      font-weight: 800;
+      color: #1e1b4b;
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+
+    .mini-card__designation {
+      font-size: 11px;
+      font-weight: 600;
+      color: #9ca3af;
+      line-height: 1.5;
+      transition: color 0.2s;
+    }
+
+    .mini-card:hover .mini-card__designation {
+      color: #6c32a8;
+    }
+
+    /* Advisory panel */
+    .advisory-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .advisory-card {
+      background: linear-gradient(145deg, #4c1d95, #6d28d9, #6c32a8);
+      border-radius: 24px;
+      padding: 32px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 16px 48px rgba(124, 58, 237, 0.25);
+      transition: all 0.25s ease;
+    }
+
+    .advisory-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(124, 58, 237, 0.3);
+    }
+
+    .advisory-card__circle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .advisory-card__circle--1 {
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .advisory-card__circle--2 {
+      bottom: -50px;
+      left: -50px;
+      width: 160px;
+      height: 160px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .advisory-card__top {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .advisory-card__img {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      border: 3px solid rgba(255, 255, 255, 0.25);
+      flex-shrink: 0;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .advisory-card__chip {
+      display: block;
+      width: fit-content;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.9);
+      border-radius: 50px;
+      padding: 3px 12px;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .advisory-card__name {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.25;
+    }
+
+    .advisory-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.15);
+      margin-bottom: 16px;
+    }
+
+    .advisory-card__bio {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.8;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .advisory-card__bio.expanded {
+      display: block;
+      overflow: visible;
+    }
+
+    .advisory-card__toggle {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 6px 14px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 12px;
+      display: block;
+      transition: all 0.2s;
+    }
+
+    .advisory-card__toggle:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header will be loaded here -->
+  <div id="header-placeholder"></div>
+
+  <!-- About Hero Section -->
+  <div class="about-hero-section">
+    <canvas id="aboutHeroWaveCanvas"></canvas>
+
+    <!-- Sparkle Stars -->
+    <div class="about-hero-deco about-hero-sparkle about-hero-sparkle-1">✦</div>
+    <div class="about-hero-deco about-hero-sparkle about-hero-sparkle-2">✦</div>
+    <div class="about-hero-deco about-hero-sparkle about-hero-sparkle-3">✦</div>
+    <div class="about-hero-deco about-hero-sparkle about-hero-sparkle-4">✦</div>
+    <div class="about-hero-deco about-hero-sparkle about-hero-sparkle-5">✦</div>
+
+    <!-- Hero Image -->
+    <div class="about-hero-image-wrapper">
+      <img src="assets/about.png" alt="About ENpower" class="about-hero-image">
+    </div>
+
+  </div>
+
+  <!-- ============================
+     ABOUT US
+============================ -->
+  <div class="section">
+    <div class="about-grid">
+      <div>
+        <!-- <h2 class="about-title">
+          Bridging the Gap Between <span class="ac">Education</span> and the <span class="ac">Future of Work</span>
+        </h2> -->
+        <p class="about-p">
+          ENpower is an education innovation organization working to bridge the growing gap between what schools
+          traditionally teach and what the future of work demands. As careers evolve rapidly, students need more than
+          academic knowledge — they need <strong>future-ready skills, mindsets, and real-world capability.</strong>
+        </p>
+        <p class="about-p">
+          ENpower builds integrated future-skills learning ecosystems that combine <strong>experiential skill labs,
+            entrepreneurship education, teacher enablement,</strong> and impact-driven partnerships. Anchored in
+          Globally Recognized Frameworks and aligned with <strong>NEP 2020</strong> and Indian education boards, ENpower
+          has developed an ecosystem that strengthens mainstream education while ensuring children across diverse
+          contexts are prepared to thrive as thinkers, creators, and problem-solvers in a changing world.
+        </p>
+      </div>
+
+      <div>
+        <div class="tabs" id="tabs"></div>
+        <div id="slide-wrap"></div>
+        <div class="arrows">
+          <button class="arrow-btn arrow-prev" onclick="move(-1)">&#8592;</button>
+          <button class="arrow-btn arrow-next" onclick="move(1)">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================
+     STRATEGIC PARTNERSHIP
+============================ -->
+  <div class="divider"></div>
+  <div class="section" style="padding-bottom:40px">
+    <h2 class="partner-title">Our Alliance with <span class="ac">Tata ClassEdge</span></h2>
+    <p class="partner-p">
+      Tata ClassEdge has partnered with ENpower (Enlearning Skill Development Limited) to integrate
+      <strong>future-focused entrepreneurship and life skills</strong> into school education, creating a comprehensive
+      ecosystem for career readiness by blending academic learning with practical, experiential programs like
+      <strong>design thinking and problem-solving,</strong> supported by technology and teacher training to prepare
+      students for the evolving world. This strategic collaboration involves Tata ClassEdge taking an <strong>equity
+        stake in ENpower</strong> to scale these programs nationwide, bridging the gap between classroom learning and
+      real-world opportunities.
+    </p>
+  </div>
+
+  <!-- ============================
+     OUR PURPOSE (Vision + Mission)
+============================ -->
+  <div class="divider"></div>
+  <div class="section">
+    <div class="vm-grid" style="margin-bottom:0;padding-bottom:40px;padding-top:40px">
+      <div class="vision-card">
+        <div class="tilt-glow"></div>
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="inner">
+          <div class="vision-chip">🔭 Our Vision</div>
+          <p class="vision-text">Nurturing a generation of <mark>'change agents'</mark> who strive to better their lives
+            and the world around them.</p>
+          <div class="hover-hint">
+            <div class="hint-line"></div><span>Shaping Tomorrow</span>
+            <div class="hint-line"></div>
+          </div>
+        </div>
+      </div>
+      <div class="mission-card">
+        <div class="tilt-glow"></div>
+        <div class="circle"></div>
+        <div class="inner">
+          <div class="mission-chip">🎯 Mission</div>
+          <p class="mission-text">Nurturing <span class="accent">1 million school children</span> with an
+            entrepreneurial mindset by <span class="accent">2030.</span></p>
+          <div class="hover-hint">67% of the way there ✦</div>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-labels"><span>2015</span><span>2030</span></div>
+          <div class="progress-track">
+            <div class="progress-fill" id="prog-fill"></div>
+          </div>
+          <div class="progress-note">10 years in · 5 years to go</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================
+     TIMELINE
+============================ -->
+  <div class="divider"></div>
+  <div class="section-last">
+    <div class="tl-header">
+      <h2 class="tl-title">A Decade of <span>Impact</span></h2>
+    </div>
+
+    <div class="tl-body">
+      <div class="year-rail">
+        <div class="year-rail-line"></div>
+        <div id="year-nav"></div>
+      </div>
+      <div class="content-pane">
+        <div class="slide-viewport" id="slide-viewport"></div>
+        <div class="tl-footer">
+          <div>
+            <div class="tl-counter" id="tl-counter"></div>
+            <div class="scroll-tip">Scroll over timeline · use arrows to navigate</div>
+          </div>
+          <div class="arr-wrap">
+            <button class="arr-btn" id="btn-prev" onclick="go(-1)">▲</button>
+            <button class="arr-btn" id="btn-next" onclick="go(1)">▼</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================
+     TEAM SECTION
+============================ -->
+  <div class="divider"></div>
+  <div class="team-wrapper">
+
+    <div class="team-section-header">
+      <h1 class="section-heading">Meet the <span>Team</span></h1>
+      <p class="section-sub">
+        The people behind the mission —
+        <strong>dedicated, driven, and passionate</strong> about transforming education.
+      </p>
+    </div>
+
+    <div class="main-tabs" id="mainTabs"></div>
+
+    <div class="content-area">
+      <div class="tab-panel active" id="panel-core"></div>
+      <div class="tab-panel" id="panel-departments"></div>
+      <div class="tab-panel" id="panel-projects"></div>
+      <div class="tab-panel" id="panel-advisory"></div>
+    </div>
+
+  </div>
+
+  <!-- Footer will be loaded here -->
+  <div id="footer-placeholder"></div>
+
+  <!-- ============================
+     SCRIPTS
+============================ -->
+  <script>
+    /* ==========================================================
+       LOAD HEADER AND FOOTER
+       ========================================================== */
+    // Load Header
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+
+        // Animate header entrance after it's loaded
+        const mainNav = document.querySelector('.en-main-nav');
+        if (mainNav && typeof gsap !== 'undefined') {
+          gsap.to(mainNav, { opacity: 1, y: 0, duration: 0.8, delay: 0.2 });
+        }
+      })
+      .catch(error => console.error('Error loading header:', error));
+
+    // Load Footer
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+
+        // Initialize Back to Top Button after footer is loaded
+        const backToTopButton = document.getElementById('backToTop');
+        if (backToTopButton) {
+          // Show/hide button based on scroll position
+          window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 300) {
+              backToTopButton.classList.add('show');
+            } else {
+              backToTopButton.classList.remove('show');
+            }
+          });
+
+          // Scroll to top when button is clicked
+          backToTopButton.addEventListener('click', function () {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          });
+        }
+      })
+      .catch(error => console.error('Error loading footer:', error));
+
+    /* ==========================================================
+       ABOUT HERO WAVE CANVAS ANIMATION
+       ========================================================== */
+    (function () {
+      const canvas = document.getElementById('aboutHeroWaveCanvas');
+      const ctx = canvas.getContext('2d');
+
+      let width, height;
+      let mouseX = -1000, mouseY = -1000;
+      let scrollY = 0;
+      const WAVE_COUNT = 24; // Number of wave lines
+      const INFLUENCE_RADIUS = 250;
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+      document.addEventListener('mouseleave', () => {
+        mouseX = -1000;
+        mouseY = -1000;
+      });
+      window.addEventListener('scroll', () => { scrollY = window.scrollY; });
+
+      const waves = [];
+      // Create waves with grouped ribbons
+      for (let i = 0; i < WAVE_COUNT; i++) {
+        const group = Math.floor(i / 8);
+        waves.push({
+          position: 0.3 + group * 0.2 + (Math.random() * 0.05), // Grouped positioning
+          amplitude: 40 + Math.random() * 50, // Larger, more sweeping waves
+          frequency: 0.001 + Math.random() * 0.001, // Gentler frequency
+          speed: 0.0002 + Math.random() * 0.0003,
+          phase: i * 0.2, // Offset phases to create the mesh effect
+          opacity: 0.08 + Math.random() * 0.05,
+          thickness: 0.5 + Math.random() * 0.5 // Hair-thin lines
+        });
+      }
+
+      let time = 0;
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        const parallaxOffset = scrollY * 0.1;
+
+        for (let w = 0; w < waves.length; w++) {
+          const wave = waves[w];
+
+          // Purple/pink palette to match hero section
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(180, 120, 220, ${wave.opacity})`;
+          ctx.lineWidth = wave.thickness;
+
+          const step = 6;
+          // Draw diagonal waves from bottom-left to top-right
+          for (let x = -10; x <= width + 10; x += step) {
+            // Calculate diagonal position (transform x to diagonal coordinate)
+            // For bottom-left to top-right: when x increases, y should decrease
+            const diagonalPos = (x / width) + (wave.position - 0.5);
+            let y = height - (diagonalPos * height) + parallaxOffset;
+
+            // Complex sine combination for fluid ribbon motion
+            y += Math.sin(x * wave.frequency + time * wave.speed * 1000 + wave.phase) * wave.amplitude;
+            y += Math.sin(x * wave.frequency * 0.5 + time * wave.speed * 500) * (wave.amplitude * 0.3);
+
+            const dx = x - mouseX;
+            const dy = y - mouseY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < INFLUENCE_RADIUS) {
+              const influence = 1 - dist / INFLUENCE_RADIUS;
+              const smoothInfluence = influence * influence * (3 - 2 * influence);
+              const pushStrength = 40 * smoothInfluence;
+              const angle = Math.atan2(dy, dx);
+              y += Math.sin(angle) * pushStrength;
+            }
+
+            if (x === -10) { ctx.moveTo(x, y); }
+            else { ctx.lineTo(x, y); }
+          }
+          ctx.stroke();
+        }
+
+        time = performance.now() / 1000;
+        requestAnimationFrame(draw);
+      }
+
+      draw();
+    })();
+  </script>
+  <script>
+    /* ---- Slideshow ---- */
+    const slides = [
+      { label: "Team", emoji: "👩‍🏫", bg: "linear-gradient(135deg,#6c32a8,#4f46e5)" },
+      { label: "Students", emoji: "🧑‍💻", bg: "linear-gradient(135deg,#0ea5e9,#6366f1)" },
+      { label: "Trainers", emoji: "🎓", bg: "linear-gradient(135deg,#059669,#0ea5e9)" },
+      { label: "Events", emoji: "🚀", bg: "linear-gradient(135deg,#ec4899,#6c32a8)" },
+    ];
+    let slideCur = 0;
+    let slideTimer = setInterval(() => move(1), 3000);
+
+    function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(() => move(1), 3000); }
+
+    function move(dir) { slideCur = (slideCur + dir + slides.length) % slides.length; renderSlide(); resetTimer(); }
+    function goSlide(i) { slideCur = i; renderSlide(); resetTimer(); }
+
+    function renderSlide() {
+      const s = slides[slideCur];
+      document.getElementById("tabs").innerHTML = slides.map((sl, i) =>
+        `<button class="tab-btn ${i === slideCur ? "active" : ""}" onclick="goSlide(${i})">${sl.label}</button>`
+      ).join("");
+      document.getElementById("slide-wrap").innerHTML = `
+    <div class="slide-card" style="background:${s.bg}">
+      <div class="orb1"></div><div class="orb2"></div>
+      <div class="slide-emoji">${s.emoji}</div>
+      <div class="slide-label">${s.label}</div>
+      <div class="dots">
+        ${slides.map((_, i) => `<button class="dot ${i === slideCur ? "active" : ""}" style="width:${i === slideCur ? 22 : 8}px" onclick="goSlide(${i})"></button>`).join("")}
+      </div>
+    </div>`;
+    }
+    renderSlide();
+
+    /* ---- Timeline ---- */
+    const timeline = [
+      {
+        year: "2025", color: "#6c32a8", light: "#f5f3ff", events: [
+          { title: "Alliance with Tata ClassEdge Ltd.", desc: "Tata ClassEdge took an equity stake in ENpower to bring entrepreneurship and future skills to schools across India." },
+          { title: "L&T–ENpower Young Innovators Program", desc: "Expanded footprint to 90 government schools & set up E-cell across 34 schools where students conducted Kitaab Bazaar — a sales simulation of pitching Amar Chitra Katha Books." },
+          { title: "YUVA Unstoppable STEM Program", desc: "First time computer users (students) learned coding, physical computing, and app development through project-based innovation." },
+          { title: "ATL Program", desc: "Running a Tech entrepreneurship program in over 20 Andhra Pradesh government schools." },
+          { title: "Udaan Tank 2025", desc: "Students transformed ideas into ventures through intensive MVP building and pitching." },
+          { title: "Udaan STEM Lab", desc: "A new robotics and maker lab enables 120 students to learn coding and innovation through hands-on creation." },
+          { title: "IndusInd Bank Flagship CSR Initiative", desc: "60+ Ideas groomed for on-field implementation, with real user testing and hands-on mentorship." },
+        ]
+      },
+      {
+        year: "2024", color: "#4f46e5", light: "#eef2ff", events: [
+          { title: "Manipal Foundation Entrepreneurship Program", desc: "Students identify real problems and build solutions while developing critical thinking and problem-solving skills." },
+          { title: "Salaam Bombay Foundation", desc: "Underserved students turn passions into entrepreneurial ventures." },
+          { title: "Udaan Foundation", desc: "Youth developed ventures, prototypes, and go-to-market strategies with mentorship support." },
+          { title: "L&T–ENpower Young Innovators Program", desc: "Innovation and entrepreneurship learning expanded to 41 new BMC schools." },
+          { title: "IndusInd Bank Flagship CSR Initiative", desc: "20 new schools onboarded to strengthen holistic and entrepreneurial learning." },
+          { title: "Aramco–NFTE Innovation Day", desc: "Global students designed solutions for UN SDG 6: Clean Water and Sanitation." },
+        ]
+      },
+      {
+        year: "2023", color: "#0ea5e9", light: "#e0f2fe", events: [
+          { title: "Swajivi Maharashtra Phase II", desc: "Reached 5,064 students across 44 schools in four districts, strengthening entrepreneurship and innovation learning in government schools." },
+          { title: "New CSR Partnerships", desc: "Collaborated with L&T and Aramco to empower students through technology, innovation, and entrepreneurship programs." },
+          { title: "Bayer–ENpower ATL Enhancement", desc: "Added 50 all-girls schools, introducing rural students to design thinking, technology, and entrepreneurship." },
+          { title: "IFT Mentorship Platform", desc: "Revamped platform connects students with industry mentors, culminating in a bootcamp and venture pitch finale." },
+        ]
+      },
+      {
+        year: "2022", color: "#059669", light: "#d1fae5", events: [
+          { title: "CSR Partnerships", desc: "With FUEL, Bayer, Hafele, and IndusInd Bank, ENpower enabled experiential learning in design thinking, technology, and entrepreneurship." },
+          { title: "IFT Season #4", desc: "8,526 participants competed as investors selected young social techpreneurs with ideas to reimagine India." },
+          { title: "Government Partnership", desc: "Launched Swajivi with the Government of Maharashtra and SCERT to introduce entrepreneurship curriculum in government schools." },
+        ]
+      },
+      {
+        year: "2021", color: "#d97706", light: "#fef3c7", events: [
+          { title: "IFT Season #3", desc: "A virtual competition during COVID-19. Over 7200 students from 595 schools across 252 cities with global partners Microsoft & Snapchat." },
+        ]
+      },
+      {
+        year: "2020", color: "#db2777", light: "#fce7f3", events: [
+          { title: "IFT Season #2", desc: "7000+ participants across 330 schools from 130+ cities. TOP 24 teams in a grand finale with UN GCNI & Atal Innovation Mission." },
+        ]
+      },
+      {
+        year: "2019", color: "#6c32a8", light: "#f5f3ff", events: [
+          { title: "IFT Season #1", desc: "India's first-ever entrepreneurship search & mentoring platform. 3300+ students across 52 cities. TOP 3 at the UNGCNI National Conference in Mumbai." },
+        ]
+      },
+      {
+        year: "2018", color: "#4f46e5", light: "#eef2ff", events: [
+          { title: "Expanding Footprint Across Mumbai", desc: "ENpower's entrepreneurship programs scaled up across leading schools in Mumbai." },
+        ]
+      },
+      {
+        year: "2017", color: "#0ea5e9", light: "#e0f2fe", events: [
+          { title: "Launched MYOB", desc: "Launched a structured & experiential entrepreneurship learning model across Gujarat & Maharashtra — Mind Your Own Business." },
+        ]
+      },
+      {
+        year: "2016", color: "#059669", light: "#d1fae5", events: [
+          { title: "Empowering Schools in Mumbai", desc: "Started empowering schools in Mumbai with structured & experiential entrepreneurship learning programs." },
+        ]
+      },
+      {
+        year: "2015", color: "#d97706", light: "#fef3c7", events: [
+          { title: "We Started Our Journey! 🎉", desc: "Enlearning Skill Development Limited was founded." },
+        ]
+      },
+    ];
+
+    let tlCur = 0, busy = false;
+    function pad(n) { return String(n).padStart(2, "0") }
+
+    document.getElementById("year-nav").innerHTML = timeline.map((t, i) => `
+  <button class="year-btn" onclick="goTo(${i})" style="--yc:${t.color};--yl:${t.light}">
+    <div class="year-dot" id="dot-${i}" style="--yc:${t.color};--yl:${t.light}"><div class="year-dot-inner"></div></div>
+    <span class="year-label" id="lbl-${i}" style="--yc:${t.color}">${t.year}</span>
+  </button>`).join("");
+
+    document.getElementById("slide-viewport").innerHTML = timeline.map((t, i) => `
+  <div class="year-panel" id="panel-${i}">
+    <div class="year-badge-row">
+      <div class="year-badge" style="background:linear-gradient(135deg,${t.color},${t.color}cc)">${t.year}</div>
+      <div class="year-line" style="background:linear-gradient(90deg,${t.color}40,transparent)"></div>
+    </div>
+    <div>
+      ${t.events.map((ev, j) => `
+        <div class="event-item">
+          <div class="event-num" style="background:${t.light};color:${t.color}">${pad(j + 1)}</div>
+          <div><div class="event-title">${ev.title}</div><div class="event-desc">${ev.desc}</div></div>
+        </div>`).join("")}
+    </div>
+  </div>`).join("");
+
+    function updateTL() {
+      timeline.forEach((_, i) => {
+        document.getElementById("dot-" + i).classList.toggle("active", i === tlCur);
+        document.getElementById("lbl-" + i).classList.toggle("active", i === tlCur);
+      });
+      document.getElementById("btn-prev").disabled = tlCur === 0;
+      document.getElementById("btn-next").disabled = tlCur === timeline.length - 1;
+      document.getElementById("tl-counter").textContent = (tlCur + 1) + " / " + timeline.length;
+    }
+
+    function goTo(idx, dir) {
+      if (idx === tlCur || busy) return;
+      busy = true;
+      const prev = document.getElementById("panel-" + tlCur);
+      const next = document.getElementById("panel-" + idx);
+      const down = dir !== undefined ? dir > 0 : idx > tlCur;
+      prev.classList.remove("active");
+      prev.classList.add(down ? "exit-up" : "exit-down");
+      next.style.transform = down ? "translateY(32px)" : "translateY(-32px)";
+      next.style.opacity = "0";
+      next.style.position = "absolute";
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        next.style.transform = ""; next.style.opacity = ""; next.style.position = "";
+        next.classList.add("active");
+        tlCur = idx; updateTL();
+        setTimeout(() => { prev.classList.remove("exit-up", "exit-down"); busy = false; }, 500);
+      }));
+    }
+
+    function go(dir) { goTo(Math.max(0, Math.min(tlCur + dir, timeline.length - 1)), dir); }
+
+    const tlWrap = document.querySelector(".section-last");
+    let wCool = false;
+    tlWrap.addEventListener("wheel", e => {
+      e.preventDefault();
+      if (wCool) return;
+      wCool = true; go(e.deltaY > 0 ? 1 : -1);
+      setTimeout(() => wCool = false, 650);
+    }, { passive: false });
+
+    let ty = null;
+    tlWrap.addEventListener("touchstart", e => { ty = e.touches[0].clientY });
+    tlWrap.addEventListener("touchend", e => {
+      if (ty === null) return;
+      const d = ty - e.changedTouches[0].clientY;
+      if (Math.abs(d) > 40) go(d > 0 ? 1 : -1);
+      ty = null;
+    });
+
+    document.getElementById("panel-0").classList.add("active");
+    updateTL();
+    setTimeout(() => document.getElementById("prog-fill").style.width = "67%", 400);
+
+    /* ---- 3D Tilt ---- */
+    function initTilt(card, opts) {
+      const max = opts.max || 12;
+      const glowEl = opts.glow ? card.querySelector(opts.glow) : null;
+      card.addEventListener("mousemove", e => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left, y = e.clientY - r.top;
+        const cx = r.width / 2, cy = r.height / 2;
+        const rx = ((y - cy) / cy) * -max, ry = ((x - cx) / cx) * max;
+        card.style.transition = "box-shadow 0.35s ease,border-color 0.3s";
+        card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.03)`;
+        if (glowEl) {
+          glowEl.style.background = `radial-gradient(circle at ${(x / r.width) * 100}% ${(y / r.height) * 100}%,${opts.glowColor || "rgba(255,255,255,0.13)"} 0%,transparent 65%)`;
+          glowEl.style.opacity = "1";
+        }
+      });
+      card.addEventListener("mouseleave", () => {
+        card.style.transition = "transform 0.55s cubic-bezier(.22,.68,0,1.2),box-shadow 0.35s ease,border-color 0.3s";
+        card.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)";
+        if (glowEl) glowEl.style.opacity = "0";
+      });
+    }
+
+    initTilt(document.querySelector(".vision-card"), { max: 10, glow: ".tilt-glow", glowColor: "rgba(255,255,255,0.11)" });
+    initTilt(document.querySelector(".mission-card"), { max: 10, glow: ".tilt-glow", glowColor: "rgba(124,58,237,0.09)" });
+
+    /* ---- Team Section ---- */
+    const IMG = {
+      m1: 'YOUR_PHOTO_URL', /* Sushil Mungekar */
+      m2: 'YOUR_PHOTO_URL', /* Arvind Narayanan */
+      m3: 'YOUR_PHOTO_URL', /* Vishal Shetty, Vishal Vadhiyar, Sushrut Mahajan, Dnyaneshwar Maske */
+      m4: 'YOUR_PHOTO_URL', /* Swarnim Malik, Rayaan, Akash Naik, Prashant Gaikwad, Mohd Imran */
+      f1: 'YOUR_PHOTO_URL', /* Shubhangini, Tiara, Vasudha, Shyna, Reshmi */
+      f2: 'YOUR_PHOTO_URL', /* Deepal, Riddhima, Prapti, Virajaji */
+      f3: 'YOUR_PHOTO_URL', /* Pooja, Samruddhi, Shreya, Prajakta */
+      f4: 'YOUR_PHOTO_URL', /* Sharwari, Pinky, Ritu, Sayali */
+    };
+
+    const coreTeam = [
+      { name: 'Sushil Mungekar', designation: 'Founder & CEO', img: IMG.m1 },
+      { name: 'Arvind Narayanan', designation: 'Co-Founder', img: IMG.m2 },
+      { name: 'Shubhangini Kanhere', designation: 'Chief Marketing Officer', img: IMG.f1 },
+      { name: 'Deepal Vora', designation: 'Head – Operations & Program Management', img: IMG.f2 },
+      { name: 'Pooja Singhal', designation: 'Head – CSR Projects', img: IMG.f3 },
+      { name: 'Sharwari Kulkarni', designation: 'Head – Knowledge Centre', img: IMG.f4 },
+      { name: 'Riddhima Guruji', designation: 'Category Head – Future Skills Lab', img: IMG.f2 },
+    ];
+
+    const departments = [
+      {
+        label: 'Knowledge Centre', members: [
+          { name: 'Tiara Prasad', designation: 'Sr. Manager – Knowledge Centre', img: IMG.f1 },
+          { name: 'Vishal Shetty', designation: 'Sr. Manager – Knowledge Centre', img: IMG.m3 },
+          { name: 'Swarnim Malik', designation: 'Manager, Knowledge Center', img: IMG.m4 },
+          { name: 'Kanhaiya', designation: 'Knowledge Associate', img: IMG.m2 },
+        ]
+      },
+      {
+        label: 'Marketing', members: [
+          { name: 'Samruddhi Naroji', designation: 'Sr. Manager, Marketing & Communications', img: IMG.f3 },
+          { name: 'Rayaan Sian Achrekar', designation: 'Marketing Manager, Operations', img: IMG.m4 },
+          { name: 'Pinky Mehta', designation: 'Executive, Marketing', img: IMG.f4 },
+        ]
+      },
+      {
+        label: 'Operations', members: [
+          { name: 'Prapti Shamkuwar', designation: 'Operations Manager', img: IMG.f2 },
+          { name: 'Vishal Vadhiyar', designation: 'Tech and Digital Manager', img: IMG.m3 },
+          { name: 'Akash Naik', designation: 'Senior Facilitator Manager', img: IMG.m4 },
+          { name: 'Omkar Sitaram Sadadekar', designation: 'STEM Coordinator', img: IMG.m2 },
+        ]
+      },
+      {
+        label: 'Future Skills Lab', members: [
+          { name: 'Vasudha Talwar', designation: 'Project Manager', img: IMG.f1 },
+          { name: 'Sushrut Mahajan', designation: 'School Relationship Manager', img: IMG.m3 },
+          { name: 'Ritu Nandmaher', designation: 'Project Coordinator, Career Darshak', img: IMG.f4 },
+        ]
+      },
+    ];
+
+    const projectTeam = [
+      { name: 'Shyna Gupta', designation: 'Manager, Digital Skills', img: IMG.f1 },
+      { name: 'Shreya Bagde', designation: 'Project Manager', img: IMG.f3 },
+      { name: 'Sayali Waghmare', designation: 'Project Manager', img: IMG.f4 },
+      { name: 'Virajaji Naraganeni', designation: 'Project Manager', img: IMG.f2 },
+      { name: 'Dnyaneshwar Maske', designation: 'Project Manager', img: IMG.m3 },
+      { name: 'Prashant Gaikwad', designation: 'Project Manager', img: IMG.m4 },
+      { name: 'Reshmi A R', designation: 'Program Manager', img: IMG.f1 },
+      { name: 'Prajakta Taiwade', designation: 'Process & Project Manager', img: IMG.f3 },
+      { name: 'Ravi Kumar', designation: 'Project Coordinator', img: IMG.m2 },
+      { name: 'Mohd Imran', designation: 'Project Coordinator', img: IMG.m4 },
+      { name: 'Md. Azharoddin Atahar Kazi', designation: 'Program Coordinator', img: IMG.m3 },
+    ];
+
+    const advisoryPanel = [
+      { name: 'Dr. Bhalchandra Mungekar', role: 'Mentor', img: IMG.m1, bio: 'Dr. Bhalchandra Mungekar is an author, economist, educationist, social worker, and former Rajya Sabha member. He served as Vice-Chancellor of the University of Mumbai, held prestigious positions in the Planning Commission and Agricultural Price Commission, and chaired the UGC and the Indian Institute of Advanced Study, Shimla.' },
+      { name: 'Nikhil Vora', role: 'Strategic Investor', img: IMG.m2, bio: "Nikhil Vora is the Founder & CEO of Sixth Sense Ventures, India's first consumer-focused domestic venture fund. He was formerly Managing Director and Head of Research at IDFC Securities and has advised companies such as Unilever, Aditya Birla Group, Marico, Godrej Group, NIIT, and Navneet Education. In the Asia Money Polls 2012, he was ranked India's No.1 analyst." },
+    ];
+
+    const coreCard = m => `
+  <div class="core-card">
+    <div class="core-card__img-wrap">
+      <img src="${m.img}" alt="${m.name}" class="core-card__img" onerror="this.style.display='none'">
+      <div class="core-card__overlay"></div>
+    </div>
+    <div class="core-card__body">
+      <p class="core-card__name">${m.name}</p>
+      <p class="core-card__designation">${m.designation}</p>
+    </div>
+  </div>`;
+
+    const miniCard = m => `
+  <div class="mini-card">
+    <img src="${m.img}" alt="${m.name}" class="mini-card__img" onerror="this.style.display='none'">
+    <div class="mini-card__body">
+      <p class="mini-card__name">${m.name}</p>
+      <p class="mini-card__designation">${m.designation}</p>
+    </div>
+  </div>`;
+
+    const advisoryCard = (a, i) => `
+  <div class="advisory-card">
+    <div class="advisory-card__circle advisory-card__circle--1"></div>
+    <div class="advisory-card__circle advisory-card__circle--2"></div>
+    <div class="advisory-card__top">
+      <img src="${a.img}" alt="${a.name}" class="advisory-card__img" onerror="this.style.display='none'">
+      <div>
+        <span class="advisory-card__chip">${a.role}</span>
+        <h3 class="advisory-card__name">${a.name}</h3>
+      </div>
+    </div>
+    <div class="advisory-divider"></div>
+    <p class="advisory-card__bio" id="bio-${i}">${a.bio}</p>
+    <button class="advisory-card__toggle" onclick="toggleBio(${i},this)">Read more ↓</button>
+  </div>`;
+
+    document.getElementById('panel-core').innerHTML =
+      '<h2 class="group-heading">Core <span>Team</span></h2>' +
+      '<div class="core-grid">' + coreTeam.map(coreCard).join('') + '</div>';
+
+    document.getElementById('panel-departments').innerHTML =
+      '<h2 class="group-heading">Our <span>Departments</span></h2>' +
+      departments.map(d => `<div class="dept-section"><h3 class="dept-section__heading">${d.label}</h3><div class="dept-grid">${d.members.map(miniCard).join('')}</div></div>`).join('');
+
+    document.getElementById('panel-projects').innerHTML =
+      '<h2 class="group-heading">Project <span>Team</span></h2>' +
+      '<div class="dept-grid">' + projectTeam.map(miniCard).join('') + '</div>';
+
+    document.getElementById('panel-advisory').innerHTML =
+      '<h2 class="group-heading">Advisory <span>Panel</span></h2>' +
+      '<div class="advisory-grid">' + advisoryPanel.map(advisoryCard).join('') + '</div>';
+
+    const tabsEl = document.getElementById('mainTabs');
+    [
+      { key: 'core', label: 'Core Team', count: coreTeam.length },
+      { key: 'departments', label: 'Departments', count: departments.reduce((s, d) => s + d.members.length, 0) },
+      { key: 'projects', label: 'Project Team', count: projectTeam.length },
+      { key: 'advisory', label: 'Advisory', count: advisoryPanel.length },
+    ].forEach(t => {
+      const btn = document.createElement('button');
+      btn.className = 'main-tab' + (t.key === 'core' ? ' active' : '');
+      btn.dataset.key = t.key;
+      btn.innerHTML = `${t.label}<span class="main-tab__badge">${t.count}</span>`;
+      btn.onclick = () => {
+        document.querySelectorAll('.main-tab').forEach(b => b.classList.toggle('active', b.dataset.key === t.key));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + t.key));
+      };
+      tabsEl.appendChild(btn);
+    });
+
+    function toggleBio(i, btn) {
+      const bio = document.getElementById('bio-' + i);
+      btn.textContent = bio.classList.toggle('expanded') ? 'Show less ↑' : 'Read more ↓';
+    }
+  </script>
+</body>
+
+</html>

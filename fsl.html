@@ -37,6 +37,10 @@
             overflow-x: hidden;
         }
 
+        .matter-highlight1 {
+            color: #e5a93e;
+        }
+
         /* FSL Hero Section */
 
         .fsl-hero-section {
@@ -1249,6 +1253,350 @@
                 font-size: 26px;
             }
         }
+
+        /* ── FSL Skill Passport Section ── */
+        .fsl-sp-section {
+            position: relative;
+            width: 100%;
+            background: #f6f0fa;
+            padding: 100px 20px;
+            padding-top: 0px;
+        }
+
+        .fsl-sp-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .fsl-sp-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .fsl-sp-header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(36px, 5vw, 58px);
+            font-weight: 700;
+            color: #6c32a8;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+        }
+
+        .fsl-sp-header h1 span {
+            color: #e5a93e;
+        }
+
+        .fsl-sp-header p {
+            margin-top: 16px;
+            font-size: 16px;
+            color: #4b5563;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.75;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .fsl-sp-hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .fsl-sp-hero-left .fsl-sp-tagline {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e1b4b;
+            line-height: 1.55;
+            margin-bottom: 20px;
+        }
+
+        .fsl-sp-hero-left p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 36px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .fsl-sp-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #6c32a8;
+            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 14px 32px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 16px 40px -8px rgba(108, 50, 168, .35);
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .fsl-sp-btn-primary:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 24px 48px -8px rgba(108, 50, 168, .45);
+        }
+
+        .fsl-sp-btn-arrow {
+            width: 22px;
+            height: 22px;
+            background: rgba(255, 255, 255, .2);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+        }
+
+        .fsl-sp-stats-row {
+            display: flex;
+            gap: 32px;
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid #ede9fe;
+        }
+
+        .fsl-sp-stat-item .fsl-sp-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #6c32a8;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .fsl-sp-stat-item .fsl-sp-lbl {
+            font-size: 11px;
+            font-weight: 500;
+            color: #9ca3af;
+            letter-spacing: .04em;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .fsl-sp-carousel-outer {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .fsl-sp-carousel-box {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1.5px solid #ede9fe;
+            box-shadow: 0 24px 64px -16px rgba(108, 50, 168, 0.18);
+            aspect-ratio: 4 / 3;
+            background: #f0eeff;
+        }
+
+        .fsl-sp-carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform .55s cubic-bezier(.4, 0, .2, 1);
+            will-change: transform;
+        }
+
+        .fsl-sp-carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .fsl-sp-carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .fsl-sp-slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 28px 24px 22px;
+            background: linear-gradient(to top, rgba(20, 8, 50, .75) 0%, transparent 100%);
+        }
+
+        .fsl-sp-slide-caption h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .fsl-sp-slide-caption p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            color: rgba(255, 255, 255, .65);
+        }
+
+        .fsl-sp-car-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255, 255, 255, .35);
+            background: rgba(255, 255, 255, .18);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #fff;
+            font-size: 20px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .2s, border-color .2s, transform .2s;
+            font-family: monospace;
+        }
+
+        .fsl-sp-car-arrow:hover {
+            background: #6c32a8;
+            border-color: #6c32a8;
+            transform: translateY(-50%) scale(1.08);
+        }
+
+        .fsl-sp-car-arrow.prev {
+            left: 14px;
+        }
+
+        .fsl-sp-car-arrow.next {
+            right: 14px;
+        }
+
+        .fsl-sp-carousel-pagination {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            padding-top: 14px;
+        }
+
+        .fsl-sp-pag-dot {
+            height: 8px;
+            width: 8px;
+            border-radius: 99px;
+            background: #ddd6fe;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: all .3s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        .fsl-sp-pag-dot.active {
+            background: #6c32a8;
+            width: 28px;
+        }
+
+        .fsl-sp-pag-dot:hover:not(.active) {
+            background: #c4b5fd;
+        }
+
+        .fsl-sp-pag-counter {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: #9ca3af;
+            margin-left: 6px;
+            min-width: 40px;
+            text-align: right;
+        }
+
+        .fsl-sp-section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(22px, 3vw, 32px);
+            font-weight: 700;
+            color: #6c32a8;
+            letter-spacing: -0.5px;
+            margin-bottom: 36px;
+        }
+
+        .fsl-sp-section-title span {
+            color: #e5a93e;
+        }
+
+        .fsl-sp-features-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .fsl-sp-feat-card {
+            background: #fff;
+            border: 1.5px solid #ede9fe;
+            border-radius: 24px;
+            padding: 28px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: all .28s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        .fsl-sp-feat-card:hover {
+            transform: translateY(-6px);
+            border-color: #c4b5fd;
+            box-shadow: 0 20px 48px -8px rgba(108, 50, 168, 0.18);
+        }
+
+        .fsl-sp-feat-icon {
+            width: 48px;
+            height: 48px;
+            background: #f5f3ff;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            transition: background .2s;
+        }
+
+        .fsl-sp-feat-card:hover .fsl-sp-feat-icon {
+            background: #ede9fe;
+        }
+
+        .fsl-sp-feat-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1e1b4b;
+            line-height: 1.4;
+        }
+
+        @media(max-width: 900px) {
+            .fsl-sp-hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .fsl-sp-features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .fsl-sp-stats-row {
+                gap: 20px;
+            }
+        }
+
+        @media(max-width: 560px) {
+            .fsl-sp-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -1414,7 +1762,8 @@
         <div class="fsl-carousel-container">
             <!-- Heading and Description -->
             <div class="fsl-carousel-header">
-                <h2 class="fsl-carousel-heading">A Complete Future-Skill Ecosystem</h2>
+                <h2 class="fsl-carousel-heading">A Complete <span class="matter-highlight1">Future-Skill</span>
+                    Ecosystem</h2>
                 <p class="fsl-carousel-desc">Move beyond traditional academic boundaries by integrating space,
                     curriculum, assessment, and reporting into a single seamless model.</p>
             </div>
@@ -1555,7 +1904,9 @@
         <div class="fsl-table-container">
             <!-- Heading and Description -->
             <div class="fsl-table-header">
-                <h2 class="fsl-table-heading">Two Unique Propositions For<br />Future-Ready Schools</h2>
+                <h2 class="fsl-table-heading">Two Unique Propositions For<br /><span
+                        class="matter-highlight1">Future-Ready</span>
+                    Schools</h2>
                 <p class="fsl-table-desc">Tailored to meet your objectives & grow when you're ready!</p>
             </div>
 
@@ -1613,12 +1964,82 @@
         </div>
     </section>
 
+    <!-- FSL Skill Passport Section -->
+    <section class="fsl-sp-section">
+        <div class="fsl-sp-container">
+            <!-- Page Header -->
+            <header class="fsl-sp-header">
+                <h1><span>Skill</span> Passport</h1>
+                <p>A 360° digital record of every child's growth — mapped across 17 globally recognised future-skill
+                    frameworks.</p>
+            </header>
+
+            <!-- Hero -->
+            <section class="fsl-sp-hero-grid">
+                <!-- Left -->
+                <div class="fsl-sp-hero-left">
+                    <p class="fsl-sp-tagline">
+                        Because the future won't ask for report cards.<br>It will ask for capability.
+                    </p>
+                    <p>
+                        A competency-based assessment engine that tracks growth across critical thinking, creativity,
+                        collaboration,
+                        communication, digital fluency, and problem-solving — aligned with NEP 2020 and global
+                        frameworks.
+                    </p>
+                    <button class="fsl-sp-btn-primary">
+                        Explore Methodology
+                        <span class="fsl-sp-btn-arrow">→</span>
+                    </button>
+
+                    <div class="fsl-sp-stats-row">
+                        <div class="fsl-sp-stat-item">
+                            <div class="fsl-sp-num">17</div>
+                            <div class="fsl-sp-lbl">Future Skills</div>
+                        </div>
+                        <div class="fsl-sp-stat-item">
+                            <div class="fsl-sp-num">360°</div>
+                            <div class="fsl-sp-lbl">Assessment</div>
+                        </div>
+                        <div class="fsl-sp-stat-item">
+                            <div class="fsl-sp-num">1M+</div>
+                            <div class="fsl-sp-lbl">Students Tracked</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right — Carousel -->
+                <div class="fsl-sp-carousel-outer">
+                    <div class="fsl-sp-carousel-box" id="fslSpCarBox">
+                        <div class="fsl-sp-carousel-track" id="fslSpCarTrack"></div>
+                        <button class="fsl-sp-car-arrow prev" id="fslSpCarPrev">&#8249;</button>
+                        <button class="fsl-sp-car-arrow next" id="fslSpCarNext">&#8250;</button>
+                    </div>
+
+                    <!-- Pagination: outside, bottom-right -->
+                    <div class="fsl-sp-carousel-pagination">
+                        <div id="fslSpCarDots"></div>
+                        <span class="fsl-sp-pag-counter" id="fslSpCarCounter"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features -->
+            <section>
+                <h2 class="fsl-sp-section-title">Everything you need to track <span class="matter-highlight1">real
+                        growth</span></h2>
+                <div class="fsl-sp-features-grid" id="fslSpFeatGrid"></div>
+            </section>
+        </div>
+    </section>
+
     <!-- FSL Alliance Section -->
     <section style="background: #f6f0fa; padding: 100px 20px; padding-top: 10px;">
         <div class="fsl-alliance-section">
             <!-- LEFT PANEL -->
             <div class="fsl-alliance-left-panel">
-                <h2 class="fsl-alliance-heading">About ENpower &amp; TATA ClassEdge Alliance</h2>
+                <h2 class="fsl-alliance-heading">About <span class="matter-highlight1">ENpower</span> &amp; <span
+                        class="matter-highlight1">TATA ClassEdge</span> Alliance</h2>
                 <div class="fsl-alliance-divider"></div>
                 <p class="fsl-alliance-body-text">
                     Tata ClassEdge and ENpower have formed a strategic partnership, announced in December 2025, to
@@ -2037,6 +2458,129 @@
                 }
                 requestAnimationFrame(anim);
             })();
+        })();
+
+        /* ==========================================================
+           FSL SKILL PASSPORT CAROUSEL
+           ========================================================== */
+        (function () {
+            const SLIDES = [
+                {
+                    img: 'https://placehold.co/800x600/ede9fe/7c3aed?text=Slide+1',
+                    title: 'Skill Assessment',
+                    sub: 'Competency-based growth tracking'
+                },
+                {
+                    img: 'https://placehold.co/800x600/ddd6fe/5b21b6?text=Slide+2',
+                    title: 'Collaborative Learning',
+                    sub: 'Team projects & peer reflection'
+                },
+                {
+                    img: 'https://placehold.co/800x600/e0e7ff/4338ca?text=Slide+3',
+                    title: 'Future Skills Lab',
+                    sub: 'Hands-on STEM & innovation'
+                },
+                {
+                    img: 'https://placehold.co/800x600/f3e8ff/7c3aed?text=Slide+4',
+                    title: 'Knowledge Centre',
+                    sub: 'Curated resources for educators'
+                },
+            ];
+
+            const track = document.getElementById('fslSpCarTrack');
+            const dotsWrap = document.getElementById('fslSpCarDots');
+            const counter = document.getElementById('fslSpCarCounter');
+
+            if (!track || !dotsWrap || !counter) return;
+
+            let cur = 0;
+            let autoTimer;
+
+            // Build slides
+            SLIDES.forEach(s => {
+                track.insertAdjacentHTML('beforeend', `
+                <div class="fsl-sp-carousel-slide">
+                    <img src="${s.img}" alt="${s.title}" loading="lazy" />
+                    <div class="fsl-sp-slide-caption">
+                        <h4>${s.title}</h4>
+                        <p>${s.sub}</p>
+                    </div>
+                </div>`);
+            });
+
+            // Build dots
+            dotsWrap.style.cssText = 'display:flex;align-items:center;gap:8px;';
+            SLIDES.forEach((_, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'fsl-sp-pag-dot' + (i === 0 ? ' active' : '');
+                btn.setAttribute('aria-label', `Slide ${i + 1}`);
+                btn.addEventListener('click', () => { goTo(i); resetAuto(); });
+                dotsWrap.appendChild(btn);
+            });
+
+            function pad(n) { return String(n).padStart(2, '0'); }
+
+            function updateUI() {
+                track.style.transform = `translateX(-${cur * 100}%)`;
+                document.querySelectorAll('.fsl-sp-pag-dot').forEach((d, i) =>
+                    d.classList.toggle('active', i === cur));
+                counter.textContent = `${pad(cur + 1)} / ${pad(SLIDES.length)}`;
+            }
+
+            function goTo(idx) {
+                cur = ((idx % SLIDES.length) + SLIDES.length) % SLIDES.length;
+                updateUI();
+            }
+
+            function resetAuto() {
+                clearInterval(autoTimer);
+                autoTimer = setInterval(() => goTo(cur + 1), 4200);
+            }
+
+            const prevBtn = document.getElementById('fslSpCarPrev');
+            const nextBtn = document.getElementById('fslSpCarNext');
+
+            if (prevBtn) prevBtn.addEventListener('click', () => { goTo(cur - 1); resetAuto(); });
+            if (nextBtn) nextBtn.addEventListener('click', () => { goTo(cur + 1); resetAuto(); });
+
+            // Touch swipe
+            let tx = 0;
+            const box = document.getElementById('fslSpCarBox');
+            if (box) {
+                box.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+                box.addEventListener('touchend', e => {
+                    const diff = tx - e.changedTouches[0].clientX;
+                    if (Math.abs(diff) > 40) { goTo(diff > 0 ? cur + 1 : cur - 1); resetAuto(); }
+                });
+            }
+
+            updateUI();
+            resetAuto();
+        })();
+
+        /* ==========================================================
+           FSL SKILL PASSPORT FEATURE CARDS
+           ========================================================== */
+        (function () {
+            const features = [
+                { icon: 'analytics', title: 'Skill Growth Heatmaps' },
+                { icon: 'auto_awesome', title: 'Project Reflections' },
+                { icon: 'explore', title: '17 Sub-pillar Benchmarking' },
+                { icon: 'tips_and_updates', title: 'Personalised Insights' },
+                { icon: 'trending_up', title: 'Longitudinal Tracking' },
+            ];
+
+            const grid = document.getElementById('fslSpFeatGrid');
+            if (!grid) return;
+
+            features.forEach((f, i) => {
+                const card = document.createElement('div');
+                card.className = 'fsl-sp-feat-card';
+                card.innerHTML = `
+                <div class="fsl-sp-feat-icon"><span class="material-icons">${f.icon}</span></div>
+                <div class="fsl-sp-feat-title">${f.title}</div>`;
+                grid.appendChild(card);
+            });
         })();
     </script>
 </body>

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skill Passport | ENpower</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #6c32a8;
+      --primary-dark: #5b21b6;
+      --primary-glow: rgba(108, 50, 168, 0.18);
+      --accent: #E5A817;
+      --heading: #1e1b4b;
+      --body: #4b5563;
+      --surface: #fcfbff;
+      --surface-low: #f5f3ff;
+      --border: #ede9fe;
+      --radius-card: 24px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--surface);
+      color: var(--body);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-up {
+      animation: fadeUp .65s cubic-bezier(.22, .68, 0, 1.1) both;
+    }
+
+    .d1 {
+      animation-delay: .10s;
+    }
+
+    .d2 {
+      animation-delay: .22s;
+    }
+
+    .d3 {
+      animation-delay: .34s;
+    }
+
+    .d4 {
+      animation-delay: .46s;
+    }
+
+    /* ── Layout ── */
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 48px 100px;
+    }
+
+    /* ── Page Header ── */
+    .page-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .page-header h1 {
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 700;
+      color: var(--heading);
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+    }
+
+    .page-header h1 span {
+      color: var(--primary);
+    }
+
+    .page-header p {
+      margin-top: 16px;
+      font-size: 16px;
+      color: var(--body);
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.75;
+    }
+
+    /* ── Hero Grid ── */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      margin-bottom: 96px;
+    }
+
+    /* ── Hero Left ── */
+    .hero-left h2 {
+      font-size: clamp(26px, 3vw, 40px);
+      font-weight: 700;
+      color: var(--heading);
+      letter-spacing: -1px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .tagline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--heading);
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+
+    .hero-left p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--body);
+      margin-bottom: 36px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary);
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 14px 32px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 16px 40px -8px rgba(108, 50, 168, .35);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 24px 48px -8px rgba(108, 50, 168, .45);
+    }
+
+    .btn-arrow {
+      width: 22px;
+      height: 22px;
+      background: rgba(255, 255, 255, .2);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+
+    .stats-row {
+      display: flex;
+      gap: 32px;
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-item .num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-item .lbl {
+      font-size: 11px;
+      font-weight: 500;
+      color: #9ca3af;
+      letter-spacing: .04em;
+    }
+
+    /* ── Carousel Outer ── */
+    .carousel-outer {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* ── Carousel Box ── */
+    .carousel-box {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1.5px solid var(--border);
+      box-shadow: 0 24px 64px -16px var(--primary-glow);
+      aspect-ratio: 4 / 3;
+      background: #f0eeff;
+    }
+
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      transition: transform .55s cubic-bezier(.4, 0, .2, 1);
+      will-change: transform;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .slide-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 28px 24px 22px;
+      background: linear-gradient(to top, rgba(20, 8, 50, .75) 0%, transparent 100%);
+    }
+
+    .slide-caption h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .slide-caption p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      color: rgba(255, 255, 255, .65);
+    }
+
+    /* Prev / Next arrows */
+    .car-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, .35);
+      background: rgba(255, 255, 255, .18);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #fff;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s, border-color .2s, transform .2s;
+      font-family: monospace;
+    }
+
+    .car-arrow:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .car-arrow.prev {
+      left: 14px;
+    }
+
+    .car-arrow.next {
+      right: 14px;
+    }
+
+    /* ── Pagination — OUTSIDE, bottom-RIGHT ── */
+    .carousel-pagination {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      /* ← right aligned */
+      gap: 8px;
+      padding-top: 14px;
+    }
+
+    .pag-dot {
+      height: 8px;
+      width: 8px;
+      border-radius: 99px;
+      background: #ddd6fe;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all .3s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .pag-dot.active {
+      background: var(--primary);
+      width: 28px;
+    }
+
+    .pag-dot:hover:not(.active) {
+      background: #c4b5fd;
+    }
+
+    /* Slide counter (e.g. "02 / 04") beside dots */
+    .pag-counter {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: #9ca3af;
+      margin-left: 6px;
+      min-width: 40px;
+      text-align: right;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 72px 0;
+    }
+
+    /* ── Features ── */
+    .section-title {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 700;
+      color: var(--heading);
+      letter-spacing: -0.5px;
+      margin-bottom: 36px;
+    }
+
+    .section-title span {
+      color: var(--primary);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .feat-card {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 28px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: all .28s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .feat-card:hover {
+      transform: translateY(-6px);
+      border-color: #c4b5fd;
+      box-shadow: 0 20px 48px -8px var(--primary-glow);
+    }
+
+    .feat-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--surface-low);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      transition: background .2s;
+    }
+
+    .feat-card:hover .feat-icon {
+      background: var(--border);
+    }
+
+    .feat-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--heading);
+      line-height: 1.4;
+    }
+
+    /* ── Responsive ── */
+    @media(max-width: 900px) {
+      .page {
+        padding: 40px 24px 80px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats-row {
+        gap: 20px;
+      }
+    }
+
+    @media(max-width: 560px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- Page Header -->
+    <header class="page-header fade-up">
+      <h1><span>Skill Passport</span></h1>
+      <p>A 360° digital record of every child's growth — mapped across 17 globally recognised future-skill frameworks.
+      </p>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-grid">
+
+      <!-- Left -->
+      <div class="hero-left">
+        <p class="tagline fade-up d1">
+          Because the future won't ask for report cards.<br>It will ask for capability.
+        </p>
+        <p class="fade-up d2">
+          A competency-based assessment engine that tracks growth across critical thinking, creativity, collaboration,
+          communication, digital fluency, and problem-solving — aligned with NEP 2020 and global frameworks.
+        </p>
+        <button class="btn-primary fade-up d3">
+          Explore Methodology
+          <span class="btn-arrow">→</span>
+        </button>
+
+        <div class="stats-row fade-up d4">
+          <div class="stat-item">
+            <div class="num">17</div>
+            <div class="lbl">Future Skills</div>
+          </div>
+          <div class="stat-item">
+            <div class="num">360°</div>
+            <div class="lbl">Assessment</div>
+          </div>
+          <div class="stat-item">
+            <div class="num">1M+</div>
+            <div class="lbl">Students Tracked</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right — Carousel -->
+      <div class="carousel-outer fade-up d2">
+
+        <div class="carousel-box" id="carBox">
+          <div class="carousel-track" id="carTrack"></div>
+          <button class="car-arrow prev" id="carPrev">&#8249;</button>
+          <button class="car-arrow next" id="carNext">&#8250;</button>
+        </div>
+
+        <!-- Pagination: outside, bottom-right -->
+        <div class="carousel-pagination">
+          <div id="carDots"></div>
+          <span class="pag-counter" id="carCounter"></span>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Features -->
+    <section>
+      <h2 class="section-title">Everything you need to track <span>real growth</span></h2>
+      <div class="features-grid" id="featGrid"></div>
+    </section>
+
+  </div>
+
+  <script>
+    /* ─────────────────────────────────────────
+       CAROUSEL DATA
+       Replace img URLs with your own images.
+    ───────────────────────────────────────── */
+    const SLIDES = [
+      {
+        img: 'https://placehold.co/800x600/ede9fe/7c3aed?text=Slide+1',
+        title: 'Skill Assessment',
+        sub: 'Competency-based growth tracking'
+      },
+      {
+        img: 'https://placehold.co/800x600/ddd6fe/5b21b6?text=Slide+2',
+        title: 'Collaborative Learning',
+        sub: 'Team projects & peer reflection'
+      },
+      {
+        img: 'https://placehold.co/800x600/e0e7ff/4338ca?text=Slide+3',
+        title: 'Future Skills Lab',
+        sub: 'Hands-on STEM & innovation'
+      },
+      {
+        img: 'https://placehold.co/800x600/f3e8ff/7c3aed?text=Slide+4',
+        title: 'Knowledge Centre',
+        sub: 'Curated resources for educators'
+      },
+    ];
+
+    const track = document.getElementById('carTrack');
+    const dotsWrap = document.getElementById('carDots');
+    const counter = document.getElementById('carCounter');
+    let cur = 0;
+    let autoTimer;
+
+    /* Build slides */
+    SLIDES.forEach(s => {
+      track.insertAdjacentHTML('beforeend', `
+    <div class="carousel-slide">
+      <img src="${s.img}" alt="${s.title}" loading="lazy" />
+      <div class="slide-caption">
+        <h4>${s.title}</h4>
+        <p>${s.sub}</p>
+      </div>
+    </div>`);
+    });
+
+    /* Build dots */
+    dotsWrap.style.cssText = 'display:flex;align-items:center;gap:8px;';
+    SLIDES.forEach((_, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'pag-dot' + (i === 0 ? ' active' : '');
+      btn.setAttribute('aria-label', `Slide ${i + 1}`);
+      btn.addEventListener('click', () => { goTo(i); resetAuto(); });
+      dotsWrap.appendChild(btn);
+    });
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function updateUI() {
+      track.style.transform = `translateX(-${cur * 100}%)`;
+      document.querySelectorAll('.pag-dot').forEach((d, i) =>
+        d.classList.toggle('active', i === cur));
+      counter.textContent = `${pad(cur + 1)} / ${pad(SLIDES.length)}`;
+    }
+
+    function goTo(idx) {
+      cur = ((idx % SLIDES.length) + SLIDES.length) % SLIDES.length;
+      updateUI();
+    }
+
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => goTo(cur + 1), 4200);
+    }
+
+    document.getElementById('carPrev').addEventListener('click', () => { goTo(cur - 1); resetAuto(); });
+    document.getElementById('carNext').addEventListener('click', () => { goTo(cur + 1); resetAuto(); });
+
+    /* Touch swipe */
+    let tx = 0;
+    const box = document.getElementById('carBox');
+    box.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+    box.addEventListener('touchend', e => {
+      const diff = tx - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) { goTo(diff > 0 ? cur + 1 : cur - 1); resetAuto(); }
+    });
+
+    updateUI();
+    resetAuto();
+
+
+    /* ─────────────────────────────────────────
+       FEATURE CARDS
+    ───────────────────────────────────────── */
+    const features = [
+      { icon: '📊', title: 'Skill Growth Heatmaps' },
+      { icon: '✨', title: 'Project Reflections' },
+      { icon: '🧭', title: '17 Sub-pillar Benchmarking' },
+      { icon: '💡', title: 'Personalised Insights' },
+      { icon: '📈', title: 'Longitudinal Tracking' },
+    ];
+
+    const grid = document.getElementById('featGrid');
+    features.forEach((f, i) => {
+      const card = document.createElement('div');
+      card.className = `feat-card fade-up d${Math.min(i + 1, 4)}`;
+      card.innerHTML = `
+    <div class="feat-icon">${f.icon}</div>
+    <div class="feat-title">${f.title}</div>`;
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+
+</html>

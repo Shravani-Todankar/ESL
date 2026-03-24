@@ -108,7 +108,7 @@
         }
 
         .ta-sparkle-4 {
-            bottom: 25%;
+            bottom: 32%;
             left: 6%;
             font-size: 1.2rem;
             animation-delay: 0.4s;
@@ -194,7 +194,7 @@
             font-family: 'Space Grotesk', sans-serif;
             line-height: 1.1;
             letter-spacing: -1px;
-            margin-top: 30px;
+            margin-top: 40px;
             text-align: center;
         }
 
@@ -252,8 +252,12 @@
         /* ── TA Skills Text ── */
         .ta-skills-text {
             text-align: center;
-            margin-top: 20px;
-            padding: 0 20px;
+            margin: 30px 0;
+            padding: 6px;
+            overflow: hidden;
+            width: 100%;
+            background-color: #facc48;
+            /* border-radius: 12px; */
         }
 
         .ta-skills-text p {
@@ -270,10 +274,41 @@
             margin: 0 8px;
         }
 
+        /* Skills Marquee Animation */
+        .ta-skills-marquee {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            white-space: nowrap;
+            animation: ta-skills-scroll 30s linear infinite;
+        }
+
+        .ta-skills-marquee span {
+            font-size: 18px;
+            font-weight: 500;
+            color: #1c1c1c;
+            flex-shrink: 0;
+        }
+
+        .ta-skills-marquee .dot {
+            color: #6c32a8;
+            font-weight: 700;
+        }
+
+        @keyframes ta-skills-scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
         /* ── TA Call to Action Section ── */
         .ta-cta-section {
             text-align: center;
-            margin-top: 20px;
+            /* margin-top: 20px; */
             padding: 0 20px;
         }
 
@@ -292,10 +327,10 @@
             gap: 8px;
             background: #421174;
             color: #ffffff;
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 15px;
+            font-weight: 500;
             font-family: 'Poppins', sans-serif;
-            padding: 16px 40px;
+            padding: 13px 30px;
             border-radius: 15px;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -516,6 +551,27 @@
             overflow: hidden;
         }
 
+        /* Border Animation for Vision 2030 Card */
+        .ta-vision-card-animated {
+            border: 2px solid transparent;
+            background: linear-gradient(var(--ta-impact-surface-container-highest), var(--ta-impact-surface-container-highest)) padding-box,
+                linear-gradient(90deg, #6c32a8, #E5A817, #6c32a8, #E5A817) border-box;
+            background-size: 400% 100%;
+            animation: borderGradientMove 3s ease-in-out infinite;
+        }
+
+        @keyframes borderGradientMove {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
         .ta-impact-bento-card-gradient {
             border-radius: 1.5rem;
             padding: 2rem;
@@ -529,7 +585,7 @@
             align-items: center;
             gap: 1.5rem;
             padding: 1.5rem 2rem;
-            background-color: var(--ta-impact-surface-container-lowest);
+            background-color: #faf7fc;
             border-radius: 1.5rem;
             border: 1px solid rgba(108, 50, 168, 0.1);
         }
@@ -1335,20 +1391,48 @@
         </div>
 
         <!-- Description text -->
-        <div class="ta-description">
+        <!-- <div class="ta-description">
             <p>Bridging the skill gap in education by empowering schools and educator ecosystems with practical,
                 industry-aligned future skills.</p>
-        </div>
+        </div> -->
 
         <!-- Skills Text -->
         <div class="ta-skills-text">
-            <p>
-                <span class="dot">•</span> Design Thinking
-                <span class="dot">•</span> STEM
-                <span class="dot">•</span> Technology
-                <span class="dot">•</span> Entrepreneurship
-                <span class="dot">•</span> 21st-Century Life Skills
-            </p>
+            <div class="ta-skills-marquee">
+                <span class="dot">•</span>
+                <span>Design Thinking</span>
+                <span class="dot">•</span>
+                <span>STEM</span>
+                <span class="dot">•</span>
+                <span>Technology</span>
+                <span class="dot">•</span>
+                <span>Entrepreneurship</span>
+                <span class="dot">•</span>
+                <span>21st-Century Life Skills</span>
+                <span class="dot">•</span>
+                <span>Build institutional capability</span>
+                <span class="dot">•</span>
+                <span>Certify your educators</span>
+                <span class="dot">•</span>
+                <span>Lead future-ready education</span>
+                <!-- Duplicate for seamless loop -->
+                <span class="dot">•</span>
+                <span>Design Thinking</span>
+                <span class="dot">•</span>
+                <span>STEM</span>
+                <span class="dot">•</span>
+                <span>Technology</span>
+                <span class="dot">•</span>
+                <span>Entrepreneurship</span>
+                <span class="dot">•</span>
+                <span>21st-Century Life Skills</span>
+                <span class="dot">•</span>
+                <span>Build institutional capability</span>
+                <span class="dot">•</span>
+                <span>Certify your educators</span>
+                <span class="dot">•</span>
+                <span>Lead future-ready education</span>
+            </div>
         </div>
 
         <!-- Call to Action Section -->
@@ -1381,54 +1465,24 @@
                         </h2>
 
                         <p
-                            style="color:var(--ta-impact-on-surface-variant); font-size:1.125rem; line-height:1.7; max-width:38rem;">
+                            style="color:var(--ta-impact-on-surface-variant); font-size:1rem; line-height:1.7; max-width:38rem;">
                             India has 10M+ teachers, yet under 20% get annual training. Globally, teachers receive 100+
                             hours, while India averages below 20. With AI classrooms and policy shifts, upskilling is
                             essential.
                         </p>
-                    </div>
 
-                    <!-- Tab group -->
-                    <div class="ta-impact-tab-group">
-                        <div class="ta-impact-tab-row">
-
-                            <button class="ta-impact-tab-btn active" id="ta-impact-tab-principal"
-                                onclick="taImpactSwitchTab('principal')">
-                                <span class="material-symbols-outlined" id="ta-impact-icon-principal"
-                                    style="color:var(--ta-impact-primary); font-variation-settings:'FILL' 1;">school</span>
-                                <div class="text-start">
-                                    <p class="ta-impact-tab-title mb-0">I'm a Principal</p>
-                                    <p class="ta-impact-tab-sub mb-0">Lead Institutional Change</p>
-                                </div>
-                            </button>
-
-                            <button class="ta-impact-tab-btn" id="ta-impact-tab-csr" onclick="taImpactSwitchTab('csr')">
-                                <span class="material-symbols-outlined" id="ta-impact-icon-csr">handshake</span>
-                                <div class="text-start">
-                                    <p class="ta-impact-tab-title mb-0">I'm a CSR/Foundation</p>
-                                    <p class="ta-impact-tab-sub mb-0">Scale Social Impact</p>
-                                </div>
-                            </button>
-                        </div>
-
-                        <div class="ta-impact-tab-content-panel active" id="ta-impact-panel-principal">
-                            <div class="ta-impact-tab-quote">
-                                "I want my teachers certified so our school becomes a future-skills leader."
+                        <div class="ta-impact-bento-card-impact">
+                            <div class="ta-impact-icon-box">
+                                <span class="material-symbols-outlined"
+                                    style="font-size:1.75rem; color:#6c32a8;">hub</span>
                             </div>
+                            <p
+                                style="color:var(--ta-impact-on-surface-variant); font-size:0.875rem; font-weight:500; font-style:italic; margin:0;">
+                                "Empowered educators build future-ready learners and institutions that invest in
+                                teacher capacity lead sustainable transformation. ENpower partners with schools and
+                                foundations to enable that shift."
+                            </p>
                         </div>
-
-                        <div class="ta-impact-tab-content-panel" id="ta-impact-panel-csr">
-                            <div class="ta-impact-tab-quote">
-                                "I want scalable, measurable educator capacity building at the grassroots."
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CTA -->
-                    <div>
-                        <button class="ta-impact-btn-cta ta-impact-primary-gradient" onclick="scrollToGetCertified()">
-                            Explore Programs →
-                        </button>
                     </div>
 
                 </div><!-- /left col -->
@@ -1438,37 +1492,9 @@
                 <div class="col-12 col-lg-7">
                     <div class="row g-4">
 
-                        <!-- Large Stat Card -->
-                        <div class="col-12">
-                            <div class="ta-impact-bento-card">
-                                <div>
-                                    <div class="d-flex align-items-baseline gap-2">
-                                        <span class="ta-impact-font-headline fw-bold"
-                                            style="font-size:3.2rem; color:var(--ta-impact-on-surface); line-height:1; letter-spacing:-0.02em;">10M</span>
-                                        <span class="ta-impact-font-headline fw-bold"
-                                            style="font-size:1.25rem; color:var(--ta-impact-on-surface-variant);">Teachers</span>
-                                    </div>
-                                    <p
-                                        style="color:var(--ta-impact-on-surface-variant); margin-top:0.5rem; font-weight:500;">
-                                        National educator workforce in India requiring immediate AI-readiness and
-                                        competency-based training.
-                                    </p>
-                                </div>
-                                <div class="ta-impact-stat-bar-track">
-                                    <div class="ta-impact-stat-bar-fill ta-impact-primary-gradient" style="width:20%;">
-                                    </div>
-                                </div>
-                                <p class="d-flex align-items-center gap-2 mt-2"
-                                    style="font-size:0.875rem; font-weight:700; color:var(--ta-impact-primary);">
-                                    <span class="material-symbols-outlined" style="font-size:1rem;">trending_up</span>
-                                    Less than 20% receive annual professional development
-                                </p>
-                            </div>
-                        </div>
-
                         <!-- Vision 2030 Card -->
                         <div class="col-12">
-                            <div class="ta-impact-bento-card-muted" style="height: 230px;">
+                            <div class="ta-impact-bento-card-muted ta-vision-card-animated" style="height: 230px;">
                                 <h4 class="ta-impact-font-headline fw-bold d-flex align-items-center gap-2"
                                     style="font-size:1.125rem; color:var(--ta-impact-primary);">
                                     <span class="material-symbols-outlined"
@@ -1496,19 +1522,52 @@
                             </div>
                         </div>
 
-                        <!-- Impact Summary Card -->
+                        <!-- Tab Section Card -->
                         <div class="col-12">
-                            <div class="ta-impact-bento-card-impact">
-                                <div class="ta-impact-icon-box">
-                                    <span class="material-symbols-outlined"
-                                        style="font-size:1.75rem; color:#6c32a8;">hub</span>
+                            <div class="ta-impact-tab-group">
+                                <div class="ta-impact-tab-row">
+
+                                    <button class="ta-impact-tab-btn active" id="ta-impact-tab-principal"
+                                        onclick="taImpactSwitchTab('principal')">
+                                        <span class="material-symbols-outlined" id="ta-impact-icon-principal"
+                                            style="color:var(--ta-impact-primary); font-variation-settings:'FILL' 1;">school</span>
+                                        <div class="text-start">
+                                            <p class="ta-impact-tab-title mb-0">I'm a Principal</p>
+                                            <p class="ta-impact-tab-sub mb-0">Lead Institutional Change</p>
+                                        </div>
+                                    </button>
+
+                                    <button class="ta-impact-tab-btn" id="ta-impact-tab-csr"
+                                        onclick="taImpactSwitchTab('csr')">
+                                        <span class="material-symbols-outlined" id="ta-impact-icon-csr">handshake</span>
+                                        <div class="text-start">
+                                            <p class="ta-impact-tab-title mb-0">I'm a CSR/Foundation</p>
+                                            <p class="ta-impact-tab-sub mb-0">Scale Social Impact</p>
+                                        </div>
+                                    </button>
                                 </div>
-                                <p
-                                    style="color:var(--ta-impact-on-surface-variant); font-size:0.875rem; font-weight:500; font-style:italic; margin:0;">
-                                    "Empowered educators build future-ready learners and institutions that invest in
-                                    teacher capacity lead sustainable transformation. ENpower partners with schools and
-                                    foundations to enable that shift."
-                                </p>
+
+                                <div class="ta-impact-tab-content-panel active" id="ta-impact-panel-principal">
+                                    <div class="ta-impact-tab-quote">
+                                        "I want my teachers certified so our school becomes a future-skills leader."
+                                    </div>
+                                </div>
+
+                                <div class="ta-impact-tab-content-panel" id="ta-impact-panel-csr">
+                                    <div class="ta-impact-tab-quote">
+                                        "I want scalable, measurable educator capacity building at the grassroots."
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA -->
+                        <div class="col-12">
+                            <div>
+                                <button class="ta-impact-btn-cta ta-impact-primary-gradient"
+                                    onclick="scrollToGetCertified()">
+                                    Explore Programs →
+                                </button>
                             </div>
                         </div>
 
