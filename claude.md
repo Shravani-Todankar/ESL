@@ -66,7 +66,8 @@ ENpower India's first comprehensive **entrepreneurship learning ecosystem for sc
   - Hero section with animated wave canvas, pills, sparkle stars
   - Dual marquee brand showcase (CSR + School partners)
   - Counter section: 4 animated metric cards with gradient backgrounds
-  - Partner section: "Partner with ENpower" masonry layout, 4 program cards with line grid pattern
+  - Partner section: "Partner with ENpower" masonry layout, 6 program cards (3-col desktop), line grid pattern
+    - Cards: Entrepreneurship Programs, Livelihood Initiatives, ATL Enhancement, I.D.E.A Labs, Idea-To-Venture Platform, Design Thinking For Educators
   - Idea Gallery: 9 student innovation cards, 3-column grid, pagination (6/page)
   - Testimonial Slider: 4 testimonials with auto-rotation (5s), navigation arrows, pagination dots, portrait image, fade transitions
   - Final CTA section: "Ready to Get Started?" with subheading, button, image grid
@@ -98,24 +99,29 @@ ENpower India's first comprehensive **entrepreneurship learning ecosystem for sc
   - **About Us Section:**
     - Dual column grid layout
     - Company introduction text
-    - Interactive slideshow carousel (Team, Students, Trainers, Events)
-    - Auto-play with 3-second intervals
+    - Interactive slideshow carousel (Team, Students, Trainers, Events) with stock images (Unsplash)
+    - Auto-play with 3-second intervals, no overlay/label/dots on images
   - **Strategic Partnership:**
     - Tata ClassEdge alliance information
     - Partnership details and equity stake
   - **Vision & Mission Cards:**
-    - Vision card (purple gradient) with 3D tilt effect
+    - Vision card (light gradient `#efdeff → #fffce3`) with 3D tilt effect
     - Mission card (white) with progress bar (67% to 2030 goal)
     - Interactive hover effects with glow
-  - **Timeline Section:**
-    - Decade of Impact (2015-2025)
-    - Year-by-year navigation rail
-    - Animated transitions between years
-    - Event cards for each year
-    - Scroll/wheel navigation support
+    - Material Symbols icons (visibility, track_changes, star) instead of emojis
+  - **Timeline Section — Horizontal Scroll:**
+    - "A Decade of Impact" (2015-2025), 11 year slides
+    - GSAP ScrollTrigger: section pins on scroll, track moves horizontally
+    - `snap: 1/(totalSlides-1)` — snaps to nearest year when scroll stops
+    - Progress bar with year dots, gradient fill (purple→yellow)
+    - Nav arrows + keyboard arrow support
+    - Cards: 2-col grid, compact padding, desc clamped to 2 lines
+    - Column adapts: 1-col for single event, 3-col for 3 events
+    - `hs-` CSS class prefix
   - **Team Section:**
+    - Heading: "Team ENpower" (Team=purple `#6c32a8`, ENpower=yellow `#e5a93e`), centered, no subtitle
     - Tab switching interface (Core Team, Departments, Projects, Advisory)
-    - Photo grid layouts for team members
+    - Placeholder avatar images via `getPlaceholder(name)` → ui-avatars.com with initials
     - Core Team (7 members)
     - Departments (4 departments with members)
     - Project Team (11 members)
@@ -297,6 +303,34 @@ Mumbai - 400037
 ---
 
 ## 📝 Recent Updates
+
+### About Us Page (about-us.html) - Major Update March 26, 2026 (later)
+**Timeline replaced with Horizontal Scroll:**
+- Old vertical rail timeline completely replaced with horizontal scroll timeline
+- GSAP ScrollTrigger pins section, scrub drives horizontal movement
+- `snap: 1/(totalSlides-1)` snaps to nearest year on scroll stop
+- Progress bar with year dots and gradient fill (purple→yellow)
+- Nav arrows + keyboard arrow support, ScrollToPlugin for button clicks
+- Cards: 2-col grid (adapts to 1/3 col), compact padding (14px 18px), desc clamped 2 lines
+- `hs-` CSS prefix for all timeline styles
+
+**Team section updates:**
+- Heading changed: "Meet the Team" → "Team ENpower" (Team=purple, ENpower=yellow), centered
+- Subtitle "The people behind the mission..." removed
+- All team member images now use placeholder avatars via `getPlaceholder(name)` function
+  - Generates ui-avatars.com URLs with person's initials + ENpower brand colors
+
+**Slideshow updates:**
+- Emojis + gradient background replaced with stock images from Unsplash
+- Label text removed from cards
+- Dots navigation removed — clean image only with tab switching
+
+### Impact Programs Page (impact-programs.html) - Partner Update March 26, 2026
+**Partner section expanded from 4 → 6 cards:**
+- New cards: Livelihood Initiatives (volunteer_activism icon), ATL Enhancement (science icon)
+- Reordered: Entrepreneurship Programs, Livelihood Initiatives, ATL Enhancement, I.D.E.A Labs, Idea-To-Venture Platform, Design Thinking For Educators
+- Masonry layout changed from 2-col to 3-col on desktop (1024px+)
+- Livelihood Initiatives & ATL Enhancement have dummy placeholder content
 
 ### Impact Programs Page (impact-programs.html) - Update March 26, 2026
 **Added 2 new sections:**
