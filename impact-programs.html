@@ -441,6 +441,1039 @@
             filter: grayscale(0%);
             opacity: 1;
         }
+
+        /* ── IP Counter Section ── */
+        .ip-counter-section {
+            padding: 6rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            background: radial-gradient(60% 60% at 50% 50%, rgba(189, 135, 255, 0.08) 0%, rgba(255, 243, 254, 0) 100%);
+        }
+
+        .ip-counter-connectivity {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            max-width: 80rem;
+            margin: 0 auto;
+            right: 0;
+            padding: 0 1.5rem;
+            display: none;
+        }
+
+        @media (min-width: 992px) {
+            .ip-counter-connectivity {
+                display: block;
+            }
+        }
+
+        .ip-counter-connectivity svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ip-counter-inner {
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .ip-counter-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            row-gap: 3rem;
+            column-gap: 2rem;
+            align-items: flex-start;
+        }
+
+        @media (min-width: 768px) {
+            .ip-counter-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .ip-counter-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .ip-counter-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 1.5rem;
+            border: 1px solid #7e3fa03d;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, #efdeff 0%, #fffce3 100%);
+            position: relative;
+            z-index: 10;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            animation: ipCounterFadeInUp 1s ease-out forwards;
+        }
+
+        .ip-counter-card:hover {
+            background: #ffc10712;
+            box-shadow: 0 20px 40px -20px rgba(122, 46, 206, 0.1);
+            transform: translateY(-8px);
+        }
+
+        .ip-counter-card:hover .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            transform: scale(1.1);
+        }
+
+        .ip-counter-card:hover .ip-counter-hidden {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (min-width: 992px) {
+            .ip-counter-card-offset {
+                margin-top: 6rem;
+            }
+        }
+
+        .ip-counter-icon-row {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .ip-counter-section .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 2.25rem;
+        }
+
+        .ip-counter-icon-primary {
+            color: #b374ff;
+        }
+
+        .ip-counter-card:hover .ip-counter-icon-primary {
+            color: #7a2ece;
+        }
+
+        .ip-counter-icon-secondary {
+            color: #7e3fa0;
+        }
+
+        .ip-counter-card:hover .ip-counter-icon-secondary {
+            color: #713292;
+        }
+
+        .ip-counter-icon-tertiary {
+            color: #7e3fa0;
+        }
+
+        .ip-counter-card:hover .ip-counter-icon-tertiary {
+            color: #7e3fa0;
+        }
+
+        .ip-counter-icon-primary-alt {
+            color: #7a2ece;
+        }
+
+        .ip-counter-card:hover .ip-counter-icon-primary-alt {
+            color: #340064;
+        }
+
+        .ip-counter-content>*+* {
+            margin-top: 0.5rem;
+        }
+
+        .ip-counter-number-row {
+            display: flex;
+            align-items: baseline;
+            gap: 0.25rem;
+        }
+
+        .ip-counter-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.75rem;
+            font-weight: 200;
+            letter-spacing: -0.05em;
+            color: #3d2549;
+        }
+
+        @media (min-width: 768px) {
+            .ip-counter-number {
+                font-size: 4.5rem;
+            }
+        }
+
+        .ip-counter-plus {
+            font-size: 2.25rem;
+            font-weight: 300;
+        }
+
+        .ip-counter-plus-primary {
+            color: #7e3fa0;
+        }
+
+        .ip-counter-plus-secondary {
+            color: #7e3fa0;
+        }
+
+        .ip-counter-plus-tertiary {
+            color: #7e3fa0;
+        }
+
+        .ip-counter-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #6c5279;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        .ip-counter-desc {
+            color: rgba(108, 82, 121, 0.6);
+            font-size: 0.875rem;
+            max-width: 200px;
+            line-height: 1.625;
+            font-weight: 300;
+        }
+
+        .ip-counter-hidden {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+            margin-top: 1rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ip-counter-detail-primary {
+            color: #7a2ece;
+        }
+
+        .ip-counter-detail-secondary {
+            color: #7e3fa0;
+        }
+
+        .ip-counter-detail-tertiary {
+            color: #7e3fa0;
+        }
+
+        @keyframes ipCounterFadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes ipCounterDashFlow {
+            to {
+                stroke-dashoffset: -1000;
+            }
+        }
+
+        .ip-counter-dash-flow {
+            animation: ipCounterDashFlow 20s linear infinite;
+        }
+
+        .ip-counter-delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .ip-counter-delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .ip-counter-delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .ip-counter-delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        /* ── IP Partner Section ── */
+        .ip-partner-section {
+            /* padding: 120px 20px; */
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .ip-partner-subtitle {
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 12px;
+            color: #491a7d;
+            font-weight: 700;
+        }
+
+        .ip-partner-title {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #6c32a8;
+        }
+
+        .ip-partner-gradient {
+            color: #E5A817;
+        }
+
+        .ip-partner-desc {
+            color: #6c5279;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .ip-partner-masonry {
+            column-count: 1;
+            column-gap: 24px;
+            width: 1200px;
+        }
+
+        @media (min-width: 768px) {
+            .ip-partner-masonry {
+                column-count: 2;
+            }
+        }
+
+        .ip-partner-card {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 24px;
+            padding: 30px;
+            border-radius: 20px;
+            background: #fff;
+            border: 1px solid #6c32a852;
+            transition: 0.3s ease;
+            break-inside: avoid;
+            text-align: left;
+        }
+
+        /* All cards: Line grid pattern */
+        .ip-partner-card {
+            background:
+                linear-gradient(rgba(122, 46, 206, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(122, 46, 206, 0.03) 1px, transparent 1px),
+                #fff;
+            background-size: 38px 38px;
+        }
+
+        .ip-partner-card:nth-child(1) {
+            min-height: 240px;
+        }
+
+        .ip-partner-card:nth-child(2) {
+            min-height: 200px;
+        }
+
+        .ip-partner-card:nth-child(3) {
+            min-height: 180px;
+        }
+
+        .ip-partner-card:nth-child(4) {
+            min-height: 260px;
+        }
+
+        .ip-partner-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(73, 26, 125, 0.08);
+            border-color: #491a7d;
+        }
+
+        .ip-partner-icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: rgb(248 241 255);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .ip-partner-card:hover .ip-partner-icon-box {
+            background: #fffce3;
+        }
+
+        .ip-partner-section .material-symbols-outlined {
+            font-size: 32px;
+            color: #491a7d;
+        }
+
+        .ip-partner-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .ip-partner-card p {
+            text-align: left;
+        }
+
+        .ip-partner-footer {
+            margin-top: 80px;
+            text-align: center;
+            font-style: italic;
+            color: #6c5279;
+        }
+
+        /* ── IP Gallery Section ── */
+        .ip-gallery-section {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 64px 32px;
+        }
+
+        .ip-gallery-header {
+            margin-bottom: 64px;
+            text-align: center;
+        }
+
+        .ip-gallery-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 52px;
+            font-weight: 700;
+            color: #6c32a8;
+            line-height: 1.2;
+        }
+
+        .ip-gallery-gradient {
+            color: #E5A817;
+        }
+
+        .ip-gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        @media (min-width: 768px) {
+            .ip-gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .ip-gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .ip-gallery-card {
+            background: #ffffff;
+            border: 1.5px solid #e2d6f0;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .ip-gallery-card:hover {
+            box-shadow: 0 20px 40px -12px rgba(124, 58, 237, 0.08);
+        }
+
+        .ip-gallery-img-wrap {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+        }
+
+        .ip-gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .ip-gallery-card:hover .ip-gallery-img {
+            transform: scale(1.05);
+        }
+
+        .ip-gallery-tag {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: #f6f0fa;
+            color: #6c32a8;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .ip-gallery-body {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .ip-gallery-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1e1b4b;
+            margin-bottom: 8px;
+        }
+
+        .ip-gallery-desc {
+            font-weight: 400;
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .ip-gallery-footer {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .ip-gallery-category {
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #94a3b8;
+        }
+
+        .ip-gallery-arrow {
+            color: #6c32a8;
+            transition: transform 0.3s ease;
+        }
+
+        .ip-gallery-card:hover .ip-gallery-arrow {
+            transform: translateX(4px);
+        }
+
+        .ip-gallery-pagination {
+            margin-top: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .ip-gallery-pagination-btn {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            border: 1.5px solid #e2d6f0;
+            background: transparent;
+            color: #94a3b8;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ip-gallery-pagination-btn:hover {
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            color: #6c32a8;
+        }
+
+        .ip-gallery-page-numbers {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ip-gallery-page-num {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            background: transparent;
+            color: #64748b;
+            font-size: 14px;
+            user-select: none;
+        }
+
+        .ip-gallery-page-num:hover {
+            background: #e5d5f5;
+        }
+
+        .ip-gallery-page-num.active {
+            background: #6c32a8;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(108, 50, 168, 0.3);
+        }
+
+        @keyframes ipGalleryFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .ip-gallery-fade-in {
+            animation: ipGalleryFadeIn 0.4s ease forwards;
+        }
+
+        /* ══════════════════════════════════════
+           IP TESTIMONIAL SECTION
+           ══════════════════════════════════════ */
+        .ip-testimonial-section {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 1.5rem;
+            overflow: hidden;
+            background: #f6f0fa;
+        }
+
+        .ip-testimonial-bg-strip {
+            position: absolute;
+            top: 10%;
+            right: 0;
+            width: 37%;
+            height: 82%;
+            background: #ede4f5;
+            border-radius: 5rem 0 0 5rem;
+            z-index: 0;
+            opacity: 0.5;
+            transition: all 0.7s ease;
+        }
+
+        .ip-testimonial-bg-blob {
+            position: absolute;
+            bottom: 6rem;
+            left: -6rem;
+            width: 30rem;
+            height: 30rem;
+            background: rgba(108, 50, 168, 0.08);
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: 0;
+        }
+
+        .ip-testimonial-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ip-testimonial-header {
+            margin-bottom: 5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .ip-testimonial-header {
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: space-between;
+            }
+        }
+
+        .ip-testimonial-header-content {
+            max-width: 48rem;
+        }
+
+        .ip-testimonial-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #6c32a8;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+            margin-bottom: 0;
+        }
+
+        @media (min-width: 768px) {
+            .ip-testimonial-heading {
+                font-size: 3.25rem;
+            }
+        }
+
+        .ip-testimonial-heading .ip-testimonial-highlight {
+            color: #E5A817;
+            /* font-style: italic; */
+        }
+
+        .ip-testimonial-nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .ip-testimonial-nav-btn {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(108, 50, 168, 0.2);
+            background: transparent;
+            color: #3d2549;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ip-testimonial-nav-btn:hover {
+            background: #6c32a8;
+            color: #fff;
+            border-color: #6c32a8;
+        }
+
+        .ip-testimonial-nav-btn:hover .material-symbols-outlined {
+            transform: scale(1.1);
+        }
+
+        .ip-testimonial-nav-btn-active {
+            background: #6c32a8;
+            color: #fff;
+            border-color: #6c32a8;
+            box-shadow: 0 20px 25px -5px rgba(108, 50, 168, 0.2);
+        }
+
+        .ip-testimonial-nav-btn-active:hover {
+            transform: scale(1.05);
+        }
+
+        .ip-testimonial-nav-btn .material-symbols-outlined {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .ip-testimonial-slider {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        @media (min-width: 992px) {
+            .ip-testimonial-slider {
+                grid-template-columns: 8fr 4fr;
+                gap: 2rem;
+            }
+        }
+
+        .ip-testimonial-slider.ip-testimonial-fading {
+            opacity: 0;
+        }
+
+        .ip-testimonial-quote-wrapper {
+            position: relative;
+        }
+
+        .ip-testimonial-quote-icon {
+            position: absolute;
+            top: -4rem;
+            left: -2.5rem;
+            color: #e5a83e1f;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .ip-testimonial-quote-icon .material-symbols-outlined {
+            font-size: 10rem;
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .ip-testimonial-quote-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .ip-testimonial-blockquote {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.875rem;
+            font-weight: 500;
+            color: #3d2549;
+            line-height: 1.2;
+            text-wrap: balance;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .ip-testimonial-blockquote {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .ip-testimonial-blockquote {
+                font-size: 2rem;
+            }
+        }
+
+        .ip-testimonial-blockquote .ip-testimonial-accent {
+            color: #6c32a8;
+            font-weight: 700;
+        }
+
+        .ip-testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .ip-testimonial-author-line {
+            height: 1px;
+            width: 4rem;
+            background: rgba(108, 50, 168, 0.25);
+        }
+
+        .ip-testimonial-author-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #3d2549;
+        }
+
+        .ip-testimonial-author-role {
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #6c5279;
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        .ip-testimonial-portrait-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        @media (min-width: 992px) {
+            .ip-testimonial-portrait-col {
+                align-items: flex-end;
+            }
+        }
+
+        .ip-testimonial-portrait-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 340px;
+        }
+
+        .ip-testimonial-portrait-bg {
+            position: absolute;
+            inset: 0;
+            background: #6c32a8;
+            border-radius: 1.5rem;
+            transform: rotate(3deg) scale(1.05);
+            transition: transform 0.5s ease;
+        }
+
+        .ip-testimonial-portrait-wrapper:hover .ip-testimonial-portrait-bg {
+            background: #e5a83e;
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .ip-testimonial-portrait-img-wrap {
+            position: relative;
+            aspect-ratio: 4/5;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .ip-testimonial-portrait-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: all 0.7s ease;
+        }
+
+        .ip-testimonial-portrait-img-wrap:hover img {
+            filter: grayscale(0%);
+        }
+
+        .ip-testimonial-dots {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .ip-testimonial-dot-active {
+            height: 0.5rem;
+            width: 3rem;
+            border-radius: 9999px;
+            background: #6c32a8;
+            transition: all 0.3s ease;
+        }
+
+        .ip-testimonial-dot {
+            height: 0.5rem;
+            width: 0.5rem;
+            border-radius: 9999px;
+            background: rgba(108, 50, 168, 0.25);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ip-testimonial-dot:hover {
+            background: #6c32a8;
+        }
+
+        /* ══════════════════════════════════════
+           IP FINAL CTA SECTION
+           ══════════════════════════════════════ */
+        .ip-final-cta-section {
+            position: relative;
+            width: 100%;
+            min-height: 80vh;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px;
+        }
+
+        .ip-final-cta-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 2px solid #6b32a820;
+            border-radius: 24px;
+            padding: 80px;
+            background: #f5e5ff;
+        }
+
+        .ip-final-cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .ip-final-cta-left {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .ip-final-cta-heading {
+            font-size: 2.5rem;
+            font-weight: 500;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1c1c1c;
+            line-height: 1.1;
+            letter-spacing: 0px;
+        }
+
+        .ip-final-cta-paragraph {
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: #3d2549;
+            line-height: 1.3;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+        }
+
+        .ip-final-cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            background: #6c32a8;
+            color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            align-self: flex-start;
+        }
+
+        .ip-final-cta-button:hover {
+            background: #7C3AED;
+            transform: translateY(-3px);
+        }
+
+        .ip-final-cta-button svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .ip-final-cta-button:hover svg {
+            transform: translateX(4px);
+        }
+
+        .ip-final-cta-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .ip-final-cta-image-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .ip-final-cta-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .ip-final-cta-container {
+                padding: 40px 20px;
+            }
+
+            .ip-final-cta-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .ip-final-cta-paragraph {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 
@@ -661,6 +1694,433 @@
         </div>
     </section>
 
+    <!-- IP Counter Section -->
+    <section class="ip-counter-section">
+        <!-- Connectivity SVG Layer -->
+        <div class="ip-counter-connectivity">
+            <svg fill="none" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="ipCounterGradient" x1="0%" x2="100%" y1="0%" y2="0%">
+                        <stop offset="0%" stop-color="#bd87ff" stop-opacity="0.04"></stop>
+                        <stop offset="50%" stop-color="#7a2ece" stop-opacity="0.1"></stop>
+                        <stop offset="100%" stop-color="#9f364d" stop-opacity="0.04"></stop>
+                    </linearGradient>
+                </defs>
+                <path class="ip-counter-dash-flow" d="M150,450 C300,450 300,550 450,550"
+                    stroke="url(#ipCounterGradient)" stroke-dasharray="8 8" stroke-width="1"></path>
+                <path class="ip-counter-dash-flow" d="M450,550 C600,550 600,450 750,450"
+                    stroke="url(#ipCounterGradient)" stroke-dasharray="8 8" stroke-width="1"></path>
+                <path class="ip-counter-dash-flow" d="M750,450 C900,450 900,550 1050,550"
+                    stroke="url(#ipCounterGradient)" stroke-dasharray="8 8" stroke-width="1"></path>
+            </svg>
+        </div>
+
+        <div class="ip-counter-inner">
+            <div class="ip-counter-grid">
+                <!-- Metric 01 -->
+                <div class="ip-counter-card ip-counter-delay-1">
+                    <div class="ip-counter-icon-row">
+                        <span class="material-symbols-outlined ip-counter-icon-primary">lightbulb</span>
+                    </div>
+                    <div class="ip-counter-content">
+                        <div class="ip-counter-number-row">
+                            <span class="ip-counter-number" data-target="5000">0</span>
+                            <span class="ip-counter-plus ip-counter-plus-primary">+</span>
+                        </div>
+                        <p class="ip-counter-label">Ideas Developed</p>
+                        <p class="ip-counter-desc">Synthesizing raw inspiration into structured architectural
+                            frameworks.</p>
+                        <p class="ip-counter-hidden ip-counter-detail-primary">Phase 1: Conceptualization Complete</p>
+                    </div>
+                </div>
+
+                <!-- Metric 02 -->
+                <div class="ip-counter-card ip-counter-card-offset ip-counter-delay-2">
+                    <div class="ip-counter-icon-row">
+                        <span class="material-symbols-outlined ip-counter-icon-secondary">auto_awesome</span>
+                    </div>
+                    <div class="ip-counter-content">
+                        <div class="ip-counter-number-row">
+                            <span class="ip-counter-number" data-target="110">0</span>
+                            <span class="ip-counter-plus ip-counter-plus-secondary">+</span>
+                        </div>
+                        <p class="ip-counter-label">Idea Recognized at National Level</p>
+                        <p class="ip-counter-desc">Elite conceptual designs validated by premier regulatory
+                            institutions.</p>
+                        <p class="ip-counter-hidden ip-counter-detail-secondary">Accredited by Global Standards</p>
+                    </div>
+                </div>
+
+                <!-- Metric 03 -->
+                <div class="ip-counter-card ip-counter-delay-3">
+                    <div class="ip-counter-icon-row">
+                        <span class="material-symbols-outlined ip-counter-icon-tertiary">deployed_code</span>
+                    </div>
+                    <div class="ip-counter-content">
+                        <div class="ip-counter-number-row">
+                            <span class="ip-counter-number" data-target="40">0</span>
+                            <span class="ip-counter-plus ip-counter-plus-tertiary">+</span>
+                        </div>
+                        <p class="ip-counter-label">Ideas Implemented</p>
+                        <p class="ip-counter-desc">Tangible execution of complex theories into living ecosystems.</p>
+                        <p class="ip-counter-hidden ip-counter-detail-tertiary">Live Infrastructure Status: Active</p>
+                    </div>
+                </div>
+
+                <!-- Metric 04 -->
+                <div class="ip-counter-card ip-counter-card-offset ip-counter-delay-4">
+                    <div class="ip-counter-icon-row">
+                        <span class="material-symbols-outlined ip-counter-icon-primary-alt">account_balance</span>
+                    </div>
+                    <div class="ip-counter-content">
+                        <div class="ip-counter-number-row">
+                            <span class="ip-counter-number" data-target="10">0</span>
+                            <span class="ip-counter-plus ip-counter-plus-primary">+</span>
+                        </div>
+                        <p class="ip-counter-label">Ideas Funded for Implementation</p>
+                        <p class="ip-counter-desc">Venture capital allocation for high-impact planetary transformation.
+                        </p>
+                        <p class="ip-counter-hidden ip-counter-detail-primary">Series A+ Investment Track</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IP Partner Section -->
+    <section class="ip-partner-section">
+        <div class="container mb-5">
+            <h1 class="display-4 fw-bold mb-4 ip-partner-title">
+                Partner with <span class="ip-partner-gradient">ENpower</span>
+            </h1>
+            <p class="ip-partner-desc">
+                Choose the intervention that aligns with your vision, or combine multiple pathways for deeper impact.
+            </p>
+        </div>
+
+        <div class="container ip-partner-masonry">
+            <div class="ip-partner-card">
+                <div class="ip-partner-icon-box">
+                    <span class="material-symbols-outlined">rocket_launch</span>
+                </div>
+                <h3>Entrepreneurship & Livelihood Program</h3>
+                <p>
+                    Enable students to identify real-world problems, build solutions using design thinking, and develop
+                    entrepreneurial mindsets through structured, experiential learning journeys.
+                </p>
+            </div>
+
+            <div class="ip-partner-card">
+                <div class="ip-partner-icon-box">
+                    <span class="material-symbols-outlined">biotech</span>
+                </div>
+                <h3>I.D.E.A Labs</h3>
+                <p>
+                    Support tech-enabled innovation labs where students apply AI, coding, sensors, and design thinking
+                    to create practical solutions for community and industry challenges.
+                </p>
+            </div>
+
+            <div class="ip-partner-card">
+                <div class="ip-partner-icon-box">
+                    <span class="material-symbols-outlined">lightbulb</span>
+                </div>
+                <h3>Idea-To-Venture Platform</h3>
+                <p>
+                    Sponsor student innovators to receive mentorship, showcase ideas nationally, and convert
+                    problem-solving concepts into viable ventures with real-world impact.
+                </p>
+            </div>
+
+            <div class="ip-partner-card">
+                <div class="ip-partner-icon-box">
+                    <span class="material-symbols-outlined">psychology</span>
+                </div>
+                <h3>Design Thinking For Educators</h3>
+                <p>
+                    Build teacher capability in design thinking and experiential pedagogy, enabling classrooms that
+                    foster creativity, critical thinking, and future-ready student learning.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- IP Gallery Section -->
+    <section class="ip-gallery-section">
+        <header class="ip-gallery-header">
+            <h1 class="ip-gallery-title"><span class="ip-gallery-gradient">Idea</span> Gallery</h1>
+        </header>
+
+        <div id="ip-gallery-grid" class="ip-gallery-grid">
+
+            <!-- Card 1 -->
+            <article class="ip-gallery-card">
+                <div class="ip-gallery-img-wrap">
+                    <img alt="Scratch game programming interface" class="ip-gallery-img"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4pR1mn14K25txoZ5mHHQQ0_aNy_64ef9jVLzFICDyUIs50LfTsPbAbMRSjepMOqKF6jBW2b30W-RnmwxLNjolqS0aWG8W6pQmeSoxGYnrgFm_fyYFPiXYyOaTPOQZ_jttUSwoWlG3AvWbPoZ7rovyp9FzBX3QGAe5TN_JQ2sMx6eJKRS1QHgV-w8foFHHOzegs6uARw_9Eot9Zkkh5G0vtnN4CwYUispq2C6xOV1IvuebF-pnqNXwoVThV9MlnX1k4jRXg0A7OQ" />
+                    <span class="ip-gallery-tag">Software</span>
+                </div>
+                <div class="ip-gallery-body">
+                    <h3 class="ip-gallery-name">Shubham Chauhan</h3>
+                    <p class="ip-gallery-desc">YUVA Unstoppable &amp; ENpower's STEM Innovation program has enabled
+                        Shubham Chauhan from Class 7 of Nayka Kumar Shala to build his first game using MIT's SCRATCH
+                        program in just two months.</p>
+                    <div class="ip-gallery-footer">
+                        <span class="ip-gallery-category">Scratch Project</span>
+                        <span class="material-symbols-outlined ip-gallery-arrow">arrow_forward</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="ip-gallery-card">
+                <div class="ip-gallery-img-wrap">
+                    <img alt="Mechanical seed sowing prototype" class="ip-gallery-img"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLzUMbVcpwh8WsYPE468l7wbCNrN0FqLCIOmk9FCYif-FNV-FAlrMG3-rH7PELaLtTKA53RQVQxFo5b5KtgJxRtVlNUJGJTb1rbqsc61X5XnhH33lLG_BlJa2FqD1AmL41RtOlcyX7w6agYgS3sGh50iklMYOpAOvKWcfYcJnYuc8MHvpsdh6RIAZc4Zd6RcMQgCzIhqQaWabH5CYZZsbHpYElbXy1WfCn2wB5wT0DaIDA13pZXGy2REXbJwHTXfJs-NzBD4yVVQ" />
+                    <span class="ip-gallery-tag">Sustainability</span>
+                </div>
+                <div class="ip-gallery-body">
+                    <h3 class="ip-gallery-name">Prathamesh &amp; Team</h3>
+                    <p class="ip-gallery-desc">In Dharashiv, ATL students Prathamesh, Prasad &amp; Shivam, supported by
+                        IndusInd Bank's Flagship CSR Initiative, created an Automatic Seed Sowing Machine that completed
+                        successful field trials in soybean farms.</p>
+                    <div class="ip-gallery-footer">
+                        <span class="ip-gallery-category">AgriTech</span>
+                        <span class="material-symbols-outlined ip-gallery-arrow">arrow_forward</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="ip-gallery-card">
+                <div class="ip-gallery-img-wrap">
+                    <img alt="Digital security dashboard" class="ip-gallery-img"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhs4ulc2OCSna8tVJpzHpA2Pm24pqX54ZFnltYqmYABu51vHEWFLt39V5PhDeTkHF7V4J5Wg_NmmoP79a_cTVU324DO6P0a_JIMKCBDhYcLXarw_3bGkrRyGiqc9JWP-rSpERyimiEA86dR6DGdWYIgg48z94AznHf1U7e9unsyyYwst7tg9KYTwVpQK2kS4fSmMN_wQOXnnEariwhhBsP6DCi-ug4RHLHn5h9g0G4RspA0evuIG_ma17ManZT1uPTzAOtRhHjkQ" />
+                    <span class="ip-gallery-tag">Security</span>
+                </div>
+                <div class="ip-gallery-body">
+                    <h3 class="ip-gallery-name">Anubhav Kumar</h3>
+                    <p class="ip-gallery-desc">Anubhav Kumar from Begusarai developed Secura, a fingerprint-ignition
+                        system replacing bike keys, under IndusInd Bank's Flagship CSR initiative. Tested successfully,
+                        the affordable device reduces theft and boosts safety for rural users.</p>
+                    <div class="ip-gallery-footer">
+                        <span class="ip-gallery-category">Cybersecurity</span>
+                        <span class="material-symbols-outlined ip-gallery-arrow">arrow_forward</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="ip-gallery-card">
+                <div class="ip-gallery-img-wrap">
+                    <img alt="Electric bicycle conversion kit" class="ip-gallery-img"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY42wCpKXO8zaqpTygT2_hx3mKpajekaCV6YE71cwM5b0jC8JhnxqfVSSCOKMNmPP8Q7Y4LUHR-aHTwhHaRjns4wMhRkdDZUU_XAOaMTGZd5jk-bG5GDFXh5n67cag3BiS3AWdumS8kKux9RxIUuyn8MDiEftK5obxoI0yRr32813P9vSP8_4OGShL9rkwg_YpPo2T5_LDbMZxju9tIgNBPwLokTEyQT5O84VJ_4shcA_t5tsCHdTqlViVphTRptt24YD6njTcfQ" />
+                    <span class="ip-gallery-tag">Robotics</span>
+                </div>
+                <div class="ip-gallery-body">
+                    <h3 class="ip-gallery-name">Atulya Bharti</h3>
+                    <p class="ip-gallery-desc">Atulya Bharti from Begusarai presents her innovation 'Atulya's E-cycle'
+                        to the Hon'ble Prime Minister at the 3rd NEP Anniversary in New Delhi.</p>
+                    <div class="ip-gallery-footer">
+                        <span class="ip-gallery-category">Green Mobility</span>
+                        <span class="material-symbols-outlined ip-gallery-arrow">arrow_forward</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="ip-gallery-card">
+                <div class="ip-gallery-img-wrap">
+                    <img alt="Smartphone app interface for safety" class="ip-gallery-img"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFpjO_mJz2UYUM4E1IwhBZlBwkOauU0TXz8ogim2As4xG6IEpDw_WZzDNrto3bAdMvZsXxVR9dhXsp70OEqunpixPio2KNc5y6q73aHr7MCLJVffh-3zis2IJMfVgtb7qcslOZyNetHY2mn0kW2yfBu97X3Esg0DZDkMnMs9L1SaLE5mSiNpkmzprGgwea139tnWbSahknzSojn8PffbgREDWevRh-XvIqYTSS7ICCfWQf17LBEDgla1XqfGzdFguzVBoP-gKbLg" />
+                    <span class="ip-gallery-tag">Software</span>
+                </div>
+                <div class="ip-gallery-body">
+                    <h3 class="ip-gallery-name">Shraddhangini &amp; Saloni</h3>
+                    <p class="ip-gallery-desc">Shraddhangini Jena &amp; Saloni Chaurasiya present 'Women's Safety
+                        Mobile App' at the G20 Summit in Gujarat to Lok Sabha Member Smriti Irani, &amp; Gujarat CM
+                        Bhupendrabhai Patel.</p>
+                    <div class="ip-gallery-footer">
+                        <span class="ip-gallery-category">Social Impact</span>
+                        <span class="material-symbols-outlined ip-gallery-arrow">arrow_forward</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="ip-gallery-card">
+                <div class="ip-gallery-img-wrap">
+                    <img alt="Smart walking stick sensor" class="ip-gallery-img"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4nHA5Z3pXlhOCLvK2478LrQKI0TS0Rbg0CxzgQMKsPI7J6MtZovnMNw_G19ZWm_035Fl5D2jnIAoQOSjnYwUKz5Mx_qURPX7zdK1Lxd5_gf03VKUSTuLefKwXuhll5HXQHmUe9mJUT_GeXkDCp-3HUZvVebYkMEdnF8ScgWux115XqqPn1N4vW8sN8ayWDjzBSFaqVfwtO2NYsZ_NpwavSWCTIIsnZYpMCU0iCW4dkpIjOgmK-p_tzss2Fen13hAktUtqWZT65g" />
+                    <span class="ip-gallery-tag">Robotics</span>
+                </div>
+                <div class="ip-gallery-body">
+                    <h3 class="ip-gallery-name">Monica B</h3>
+                    <p class="ip-gallery-desc">Monica B from Karnataka showcases 'A Smart Walking Stick' at the
+                        Bayer-ENpower Innovation Summit in Bangalore.</p>
+                    <div class="ip-gallery-footer">
+                        <span class="ip-gallery-category">Assistive Tech</span>
+                        <span class="material-symbols-outlined ip-gallery-arrow">arrow_forward</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 7 -->
+            <article class="ip-gallery-card">
+                <div class="ip-gallery-img-wrap">
+                    <img alt="Drip irrigation system" class="ip-gallery-img"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1bRHUvms65sj9DSU1PN_-ro7hXnxIHWW-JajAWPCI2e2STEmRMyrTCQQkUaWFB-6Oamibeka7wPz9WX0Yo0TL6gbxUjcKlDCcXVyznAOLUMdT0_VSh56T507cNsMtkCfxlMx_Vtkw13Eyfk6l0rQqQSuHM1xkwgNd-7Ra90DMfb3cpqU0n7AjnJ6Rq-m72-lYSsRQLiQhFo4oCtI12PKSw2Pgm8bKkGWdVztkDbCRarravf5KXKiVybpC0vhO1qZKd0BVC4QIrA" />
+                    <span class="ip-gallery-tag">Sustainability</span>
+                </div>
+                <div class="ip-gallery-body">
+                    <h3 class="ip-gallery-name">Paderu Students</h3>
+                    <p class="ip-gallery-desc">Students from Paderu develop a water-conserving sensor-based irrigation
+                        system in Andhra Pradesh.</p>
+                    <div class="ip-gallery-footer">
+                        <span class="ip-gallery-category">Environment</span>
+                        <span class="material-symbols-outlined ip-gallery-arrow">arrow_forward</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 8 -->
+            <article class="ip-gallery-card">
+                <div class="ip-gallery-img-wrap">
+                    <img alt="Emergency alert system signal" class="ip-gallery-img"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNfac9iGhKS84cy1FMU0QN1P_R-FsNaj1CBDvyncCh5z4FtB2hOb0d4pFaP5yPTV8JlUA9H32c_T77XeGwFEBSERCvqs2bpGtdub34z8dGSFXCr2EM02LW-RxiBC4-ezuuOhDZpb8dt6KGdiI4297KEu_lFNv0FGjr1aqKyC2ZeTmFUBcubjrjTyblj33R2mjcAKJS2sxmnScMXELeN_N44tS6Mz7VRtCatUEteNOE4k_DDwARtcwKl7XYOoJnFzdr6YBAG1DPag" />
+                    <span class="ip-gallery-tag">Software</span>
+                </div>
+                <div class="ip-gallery-body">
+                    <h3 class="ip-gallery-name">Dnyneshwari Pawar</h3>
+                    <p class="ip-gallery-desc">Dnyneshwari Pawar a Zilla Parishad Student developed an 'Automatic
+                        Ambulance Alert System' during the Swajivi Maharashtra Program with the Government of
+                        Maharashtra.</p>
+                    <div class="ip-gallery-footer">
+                        <span class="ip-gallery-category">Public Safety</span>
+                        <span class="material-symbols-outlined ip-gallery-arrow">arrow_forward</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 9 -->
+            <article class="ip-gallery-card">
+                <div class="ip-gallery-img-wrap">
+                    <img alt="Chilli powder grinding automation" class="ip-gallery-img"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNT1EXUwf8kn5EIlbCMwEMC1tNlou7wQE1oJMwP_tDBc6S6i1-vLc2sG3R4XqQ9vu6wr99mXlEeXax-Ii_5Ac6_neEbYTHZ36NzDTyiapmfgQnQrQ9cHVIaWslSAdPphBvMeelEbbxycKJI0u_rNhEiEHXr_iUVceNstpn6EFVbNks_nODIH639vjyj4DbRJ0ejXeXXTeTnt-lkkeDwPwvymUZTENQ4bYIWh4HsOIoGiJzv1PA4aJvqQqX2kJmXUP4y-HNX9inDw" />
+                    <span class="ip-gallery-tag">Robotics</span>
+                </div>
+                <div class="ip-gallery-body">
+                    <h3 class="ip-gallery-name">Utkarsha &amp; Pushpak</h3>
+                    <p class="ip-gallery-desc">Utkarsha Golhar &amp; Pushpak Tribhuvan present their profit-making
+                        product Golharwadi Chilli Powder at the Swajivi 2024 Grand Finale Showcase.</p>
+                    <div class="ip-gallery-footer">
+                        <span class="ip-gallery-category">Processing Tech</span>
+                        <span class="material-symbols-outlined ip-gallery-arrow">arrow_forward</span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- Pagination -->
+        <div class="ip-gallery-pagination">
+            <button id="ip-gallery-prev" class="ip-gallery-pagination-btn">
+                <span class="material-symbols-outlined">chevron_left</span>
+            </button>
+            <div id="ip-gallery-page-numbers" class="ip-gallery-page-numbers"></div>
+            <button id="ip-gallery-next" class="ip-gallery-pagination-btn">
+                <span class="material-symbols-outlined">chevron_right</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ═════ IP TESTIMONIAL SECTION ═════ -->
+    <section class="ip-testimonial-section">
+        <div class="ip-testimonial-bg-strip"></div>
+        <div class="ip-testimonial-bg-blob"></div>
+
+        <div class="ip-testimonial-inner">
+            <!-- Section Header -->
+            <div class="ip-testimonial-header">
+                <div class="ip-testimonial-header-content">
+                    <h2 class="ip-testimonial-heading">
+                        Empowered <span class="ip-testimonial-highlight">Teachers.</span>
+                    </h2>
+                </div>
+                <!-- Navigation Controls -->
+                <div class="ip-testimonial-nav-controls">
+                    <button class="ip-testimonial-nav-btn" id="ipTestimonialPrev">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </button>
+                    <button class="ip-testimonial-nav-btn ip-testimonial-nav-btn-active" id="ipTestimonialNext">
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Slider Area -->
+            <div class="ip-testimonial-slider" id="ipTestimonialSlider">
+                <!-- Quote -->
+                <div class="ip-testimonial-quote-wrapper">
+                    <div class="ip-testimonial-quote-icon">
+                        <span class="material-symbols-outlined">format_quote</span>
+                    </div>
+                    <div class="ip-testimonial-quote-content">
+                        <blockquote class="ip-testimonial-blockquote" id="ipTestimonialQuote"></blockquote>
+                        <div class="ip-testimonial-author">
+                            <div class="ip-testimonial-author-line"></div>
+                            <div>
+                                <h4 class="ip-testimonial-author-name" id="ipTestimonialName"></h4>
+                                <p class="ip-testimonial-author-role" id="ipTestimonialRole"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portrait & Dots -->
+                <div class="ip-testimonial-portrait-col">
+                    <div class="ip-testimonial-portrait-wrapper">
+                        <div class="ip-testimonial-portrait-bg"></div>
+                        <div class="ip-testimonial-portrait-img-wrap">
+                            <img alt="" id="ipTestimonialPortrait" src="" />
+                        </div>
+                    </div>
+                    <div class="ip-testimonial-dots" id="ipTestimonialDots"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ IP FINAL CTA SECTION ═══════ -->
+    <section class="ip-final-cta-section">
+        <div class="ip-final-cta-container">
+            <div class="ip-final-cta-grid">
+                <!-- Left Grid: Heading, Paragraph and Button -->
+                <div class="ip-final-cta-left">
+                    <h3 class="ip-final-cta-paragraph">
+                        Empower young minds to be change drivers of the future
+                    </h3>
+                    <button class="ip-final-cta-button">
+                        Partner With Us
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Right Grid: Image -->
+                <div class="ip-final-cta-right">
+                    <div class="ip-final-cta-image-wrapper">
+                        <img src="assets/Group 47.png" alt="Students in classroom" class="ip-final-cta-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer will be loaded here -->
     <div id="footer-placeholder"></div>
 
@@ -861,6 +2321,53 @@
                     ease: 'power2.out'
                 });
 
+                // Counter animation for IP Counter Section
+                const ipCounters = document.querySelectorAll('.ip-counter-number[data-target]');
+                let ipCounterAnimated = false;
+
+                function animateIpCounter(el) {
+                    const target = parseInt(el.getAttribute('data-target'));
+                    const duration = 2000;
+                    const startTime = performance.now();
+
+                    function easeOutQuart(t) {
+                        return 1 - Math.pow(1 - t, 4);
+                    }
+
+                    function update(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const easedProgress = easeOutQuart(progress);
+                        const current = Math.floor(easedProgress * target);
+
+                        el.textContent = current.toLocaleString();
+
+                        if (progress < 1) {
+                            requestAnimationFrame(update);
+                        } else {
+                            el.textContent = target.toLocaleString();
+                        }
+                    }
+
+                    requestAnimationFrame(update);
+                }
+
+                const ipCounterObserver = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting && !ipCounterAnimated) {
+                            ipCounterAnimated = true;
+                            ipCounters.forEach(function (counter) {
+                                animateIpCounter(counter);
+                            });
+                            ipCounterObserver.disconnect();
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                ipCounters.forEach(function (counter) {
+                    ipCounterObserver.observe(counter);
+                });
+
                 // Hero section fade out when scrolling down
                 gsap.to('.ip-hero-section', {
                     opacity: 0,
@@ -875,6 +2382,163 @@
                 });
             }
         });
+    </script>
+
+    <script>
+        // IP Gallery Pagination
+        (function () {
+            const CARDS_PER_PAGE = 6;
+            const grid = document.getElementById('ip-gallery-grid');
+            const cards = Array.from(grid.querySelectorAll('.ip-gallery-card'));
+            const totalPages = Math.ceil(cards.length / CARDS_PER_PAGE);
+            let currentPage = 1;
+
+            const prevBtn = document.getElementById('ip-gallery-prev');
+            const nextBtn = document.getElementById('ip-gallery-next');
+            const pageNumbersContainer = document.getElementById('ip-gallery-page-numbers');
+
+            function renderPageNumbers() {
+                pageNumbersContainer.innerHTML = '';
+                for (var i = 1; i <= totalPages; i++) {
+                    var span = document.createElement('span');
+                    span.textContent = i;
+                    span.className = 'ip-gallery-page-num' + (i === currentPage ? ' active' : '');
+                    span.addEventListener('click', (function (page) {
+                        return function () { goToPage(page); };
+                    })(i));
+                    pageNumbersContainer.appendChild(span);
+                }
+            }
+
+            function showPage(page) {
+                var start = (page - 1) * CARDS_PER_PAGE;
+                var end = start + CARDS_PER_PAGE;
+                cards.forEach(function (card, index) {
+                    if (index >= start && index < end) {
+                        card.style.display = '';
+                        card.classList.add('ip-gallery-fade-in');
+                        setTimeout(function () { card.classList.remove('ip-gallery-fade-in'); }, 400);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                prevBtn.style.opacity = page === 1 ? '0.4' : '1';
+                prevBtn.style.pointerEvents = page === 1 ? 'none' : 'auto';
+                nextBtn.style.opacity = page === totalPages ? '0.4' : '1';
+                nextBtn.style.pointerEvents = page === totalPages ? 'none' : 'auto';
+                renderPageNumbers();
+            }
+
+            function goToPage(page) {
+                if (page < 1 || page > totalPages) return;
+                currentPage = page;
+                showPage(currentPage);
+                grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            prevBtn.addEventListener('click', function () { goToPage(currentPage - 1); });
+            nextBtn.addEventListener('click', function () { goToPage(currentPage + 1); });
+
+            showPage(1);
+        })();
+    </script>
+
+    <script>
+        // IP Testimonial Slider
+        (function () {
+            var testimonials = [
+                {
+                    quote: '"Education at ENpower transcends the textbook. We are building a sanctuary where <span class="ip-testimonial-accent">curiosity</span> is the primary currency and every student is an architect of their own destiny."',
+                    name: 'Mrs. Anjali Sharma',
+                    role: 'Senior Faculty, Design Thinking',
+                    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBatuy6_8tBDC-l09bGEMnlgQ1ioCTmEpZZ-l6c4lKQCVwOcYLFk4-7MfF2wJJluPS0QCiYXJdp2GzDqRL3rJYguqUrvFtoMvwn2h07ceGlnsM3JBJYGv-WdStU--hgCeR-z7DQAvHJnZjt_U1uEGJQBJprWbNHrUo11-BrcQQdZoOd3iQ_5sUhW7xPIO3xjt9CP-owsBRQgZrPL_5-nrizwzNaMnL3WlEdaZ2HnmZkmNSFWBrUIUaBSE2aPVeJaoKI7mg_scPycbE'
+                },
+                {
+                    quote: '"Seeing students solve real-world problems with the tech we teach is the ultimate reward. ENpower gives them the <span class="ip-testimonial-accent">confidence</span> to innovate beyond the classroom walls."',
+                    name: 'Rajesh K.',
+                    role: 'Robotics Expert, Tech Innovation Labs',
+                    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCG7z2kJFF9MSQ2CQc4rg-qk-DtDsjqoSEkzgrmZqTfqSMfDN0_-QXjYz9uN8ykGii9ddT2ymHhgPeNudLwf3U9wUaaqjbciiwmksOSDZl9FytYG5ULZmDuzTwQc5GqbYYOvIKlsk9JOYwRGbaBS-rQoosOt-phV9i2bt1sFvV43TV9RXofnPnOGPznniZkzunAEARJfdxPfr9dxkIZZyZRqS0QO5OH66rHUSmJqt0nBBZWZqfYrtyNTxiKV_ok-M6dapExqRfRMt0'
+                },
+                {
+                    quote: '"We nurture the narrative skillsets that allow these future leaders to articulate their vision clearly. Every student finds their <span class="ip-testimonial-accent">voice</span> through our programs."',
+                    name: 'Priya M.',
+                    role: 'Language Arts & Communication',
+                    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAE4Rgm103Z_RciwMcKftuAo9TR0usCFgo0KHHJ5Il-zpBwyNY9cwAo4WXwEVUcpi-e65hIK_HyUzyxBTyv9yfR8SSauw2aK8jcMX9hyZgkYWu7wSNGPy5wYnOttv07wrvqzbVBaEIQYPipQRgIOo-4uTuyqD5Pwso7vN_KETpOPbOKAibRjt7C1NyUnpUFfENiRV9AUEVIXpjzkPUVmDtZJpwWxmVBdZ0lGhzXAWQlTQpndBr1NPrD1tbCocnCaHdnkofGLfpSo3Q'
+                },
+                {
+                    quote: '"The entrepreneurship curriculum has completely transformed how our students think. They now approach every challenge with a <span class="ip-testimonial-accent">problem-solving</span> mindset that prepares them for the real world."',
+                    name: 'Dr. Sneha Patil',
+                    role: 'Principal, Partner School',
+                    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBatuy6_8tBDC-l09bGEMnlgQ1ioCTmEpZZ-l6c4lKQCVwOcYLFk4-7MfF2wJJluPS0QCiYXJdp2GzDqRL3rJYguqUrvFtoMvwn2h07ceGlnsM3JBJYGv-WdStU--hgCeR-z7DQAvHJnZjt_U1uEGJQBJprWbNHrUo11-BrcQQdZoOd3iQ_5sUhW7xPIO3xjt9CP-owsBRQgZrPL_5-nrizwzNaMnL3WlEdaZ2HnmZkmNSFWBrUIUaBSE2aPVeJaoKI7mg_scPycbE'
+                }
+            ];
+
+            var currentSlide = 0;
+            var slider = document.getElementById('ipTestimonialSlider');
+            var quoteEl = document.getElementById('ipTestimonialQuote');
+            var nameEl = document.getElementById('ipTestimonialName');
+            var roleEl = document.getElementById('ipTestimonialRole');
+            var portraitEl = document.getElementById('ipTestimonialPortrait');
+            var dotsContainer = document.getElementById('ipTestimonialDots');
+            var prevBtn = document.getElementById('ipTestimonialPrev');
+            var nextBtn = document.getElementById('ipTestimonialNext');
+            var autoTimer;
+
+            // Build dots
+            testimonials.forEach(function (_, i) {
+                var dot = document.createElement('div');
+                dot.className = i === 0 ? 'ip-testimonial-dot-active' : 'ip-testimonial-dot';
+                dot.addEventListener('click', function () { goToSlide(i); });
+                dotsContainer.appendChild(dot);
+            });
+
+            function updateSlide() {
+                var t = testimonials[currentSlide];
+                quoteEl.innerHTML = t.quote;
+                nameEl.textContent = t.name;
+                roleEl.textContent = t.role;
+                portraitEl.src = t.img;
+                portraitEl.alt = 'Portrait of ' + t.name;
+
+                var dots = dotsContainer.children;
+                for (var i = 0; i < dots.length; i++) {
+                    dots[i].className = i === currentSlide ? 'ip-testimonial-dot-active' : 'ip-testimonial-dot';
+                }
+            }
+
+            function goToSlide(index) {
+                slider.classList.add('ip-testimonial-fading');
+                setTimeout(function () {
+                    currentSlide = index;
+                    updateSlide();
+                    slider.classList.remove('ip-testimonial-fading');
+                }, 500);
+                resetAutoPlay();
+            }
+
+            function nextSlide() {
+                goToSlide((currentSlide + 1) % testimonials.length);
+            }
+
+            function prevSlide() {
+                goToSlide((currentSlide - 1 + testimonials.length) % testimonials.length);
+            }
+
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+
+            function startAutoPlay() {
+                autoTimer = setInterval(nextSlide, 5000);
+            }
+
+            function resetAutoPlay() {
+                clearInterval(autoTimer);
+                startAutoPlay();
+            }
+
+            updateSlide();
+            startAutoPlay();
+        })();
     </script>
 </body>
 

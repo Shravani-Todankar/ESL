@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        /* ── Base ── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #3d2549;
+            background: #fff3fe;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection {
+            background: #bd87ff;
+            color: #340064;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* ── Main Section ── */
+        .ts-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 1.5rem;
+            overflow: hidden;
+            background: #fff3fe;
+        }
+
+        /* ── Background Elements ── */
+        .ts-bg-strip {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 33.333%;
+            height: 100%;
+            background: #fdebff;
+            border-radius: 5rem 0 0 5rem;
+            z-index: 0;
+            opacity: 0.5;
+            transition: all 0.7s ease;
+        }
+
+        .ts-bg-blob {
+            position: absolute;
+            bottom: -6rem;
+            left: -6rem;
+            width: 30rem;
+            height: 30rem;
+            background: rgba(189, 135, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: 0;
+        }
+
+        /* ── Inner Container ── */
+        .ts-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── Section Header ── */
+        .ts-header {
+            margin-bottom: 5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .ts-header {
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: space-between;
+            }
+        }
+
+        .ts-header-content {
+            max-width: 48rem;
+        }
+
+        .ts-eyebrow {
+            display: inline-block;
+            padding: 0.25rem 1rem;
+            border-radius: 9999px;
+            background: #edc2ff;
+            color: #682989;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .ts-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #3d2549;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .ts-heading {
+                font-size: 3.75rem;
+            }
+        }
+
+        .ts-heading .ts-highlight {
+            color: #7a2ece;
+            font-style: italic;
+        }
+
+        .ts-subtitle {
+            color: #6c5279;
+            font-size: 1.125rem;
+            line-height: 1.625;
+            max-width: 36rem;
+        }
+
+        @media (min-width: 768px) {
+            .ts-subtitle {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* ── Navigation Controls ── */
+        .ts-nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .ts-nav-btn {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(194, 162, 206, 0.3);
+            background: transparent;
+            color: #3d2549;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ts-nav-btn:hover {
+            background: #7a2ece;
+            color: #faefff;
+            border-color: #7a2ece;
+        }
+
+        .ts-nav-btn:hover .material-symbols-outlined {
+            transform: scale(1.1);
+        }
+
+        .ts-nav-btn-active {
+            background: #7a2ece;
+            color: #faefff;
+            border-color: #7a2ece;
+            box-shadow: 0 20px 25px -5px rgba(122, 46, 206, 0.2);
+        }
+
+        .ts-nav-btn-active:hover {
+            transform: scale(1.05);
+        }
+
+        .ts-nav-btn .material-symbols-outlined {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* ── Main Slider Grid ── */
+        .ts-slider-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+
+        @media (min-width: 992px) {
+            .ts-slider-grid {
+                grid-template-columns: 8fr 4fr;
+                gap: 6rem;
+            }
+        }
+
+        /* ── Quote Section ── */
+        .ts-quote-wrapper {
+            position: relative;
+        }
+
+        .ts-quote-icon {
+            position: absolute;
+            top: -4rem;
+            left: -2.5rem;
+            color: rgba(122, 46, 206, 0.1);
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .ts-quote-icon .material-symbols-outlined {
+            font-size: 10rem;
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .ts-quote-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .ts-blockquote {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.875rem;
+            font-weight: 500;
+            color: #3d2549;
+            line-height: 1.2;
+            text-wrap: balance;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .ts-blockquote {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .ts-blockquote {
+                font-size: 3rem;
+            }
+        }
+
+        .ts-blockquote .ts-accent {
+            color: #7e3fa0;
+            font-weight: 700;
+        }
+
+        .ts-author {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .ts-author-line {
+            height: 1px;
+            width: 4rem;
+            background: rgba(194, 162, 206, 0.4);
+        }
+
+        .ts-author-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #3d2549;
+        }
+
+        .ts-author-role {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #6c5279;
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        /* ── Portrait Section ── */
+        .ts-portrait-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        @media (min-width: 992px) {
+            .ts-portrait-col {
+                align-items: flex-end;
+            }
+        }
+
+        .ts-portrait-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 340px;
+        }
+
+        .ts-portrait-bg {
+            position: absolute;
+            inset: 0;
+            background: #bd87ff;
+            border-radius: 1.5rem;
+            transform: rotate(3deg) scale(1.05);
+            transition: transform 0.5s ease;
+        }
+
+        .ts-portrait-wrapper:hover .ts-portrait-bg {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .ts-portrait-img-wrap {
+            position: relative;
+            aspect-ratio: 4/5;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .ts-portrait-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: all 0.7s ease;
+        }
+
+        .ts-portrait-img-wrap:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* ── Pagination Dots ── */
+        .ts-dots {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .ts-dot-active {
+            height: 0.5rem;
+            width: 3rem;
+            border-radius: 9999px;
+            background: #7a2ece;
+            transition: all 0.3s ease;
+        }
+
+        .ts-dot {
+            height: 0.5rem;
+            width: 0.5rem;
+            border-radius: 9999px;
+            background: rgba(194, 162, 206, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ts-dot:hover {
+            background: #6e1bc1;
+        }
+
+        /* ── Slide Transition ── */
+        .ts-slider-grid {
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .ts-slider-grid.ts-fading {
+            opacity: 0;
+        }
+
+        /* ── Thumbnail Grid ── */
+        .ts-thumbs-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .ts-thumbs-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* ── Thumbnail Card ── */
+        .ts-thumb-card {
+            padding: 2rem;
+            border-radius: 1rem;
+            background: #fdebff;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ts-thumb-card:hover {
+            background: #f3d1ff;
+            border-color: rgba(194, 162, 206, 0.2);
+        }
+
+        .ts-thumb-header {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .ts-thumb-avatar {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            overflow: hidden;
+            filter: grayscale(100%);
+            ring: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .ts-thumb-card:hover .ts-thumb-avatar {
+            filter: grayscale(0%);
+            box-shadow: 0 0 0 2px rgba(122, 46, 206, 0.2);
+        }
+
+        .ts-thumb-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ts-thumb-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #3d2549;
+        }
+
+        .ts-thumb-role {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #6c5279;
+        }
+
+        .ts-thumb-quote {
+            font-size: 0.875rem;
+            color: #6c5279;
+            line-height: 1.625;
+            font-style: italic;
+        }
+
+        /* ── Stats Card ── */
+        .ts-stats-card {
+            position: relative;
+            padding: 2rem;
+            border-radius: 1rem;
+            background: #7a2ece;
+            color: #faefff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(122, 46, 206, 0.2);
+        }
+
+        .ts-stats-icon {
+            position: absolute;
+            right: -2rem;
+            bottom: -2rem;
+            opacity: 0.1;
+        }
+
+        .ts-stats-icon .material-symbols-outlined {
+            font-size: 10rem;
+        }
+
+        .ts-stats-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .ts-stats-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-weight: 700;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Testimonial Slider Section -->
+    <section class="ts-section">
+        <!-- Architectural Background Elements -->
+        <div class="ts-bg-strip"></div>
+        <div class="ts-bg-blob"></div>
+
+        <div class="ts-inner">
+            <!-- Section Header -->
+            <div class="ts-header">
+                <div class="ts-header-content">
+                    <h2 class="ts-heading">
+                        Empowered <span class="ts-highlight">Teachers.</span>
+                    </h2>
+                </div>
+                <!-- Navigation Controls -->
+                <div class="ts-nav-controls">
+                    <button class="ts-nav-btn">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </button>
+                    <button class="ts-nav-btn ts-nav-btn-active">
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Slider Area -->
+            <div class="ts-slider-grid" id="tsSlider">
+                <!-- Quote -->
+                <div class="ts-quote-wrapper">
+                    <div class="ts-quote-icon">
+                        <span class="material-symbols-outlined" data-weight="fill">format_quote</span>
+                    </div>
+                    <div class="ts-quote-content">
+                        <blockquote class="ts-blockquote" id="tsQuote"></blockquote>
+                        <div class="ts-author">
+                            <div class="ts-author-line"></div>
+                            <div>
+                                <h4 class="ts-author-name" id="tsName"></h4>
+                                <p class="ts-author-role" id="tsRole"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professional Portrait & Secondary Nav -->
+                <div class="ts-portrait-col">
+                    <!-- Active Teacher Portrait -->
+                    <div class="ts-portrait-wrapper">
+                        <div class="ts-portrait-bg"></div>
+                        <div class="ts-portrait-img-wrap">
+                            <img alt="" id="tsPortrait" src="" />
+                        </div>
+                    </div>
+                    <!-- Pagination Dots -->
+                    <div class="ts-dots" id="tsDots"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        (function () {
+            var testimonials = [
+                {
+                    quote: '"Education at ENpower transcends the textbook. We are building a sanctuary where <span class="ts-accent">curiosity</span> is the primary currency and every student is an architect of their own destiny."',
+                    name: 'Mrs. Anjali Sharma',
+                    role: 'Senior Faculty, Design Thinking',
+                    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBatuy6_8tBDC-l09bGEMnlgQ1ioCTmEpZZ-l6c4lKQCVwOcYLFk4-7MfF2wJJluPS0QCiYXJdp2GzDqRL3rJYguqUrvFtoMvwn2h07ceGlnsM3JBJYGv-WdStU--hgCeR-z7DQAvHJnZjt_U1uEGJQBJprWbNHrUo11-BrcQQdZoOd3iQ_5sUhW7xPIO3xjt9CP-owsBRQgZrPL_5-nrizwzNaMnL3WlEdaZ2HnmZkmNSFWBrUIUaBSE2aPVeJaoKI7mg_scPycbE'
+                },
+                {
+                    quote: '"Seeing students solve real-world problems with the tech we teach is the ultimate reward. ENpower gives them the <span class="ts-accent">confidence</span> to innovate beyond the classroom walls."',
+                    name: 'Rajesh K.',
+                    role: 'Robotics Expert, Tech Innovation Labs',
+                    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCG7z2kJFF9MSQ2CQc4rg-qk-DtDsjqoSEkzgrmZqTfqSMfDN0_-QXjYz9uN8ykGii9ddT2ymHhgPeNudLwf3U9wUaaqjbciiwmksOSDZl9FytYG5ULZmDuzTwQc5GqbYYOvIKlsk9JOYwRGbaBS-rQoosOt-phV9i2bt1sFvV43TV9RXofnPnOGPznniZkzunAEARJfdxPfr9dxkIZZyZRqS0QO5OH66rHUSmJqt0nBBZWZqfYrtyNTxiKV_ok-M6dapExqRfRMt0'
+                },
+                {
+                    quote: '"We nurture the narrative skillsets that allow these future leaders to articulate their vision clearly. Every student finds their <span class="ts-accent">voice</span> through our programs."',
+                    name: 'Priya M.',
+                    role: 'Language Arts & Communication',
+                    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAE4Rgm103Z_RciwMcKftuAo9TR0usCFgo0KHHJ5Il-zpBwyNY9cwAo4WXwEVUcpi-e65hIK_HyUzyxBTyv9yfR8SSauw2aK8jcMX9hyZgkYWu7wSNGPy5wYnOttv07wrvqzbVBaEIQYPipQRgIOo-4uTuyqD5Pwso7vN_KETpOPbOKAibRjt7C1NyUnpUFfENiRV9AUEVIXpjzkPUVmDtZJpwWxmVBdZ0lGhzXAWQlTQpndBr1NPrD1tbCocnCaHdnkofGLfpSo3Q'
+                },
+                {
+                    quote: '"The entrepreneurship curriculum has completely transformed how our students think. They now approach every challenge with a <span class="ts-accent">problem-solving</span> mindset that prepares them for the real world."',
+                    name: 'Dr. Sneha Patil',
+                    role: 'Principal, Partner School',
+                    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBatuy6_8tBDC-l09bGEMnlgQ1ioCTmEpZZ-l6c4lKQCVwOcYLFk4-7MfF2wJJluPS0QCiYXJdp2GzDqRL3rJYguqUrvFtoMvwn2h07ceGlnsM3JBJYGv-WdStU--hgCeR-z7DQAvHJnZjt_U1uEGJQBJprWbNHrUo11-BrcQQdZoOd3iQ_5sUhW7xPIO3xjt9CP-owsBRQgZrPL_5-nrizwzNaMnL3WlEdaZ2HnmZkmNSFWBrUIUaBSE2aPVeJaoKI7mg_scPycbE'
+                }
+            ];
+
+            var currentSlide = 0;
+            var slider = document.getElementById('tsSlider');
+            var quoteEl = document.getElementById('tsQuote');
+            var nameEl = document.getElementById('tsName');
+            var roleEl = document.getElementById('tsRole');
+            var portraitEl = document.getElementById('tsPortrait');
+            var dotsContainer = document.getElementById('tsDots');
+            var prevBtn = document.querySelector('.ts-nav-btn:first-child');
+            var nextBtn = document.querySelector('.ts-nav-btn:last-child');
+            var autoTimer;
+
+            // Build dots
+            testimonials.forEach(function (_, i) {
+                var dot = document.createElement('div');
+                dot.className = i === 0 ? 'ts-dot-active' : 'ts-dot';
+                dot.addEventListener('click', function () { goToSlide(i); });
+                dotsContainer.appendChild(dot);
+            });
+
+            function updateSlide() {
+                var t = testimonials[currentSlide];
+                quoteEl.innerHTML = t.quote;
+                nameEl.textContent = t.name;
+                roleEl.textContent = t.role;
+                portraitEl.src = t.img;
+                portraitEl.alt = 'Portrait of ' + t.name;
+
+                // Update dots
+                var dots = dotsContainer.children;
+                for (var i = 0; i < dots.length; i++) {
+                    dots[i].className = i === currentSlide ? 'ts-dot-active' : 'ts-dot';
+                }
+            }
+
+            function goToSlide(index) {
+                slider.classList.add('ts-fading');
+                setTimeout(function () {
+                    currentSlide = index;
+                    updateSlide();
+                    slider.classList.remove('ts-fading');
+                }, 500);
+                resetAutoPlay();
+            }
+
+            function nextSlide() {
+                goToSlide((currentSlide + 1) % testimonials.length);
+            }
+
+            function prevSlide() {
+                goToSlide((currentSlide - 1 + testimonials.length) % testimonials.length);
+            }
+
+            // Navigation buttons
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+
+            // Auto-rotation (5 seconds)
+            function startAutoPlay() {
+                autoTimer = setInterval(nextSlide, 5000);
+            }
+
+            function resetAutoPlay() {
+                clearInterval(autoTimer);
+                startAutoPlay();
+            }
+
+            // Initialize
+            updateSlide();
+            startAutoPlay();
+        })();
+    </script>
+</body>
+
+</html>

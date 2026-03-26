@@ -23,6 +23,7 @@
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 
   <style>
     * {
@@ -115,7 +116,7 @@
 
     .divider {
       height: 1px;
-      background: linear-gradient(90deg, transparent, #ddd6fe, transparent);
+      background: linear-gradient(90deg, transparent, #d4c6e8, transparent);
       margin: 36px auto 0;
       max-width: 1004px
     }
@@ -135,7 +136,7 @@
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 900;
       font-size: 34px;
-      color: #1e1b4b;
+      color: #3d2549;
       line-height: 1.2;
       margin-bottom: 20px
     }
@@ -152,7 +153,7 @@
     }
 
     .about-p strong {
-      color: #3b0764
+      color: #3d2549
     }
 
     .about-p:last-child {
@@ -175,8 +176,8 @@
       padding: 7px 16px;
       cursor: pointer;
       transition: all .2s;
-      background: #f5f3ff;
-      color: #6d28d9
+      background: #f6f0fa;
+      color: #6c32a8
     }
 
     .tab-btn.active {
@@ -295,7 +296,7 @@
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 900;
       font-size: 30px;
-      color: #1e1b4b;
+      color: #3d2549;
       margin-bottom: 20px;
       line-height: 1.2
     }
@@ -311,7 +312,7 @@
     }
 
     .partner-p strong {
-      color: #3b0764
+      color: #3d2549
     }
 
     /* ============================
@@ -325,7 +326,7 @@
     }
 
     .vision-card {
-      background: linear-gradient(145deg, #4c1d95, #6d28d9, #6c32a8);
+      background: linear-gradient(135deg, #efdeff 0%, #fffce3 100%);
       border-radius: 24px;
       padding: 44px 40px;
       position: relative;
@@ -337,7 +338,7 @@
     }
 
     .vision-card:hover {
-      box-shadow: 0 20px 40px rgba(109, 40, 217, 0.28), 0 0 0 1px rgba(167, 139, 250, 0.2)
+      box-shadow: 0 20px 40px rgba(108, 50, 168, 0.18), 0 0 0 1px rgba(108, 50, 168, 0.15)
     }
 
     .vision-card .circle1 {
@@ -347,7 +348,7 @@
       width: 220px;
       height: 220px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(108, 50, 168, 0.06);
       transition: transform 0.5s ease, opacity 0.4s ease
     }
 
@@ -363,7 +364,7 @@
       width: 160px;
       height: 160px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(229, 169, 62, 0.06);
       transition: transform 0.5s ease, opacity 0.4s ease
     }
 
@@ -393,41 +394,41 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(108, 50, 168, 0.1);
+      border: 1px solid rgba(108, 50, 168, 0.2);
       border-radius: 50px;
       padding: 4px 14px;
       margin-bottom: 20px;
       font-size: 10px;
       font-weight: 800;
-      color: rgba(255, 255, 255, 0.85);
+      color: #6c32a8;
       text-transform: uppercase;
       letter-spacing: .1em;
       transition: background 0.3s, border-color 0.3s
     }
 
     .vision-card:hover .vision-chip {
-      background: rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.35)
+      background: rgba(108, 50, 168, 0.15);
+      border-color: rgba(108, 50, 168, 0.3)
     }
 
     .vision-text {
       font-weight: 800;
       font-size: 20px;
-      color: white;
+      color: #3d2549;
       line-height: 1.6
     }
 
     .vision-text mark {
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
+      background: rgba(108, 50, 168, 0.12);
+      color: #6c32a8;
       border-radius: 6px;
       padding: 1px 8px;
       transition: background 0.3s
     }
 
     .vision-card:hover .vision-text mark {
-      background: rgba(255, 255, 255, 0.32)
+      background: rgba(108, 50, 168, 0.2)
     }
 
     .vision-card .hover-hint {
@@ -437,7 +438,7 @@
       gap: 8px;
       font-size: 11px;
       font-weight: 800;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(108, 50, 168, 0.5);
       letter-spacing: .05em;
       text-transform: uppercase;
       opacity: 0;
@@ -453,13 +454,13 @@
     .hint-line {
       flex: 1;
       height: 1px;
-      background: rgba(255, 255, 255, 0.2)
+      background: rgba(108, 50, 168, 0.15)
     }
 
     .mission-card {
       background: white;
       border-radius: 24px;
-      border: 1.5px solid #ede9fe;
+      border: 1.5px solid #e8ddf2;
       padding: 44px 32px;
       display: flex;
       flex-direction: column;
@@ -474,7 +475,7 @@
 
     .mission-card:hover {
       box-shadow: 0 20px 40px rgba(124, 58, 237, 0.14), 0 0 0 1px rgba(196, 181, 253, 0.4);
-      border-color: #c4b5fd
+      border-color: #b8a4d9
     }
 
     .mission-card .circle {
@@ -484,20 +485,20 @@
       width: 130px;
       height: 130px;
       border-radius: 50%;
-      background: #f5f3ff;
+      background: #f6f0fa;
       transition: transform 0.5s ease, background 0.3s
     }
 
     .mission-card:hover .circle {
       transform: scale(1.5);
-      background: #ede9fe
+      background: #e8ddf2
     }
 
     .mission-chip {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: #f5f3ff;
+      background: #f6f0fa;
       border-radius: 50px;
       padding: 4px 14px;
       margin-bottom: 20px;
@@ -510,13 +511,13 @@
     }
 
     .mission-card:hover .mission-chip {
-      background: #ede9fe
+      background: #e8ddf2
     }
 
     .mission-text {
       font-weight: 800;
       font-size: 20px;
-      color: #1e1b4b;
+      color: #3d2549;
       line-height: 1.6
     }
 
@@ -548,7 +549,7 @@
       height: 100%;
       width: 0%;
       border-radius: 99px;
-      background: linear-gradient(90deg, #6c32a8, #a855f7);
+      background: linear-gradient(90deg, #6c32a8, #e5a93e);
       transition: width 1.2s cubic-bezier(.4, 0, .2, 1)
     }
 
@@ -563,7 +564,7 @@
       margin-top: 18px;
       font-size: 11px;
       font-weight: 800;
-      color: #c4b5fd;
+      color: #b8a4d9;
       letter-spacing: .05em;
       text-transform: uppercase;
       opacity: 0;
@@ -577,296 +578,337 @@
     }
 
     /* ============================
-       TIMELINE
+       TIMELINE — HORIZONTAL SCROLL
     ============================ */
-    .tl-header {
-      padding-top: 40px;
-      margin-bottom: 28px
-    }
-
-    .tl-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 900;
-      font-size: 30px;
-      color: #1e1b4b;
-      margin-top: 10px
-    }
-
-    .tl-title span {
-      color: #6c32a8
-    }
-
-    .tl-body {
-      display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 0;
+    .hs-section {
       position: relative;
-      width: 100%
-    }
-
-    .year-rail {
-      position: relative
-    }
-
-    .year-rail-line {
-      position: absolute;
-      left: 11px;
-      top: 16px;
-      bottom: 16px;
-      width: 2px;
-      background: linear-gradient(to bottom, #ede9fe, #f5f3ff);
-      border-radius: 99px
-    }
-
-    .year-btn {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 6px 0;
       width: 100%;
+      overflow: hidden;
+      background: #f6f0fa;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hs-heading-wrapper {
+      text-align: center;
+      padding: 30px 20px 10px;
+    }
+
+    .hs-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #3d2549;
+      margin-bottom: 8px;
+    }
+
+    .hs-heading span {
+      color: #6c32a8;
+    }
+
+    .hs-sub {
+      font-size: 1rem;
+      color: #6c5279;
+      font-weight: 400;
+    }
+
+    .hs-scroll-container {
       position: relative;
-      font-family: 'Poppins', sans-serif
+      width: 100%;
+      overflow: hidden;
+      flex: 1;
     }
 
-    .year-btn:hover .year-label {
-      color: #6c32a8
+    .hs-track {
+      display: flex;
+      gap: 0;
+      will-change: transform;
     }
 
-    .year-dot {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: white;
-      border: 2px solid #ddd6fe;
+    .hs-slide {
+      min-width: 100vw;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 20px 40px;
+      position: relative;
+    }
+
+    .hs-slide-inner {
+      max-width: 1100px;
+      width: 100%;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    @media (max-width: 768px) {
+      .hs-slide-inner {
+        flex-direction: column;
+        gap: 40px;
+      }
+    }
+
+    .hs-year-block {
+      position: relative;
       flex-shrink: 0;
+      width: 260px;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      .hs-year-block {
+        width: 100%;
+        min-height: auto;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    .hs-year-watermark {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 10rem;
+      font-weight: 900;
+      line-height: 1;
+      opacity: 0.06;
+      color: #6c32a8;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      user-select: none;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .hs-year-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 4.5rem;
+      font-weight: 900;
+      line-height: 1;
       position: relative;
       z-index: 1;
-      transition: all 0.3s
     }
 
-    .year-dot.active {
-      border-color: var(--yc);
-      background: var(--yc);
-      box-shadow: 0 0 0 4px var(--yl)
-    }
-
-    .year-dot-inner {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: white;
-      display: none
-    }
-
-    .year-dot.active .year-dot-inner {
-      display: block
-    }
-
-    .year-label {
+    .hs-year-count {
+      margin-top: 12px;
+      font-size: 0.85rem;
       font-weight: 600;
-      font-size: 13px;
-      color: #b0a8c8;
-      transition: all 0.2s
-    }
-
-    .year-label.active {
-      font-weight: 900;
-      font-size: 15px;
-      color: var(--yc);
-      letter-spacing: -0.2px
-    }
-
-    .content-pane {
-      padding-left: 24px;
+      color: #6c5279;
       position: relative;
+      z-index: 1;
     }
 
-    .slide-viewport {
+    .hs-year-count strong {
+      color: #6c32a8;
+    }
+
+    .hs-events-list {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
       position: relative;
+      z-index: 1;
+      padding: 6px;
+    }
+
+    .hs-events-list.hs-cols-1 {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+    }
+
+    .hs-events-list.hs-cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 768px) {
+      .hs-events-list {
+        grid-template-columns: 1fr;
+      }
+
+      .hs-events-list.hs-cols-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hs-event-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px 18px;
+      border: 1px solid #e8ddf2;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hs-event-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 4px 0 0 4px;
+      transition: background 0.3s ease;
+    }
+
+    .hs-event-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(108, 50, 168, 0.1);
+      border-color: #d4c6e8;
+    }
+
+    .hs-event-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #3d2549;
+      margin-bottom: 4px;
+      line-height: 1.25;
+    }
+
+    .hs-event-desc {
+      font-size: 0.75rem;
+      color: #6c5279;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
       overflow: hidden;
     }
 
-    .year-panel {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(32px);
-      transition: opacity 0.45s ease, transform 0.45s cubic-bezier(.4, 0, .2, 1)
+    .hs-progress-wrapper {
+      padding: 16px 60px 12px;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
     }
 
-    .year-panel.active {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-      position: relative
-    }
-
-    .year-panel.exit-up {
-      opacity: 0;
-      transform: translateY(-32px)
-    }
-
-    .year-panel.exit-down {
-      opacity: 0;
-      transform: translateY(32px)
-    }
-
-    .year-badge-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 24px
-    }
-
-    .year-badge {
-      border-radius: 14px;
-      padding: 8px 22px;
-      font-weight: 900;
-      font-size: 18px;
-      color: white;
-      letter-spacing: -0.5px
-    }
-
-    .year-line {
-      flex: 1;
-      height: 1px
-    }
-
-    .event-item {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      padding-bottom: 16px;
-      margin-bottom: 16px
-    }
-
-    .event-item:not(:last-child) {
-      border-bottom: 1px solid #f5f3ff
-    }
-
-    .event-num {
-      width: 26px;
-      height: 26px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-weight: 900;
-      font-size: 11px
-    }
-
-    .event-title {
-      font-weight: 800;
-      font-size: 13.5px;
-      color: #1e1b4b;
-      margin-bottom: 5px;
-      line-height: 1.3
-    }
-
-    .event-desc {
-      font-size: 12.5px;
-      line-height: 1.75;
-      color: #6b7280
-    }
-
-    .year-panel.active .event-item {
-      animation: fadeUp 0.38s ease both
-    }
-
-    .year-panel.active .event-item:nth-child(1) {
-      animation-delay: .04s
-    }
-
-    .year-panel.active .event-item:nth-child(2) {
-      animation-delay: .09s
-    }
-
-    .year-panel.active .event-item:nth-child(3) {
-      animation-delay: .14s
-    }
-
-    .year-panel.active .event-item:nth-child(4) {
-      animation-delay: .19s
-    }
-
-    .year-panel.active .event-item:nth-child(5) {
-      animation-delay: .24s
-    }
-
-    .year-panel.active .event-item:nth-child(6) {
-      animation-delay: .29s
-    }
-
-    .year-panel.active .event-item:nth-child(7) {
-      animation-delay: .34s
-    }
-
-    .tl-footer {
+    .hs-progress-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-top: 28px;
-      padding-top: 16px;
-      border-top: 1px solid #f5f3ff
+      position: relative;
     }
 
-    .tl-counter {
-      font-size: 12px;
-      font-weight: 700;
-      color: #b0a8c8
+    .hs-progress-line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #e8ddf2;
+      transform: translateY(-50%);
+      z-index: 0;
     }
 
-    .arr-wrap {
-      display: flex;
-      gap: 10px
+    .hs-progress-fill {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #6c32a8, #e5a93e);
+      transform: translateY(-50%);
+      z-index: 1;
+      transition: width 0.5s ease;
     }
 
-    .arr-btn {
-      width: 40px;
-      height: 40px;
+    .hs-year-dot {
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
-      border: 1.5px solid #ddd6fe;
-      background: white;
+      background: #e8ddf2;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
+      border: 2px solid #e8ddf2;
+    }
+
+    .hs-year-dot.active {
+      background: #6c32a8;
+      border-color: #6c32a8;
+      transform: scale(1.4);
+      box-shadow: 0 0 0 4px rgba(108, 50, 168, 0.15);
+    }
+
+    .hs-year-dot:hover {
+      transform: scale(1.3);
+      background: #b8a4d9;
+    }
+
+    .hs-year-dot-label {
+      position: absolute;
+      bottom: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      font-weight: 700;
+      color: #b8a4d9;
+      white-space: nowrap;
+      transition: color 0.3s;
+    }
+
+    .hs-year-dot.active .hs-year-dot-label {
+      color: #6c32a8;
+      font-weight: 800;
+    }
+
+    .hs-nav {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      padding: 20px 0 24px;
+    }
+
+    .hs-nav-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 1.5px solid #d4c6e8;
+      background: #fff;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 15px;
       color: #6c32a8;
-      transition: all 0.2s;
-      font-family: 'Poppins', sans-serif
+      transition: all 0.3s ease;
     }
 
-    .arr-btn:hover:not(:disabled) {
-      background: #f5f3ff;
-      border-color: #a78bfa;
-      transform: scale(1.1)
+    .hs-nav-btn:hover {
+      background: #6c32a8;
+      color: #fff;
+      border-color: #6c32a8;
+      transform: scale(1.1);
     }
 
-    .arr-btn:active:not(:disabled) {
-      transform: scale(0.93)
+    .hs-nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      transform: none;
     }
 
-    .arr-btn:disabled {
-      opacity: 0.28;
-      cursor: not-allowed
-    }
+    @media (max-width: 768px) {
+      .hs-year-watermark {
+        font-size: 6rem;
+      }
 
-    .scroll-tip {
-      font-size: 11px;
-      font-weight: 700;
-      color: #c4b5fd;
-      letter-spacing: .04em
+      .hs-year-label {
+        font-size: 3rem;
+      }
+
+      .hs-heading {
+        font-size: 1.75rem;
+      }
     }
 
     /* ============================
@@ -909,7 +951,7 @@
     }
 
     .about-hero-sparkle {
-      color: #E5A817;
+      color: #e5a93e;
       font-size: 2rem;
       line-height: 1;
       animation: aboutHeroSparklePulse 2.5s ease-in-out infinite;
@@ -1010,11 +1052,11 @@
 
     .section-heading {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 34px;
+      font-size: 3.5rem;
       font-weight: 900;
-      color: #1e1b4b;
+      color: #3d2549;
       line-height: 1.2;
-      margin-bottom: 12px;
+      margin-bottom: 3rem;
     }
 
     .section-heading span {
@@ -1030,7 +1072,7 @@
     }
 
     .section-sub strong {
-      color: #3b0764;
+      color: #3d2549;
     }
 
     .main-tabs {
@@ -1044,8 +1086,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #f5f3ff;
-      color: #6d28d9;
+      background: #f6f0fa;
+      color: #6c32a8;
       border: none;
       border-radius: 50px;
       padding: 9px 20px;
@@ -1057,13 +1099,13 @@
     }
 
     .main-tab:hover {
-      background: #ede9fe;
-      color: #4c1d95;
+      background: #e8ddf2;
+      color: #3d2549;
     }
 
     .main-tab.active {
-      background: #6c32a8;
-      color: #fff;
+      background: #6b32a8ba;
+      color: #f3e9fd;
       box-shadow: 0 4px 16px rgba(124, 58, 237, 0.25);
     }
 
@@ -1098,7 +1140,7 @@
       font-family: 'Space Grotesk', sans-serif;
       font-size: 28px;
       font-weight: 900;
-      color: #1e1b4b;
+      color: #3d2549;
       line-height: 1.2;
       margin-bottom: 28px;
     }
@@ -1110,31 +1152,32 @@
     /* Core team */
     .core-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 40px;
     }
 
     .core-card {
       background: #fff;
-      border: 1.5px solid #ede9fe;
+      border: 1.5px solid #e8ddf2;
       border-radius: 24px;
       overflow: hidden;
       box-shadow: 0 4px 16px rgba(124, 58, 237, 0.06);
       cursor: pointer;
       transition: all 0.25s ease;
+      height: 350px;
     }
 
     .core-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 16px 48px rgba(124, 58, 237, 0.18);
-      border-color: #c4b5fd;
+      border-color: #b8a4d9;
     }
 
     .core-card__img-wrap {
       position: relative;
-      height: 200px;
+      height: 250px;
       overflow: hidden;
-      background: #f5f3ff;
+      background: #f6f0fa;
     }
 
     .core-card__img {
@@ -1161,17 +1204,17 @@
     }
 
     .core-card__name {
-      font-size: 14.5px;
-      font-weight: 800;
-      color: #1e1b4b;
+      font-size: 17.5px;
+      font-weight: 500;
+      color: #3d2549;
       margin-bottom: 4px;
       line-height: 1.3;
     }
 
     .core-card__designation {
-      font-size: 11.5px;
-      font-weight: 600;
-      color: #9ca3af;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: #b8a4d9;
       line-height: 1.5;
       transition: color 0.2s;
     }
@@ -1205,38 +1248,39 @@
       content: '';
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, #ddd6fe, transparent);
+      background: linear-gradient(90deg, #d4c6e8, transparent);
     }
 
     .dept-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 40px;
     }
 
     /* Mini card */
     .mini-card {
       background: #fff;
-      border: 1.5px solid #ede9fe;
+      border: 1.5px solid #e8ddf2;
       border-radius: 20px;
       overflow: hidden;
       cursor: pointer;
       transition: all 0.22s ease;
       box-shadow: 0 4px 14px rgba(124, 58, 237, 0.05);
+      height: 300px;
     }
 
     .mini-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 12px 32px rgba(124, 58, 237, 0.14);
-      border-color: #c4b5fd;
+      border-color: #b8a4d9;
     }
 
     .mini-card__img {
       width: 100%;
-      height: 160px;
+      height: 210px;
       object-fit: cover;
       object-position: top center;
-      background: #f5f3ff;
+      background: #f6f0fa;
       display: block;
       transition: transform 0.3s ease;
     }
@@ -1252,7 +1296,7 @@
     .mini-card__name {
       font-size: 13px;
       font-weight: 800;
-      color: #1e1b4b;
+      color: #3d2549;
       margin-bottom: 3px;
       line-height: 1.3;
     }
@@ -1277,7 +1321,7 @@
     }
 
     .advisory-card {
-      background: linear-gradient(145deg, #4c1d95, #6d28d9, #6c32a8);
+      background: linear-gradient(145deg, #3d2549, #6c32a8, #6c32a8);
       border-radius: 24px;
       padding: 32px;
       overflow: hidden;
@@ -1420,9 +1464,7 @@
 
   </div>
 
-  <!-- ============================
-     ABOUT US
-============================ -->
+  <!-- ==== ABOUT US ===== -->
   <div class="section">
     <div class="about-grid">
       <div>
@@ -1454,9 +1496,7 @@
     </div>
   </div>
 
-  <!-- ============================
-     STRATEGIC PARTNERSHIP
-============================ -->
+  <!-- ==== STRATEGIC PARTNERSHIP ===== -->
   <div class="divider"></div>
   <div class="section" style="padding-bottom:40px">
     <h2 class="partner-title">Our Alliance with <span class="ac">Tata ClassEdge</span></h2>
@@ -1471,9 +1511,7 @@
     </p>
   </div>
 
-  <!-- ============================
-     OUR PURPOSE (Vision + Mission)
-============================ -->
+  <!-- ==== OUR PURPOSE (Vision + Mission) ===== -->
   <div class="divider"></div>
   <div class="section">
     <div class="vm-grid" style="margin-bottom:0;padding-bottom:40px;padding-top:40px">
@@ -1482,7 +1520,8 @@
         <div class="circle1"></div>
         <div class="circle2"></div>
         <div class="inner">
-          <div class="vision-chip">🔭 Our Vision</div>
+          <div class="vision-chip"><span class="material-symbols-outlined" style="font-size:16px">visibility</span> Our
+            Vision</div>
           <p class="vision-text">Nurturing a generation of <mark>'change agents'</mark> who strive to better their lives
             and the world around them.</p>
           <div class="hover-hint">
@@ -1495,10 +1534,12 @@
         <div class="tilt-glow"></div>
         <div class="circle"></div>
         <div class="inner">
-          <div class="mission-chip">🎯 Mission</div>
+          <div class="mission-chip"><span class="material-symbols-outlined" style="font-size:16px">track_changes</span>
+            Mission</div>
           <p class="mission-text">Nurturing <span class="accent">1 million school children</span> with an
             entrepreneurial mindset by <span class="accent">2030.</span></p>
-          <div class="hover-hint">67% of the way there ✦</div>
+          <div class="hover-hint">67% of the way there <span class="material-symbols-outlined"
+              style="font-size:14px">star</span></div>
         </div>
         <div class="progress-wrap">
           <div class="progress-labels"><span>2015</span><span>2030</span></div>
@@ -1511,48 +1552,41 @@
     </div>
   </div>
 
-  <!-- ============================
-     TIMELINE
-============================ -->
+  <!-- ==== TIMELINE — HORIZONTAL SCROLL ===== -->
   <div class="divider"></div>
-  <div class="section-last">
-    <div class="tl-header">
-      <h2 class="tl-title">A Decade of <span>Impact</span></h2>
+  <section class="hs-section">
+    <div class="hs-heading-wrapper">
+      <h2 class="hs-heading">A Decade of <span>Impact</span></h2>
+      <p class="hs-sub">2015 — 2025 · Scroll or use arrows to explore</p>
     </div>
 
-    <div class="tl-body">
-      <div class="year-rail">
-        <div class="year-rail-line"></div>
-        <div id="year-nav"></div>
-      </div>
-      <div class="content-pane">
-        <div class="slide-viewport" id="slide-viewport"></div>
-        <div class="tl-footer">
-          <div>
-            <div class="tl-counter" id="tl-counter"></div>
-            <div class="scroll-tip">Scroll over timeline · use arrows to navigate</div>
-          </div>
-          <div class="arr-wrap">
-            <button class="arr-btn" id="btn-prev" onclick="go(-1)">▲</button>
-            <button class="arr-btn" id="btn-next" onclick="go(1)">▼</button>
-          </div>
-        </div>
+    <div class="hs-scroll-container">
+      <div class="hs-track" id="hsTrack"></div>
+    </div>
+
+    <div class="hs-progress-wrapper">
+      <div class="hs-progress-bar" id="hsProgressBar">
+        <div class="hs-progress-line"></div>
+        <div class="hs-progress-fill" id="hsProgressFill"></div>
       </div>
     </div>
-  </div>
 
-  <!-- ============================
-     TEAM SECTION
-============================ -->
+    <div class="hs-nav">
+      <button class="hs-nav-btn" id="hsPrev">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </button>
+      <button class="hs-nav-btn" id="hsNext">
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ==== TEAM SECTION ===== -->
   <div class="divider"></div>
   <div class="team-wrapper">
 
-    <div class="team-section-header">
-      <h1 class="section-heading">Meet the <span>Team</span></h1>
-      <p class="section-sub">
-        The people behind the mission —
-        <strong>dedicated, driven, and passionate</strong> about transforming education.
-      </p>
+    <div class="team-section-header" style="text-align:center;">
+      <h1 class="section-heading"><span>Team</span> <span style="color:#e5a93e;">ENpower</span></h1>
     </div>
 
     <div class="main-tabs" id="mainTabs"></div>
@@ -1569,9 +1603,7 @@
   <!-- Footer will be loaded here -->
   <div id="footer-placeholder"></div>
 
-  <!-- ============================
-     SCRIPTS
-============================ -->
+  <!-- ==== SCRIPTS ===== -->
   <script>
     /* ==========================================================
        LOAD HEADER AND FOOTER
@@ -1718,10 +1750,10 @@
   <script>
     /* ---- Slideshow ---- */
     const slides = [
-      { label: "Team", emoji: "👩‍🏫", bg: "linear-gradient(135deg,#6c32a8,#4f46e5)" },
-      { label: "Students", emoji: "🧑‍💻", bg: "linear-gradient(135deg,#0ea5e9,#6366f1)" },
-      { label: "Trainers", emoji: "🎓", bg: "linear-gradient(135deg,#059669,#0ea5e9)" },
-      { label: "Events", emoji: "🚀", bg: "linear-gradient(135deg,#ec4899,#6c32a8)" },
+      { label: "Team", img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop", bg: "linear-gradient(135deg,#6c32a8,#8b4fc7)" },
+      { label: "Students", img: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&h=400&fit=crop", bg: "linear-gradient(135deg,#e5a93e,#6c32a8)" },
+      { label: "Trainers", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop", bg: "linear-gradient(135deg,#6c32a8,#e5a93e)" },
+      { label: "Events", img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop", bg: "linear-gradient(135deg,#e5a93e,#d4922e)" },
     ];
     let slideCur = 0;
     let slideTimer = setInterval(() => move(1), 3000);
@@ -1737,21 +1769,16 @@
         `<button class="tab-btn ${i === slideCur ? "active" : ""}" onclick="goSlide(${i})">${sl.label}</button>`
       ).join("");
       document.getElementById("slide-wrap").innerHTML = `
-    <div class="slide-card" style="background:${s.bg}">
-      <div class="orb1"></div><div class="orb2"></div>
-      <div class="slide-emoji">${s.emoji}</div>
-      <div class="slide-label">${s.label}</div>
-      <div class="dots">
-        ${slides.map((_, i) => `<button class="dot ${i === slideCur ? "active" : ""}" style="width:${i === slideCur ? 22 : 8}px" onclick="goSlide(${i})"></button>`).join("")}
-      </div>
+    <div class="slide-card" style="background:none;">
+      <img src="${s.img}" alt="${s.label}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:inherit;">
     </div>`;
     }
     renderSlide();
 
-    /* ---- Timeline ---- */
+    /* ---- Timeline — Horizontal Scroll ---- */
     const timeline = [
       {
-        year: "2025", color: "#6c32a8", light: "#f5f3ff", events: [
+        year: "2025", color: "#6c32a8", light: "#f6f0fa", events: [
           { title: "Alliance with Tata ClassEdge Ltd.", desc: "Tata ClassEdge took an equity stake in ENpower to bring entrepreneurship and future skills to schools across India." },
           { title: "L&T–ENpower Young Innovators Program", desc: "Expanded footprint to 90 government schools & set up E-cell across 34 schools where students conducted Kitaab Bazaar — a sales simulation of pitching Amar Chitra Katha Books." },
           { title: "YUVA Unstoppable STEM Program", desc: "First time computer users (students) learned coding, physical computing, and app development through project-based innovation." },
@@ -1762,7 +1789,7 @@
         ]
       },
       {
-        year: "2024", color: "#4f46e5", light: "#eef2ff", events: [
+        year: "2024", color: "#e5a93e", light: "#fef8eb", events: [
           { title: "Manipal Foundation Entrepreneurship Program", desc: "Students identify real problems and build solutions while developing critical thinking and problem-solving skills." },
           { title: "Salaam Bombay Foundation", desc: "Underserved students turn passions into entrepreneurial ventures." },
           { title: "Udaan Foundation", desc: "Youth developed ventures, prototypes, and go-to-market strategies with mentorship support." },
@@ -1772,7 +1799,7 @@
         ]
       },
       {
-        year: "2023", color: "#0ea5e9", light: "#e0f2fe", events: [
+        year: "2023", color: "#6c32a8", light: "#f6f0fa", events: [
           { title: "Swajivi Maharashtra Phase II", desc: "Reached 5,064 students across 44 schools in four districts, strengthening entrepreneurship and innovation learning in government schools." },
           { title: "New CSR Partnerships", desc: "Collaborated with L&T and Aramco to empower students through technology, innovation, and entrepreneurship programs." },
           { title: "Bayer–ENpower ATL Enhancement", desc: "Added 50 all-girls schools, introducing rural students to design thinking, technology, and entrepreneurship." },
@@ -1780,124 +1807,201 @@
         ]
       },
       {
-        year: "2022", color: "#059669", light: "#d1fae5", events: [
+        year: "2022", color: "#e5a93e", light: "#fef8eb", events: [
           { title: "CSR Partnerships", desc: "With FUEL, Bayer, Hafele, and IndusInd Bank, ENpower enabled experiential learning in design thinking, technology, and entrepreneurship." },
           { title: "IFT Season #4", desc: "8,526 participants competed as investors selected young social techpreneurs with ideas to reimagine India." },
           { title: "Government Partnership", desc: "Launched Swajivi with the Government of Maharashtra and SCERT to introduce entrepreneurship curriculum in government schools." },
         ]
       },
       {
-        year: "2021", color: "#d97706", light: "#fef3c7", events: [
+        year: "2021", color: "#6c32a8", light: "#f6f0fa", events: [
           { title: "IFT Season #3", desc: "A virtual competition during COVID-19. Over 7200 students from 595 schools across 252 cities with global partners Microsoft & Snapchat." },
         ]
       },
       {
-        year: "2020", color: "#db2777", light: "#fce7f3", events: [
+        year: "2020", color: "#e5a93e", light: "#fef8eb", events: [
           { title: "IFT Season #2", desc: "7000+ participants across 330 schools from 130+ cities. TOP 24 teams in a grand finale with UN GCNI & Atal Innovation Mission." },
         ]
       },
       {
-        year: "2019", color: "#6c32a8", light: "#f5f3ff", events: [
+        year: "2019", color: "#6c32a8", light: "#f6f0fa", events: [
           { title: "IFT Season #1", desc: "India's first-ever entrepreneurship search & mentoring platform. 3300+ students across 52 cities. TOP 3 at the UNGCNI National Conference in Mumbai." },
         ]
       },
       {
-        year: "2018", color: "#4f46e5", light: "#eef2ff", events: [
+        year: "2018", color: "#e5a93e", light: "#fef8eb", events: [
           { title: "Expanding Footprint Across Mumbai", desc: "ENpower's entrepreneurship programs scaled up across leading schools in Mumbai." },
         ]
       },
       {
-        year: "2017", color: "#0ea5e9", light: "#e0f2fe", events: [
+        year: "2017", color: "#6c32a8", light: "#f6f0fa", events: [
           { title: "Launched MYOB", desc: "Launched a structured & experiential entrepreneurship learning model across Gujarat & Maharashtra — Mind Your Own Business." },
         ]
       },
       {
-        year: "2016", color: "#059669", light: "#d1fae5", events: [
+        year: "2016", color: "#e5a93e", light: "#fef8eb", events: [
           { title: "Empowering Schools in Mumbai", desc: "Started empowering schools in Mumbai with structured & experiential entrepreneurship learning programs." },
         ]
       },
       {
-        year: "2015", color: "#d97706", light: "#fef3c7", events: [
-          { title: "We Started Our Journey! 🎉", desc: "Enlearning Skill Development Limited was founded." },
+        year: "2015", color: "#6c32a8", light: "#f6f0fa", events: [
+          { title: "We Started Our Journey!", desc: "Enlearning Skill Development Limited was founded." },
         ]
       },
     ];
 
-    let tlCur = 0, busy = false;
-    function pad(n) { return String(n).padStart(2, "0") }
+    (function () {
+      var track = document.getElementById('hsTrack');
+      var section = document.querySelector('.hs-section');
+      var totalSlides = timeline.length;
+      var lastActiveIndex = -1;
 
-    document.getElementById("year-nav").innerHTML = timeline.map((t, i) => `
-  <button class="year-btn" onclick="goTo(${i})" style="--yc:${t.color};--yl:${t.light}">
-    <div class="year-dot" id="dot-${i}" style="--yc:${t.color};--yl:${t.light}"><div class="year-dot-inner"></div></div>
-    <span class="year-label" id="lbl-${i}" style="--yc:${t.color}">${t.year}</span>
-  </button>`).join("");
+      // Build slides
+      timeline.forEach(function (item, idx) {
+        var slide = document.createElement('div');
+        slide.className = 'hs-slide';
 
-    document.getElementById("slide-viewport").innerHTML = timeline.map((t, i) => `
-  <div class="year-panel" id="panel-${i}">
-    <div class="year-badge-row">
-      <div class="year-badge" style="background:linear-gradient(135deg,${t.color},${t.color}cc)">${t.year}</div>
-      <div class="year-line" style="background:linear-gradient(90deg,${t.color}40,transparent)"></div>
-    </div>
-    <div>
-      ${t.events.map((ev, j) => `
-        <div class="event-item">
-          <div class="event-num" style="background:${t.light};color:${t.color}">${pad(j + 1)}</div>
-          <div><div class="event-title">${ev.title}</div><div class="event-desc">${ev.desc}</div></div>
-        </div>`).join("")}
-    </div>
-  </div>`).join("");
+        var eventsHtml = '';
+        item.events.forEach(function (ev) {
+          eventsHtml += '<div class="hs-event-card" style="--card-color:' + item.color + '">' +
+            '<div class="hs-event-title">' + ev.title + '</div>' +
+            '<div class="hs-event-desc">' + ev.desc + '</div>' +
+            '</div>';
+        });
 
-    function updateTL() {
-      timeline.forEach((_, i) => {
-        document.getElementById("dot-" + i).classList.toggle("active", i === tlCur);
-        document.getElementById("lbl-" + i).classList.toggle("active", i === tlCur);
+        var colClass = '';
+        if (item.events.length === 1) colClass = ' hs-cols-1';
+        else if (item.events.length === 3) colClass = ' hs-cols-3';
+
+        slide.innerHTML =
+          '<div class="hs-slide-inner">' +
+          '  <div class="hs-year-block">' +
+          '    <div class="hs-year-watermark" style="color:' + item.color + '">' + item.year + '</div>' +
+          '    <div class="hs-year-label" style="color:' + item.color + '">' + item.year + '</div>' +
+          '    <div class="hs-year-count"><strong>' + item.events.length + '</strong> milestone' + (item.events.length > 1 ? 's' : '') + ' this year</div>' +
+          '  </div>' +
+          '  <div class="hs-events-list' + colClass + '">' + eventsHtml + '</div>' +
+          '</div>';
+
+        track.appendChild(slide);
       });
-      document.getElementById("btn-prev").disabled = tlCur === 0;
-      document.getElementById("btn-next").disabled = tlCur === timeline.length - 1;
-      document.getElementById("tl-counter").textContent = (tlCur + 1) + " / " + timeline.length;
-    }
 
-    function goTo(idx, dir) {
-      if (idx === tlCur || busy) return;
-      busy = true;
-      const prev = document.getElementById("panel-" + tlCur);
-      const next = document.getElementById("panel-" + idx);
-      const down = dir !== undefined ? dir > 0 : idx > tlCur;
-      prev.classList.remove("active");
-      prev.classList.add(down ? "exit-up" : "exit-down");
-      next.style.transform = down ? "translateY(32px)" : "translateY(-32px)";
-      next.style.opacity = "0";
-      next.style.position = "absolute";
-      requestAnimationFrame(() => requestAnimationFrame(() => {
-        next.style.transform = ""; next.style.opacity = ""; next.style.position = "";
-        next.classList.add("active");
-        tlCur = idx; updateTL();
-        setTimeout(() => { prev.classList.remove("exit-up", "exit-down"); busy = false; }, 500);
-      }));
-    }
+      // Apply card border colors
+      track.querySelectorAll('.hs-event-card').forEach(function (card) {
+        card.style.setProperty('border-left', '4px solid ' + card.style.getPropertyValue('--card-color'));
+      });
 
-    function go(dir) { goTo(Math.max(0, Math.min(tlCur + dir, timeline.length - 1)), dir); }
+      // Build progress dots
+      var progressBar = document.getElementById('hsProgressBar');
+      timeline.forEach(function (item, idx) {
+        var dot = document.createElement('div');
+        dot.className = 'hs-year-dot' + (idx === 0 ? ' active' : '');
+        dot.innerHTML = '<span class="hs-year-dot-label">' + item.year + '</span>';
+        dot.addEventListener('click', function () {
+          // Snap scroll to the clicked year
+          var targetProgress = idx / (totalSlides - 1);
+          var st = ScrollTrigger.getAll().find(function (s) { return s.trigger === section; });
+          if (st) {
+            gsap.to(window, {
+              scrollTo: st.start + (st.end - st.start) * targetProgress,
+              duration: 0.8,
+              ease: 'power3.out'
+            });
+          }
+        });
+        progressBar.appendChild(dot);
+      });
 
-    const tlWrap = document.querySelector(".section-last");
-    let wCool = false;
-    tlWrap.addEventListener("wheel", e => {
-      e.preventDefault();
-      if (wCool) return;
-      wCool = true; go(e.deltaY > 0 ? 1 : -1);
-      setTimeout(() => wCool = false, 650);
-    }, { passive: false });
+      function updateProgress(progress) {
+        var fill = document.getElementById('hsProgressFill');
+        fill.style.width = (progress * 100) + '%';
 
-    let ty = null;
-    tlWrap.addEventListener("touchstart", e => { ty = e.touches[0].clientY });
-    tlWrap.addEventListener("touchend", e => {
-      if (ty === null) return;
-      const d = ty - e.changedTouches[0].clientY;
-      if (Math.abs(d) > 40) go(d > 0 ? 1 : -1);
-      ty = null;
-    });
+        var currentIndex = Math.round(progress * (totalSlides - 1));
+        var dots = progressBar.querySelectorAll('.hs-year-dot');
+        dots.forEach(function (d, i) {
+          d.classList.toggle('active', i === currentIndex);
+        });
 
-    document.getElementById("panel-0").classList.add("active");
-    updateTL();
+        document.getElementById('hsPrev').disabled = currentIndex === 0;
+        document.getElementById('hsNext').disabled = currentIndex === totalSlides - 1;
+
+        // Animate cards when slide changes
+        if (currentIndex !== lastActiveIndex) {
+          lastActiveIndex = currentIndex;
+          animateSlide(currentIndex);
+        }
+      }
+
+      function animateSlide(idx) {
+        var slide = track.children[idx];
+        if (!slide) return;
+        var cards = slide.querySelectorAll('.hs-event-card');
+        gsap.fromTo(slide.querySelector('.hs-year-label'),
+          { opacity: 0, x: -40 },
+          { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out' }
+        );
+        gsap.fromTo(slide.querySelector('.hs-year-watermark'),
+          { opacity: 0, scale: 0.8 },
+          { opacity: 0.06, scale: 1, duration: 0.8, ease: 'power2.out' }
+        );
+        cards.forEach(function (card, i) {
+          gsap.fromTo(card,
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 0.5, delay: i * 0.1, ease: 'power2.out' }
+          );
+        });
+      }
+
+      // ScrollTrigger: pin section + scrub track horizontally
+      gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+      var scrollTween = gsap.to(track, {
+        x: function () { return -(track.scrollWidth - window.innerWidth); },
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          pin: true,
+          scrub: 1,
+          snap: 1 / (totalSlides - 1),
+          end: function () { return '+=' + (track.scrollWidth - window.innerWidth); },
+          onUpdate: function (self) {
+            updateProgress(self.progress);
+          },
+          invalidateOnRefresh: true
+        }
+      });
+
+      // Nav button clicks — scroll page to snap to prev/next slide
+      document.getElementById('hsPrev').addEventListener('click', function () {
+        var currentIndex = Math.round((scrollTween.scrollTrigger.progress) * (totalSlides - 1));
+        if (currentIndex > 0) {
+          var targetProgress = (currentIndex - 1) / (totalSlides - 1);
+          var st = scrollTween.scrollTrigger;
+          gsap.to(window, {
+            scrollTo: st.start + (st.end - st.start) * targetProgress,
+            duration: 0.8,
+            ease: 'power3.out'
+          });
+        }
+      });
+      document.getElementById('hsNext').addEventListener('click', function () {
+        var currentIndex = Math.round((scrollTween.scrollTrigger.progress) * (totalSlides - 1));
+        if (currentIndex < totalSlides - 1) {
+          var targetProgress = (currentIndex + 1) / (totalSlides - 1);
+          var st = scrollTween.scrollTrigger;
+          gsap.to(window, {
+            scrollTo: st.start + (st.end - st.start) * targetProgress,
+            duration: 0.8,
+            ease: 'power3.out'
+          });
+        }
+      });
+
+      // Initial state
+      updateProgress(0);
+      animateSlide(0);
+    })();
+
     setTimeout(() => document.getElementById("prog-fill").style.width = "67%", 400);
 
     /* ---- 3D Tilt ---- */
@@ -1927,16 +2031,16 @@
     initTilt(document.querySelector(".mission-card"), { max: 10, glow: ".tilt-glow", glowColor: "rgba(124,58,237,0.09)" });
 
     /* ---- Team Section ---- */
-    const IMG = {
-      m1: 'YOUR_PHOTO_URL', /* Sushil Mungekar */
-      m2: 'YOUR_PHOTO_URL', /* Arvind Narayanan */
-      m3: 'YOUR_PHOTO_URL', /* Vishal Shetty, Vishal Vadhiyar, Sushrut Mahajan, Dnyaneshwar Maske */
-      m4: 'YOUR_PHOTO_URL', /* Swarnim Malik, Rayaan, Akash Naik, Prashant Gaikwad, Mohd Imran */
-      f1: 'YOUR_PHOTO_URL', /* Shubhangini, Tiara, Vasudha, Shyna, Reshmi */
-      f2: 'YOUR_PHOTO_URL', /* Deepal, Riddhima, Prapti, Virajaji */
-      f3: 'YOUR_PHOTO_URL', /* Pooja, Samruddhi, Shreya, Prajakta */
-      f4: 'YOUR_PHOTO_URL', /* Sharwari, Pinky, Ritu, Sayali */
-    };
+    const placeholderColors = ['6c32a8', '3d2549', 'e5a93e', '8b4fc7', 'b8860b'];
+    function getPlaceholder(name) {
+      var initials = name.split(' ').map(function (w) { return w[0]; }).join('').substring(0, 2);
+      var colorIdx = 0;
+      for (var i = 0; i < name.length; i++) colorIdx += name.charCodeAt(i);
+      var bg = placeholderColors[colorIdx % placeholderColors.length];
+      return 'https://ui-avatars.com/api/?name=' + encodeURIComponent(initials) + '&background=' + bg + '&color=fff&size=200&font-size=0.4&bold=true';
+    }
+    // Dummy IMG object to prevent reference errors — actual images come from getPlaceholder()
+    const IMG = { m1: '', m2: '', m3: '', m4: '', f1: '', f2: '', f3: '', f4: '' };
 
     const coreTeam = [
       { name: 'Sushil Mungekar', designation: 'Founder & CEO', img: IMG.m1 },
@@ -2003,7 +2107,7 @@
     const coreCard = m => `
   <div class="core-card">
     <div class="core-card__img-wrap">
-      <img src="${m.img}" alt="${m.name}" class="core-card__img" onerror="this.style.display='none'">
+      <img src="${getPlaceholder(m.name)}" alt="${m.name}" class="core-card__img" onerror="this.style.display='none'">
       <div class="core-card__overlay"></div>
     </div>
     <div class="core-card__body">
@@ -2014,7 +2118,7 @@
 
     const miniCard = m => `
   <div class="mini-card">
-    <img src="${m.img}" alt="${m.name}" class="mini-card__img" onerror="this.style.display='none'">
+    <img src="${getPlaceholder(m.name)}" alt="${m.name}" class="mini-card__img" onerror="this.style.display='none'">
     <div class="mini-card__body">
       <p class="mini-card__name">${m.name}</p>
       <p class="mini-card__designation">${m.designation}</p>
@@ -2026,7 +2130,7 @@
     <div class="advisory-card__circle advisory-card__circle--1"></div>
     <div class="advisory-card__circle advisory-card__circle--2"></div>
     <div class="advisory-card__top">
-      <img src="${a.img}" alt="${a.name}" class="advisory-card__img" onerror="this.style.display='none'">
+      <img src="${getPlaceholder(a.name)}" alt="${a.name}" class="advisory-card__img" onerror="this.style.display='none'">
       <div>
         <span class="advisory-card__chip">${a.role}</span>
         <h3 class="advisory-card__name">${a.name}</h3>

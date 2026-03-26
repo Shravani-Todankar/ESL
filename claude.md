@@ -60,16 +60,17 @@ ENpower India's first comprehensive **entrepreneurship learning ecosystem for sc
   - AI Readiness Assessment
   - Final CTA section
 
-### **5. Impact Programs (impact-programs.html)** 🆕
+### **5. Impact Programs (impact-programs.html)** ✨ *Major update March 26*
 - **Focus:** Scalable CSR partnerships and livelihood empowerment
-- **Key Components:**
-  - Hero section with animated wave canvas
-  - Multi-line heading with decorative pill images
-  - Sparkle star animations
-  - Dual marquee brand showcase:
-    - Row 1: CSR partners (Microsoft, Snapchat, Kotak, L&T, NITI Aayog, etc.)
-    - Row 2: School partners (JBCN, DY Patil, SIES, Garodia, Mount Litera, etc.)
-  - Infinite scroll animations (LTR and RTL)
+- **Key Sections:**
+  - Hero section with animated wave canvas, pills, sparkle stars
+  - Dual marquee brand showcase (CSR + School partners)
+  - Counter section: 4 animated metric cards with gradient backgrounds
+  - Partner section: "Partner with ENpower" masonry layout, 4 program cards with line grid pattern
+  - Idea Gallery: 9 student innovation cards, 3-column grid, pagination (6/page)
+  - Testimonial Slider: 4 testimonials with auto-rotation (5s), navigation arrows, pagination dots, portrait image, fade transitions
+  - Final CTA section: "Ready to Get Started?" with subheading, button, image grid
+- **Class prefixes:** `ip-` (hero/brands), `ip-counter-`, `ip-partner-`, `ip-gallery-`, `ip-testimonial-`, `ip-final-cta-`
 
 ### **6. Training Academy (training-academy.html)** 🆕
 - **Focus:** Professional development & educator certification
@@ -257,9 +258,13 @@ ENpower-Main/
 ├── til.html                   # Tech Innovation Labs page (80,658 bytes)
 ├── csl.html                   # Composite Skills Lab page (73,462 bytes)
 ├── fsl.html                   # Future Skills Lab page (59,577 bytes)
-├── impact-programs.html       # CSR Partnerships & Impact Programs 🆕
+├── impact-programs.html       # CSR Partnerships & Impact Programs (major update March 25)
 ├── training-academy.html      # Educator Certification & Training 🆕
 ├── about-us.html              # About Us page 🆕
+├── test-counter.html          # Standalone counter/metrics component 🆕
+├── idea-gallery-grid.html     # Standalone idea gallery grid component 🆕
+├── testimonials.html          # Standalone testimonial slider component 🆕
+├── timeline-options.html      # Timeline design options (horizontal scroll + cinematic) 🆕
 ├── skill-passport-section.html # Skill Passport standalone component
 ├── home.html                  # Alternate home page (160,004 bytes)
 ├── header.html                # Shared header component (12,847 bytes)
@@ -293,30 +298,107 @@ Mumbai - 400037
 
 ## 📝 Recent Updates
 
-### Impact Programs Page (impact-programs.html) - Created March 24, 2026
-**New Page for CSR Partnerships & Social Impact:**
+### Impact Programs Page (impact-programs.html) - Update March 26, 2026
+**Added 2 new sections:**
+- **Testimonial Slider Section (`ip-testimonial-`):**
+  - 4 testimonials with quote, author name, role, portrait image
+  - Auto-rotation every 5 seconds
+  - Navigation arrows (prev/next) and pagination dots
+  - Fade transition on slide change (0.5s opacity)
+  - "Empowered Teachers." heading with italic highlight
+  - Portrait with 3D tilt-rotate bg, grayscale-to-color hover
+  - Background strip + blur blob decorations
+- **Final CTA Section (`ip-final-cta-`):**
+  - Subheading with Space Grotesk, "Connect With Us" button
+  - 2-column grid with image (assets/Group 47.png)
+  - Light purple container with border (#6b32a820)
+  - Responsive: single column on mobile
+
+### Testimonials Page (testimonials.html) - Created March 26, 2026
+**Standalone testimonial slider component:**
+- Converted from Tailwind CSS to Bootstrap + custom CSS
+- All classes use `ts-` prefix
+- 4 testimonials with auto-rotation, arrows, dots
+- Background decorations (strip + blur blob)
+- Portrait card with rotate/scale hover effect
+
+### Timeline Options Page (timeline-options.html) - Created March 26, 2026
+**Two timeline design prototypes for About Us page:**
+- **Option 1 — Horizontal Scroll:** Full-width slides per year, large watermark year numbers, progress bar with year dots, GSAP slide animations, keyboard arrow support
+- **Option 6 — Scroll-Triggered Cinematic:** Dark bg (#3d2549), giant 28vw watermark years, scroll-triggered stagger animations, floating particles, fixed side navigation dots, per-event fade-in on scroll
+
+### About Us Page (about-us.html) - Updated March 26, 2026
+**Color standardization & icon updates:**
+- Replaced all non-standard purples (#6d28d9, #4c1d95, #4f46e5, #6366f1, #a855f7) with `#6c32a8`
+- Replaced dark text colors (#1e1b4b, #3b0764) with `#3d2549`
+- Updated light purple tints to match palette (#f5f3ff→#f6f0fa, #ede9fe→#e8ddf2, #ddd6fe→#d4c6e8)
+- Added yellow accent `#e5a93e` to timeline (alternating purple/yellow), slideshow gradients, progress bar
+- Vision card: Changed from dark purple gradient to `linear-gradient(135deg, #efdeff, #fffce3)` with dark text
+- Replaced emojis with Material Symbols Outlined: 🔭→visibility, 🎯→track_changes, ✦→star
+
+### Impact Programs Page (impact-programs.html) - Major Update March 25, 2026
+**Full page build with 4 sections:**
 - **Hero Section:**
   - Animated wave canvas background (matching site theme)
-  - Multi-line heading layout:
-    - "Future Skills, Entrepreneurship &"
-    - "Livelihood Empowerment at Scale"
+  - Multi-line heading layout: "Future Skills, Entrepreneurship & Livelihood Empowerment at Scale"
   - Two decorative pill images positioned asymmetrically
   - Five sparkle star decorations with pulse animations
   - Subheading: "Building equitable future-ready learning systems"
   - Dual CTA buttons: "Explore Partnership" and "Talk To Us"
-- **Brands Section:**
+- **Brands Section (`ip-brands-`):**
   - Dual marquee showcase with infinite scroll
-  - Row 1 (LTR scroll): 21+ CSR partners including Microsoft, Snapchat, Kotak Mahindra Bank, L&T, NITI Aayog AIM, Axis Bank, HSBC, Tata Capital, IndusInd, Bayer, UN Global Compact
-  - Row 2 (RTL scroll): 15+ school partners including JBCN, DY Patil Group, SIES, Garodia International, Mount Litera, Shishuvan, Andhra Education Society
+  - Row 1 (LTR scroll): 21+ CSR partners
+  - Row 2 (RTL scroll): 15+ school partners
   - Grayscale-to-color hover effect on logos
-  - Smooth animations (30s duration)
+- **Counter Section (`ip-counter-`):**
+  - 4 metric cards in responsive grid (1→2→4 columns)
+  - Cards with gradient background (`linear-gradient(135deg, #efdeff, #fffce3)`)
+  - Counter animation (0 to target number) with easeOutQuart easing
+  - IntersectionObserver triggers animation on scroll into view
+  - Staggered card layout on desktop (cards 2 & 4 offset)
+  - Faint SVG connectivity lines in background
+  - Material Symbols icons with hover fill effect
+  - Hidden detail text revealed on card hover
+- **Partner Section (`ip-partner-`):**
+  - "Partner with ENpower" heading with gradient text
+  - 2-column masonry layout with 4 program cards:
+    1. Entrepreneurship & Livelihood Program
+    2. I.D.E.A Labs
+    3. Idea-To-Venture Platform
+    4. Design Thinking For Educators
+  - Line grid pattern background on all cards
+  - Cards with varying min-heights for masonry effect
+  - Hover effects (translateY, box-shadow, border color change)
+- **Idea Gallery Section (`ip-gallery-`):**
+  - "Idea Gallery" centered heading (52px, Space Grotesk)
+  - 9 student innovation cards in 3-column responsive grid
+  - Image cards with tag, name, description, category, arrow
+  - Pagination (6 cards per page) with prev/next buttons
+  - Fade-in animation on page switch
+  - Student innovations: Shubham (SCRATCH), Prathamesh (Seed Sowing), Anubhav (Secura), Atulya (E-cycle), Shraddhangini & Saloni (Women's Safety), Monica (Smart Walking Stick), Paderu (Irrigation), Dnyneshwari (Ambulance Alert), Utkarsha & Pushpak (Chilli Powder)
 - **Technical Features:**
-  - Class prefix: `ip-` (impact-programs)
-  - GSAP scroll animations
-  - Floating pill animations (yoyo effect)
-  - Fade-in entrance animations for text elements
-  - Hero fade-out on scroll
+  - Class prefixes: `ip-` (hero/brands), `ip-counter-`, `ip-partner-`, `ip-gallery-`
+  - GSAP scroll animations + IntersectionObserver for counters
   - Responsive design with mobile optimization
+
+### Test Counter Page (test-counter.html) - Created March 25, 2026
+**Standalone counter/metrics component:**
+- Converted from Tailwind CSS to Bootstrap + custom CSS
+- 4 metric cards with gradient backgrounds
+- Counter animation with easeOutQuart easing
+- SVG connectivity lines (faint)
+- All classes use `tc-` prefix
+- Used as prototype before integrating into impact-programs page
+
+### Idea Gallery Grid Page (idea-gallery-grid.html) - Created March 25, 2026
+**Standalone idea gallery component:**
+- 9 student innovation cards with images
+- 3-column responsive grid layout
+- Pagination (6 per page)
+- Fonts: Space Grotesk (headings), Poppins (body)
+- Colors: Background #f6f0fa, Purple #6c32a8
+- No eyebrow labels (clean design)
+- Used as prototype before integrating into impact-programs page
 
 ### Training Academy Page (training-academy.html) - Created March 24, 2026
 **New Page for Educator Certification & Professional Development:**
@@ -460,4 +542,4 @@ Mumbai - 400037
 
 ---
 
-**Last Updated:** March 24, 2026
+**Last Updated:** March 26, 2026

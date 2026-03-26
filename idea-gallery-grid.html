@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Idea Gallery | Scholar Violet Innovation Lab</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ===== Reset & Base ===== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #f6f0fa;
+      font-family: 'Poppins', sans-serif;
+      color: #64748b;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* ===== Main Container ===== */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 64px 32px;
+    }
+
+    /* ===== Section Heading ===== */
+    .section-header {
+      margin-bottom: 64px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: #6c32a8;
+      line-height: 1.2;
+    }
+
+    .section-description {
+      margin-top: 16px;
+      font-size: 18px;
+      font-weight: 400;
+      color: #64748b;
+      max-width: 640px;
+      line-height: 1.6;
+    }
+
+    /* ===== Grid Gallery ===== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* ===== Card ===== */
+    .card {
+      background: #ffffff;
+      border: 1.5px solid #e2d6f0;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 20px 40px -12px rgba(124, 58, 237, 0.08);
+    }
+
+    .card-image-wrapper {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover .card-image {
+      transform: scale(1.05);
+    }
+
+    .card-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: #f6f0fa;
+      color: #6c32a8;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .card-body {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1e1b4b;
+      margin-bottom: 8px;
+    }
+
+    .card-description {
+      font-weight: 600;
+      color: #64748b;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .card-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-category {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #94a3b8;
+    }
+
+    .card-arrow {
+      color: #6c32a8;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ===== Pagination ===== */
+    .pagination {
+      margin-top: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .pagination-btn {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      border: 1.5px solid #e2d6f0;
+      background: transparent;
+      color: #94a3b8;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .pagination-btn:hover {
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      color: #6c32a8;
+    }
+
+    .page-numbers {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .page-num {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      background: transparent;
+      color: #64748b;
+      font-size: 14px;
+      user-select: none;
+    }
+
+    .page-num:hover {
+      background: #e5d5f5;
+    }
+
+    .page-num.active {
+      background: #6c32a8;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(99, 14, 212, 0.3);
+    }
+
+    /* ===== Animation ===== */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.4s ease forwards;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <!-- Section Heading -->
+    <header class="section-header">
+      <h1 class="section-title">Idea Gallery</h1>
+    </header>
+
+    <!-- Grid Gallery -->
+    <div id="gallery-grid" class="gallery-grid">
+
+      <!-- Card 1: Shubham Chauhan -->
+      <article class="card">
+        <div class="card-image-wrapper">
+          <img alt="Scratch game programming interface" class="card-image"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4pR1mn14K25txoZ5mHHQQ0_aNy_64ef9jVLzFICDyUIs50LfTsPbAbMRSjepMOqKF6jBW2b30W-RnmwxLNjolqS0aWG8W6pQmeSoxGYnrgFm_fyYFPiXYyOaTPOQZ_jttUSwoWlG3AvWbPoZ7rovyp9FzBX3QGAe5TN_JQ2sMx6eJKRS1QHgV-w8foFHHOzegs6uARw_9Eot9Zkkh5G0vtnN4CwYUispq2C6xOV1IvuebF-pnqNXwoVThV9MlnX1k4jRXg0A7OQ" />
+          <span class="card-tag">Software</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-name">Shubham Chauhan</h3>
+          <p class="card-description">YUVA Unstoppable &amp; ENpower's STEM Innovation program has enabled Shubham
+            Chauhan from Class 7 of Nayka Kumar Shala to build his first game using MIT's SCRATCH program in just two
+            months.</p>
+          <div class="card-footer">
+            <span class="card-category">Scratch Project</span>
+            <span class="material-symbols-outlined card-arrow">arrow_forward</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: Prathamesh & Team -->
+      <article class="card">
+        <div class="card-image-wrapper">
+          <img alt="Mechanical seed sowing prototype" class="card-image"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLzUMbVcpwh8WsYPE468l7wbCNrN0FqLCIOmk9FCYif-FNV-FAlrMG3-rH7PELaLtTKA53RQVQxFo5b5KtgJxRtVlNUJGJTb1rbqsc61X5XnhH33lLG_BlJa2FqD1AmL41RtOlcyX7w6agYgS3sGh50iklMYOpAOvKWcfYcJnYuc8MHvpsdh6RIAZc4Zd6RcMQgCzIhqQaWabH5CYZZsbHpYElbXy1WfCn2wB5wT0DaIDA13pZXGy2REXbJwHTXfJs-NzBD4yVVQ" />
+          <span class="card-tag">Sustainability</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-name">Prathamesh &amp; Team</h3>
+          <p class="card-description">In Dharashiv, ATL students Prathamesh, Prasad &amp;
+            Shivam, supported by IndusInd Bank's Flagship CSR Initiative, created an Automatic Seed
+            Sowing Machine that completed successful field trials in soybean farms.</p>
+          <div class="card-footer">
+            <span class="card-category">AgriTech</span>
+            <span class="material-symbols-outlined card-arrow">arrow_forward</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: Anubhav Kumar -->
+      <article class="card">
+        <div class="card-image-wrapper">
+          <img alt="Digital security dashboard" class="card-image"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhs4ulc2OCSna8tVJpzHpA2Pm24pqX54ZFnltYqmYABu51vHEWFLt39V5PhDeTkHF7V4J5Wg_NmmoP79a_cTVU324DO6P0a_JIMKCBDhYcLXarw_3bGkrRyGiqc9JWP-rSpERyimiEA86dR6DGdWYIgg48z94AznHf1U7e9unsyyYwst7tg9KYTwVpQK2kS4fSmMN_wQOXnnEariwhhBsP6DCi-ug4RHLHn5h9g0G4RspA0evuIG_ma17ManZT1uPTzAOtRhHjkQ" />
+          <span class="card-tag">Security</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-name">Anubhav Kumar</h3>
+          <p class="card-description">Anubhav Kumar from Begusarai developed Secura, a fingerprint-ignition system
+            replacing bike keys, under IndusInd Bank's Flagship CSR initiative. Tested successfully, the affordable
+            device reduces theft and boosts safety for rural users.</p>
+          <div class="card-footer">
+            <span class="card-category">Cybersecurity</span>
+            <span class="material-symbols-outlined card-arrow">arrow_forward</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4: Atulya Bharti -->
+      <article class="card">
+        <div class="card-image-wrapper">
+          <img alt="Electric bicycle conversion kit" class="card-image"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY42wCpKXO8zaqpTygT2_hx3mKpajekaCV6YE71cwM5b0jC8JhnxqfVSSCOKMNmPP8Q7Y4LUHR-aHTwhHaRjns4wMhRkdDZUU_XAOaMTGZd5jk-bG5GDFXh5n67cag3BiS3AWdumS8kKux9RxIUuyn8MDiEftK5obxoI0yRr32813P9vSP8_4OGShL9rkwg_YpPo2T5_LDbMZxju9tIgNBPwLokTEyQT5O84VJ_4shcA_t5tsCHdTqlViVphTRptt24YD6njTcfQ" />
+          <span class="card-tag">Robotics</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-name">Atulya Bharti</h3>
+          <p class="card-description">Atulya Bharti from Begusarai presents her innovation 'Atulya's E-cycle' to the
+            Hon'ble Prime Minister at the 3rd NEP Anniversary in New Delhi.</p>
+          <div class="card-footer">
+            <span class="card-category">Green Mobility</span>
+            <span class="material-symbols-outlined card-arrow">arrow_forward</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 5: Shraddhangini & Saloni -->
+      <article class="card">
+        <div class="card-image-wrapper">
+          <img alt="Smartphone app interface for safety" class="card-image"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFpjO_mJz2UYUM4E1IwhBZlBwkOauU0TXz8ogim2As4xG6IEpDw_WZzDNrto3bAdMvZsXxVR9dhXsp70OEqunpixPio2KNc5y6q73aHr7MCLJVffh-3zis2IJMfVgtb7qcslOZyNetHY2mn0kW2yfBu97X3Esg0DZDkMnMs9L1SaLE5mSiNpkmzprGgwea139tnWbSahknzSojn8PffbgREDWevRh-XvIqYTSS7ICCfWQf17LBEDgla1XqfGzdFguzVBoP-gKbLg" />
+          <span class="card-tag">Software</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-name">Shraddhangini &amp; Saloni</h3>
+          <p class="card-description">Shraddhangini Jena &amp; Saloni Chaurasiya present 'Women's Safety Mobile App' at
+            the G20 Summit in Gujarat to Lok Sabha Member Smriti Irani, &amp; Gujarat CM Bhupendrabhai Patel.</p>
+          <div class="card-footer">
+            <span class="card-category">Social Impact</span>
+            <span class="material-symbols-outlined card-arrow">arrow_forward</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 6: Monica B -->
+      <article class="card">
+        <div class="card-image-wrapper">
+          <img alt="Smart walking stick sensor" class="card-image"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4nHA5Z3pXlhOCLvK2478LrQKI0TS0Rbg0CxzgQMKsPI7J6MtZovnMNw_G19ZWm_035Fl5D2jnIAoQOSjnYwUKz5Mx_qURPX7zdK1Lxd5_gf03VKUSTuLefKwXuhll5HXQHmUe9mJUT_GeXkDCp-3HUZvVebYkMEdnF8ScgWux115XqqPn1N4vW8sN8ayWDjzBSFaqVfwtO2NYsZ_NpwavSWCTIIsnZYpMCU0iCW4dkpIjOgmK-p_tzss2Fen13hAktUtqWZT65g" />
+          <span class="card-tag">Robotics</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-name">Monica B</h3>
+          <p class="card-description">Monica B from Karnataka showcases 'A Smart Walking Stick' at the Bayer-ENpower
+            Innovation Summit in Bangalore.</p>
+          <div class="card-footer">
+            <span class="card-category">Assistive Tech</span>
+            <span class="material-symbols-outlined card-arrow">arrow_forward</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 7: Paderu Students -->
+      <article class="card">
+        <div class="card-image-wrapper">
+          <img alt="Drip irrigation system" class="card-image"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1bRHUvms65sj9DSU1PN_-ro7hXnxIHWW-JajAWPCI2e2STEmRMyrTCQQkUaWFB-6Oamibeka7wPz9WX0Yo0TL6gbxUjcKlDCcXVyznAOLUMdT0_VSh56T507cNsMtkCfxlMx_Vtkw13Eyfk6l0rQqQSuHM1xkwgNd-7Ra90DMfb3cpqU0n7AjnJ6Rq-m72-lYSsRQLiQhFo4oCtI12PKSw2Pgm8bKkGWdVztkDbCRarravf5KXKiVybpC0vhO1qZKd0BVC4QIrA" />
+          <span class="card-tag">Sustainability</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-name">Paderu Students</h3>
+          <p class="card-description">Students from Paderu develop a water-conserving sensor-based irrigation system in
+            Andhra Pradesh.</p>
+          <div class="card-footer">
+            <span class="card-category">Environment</span>
+            <span class="material-symbols-outlined card-arrow">arrow_forward</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 8: Dnyneshwari Pawar -->
+      <article class="card">
+        <div class="card-image-wrapper">
+          <img alt="Emergency alert system signal" class="card-image"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNfac9iGhKS84cy1FMU0QN1P_R-FsNaj1CBDvyncCh5z4FtB2hOb0d4pFaP5yPTV8JlUA9H32c_T77XeGwFEBSERCvqs2bpGtdub34z8dGSFXCr2EM02LW-RxiBC4-ezuuOhDZpb8dt6KGdiI4297KEu_lFNv0FGjr1aqKyC2ZeTmFUBcubjrjTyblj33R2mjcAKJS2sxmnScMXELeN_N44tS6Mz7VRtCatUEteNOE4k_DDwARtcwKl7XYOoJnFzdr6YBAG1DPag" />
+          <span class="card-tag">Software</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-name">Dnyneshwari Pawar</h3>
+          <p class="card-description">Dnyneshwari Pawar a Zilla Parishad Student developed an 'Automatic Ambulance Alert
+            System' during the Swajivi Maharashtra Program with the Government of Maharashtra.</p>
+          <div class="card-footer">
+            <span class="card-category">Public Safety</span>
+            <span class="material-symbols-outlined card-arrow">arrow_forward</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 9: Utkarsha & Pushpak -->
+      <article class="card">
+        <div class="card-image-wrapper">
+          <img alt="Chilli powder grinding automation" class="card-image"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNT1EXUwf8kn5EIlbCMwEMC1tNlou7wQE1oJMwP_tDBc6S6i1-vLc2sG3R4XqQ9vu6wr99mXlEeXax-Ii_5Ac6_neEbYTHZ36NzDTyiapmfgQnQrQ9cHVIaWslSAdPphBvMeelEbbxycKJI0u_rNhEiEHXr_iUVceNstpn6EFVbNks_nODIH639vjyj4DbRJ0ejXeXXTeTnt-lkkeDwPwvymUZTENQ4bYIWh4HsOIoGiJzv1PA4aJvqQqX2kJmXUP4y-HNX9inDw" />
+          <span class="card-tag">Robotics</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-name">Utkarsha &amp; Pushpak</h3>
+          <p class="card-description">Utkarsha Golhar &amp; Pushpak Tribhuvan present their profit-making product
+            Golharwadi Chilli Powder at the Swajivi 2024 Grand Finale Showcase.</p>
+          <div class="card-footer">
+            <span class="card-category">Processing Tech</span>
+            <span class="material-symbols-outlined card-arrow">arrow_forward</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <button id="prev-btn" class="pagination-btn">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+      <div id="page-numbers" class="page-numbers"></div>
+      <button id="next-btn" class="pagination-btn">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const CARDS_PER_PAGE = 6;
+      const grid = document.getElementById('gallery-grid');
+      const cards = Array.from(grid.querySelectorAll('.card'));
+      const totalPages = Math.ceil(cards.length / CARDS_PER_PAGE);
+      let currentPage = 1;
+
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const pageNumbersContainer = document.getElementById('page-numbers');
+
+      function renderPageNumbers() {
+        pageNumbersContainer.innerHTML = '';
+        for (let i = 1; i <= totalPages; i++) {
+          const span = document.createElement('span');
+          span.textContent = i;
+          span.className = 'page-num' + (i === currentPage ? ' active' : '');
+          span.addEventListener('click', () => goToPage(i));
+          pageNumbersContainer.appendChild(span);
+        }
+      }
+
+      function showPage(page) {
+        const start = (page - 1) * CARDS_PER_PAGE;
+        const end = start + CARDS_PER_PAGE;
+        cards.forEach((card, index) => {
+          if (index >= start && index < end) {
+            card.style.display = '';
+            card.classList.add('fade-in');
+            setTimeout(() => card.classList.remove('fade-in'), 400);
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        prevBtn.style.opacity = page === 1 ? '0.4' : '1';
+        prevBtn.style.pointerEvents = page === 1 ? 'none' : 'auto';
+        nextBtn.style.opacity = page === totalPages ? '0.4' : '1';
+        nextBtn.style.pointerEvents = page === totalPages ? 'none' : 'auto';
+        renderPageNumbers();
+      }
+
+      function goToPage(page) {
+        if (page < 1 || page > totalPages) return;
+        currentPage = page;
+        showPage(currentPage);
+        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
+      nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
+
+      showPage(1);
+    })();
+  </script>
+</body>
+
+</html>

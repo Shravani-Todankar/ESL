@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timeline Options - ENpower</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f6f0fa;
+            color: #3d2549;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: #6c32a8;
+            color: #fff;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* ══════════════════════════════════════
+           OPTION LABEL
+           ══════════════════════════════════════ */
+        .option-label {
+            text-align: center;
+            padding: 80px 20px 20px;
+        }
+
+        .option-label h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #6c32a8;
+            background: #efdeff;
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 50px;
+        }
+
+        .option-divider {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4c6e8, transparent);
+            margin: 0;
+        }
+
+        /* ══════════════════════════════════════
+           OPTION 1: HORIZONTAL SCROLL TIMELINE
+           ══════════════════════════════════════ */
+        .hs-section {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background: #f6f0fa;
+        }
+
+        .hs-heading-wrapper {
+            text-align: center;
+            padding: 80px 20px 40px;
+        }
+
+        .hs-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #3d2549;
+            margin-bottom: 8px;
+        }
+
+        .hs-heading span {
+            color: #6c32a8;
+        }
+
+        .hs-sub {
+            font-size: 1rem;
+            color: #6c5279;
+            font-weight: 400;
+        }
+
+        .hs-scroll-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            min-height: 0;
+        }
+
+        .hs-track {
+            display: flex;
+            gap: 0;
+            will-change: transform;
+        }
+
+        .hs-slide {
+            min-width: 100vw;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 40px;
+            position: relative;
+        }
+
+        .hs-slide-inner {
+            max-width: 1100px;
+            width: 100%;
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        @media (max-width: 768px) {
+            .hs-slide-inner {
+                flex-direction: column;
+                gap: 40px;
+            }
+        }
+
+        /* Left: Year display — fixed width */
+        .hs-year-block {
+            position: relative;
+            flex-shrink: 0;
+            width: 260px;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .hs-year-block {
+                width: 100%;
+                min-height: auto;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        .hs-year-watermark {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 10rem;
+            font-weight: 900;
+            line-height: 1;
+            opacity: 0.06;
+            color: #6c32a8;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            user-select: none;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .hs-year-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hs-year-count {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #6c5279;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hs-year-count strong {
+            color: #6c32a8;
+        }
+
+        /* Right: Events — takes remaining space */
+        .hs-events-list {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Single event — full width */
+        .hs-events-list.hs-cols-1 {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+        }
+
+        /* 3 events — fill nicely */
+        .hs-events-list.hs-cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media (max-width: 768px) {
+            .hs-events-list {
+                grid-template-columns: 1fr;
+            }
+
+            .hs-events-list.hs-cols-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hs-event-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 22px 24px;
+            border: 1px solid #e8ddf2;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hs-event-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            border-radius: 4px 0 0 4px;
+            transition: background 0.3s ease;
+        }
+
+        .hs-event-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(108, 50, 168, 0.1);
+            border-color: #d4c6e8;
+        }
+
+        .hs-event-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #3d2549;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .hs-event-desc {
+            font-size: 0.8rem;
+            color: #6c5279;
+            line-height: 1.65;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Progress bar */
+        .hs-progress-wrapper {
+            padding: 20px 60px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .hs-progress-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .hs-progress-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #e8ddf2;
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+
+        .hs-progress-fill {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #6c32a8, #e5a93e);
+            transform: translateY(-50%);
+            z-index: 1;
+            transition: width 0.5s ease;
+        }
+
+        .hs-year-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #e8ddf2;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+            border: 2px solid #e8ddf2;
+        }
+
+        .hs-year-dot.active {
+            background: #6c32a8;
+            border-color: #6c32a8;
+            transform: scale(1.4);
+            box-shadow: 0 0 0 4px rgba(108, 50, 168, 0.15);
+        }
+
+        .hs-year-dot:hover {
+            transform: scale(1.3);
+            background: #b8a4d9;
+        }
+
+        .hs-year-dot-label {
+            position: absolute;
+            bottom: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            font-weight: 700;
+            color: #b8a4d9;
+            white-space: nowrap;
+            transition: color 0.3s;
+        }
+
+        .hs-year-dot.active .hs-year-dot-label {
+            color: #6c32a8;
+            font-weight: 800;
+        }
+
+        /* Nav arrows */
+        .hs-nav {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            padding: 20px 0 60px;
+        }
+
+        .hs-nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1.5px solid #d4c6e8;
+            background: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c32a8;
+            transition: all 0.3s ease;
+        }
+
+        .hs-nav-btn:hover {
+            background: #6c32a8;
+            color: #fff;
+            border-color: #6c32a8;
+            transform: scale(1.1);
+        }
+
+        .hs-nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ══════════════════════════════════════
+           OPTION 6: SCROLL-TRIGGERED CINEMATIC
+           ══════════════════════════════════════ */
+        .cin-section {
+            position: relative;
+            background: #3d2549;
+            color: #fff;
+        }
+
+        .cin-heading-wrapper {
+            text-align: center;
+            padding: 100px 20px 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cin-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .cin-heading span {
+            color: #e5a93e;
+        }
+
+        .cin-sub {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .cin-year-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Large year watermark */
+        .cin-year-bg {
+            position: absolute;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28vw;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.03);
+            line-height: 1;
+            user-select: none;
+            pointer-events: none;
+            z-index: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cin-year-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Year header */
+        .cin-year-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .cin-year-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 6rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 12px;
+            opacity: 0;
+        }
+
+        .cin-year-line {
+            width: 60px;
+            height: 3px;
+            border-radius: 99px;
+            margin: 0 auto;
+            opacity: 0;
+        }
+
+        /* Event cards */
+        .cin-events {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .cin-event {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 32px 36px;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(40px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cin-event::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .cin-event:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px) !important;
+        }
+
+        .cin-event-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            opacity: 0.5;
+        }
+
+        .cin-event-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .cin-event-desc {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.8;
+        }
+
+        /* Floating particles */
+        .cin-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.15;
+        }
+
+        /* Bottom gradient fade */
+        .cin-year-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, #3d2549);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .cin-year-section:last-child::after {
+            display: none;
+        }
+
+        /* Side year indicator */
+        .cin-side-nav {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .cin-side-nav.visible {
+            opacity: 1;
+        }
+
+        .cin-side-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .cin-side-dot.active {
+            background: #e5a93e;
+            transform: scale(1.5);
+        }
+
+        .cin-side-dot:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: scale(1.3);
+        }
+
+        .cin-side-dot-label {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 11px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.4);
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .cin-side-dot:hover .cin-side-dot-label,
+        .cin-side-dot.active .cin-side-dot-label {
+            opacity: 1;
+        }
+
+        .cin-side-dot.active .cin-side-dot-label {
+            color: #e5a93e;
+        }
+
+        @media (max-width: 768px) {
+            .cin-year-bg {
+                font-size: 40vw;
+            }
+
+            .cin-year-number {
+                font-size: 4rem;
+            }
+
+            .cin-side-nav {
+                display: none;
+            }
+
+            .hs-slide-inner {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .hs-year-watermark {
+                font-size: 6rem;
+            }
+
+            .hs-year-label {
+                font-size: 3rem;
+            }
+
+            .hs-heading {
+                font-size: 1.75rem;
+            }
+
+            .cin-heading {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ══════════════════════════════════════
+         OPTION 1: HORIZONTAL SCROLL TIMELINE
+         ══════════════════════════════════════ -->
+    <div class="option-label">
+        <h1>Option 1 — Horizontal Scroll Timeline</h1>
+    </div>
+
+    <section class="hs-section">
+        <div class="hs-heading-wrapper">
+            <h2 class="hs-heading">A Decade of <span>Impact</span></h2>
+            <p class="hs-sub">2015 — 2025 · Swipe or use arrows to explore</p>
+        </div>
+
+        <div class="hs-scroll-container">
+            <div class="hs-track" id="hsTrack"></div>
+        </div>
+
+        <div class="hs-progress-wrapper">
+            <div class="hs-progress-bar" id="hsProgressBar">
+                <div class="hs-progress-line"></div>
+                <div class="hs-progress-fill" id="hsProgressFill"></div>
+            </div>
+        </div>
+
+        <div class="hs-nav">
+            <button class="hs-nav-btn" id="hsPrev">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <button class="hs-nav-btn" id="hsNext">
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+        </div>
+    </section>
+
+    <div class="option-divider"></div>
+
+    <!-- ══════════════════════════════════════
+         OPTION 6: SCROLL-TRIGGERED CINEMATIC
+         ══════════════════════════════════════ -->
+    <div class="option-label" style="background:#3d2549;">
+        <h1 style="background:rgba(255,255,255,0.1);color:#e5a93e;">Option 6 — Scroll-Triggered Cinematic</h1>
+    </div>
+
+    <section class="cin-section" id="cinSection">
+        <div class="cin-heading-wrapper">
+            <h2 class="cin-heading">A Decade of <span>Impact</span></h2>
+            <p class="cin-sub">Scroll to journey through our story</p>
+        </div>
+
+        <div id="cinTimeline"></div>
+
+        <!-- Side navigation dots -->
+        <div class="cin-side-nav" id="cinSideNav"></div>
+    </section>
+
+    <script>
+        // ══════════════════════════════
+        // SHARED TIMELINE DATA
+        // ══════════════════════════════
+        var timelineData = [
+            {
+                year: "2025", color: "#6c32a8", light: "#f6f0fa", events: [
+                    { title: "Alliance with Tata ClassEdge Ltd.", desc: "Tata ClassEdge took an equity stake in ENpower to bring entrepreneurship and future skills to schools across India." },
+                    { title: "L&T–ENpower Young Innovators Program", desc: "Expanded footprint to 90 government schools & set up E-cell across 34 schools." },
+                    { title: "YUVA Unstoppable STEM Program", desc: "First time computer users learned coding, physical computing, and app development through project-based innovation." },
+                    { title: "Udaan Tank 2025", desc: "Students transformed ideas into ventures through intensive MVP building and pitching." },
+                    { title: "Udaan STEM Lab", desc: "A new robotics and maker lab enables 120 students to learn coding and innovation through hands-on creation." },
+                    { title: "IndusInd Bank Flagship CSR Initiative", desc: "60+ Ideas groomed for on-field implementation, with real user testing and hands-on mentorship." },
+                ]
+            },
+            {
+                year: "2024", color: "#e5a93e", light: "#fef8eb", events: [
+                    { title: "Manipal Foundation Entrepreneurship Program", desc: "Students identify real problems and build solutions while developing critical thinking and problem-solving skills." },
+                    { title: "Salaam Bombay Foundation", desc: "Underserved students turn passions into entrepreneurial ventures." },
+                    { title: "Udaan Foundation", desc: "Youth developed ventures, prototypes, and go-to-market strategies with mentorship support." },
+                    { title: "L&T–ENpower Young Innovators Program", desc: "Innovation and entrepreneurship learning expanded to 41 new BMC schools." },
+                    { title: "IndusInd Bank Flagship CSR Initiative", desc: "20 new schools onboarded to strengthen holistic and entrepreneurial learning." },
+                    { title: "Aramco–NFTE Innovation Day", desc: "Global students designed solutions for UN SDG 6: Clean Water and Sanitation." },
+                ]
+            },
+            {
+                year: "2023", color: "#6c32a8", light: "#f6f0fa", events: [
+                    { title: "Swajivi Maharashtra Phase II", desc: "Reached 5,064 students across 44 schools in four districts." },
+                    { title: "New CSR Partnerships", desc: "Collaborated with L&T and Aramco to empower students through technology, innovation, and entrepreneurship programs." },
+                    { title: "Bayer–ENpower ATL Enhancement", desc: "Added 50 all-girls schools, introducing rural students to design thinking, technology, and entrepreneurship." },
+                    { title: "IFT Mentorship Platform", desc: "Revamped platform connects students with industry mentors, culminating in a bootcamp and venture pitch finale." },
+                ]
+            },
+            {
+                year: "2022", color: "#e5a93e", light: "#fef8eb", events: [
+                    { title: "CSR Partnerships", desc: "With FUEL, Bayer, Hafele, and IndusInd Bank, ENpower enabled experiential learning in design thinking, technology, and entrepreneurship." },
+                    { title: "IFT Season #4", desc: "8,526 participants competed as investors selected young social techpreneurs with ideas to reimagine India." },
+                    { title: "Government Partnership", desc: "Launched Swajivi with the Government of Maharashtra and SCERT to introduce entrepreneurship curriculum in government schools." },
+                ]
+            },
+            {
+                year: "2021", color: "#6c32a8", light: "#f6f0fa", events: [
+                    { title: "IFT Season #3", desc: "A virtual competition during COVID-19. Over 7200 students from 595 schools across 252 cities with global partners Microsoft & Snapchat." },
+                ]
+            },
+            {
+                year: "2020", color: "#e5a93e", light: "#fef8eb", events: [
+                    { title: "IFT Season #2", desc: "7000+ participants across 330 schools from 130+ cities. TOP 24 teams in a grand finale with UN GCNI & Atal Innovation Mission." },
+                ]
+            },
+            {
+                year: "2019", color: "#6c32a8", light: "#f6f0fa", events: [
+                    { title: "IFT Season #1", desc: "India's first-ever entrepreneurship search & mentoring platform. 3300+ students across 52 cities. TOP 3 at the UNGCNI National Conference in Mumbai." },
+                ]
+            },
+            {
+                year: "2018", color: "#e5a93e", light: "#fef8eb", events: [
+                    { title: "Expanding Footprint Across Mumbai", desc: "ENpower's entrepreneurship programs scaled up across leading schools in Mumbai." },
+                ]
+            },
+            {
+                year: "2017", color: "#6c32a8", light: "#f6f0fa", events: [
+                    { title: "Launched MYOB", desc: "Launched a structured & experiential entrepreneurship learning model across Gujarat & Maharashtra — Mind Your Own Business." },
+                ]
+            },
+            {
+                year: "2016", color: "#e5a93e", light: "#fef8eb", events: [
+                    { title: "Empowering Schools in Mumbai", desc: "Started empowering schools in Mumbai with structured & experiential entrepreneurship learning programs." },
+                ]
+            },
+            {
+                year: "2015", color: "#6c32a8", light: "#f6f0fa", events: [
+                    { title: "We Started Our Journey!", desc: "Enlearning Skill Development Limited was founded." },
+                ]
+            },
+        ];
+
+        // ══════════════════════════════
+        // OPTION 1: HORIZONTAL SCROLL
+        // ══════════════════════════════
+        (function () {
+            var track = document.getElementById('hsTrack');
+            var currentIndex = 0;
+
+            // Build slides
+            timelineData.forEach(function (item, idx) {
+                var slide = document.createElement('div');
+                slide.className = 'hs-slide';
+
+                var eventsHtml = '';
+                item.events.forEach(function (ev) {
+                    eventsHtml += '<div class="hs-event-card" style="--card-color:' + item.color + '">' +
+                        '<div class="hs-event-title">' + ev.title + '</div>' +
+                        '<div class="hs-event-desc">' + ev.desc + '</div>' +
+                        '</div>';
+                });
+
+                var colClass = '';
+                if (item.events.length === 1) colClass = ' hs-cols-1';
+                else if (item.events.length === 3) colClass = ' hs-cols-3';
+
+                slide.innerHTML =
+                    '<div class="hs-slide-inner">' +
+                    '  <div class="hs-year-block">' +
+                    '    <div class="hs-year-watermark" style="color:' + item.color + '">' + item.year + '</div>' +
+                    '    <div class="hs-year-label" style="color:' + item.color + '">' + item.year + '</div>' +
+                    '    <div class="hs-year-count"><strong>' + item.events.length + '</strong> milestone' + (item.events.length > 1 ? 's' : '') + ' this year</div>' +
+                    '  </div>' +
+                    '  <div class="hs-events-list' + colClass + '">' + eventsHtml + '</div>' +
+                    '</div>';
+
+                // Set left border color on event cards
+                track.appendChild(slide);
+            });
+
+            // Apply card border colors after DOM insertion
+            track.querySelectorAll('.hs-event-card').forEach(function (card) {
+                card.style.setProperty('border-left', '4px solid ' + card.style.getPropertyValue('--card-color'));
+            });
+
+            // Build progress dots
+            var progressBar = document.getElementById('hsProgressBar');
+            timelineData.forEach(function (item, idx) {
+                var dot = document.createElement('div');
+                dot.className = 'hs-year-dot' + (idx === 0 ? ' active' : '');
+                dot.innerHTML = '<span class="hs-year-dot-label">' + item.year + '</span>';
+                dot.addEventListener('click', function () { goTo(idx); });
+                progressBar.appendChild(dot);
+            });
+
+            function updateProgress() {
+                var fill = document.getElementById('hsProgressFill');
+                var pct = (currentIndex / (timelineData.length - 1)) * 100;
+                fill.style.width = pct + '%';
+
+                var dots = progressBar.querySelectorAll('.hs-year-dot');
+                dots.forEach(function (d, i) {
+                    d.classList.toggle('active', i === currentIndex);
+                });
+
+                document.getElementById('hsPrev').disabled = currentIndex === 0;
+                document.getElementById('hsNext').disabled = currentIndex === timelineData.length - 1;
+            }
+
+            function goTo(idx) {
+                currentIndex = idx;
+                gsap.to(track, {
+                    x: -currentIndex * window.innerWidth,
+                    duration: 0.8,
+                    ease: 'power3.out'
+                });
+                updateProgress();
+                animateSlide(idx);
+            }
+
+            function animateSlide(idx) {
+                var slide = track.children[idx];
+                var cards = slide.querySelectorAll('.hs-event-card');
+                gsap.fromTo(slide.querySelector('.hs-year-label'),
+                    { opacity: 0, x: -40 },
+                    { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out' }
+                );
+                gsap.fromTo(slide.querySelector('.hs-year-watermark'),
+                    { opacity: 0, scale: 0.8 },
+                    { opacity: 0.06, scale: 1, duration: 0.8, ease: 'power2.out' }
+                );
+                cards.forEach(function (card, i) {
+                    gsap.fromTo(card,
+                        { opacity: 0, y: 30 },
+                        { opacity: 1, y: 0, duration: 0.5, delay: i * 0.1, ease: 'power2.out' }
+                    );
+                });
+            }
+
+            document.getElementById('hsPrev').addEventListener('click', function () {
+                if (currentIndex > 0) goTo(currentIndex - 1);
+            });
+            document.getElementById('hsNext').addEventListener('click', function () {
+                if (currentIndex < timelineData.length - 1) goTo(currentIndex + 1);
+            });
+
+            // Keyboard support
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowRight' && currentIndex < timelineData.length - 1) goTo(currentIndex + 1);
+                if (e.key === 'ArrowLeft' && currentIndex > 0) goTo(currentIndex - 1);
+            });
+
+            // Resize handler
+            window.addEventListener('resize', function () {
+                gsap.set(track, { x: -currentIndex * window.innerWidth });
+            });
+
+            // Initial state
+            updateProgress();
+            animateSlide(0);
+        })();
+
+
+        // ══════════════════════════════
+        // OPTION 6: SCROLL-TRIGGERED CINEMATIC
+        // ══════════════════════════════
+        (function () {
+            var container = document.getElementById('cinTimeline');
+            var sideNav = document.getElementById('cinSideNav');
+
+            // Build year sections + side nav
+            timelineData.forEach(function (item, idx) {
+                // Side nav dot
+                var dot = document.createElement('div');
+                dot.className = 'cin-side-dot';
+                dot.setAttribute('data-index', idx);
+                dot.innerHTML = '<span class="cin-side-dot-label">' + item.year + '</span>';
+                dot.addEventListener('click', function () {
+                    document.getElementById('cinYear-' + idx).scrollIntoView({ behavior: 'smooth' });
+                });
+                sideNav.appendChild(dot);
+
+                // Particles
+                var particles = '';
+                for (var p = 0; p < 6; p++) {
+                    var x = Math.random() * 100;
+                    var y = Math.random() * 100;
+                    var size = 2 + Math.random() * 4;
+                    particles += '<div class="cin-particle" style="left:' + x + '%;top:' + y + '%;width:' + size + 'px;height:' + size + 'px;background:' + item.color + '"></div>';
+                }
+
+                // Events HTML
+                var eventsHtml = '';
+                item.events.forEach(function (ev, i) {
+                    eventsHtml +=
+                        '<div class="cin-event" style="--ev-color:' + item.color + '">' +
+                        '  <div class="cin-event-num" style="color:' + item.color + '">0' + (i + 1) + ' — ' + item.year + '</div>' +
+                        '  <div class="cin-event-title">' + ev.title + '</div>' +
+                        '  <div class="cin-event-desc">' + ev.desc + '</div>' +
+                        '</div>';
+                });
+
+                var section = document.createElement('div');
+                section.className = 'cin-year-section';
+                section.id = 'cinYear-' + idx;
+                section.innerHTML =
+                    '<div class="cin-year-bg">' + item.year + '</div>' +
+                    particles +
+                    '<div class="cin-year-content">' +
+                    '  <div class="cin-year-header">' +
+                    '    <div class="cin-year-number" style="color:' + item.color + '">' + item.year + '</div>' +
+                    '    <div class="cin-year-line" style="background:' + item.color + '"></div>' +
+                    '  </div>' +
+                    '  <div class="cin-events">' + eventsHtml + '</div>' +
+                    '</div>';
+
+                container.appendChild(section);
+            });
+
+            // Apply event card left borders
+            container.querySelectorAll('.cin-event').forEach(function (ev) {
+                var c = ev.style.getPropertyValue('--ev-color');
+                ev.querySelector('::before') || (ev.style.borderLeft = '3px solid ' + c);
+            });
+
+            // GSAP Scroll animations
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Show/hide side nav based on cinematic section visibility
+            ScrollTrigger.create({
+                trigger: '#cinSection',
+                start: 'top center',
+                end: 'bottom center',
+                onEnter: function () { sideNav.classList.add('visible'); },
+                onLeave: function () { sideNav.classList.remove('visible'); },
+                onEnterBack: function () { sideNav.classList.add('visible'); },
+                onLeaveBack: function () { sideNav.classList.remove('visible'); },
+            });
+
+            // Animate each year section
+            document.querySelectorAll('.cin-year-section').forEach(function (sec, idx) {
+                var yearNum = sec.querySelector('.cin-year-number');
+                var yearLine = sec.querySelector('.cin-year-line');
+                var events = sec.querySelectorAll('.cin-event');
+                var particles = sec.querySelectorAll('.cin-particle');
+
+                // Year number entrance
+                ScrollTrigger.create({
+                    trigger: sec,
+                    start: 'top 70%',
+                    onEnter: function () {
+                        gsap.to(yearNum, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' });
+                        gsap.fromTo(yearNum, { y: 60 }, { y: 0, duration: 0.8, ease: 'power3.out' });
+                        gsap.to(yearLine, { opacity: 1, width: 60, duration: 0.6, delay: 0.3, ease: 'power2.out' });
+                        gsap.fromTo(yearLine, { width: 0 }, { width: 60, duration: 0.6, delay: 0.3, ease: 'power2.out' });
+
+                        // Stagger event cards
+                        events.forEach(function (ev, i) {
+                            gsap.to(ev, {
+                                opacity: 1,
+                                y: 0,
+                                duration: 0.7,
+                                delay: 0.5 + i * 0.15,
+                                ease: 'power2.out'
+                            });
+                        });
+
+                        // Float particles
+                        particles.forEach(function (p) {
+                            gsap.to(p, {
+                                y: -30 - Math.random() * 40,
+                                x: (Math.random() - 0.5) * 30,
+                                duration: 2 + Math.random() * 2,
+                                repeat: -1,
+                                yoyo: true,
+                                ease: 'sine.inOut'
+                            });
+                        });
+                    },
+                    once: true
+                });
+
+                // Update side nav active dot
+                ScrollTrigger.create({
+                    trigger: sec,
+                    start: 'top center',
+                    end: 'bottom center',
+                    onEnter: function () { updateSideNav(idx); },
+                    onEnterBack: function () { updateSideNav(idx); },
+                });
+            });
+
+            function updateSideNav(idx) {
+                sideNav.querySelectorAll('.cin-side-dot').forEach(function (d, i) {
+                    d.classList.toggle('active', i === idx);
+                });
+            }
+
+            // Set left border via CSS custom property
+            container.querySelectorAll('.cin-event').forEach(function (ev) {
+                var color = ev.style.getPropertyValue('--ev-color');
+                if (color) {
+                    ev.style.borderLeft = '3px solid ' + color;
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>
