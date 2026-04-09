@@ -8,7 +8,7 @@
 
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
 
@@ -32,7 +32,7 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background-color: #f6f0fa;
             overflow-x: hidden;
         }
@@ -70,6 +70,32 @@
         .fsl-hero-section>* {
             position: relative;
             z-index: 2;
+        }
+
+        .fsl-hero-explore-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 14px 36px;
+            background: #6c32a8;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 20px rgba(108, 50, 168, 0.25);
+        }
+
+        .fsl-hero-explore-btn:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(108, 50, 168, 0.35);
+            color: #fff;
         }
 
         /* ── FSL Sparkle Stars ── */
@@ -155,42 +181,31 @@
             text-align: center;
         }
 
-        /* ── FSL Row 1: "From CBSE" — centered start ── */
+        /* ── FSL Row 1: "India's First" ── */
         .fsl-row-1 {
-            display: flex;
-            row-gap: 24px;
-            flex-direction: column;
             font-size: 80px;
             font-weight: 700;
             font-family: 'Space Grotesk', sans-serif;
-            color: #6c32a8;
+            color: #1c1c1c;
             line-height: 1.1;
             letter-spacing: -1.5px;
-            align-self: flex-start;
-            padding-left: 0px;
+            margin-left: -180px;
         }
 
-        .fsl-row-1 .fsl-cbse {
-            font-size: 80px;
-            font-weight: 800;
-            font-family: 'Space Grotesk', sans-serif;
-            color: #6c32a8;
-            letter-spacing: -2px;
-            padding-left: 162px;
+        /* ── FSL Center text block ── */
+        .fsl-hero-center-text {
+            margin-top: 5px;
         }
 
-        /* ── FSL Row 2: "Mandate" — centered ── */
+        /* ── FSL Row 2: "Integrated" — purple ── */
         .fsl-row-2 {
             font-size: 80px;
             font-weight: 800;
             font-family: 'Space Grotesk', sans-serif;
-            color: #e5a93e;
+            color: #6c32a8;
             line-height: 1.1;
             letter-spacing: -2px;
-            align-self: center;
-            padding-left: 0px;
-            margin-top: -6px;
-            margin-bottom: 10px;
+            margin-left: -218px;
         }
 
         /* ── FSL Bottom section: left pill + right text ── */
@@ -200,42 +215,32 @@
             align-items: center;
             justify-content: center;
             gap: 32px;
-            margin-top: 20px;
+            margin-top: 10px;
             text-align: center;
         }
 
-        /* ── FSL Row 3: "To Meaningful" — centered ── */
+        /* ── FSL Row 3: "Future Skills Ecosystem" — yellow ── */
         .fsl-row-3 {
             font-size: 80px;
-            font-weight: 700;
+            font-weight: 800;
             font-family: 'Space Grotesk', sans-serif;
             color: #e5a93e;
             line-height: 1.1;
-            letter-spacing: -1.5px;
-            align-self: center;
-            padding-left: 0px;
-            margin-top: 4px;
+            letter-spacing: -2px;
         }
 
         .fsl-row-3 .fsl-meaningful {
-            font-size: 80px;
-            font-weight: 800;
-            font-family: 'Space Grotesk', sans-serif;
             color: #e5a93e;
-            letter-spacing: -2px;
         }
 
-        /* ── FSL Row 4: "Transformation" — centered ── */
+        /* ── FSL Row 4: "for Schools" ── */
         .fsl-row-4 {
             font-size: 80px;
-            font-weight: 800;
+            font-weight: 700;
             font-family: 'Space Grotesk', sans-serif;
-            color: #e5a93e;
+            color: #1c1c1c;
             line-height: 1.1;
-            letter-spacing: -2px;
-            align-self: center;
-            padding-left: 0px;
-            margin-top: -6px;
+            letter-spacing: -1.5px;
         }
 
         /* ── FSL Pills ── */
@@ -258,8 +263,8 @@
             width: 320px;
             height: 100px;
             position: absolute;
-            right: 30px;
-            top: 0px;
+            right: -350px;
+            top: 60px;
         }
 
         /* FSL Left pill (sits beside row3+row4) */
@@ -376,8 +381,8 @@
             background: #6c32a8;
             color: #ffffff;
             border: none;
-            border-radius: 25px;
-            font-family: 'Poppins', sans-serif;
+            border-radius: 15px;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
@@ -386,7 +391,7 @@
         }
 
         .fsl-cta-button:hover {
-            background: #7C3AED;
+            background: #501bab;
             transform: translateY(-3px);
         }
 
@@ -409,7 +414,9 @@
         .fsl-cta-image-wrapper {
             position: relative;
             width: 100%;
+            border-radius: 24px;
             overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
         .fsl-cta-image {
@@ -540,7 +547,7 @@
             font-weight: 400;
             color: #555;
             line-height: 1.8;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             width: 100%;
             max-width: 550px;
         }
@@ -635,13 +642,13 @@
             font-weight: 400;
             color: #555;
             line-height: 1.8;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             width: 100%;
             max-width: 550px;
         }
 
         .fsl-path-image1 {
-            width: 80%;
+            width: auto;
             height: 350px;
             border-radius: 20px;
             overflow: hidden;
@@ -719,7 +726,7 @@
             font-weight: 400;
             color: #555;
             line-height: 1.8;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             max-width: 800px;
             margin: 0 auto;
         }
@@ -766,7 +773,7 @@
         .fsl-carousel-card:hover {
             border: 2px solid #e5a817;
             background: #ffffff;
-            transform: scale(1.05);
+            /* transform: scale(1); */
             box-shadow: 0 20px 40px #00000026;
             opacity: 1;
         }
@@ -822,6 +829,7 @@
             overflow: visible;
             transition: all 0.3s ease;
             color: #1a1a1a;
+            text-align: justify;
         }
 
         /* Responsive */
@@ -875,7 +883,7 @@
             font-weight: 400;
             color: #555;
             line-height: 1.8;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             max-width: 800px;
             margin: 0 auto;
         }
@@ -925,7 +933,7 @@
             font-size: 1rem;
             color: #333;
             border-bottom: 1px solid #f0f0f0;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .fsl-comparison-table tbody tr:last-child td {
@@ -960,6 +968,145 @@
             .fsl-comparison-table tbody td {
                 padding: 14px 12px;
                 font-size: 0.85rem;
+            }
+        }
+
+        /* ── FSL Form Popup ── */
+        .fsl-form-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fsl-form-overlay.active {
+            display: flex;
+        }
+
+        .fsl-form-popup {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 560px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            animation: fslFormSlideIn 0.3s ease;
+        }
+
+        @keyframes fslFormSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fsl-form-close {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            background: #673ab72e;
+            border: none;
+            font-size: 1.8rem;
+            color: #501bab;
+            cursor: pointer;
+            line-height: 1;
+            border-radius: 100%;
+            padding: 2px 8px;
+        }
+
+        .fsl-form-close:hover {
+            color: #333;
+        }
+
+        .fsl-form-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #6c32a8;
+            margin-bottom: 24px;
+        }
+
+        .fsl-form-row {
+            display: flex;
+            gap: 16px;
+        }
+
+        .fsl-form-row .fsl-form-group {
+            flex: 1;
+        }
+
+        .fsl-form-group {
+            margin-bottom: 16px;
+        }
+
+        .fsl-form-group label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #3d2549;
+            margin-bottom: 6px;
+        }
+
+        .fsl-form-group input,
+        .fsl-form-group select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid #e0d6ea;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: #333;
+            outline: none;
+            transition: border-color 0.3s ease;
+            background: #fff;
+        }
+
+        .fsl-form-group input:focus,
+        .fsl-form-group select:focus {
+            border-color: #6c32a8;
+        }
+
+        .fsl-form-submit {
+            width: 30%;
+            padding: 14px;
+            background: #6c32a8;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .fsl-form-submit:hover {
+            background: #7c3aed;
+        }
+
+        @media (max-width: 768px) {
+            .fsl-form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .fsl-form-popup {
+                padding: 28px 20px;
             }
         }
 
@@ -1000,7 +1147,7 @@
             font-weight: 400;
             color: #666;
             line-height: 2;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
         }
 
@@ -1069,7 +1216,7 @@
         }
 
         .fsl-alliance-body-text {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 13.5px;
             line-height: 1.82;
             color: #4a3960;
@@ -1178,7 +1325,7 @@
             bottom: -28px;
             left: 50%;
             transform: translateX(-50%);
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 9.5px;
             letter-spacing: 0.14em;
             text-transform: uppercase;
@@ -1295,7 +1442,7 @@
             margin-left: auto;
             margin-right: auto;
             line-height: 1.75;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .fsl-sp-hero-grid {
@@ -1320,7 +1467,7 @@
             line-height: 1.8;
             color: #4b5563;
             margin-bottom: 36px;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .fsl-sp-btn-primary {
@@ -1378,7 +1525,7 @@
             font-weight: 500;
             color: #9ca3af;
             letter-spacing: .04em;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .fsl-sp-carousel-outer {
@@ -1437,7 +1584,7 @@
         }
 
         .fsl-sp-slide-caption p {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 12px;
             color: rgba(255, 255, 255, .65);
         }
@@ -1615,33 +1762,40 @@
         <div class="fsl-deco fsl-sparkle fsl-sparkle-4">✦</div>
         <div class="fsl-deco fsl-sparkle fsl-sparkle-5">✦</div>
 
-        <!-- Top: "From CBSE / Mandate" + right pill -->
+        <!-- Row 1: "India's First" + right pill -->
         <div class="fsl-top-section">
             <div class="fsl-text-block">
-                <span class="fsl-row-1">India's<br /><span class="fsl-cbse">First Integrated</span></span>
-                <span class="fsl-row-2">Future Skills Ecosystem</span>
+                <span class="fsl-row-1">India's First</span>
             </div>
             <div class="fsl-pill fsl-pill-right">
-                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=700&q=80" alt="placeholder" />
+                <img src="assets/csl/hero2.jpeg" alt="placeholder" />
             </div>
         </div>
 
-        <!-- Bottom: left pill + "To Meaningful / Transformation" -->
+        <!-- Row 2-3: "Integrated" + "Future Skills Ecosystem" -->
+        <div class="fsl-text-block fsl-hero-center-text">
+            <span class="fsl-row-2">Integrated</span>
+            <span class="fsl-row-3"><span class="fsl-meaningful">Future Skills Ecosystem</span></span>
+        </div>
+
+        <!-- Row 4: left pill + "for Schools" -->
         <div class="fsl-bottom-section">
             <div class="fsl-pill fsl-pill-left">
-                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" alt="placeholder" />
+                <img src="assets/til/hero1.jpeg" alt="placeholder" />
             </div>
             <div class="fsl-text-block">
-                <!-- <span class="fsl-row-3"><span class="fsl-meaningful">Ecosystem</span></span> -->
-                <span class="fsl-row-3">for Schools</span>
+                <span class="fsl-row-4">for Schools</span>
             </div>
         </div>
 
         <!-- Sub text -->
         <div class="fsl-subtext">
-            <span class="fsl-s1">From CSL Compliance to School Leadership</span>
-            <span class="fsl-s2">Think beyond Composite Skills Labs &amp; STEM programs</span>
+            <span class="fsl-s1">For Grades 1-10 | Fully aligned with NEP 2020</span>
         </div>
+
+        <a href="#fsl-final-cta" class="fsl-hero-explore-btn"
+            onclick="event.preventDefault(); document.getElementById('fsl-final-cta').scrollIntoView({behavior:'smooth'});">Explore
+            →</a>
 
     </div>
 
@@ -1650,7 +1804,7 @@
         <div class="fsl-video-container">
             <div class="fsl-video-wrapper">
                 <iframe class="fsl-video"
-                    src="https://www.youtube.com/embed/i3kHrKy34yM?autoplay=1&mute=1&loop=1&playlist=i3kHrKy34yM&controls=0&showinfo=0&rel=0&modestbranding=1"
+                    src="https://www.youtube.com/embed/hItLRWhxc-I?autoplay=1&mute=1&loop=1&playlist=hItLRWhxc-I&controls=0&showinfo=0&rel=0&modestbranding=1"
                     title="FSL Video" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
@@ -1659,11 +1813,10 @@
         </div>
     </div>
 
-    <!-- FSL CTA Section -->
+    <!-- FSL CTA Section
     <section class="fsl-cta-section">
         <div class="fsl-cta-container">
             <div class="fsl-cta-grid">
-                <!-- Left Grid: Heading and Button -->
                 <div class="fsl-cta-left">
                     <h2 class="fsl-cta-heading">Book a 30-min readiness call</h2>
                     <button class="fsl-cta-button">
@@ -1675,8 +1828,6 @@
                         </svg>
                     </button>
                 </div>
-
-                <!-- Right Grid: Image -->
                 <div class="fsl-cta-right">
                     <div class="fsl-cta-image-wrapper">
                         <img src="assets/Group 47.png" alt="Students in classroom" class="fsl-cta-image">
@@ -1685,14 +1836,14 @@
             </div>
         </div>
     </section>
+    -->
 
     <!-- FSL 3D Tour Section -->
     <section class="fsl-tour-section">
         <div class="fsl-tour-container">
             <!-- Heading -->
             <h2 class="fsl-tour-heading">
-                Take a <span class="tour-highlight">3D Tour</span> of our<br />
-                Future Skills Lab.
+                A Glimpse of our<br /> <span class="tour-highlight">Future Skills Lab</span>
             </h2>
 
             <!-- Video -->
@@ -1707,14 +1858,11 @@
         </div>
     </section>
 
-    <!-- FSL Path Selection Section -->
+    <!-- FSL Path Selection Section
     <section class="fsl-path-section">
         <div class="fsl-path-container">
-            <!-- Heading -->
             <h2 class="fsl-path-heading">Why Do<br /><span class="matter-highlight">Future Skills</span><br />Matter?
             </h2>
-
-            <!-- Content with Image -->
             <div class="fsl-path-content-wrapper">
                 <div class="fsl-path-text">
                     The future of work is evolving rapidly. To nurture today's school children as tomorrow's global
@@ -1730,6 +1878,7 @@
             </div>
         </div>
     </section>
+    -->
 
     <!-- FSL grid section -->
     <section class="fsl-path-section1">
@@ -1741,8 +1890,7 @@
             <!-- Content with Image -->
             <div class="fsl-path-content-wrapper1">
                 <div class="fsl-path-image1">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80"
-                        alt="FSL Implementation">
+                    <img src="assets/fsl/fsl-para.jpeg" alt="FSL Implementation">
                 </div>
                 <div class="fsl-path-text1">
                     India's first Integrated Future-Skills Ecosystem that transforms the way your school prepares
@@ -1773,7 +1921,7 @@
                     <!-- Card 1 -->
                     <div class="fsl-carousel-card">
                         <div class="fsl-card-image">
-                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80"
+                            <img src="assets/fsl/integrated-learning-framework.jpeg"
                                 alt="Integrated Learning Framework">
                         </div>
                         <div class="fsl-card-content">
@@ -1789,8 +1937,7 @@
                     <!-- Card 2 -->
                     <div class="fsl-carousel-card">
                         <div class="fsl-card-image">
-                            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80"
-                                alt="Experiential Learning Spaces">
+                            <img src="assets/fsl/experimental-learning.jpeg" alt="Experiential Learning Spaces">
                         </div>
                         <div class="fsl-card-content">
                             <h3 class="fsl-card-title">Experiential Learning Spaces</h3>
@@ -1805,8 +1952,7 @@
                     <!-- Card 3 -->
                     <div class="fsl-carousel-card">
                         <div class="fsl-card-image">
-                            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80"
-                                alt="Challenge-Based Pedagogy">
+                            <img src="assets/training-academy/Stem-Lab.png" alt="Challenge-Based Pedagogy">
                         </div>
                         <div class="fsl-card-content">
                             <h3 class="fsl-card-title">Challenge-Based Pedagogy</h3>
@@ -1821,8 +1967,7 @@
                     <!-- Card 4 -->
                     <div class="fsl-carousel-card">
                         <div class="fsl-card-image">
-                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80"
-                                alt="Skill Passport">
+                            <img src="assets/fsl/skill-passport.jpeg" alt="Skill Passport">
                         </div>
                         <div class="fsl-card-content">
                             <h3 class="fsl-card-title">Skill Passport</h3>
@@ -1851,8 +1996,7 @@
                     <!-- Card 6 -->
                     <div class="fsl-carousel-card">
                         <div class="fsl-card-image">
-                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80"
-                                alt="Idea Mentorship with IFT">
+                            <img src="assets/fsl/idea-mentorship.jpeg" alt="Idea Mentorship with IFT">
                         </div>
                         <div class="fsl-card-content">
                             <h3 class="fsl-card-title">Idea Mentorship with IFT</h3>
@@ -1868,11 +2012,10 @@
                     <!-- Card 7 -->
                     <div class="fsl-carousel-card">
                         <div class="fsl-card-image">
-                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80"
-                                alt="Thinking Coach Support">
+                            <img src="assets/fsl/thinking-coach.jpeg" alt="Thinking Coach Support">
                         </div>
                         <div class="fsl-card-content">
-                            <h3 class="fsl-card-title">Thinking Coach Support</h3>
+                            <h3 class="fsl-card-title">Dedicated ENpower Thinking Coach</h3>
                             <p class="fsl-card-description">To ensure quality and reduce implementation stress each
                                 school
                                 is supported by professionally trained facilitators certified in activity-based
@@ -2002,8 +2145,8 @@
                             <div class="fsl-sp-lbl">Assessment</div>
                         </div>
                         <div class="fsl-sp-stat-item">
-                            <div class="fsl-sp-num">1M+</div>
-                            <div class="fsl-sp-lbl">Students Tracked</div>
+                            <div class="fsl-sp-num">15</div>
+                            <div class="fsl-sp-lbl">Student Profiles</div>
                         </div>
                     </div>
                 </div>
@@ -2067,18 +2210,18 @@
     </section>
 
     <!-- FSL Final CTA Section -->
-    <section class="fsl-final-cta-section">
+    <section class="fsl-final-cta-section" id="fsl-final-cta">
         <div class="fsl-final-cta-container">
             <div class="fsl-cta-grid">
                 <!-- Left Grid: Heading, Paragraph and Button -->
                 <div class="fsl-cta-left">
                     <h2 class="fsl-cta-heading-final">Ready to Get Started?</h2>
                     <p class="fsl-cta-paragraph">
-                        Select your pathway and book a readiness call with ENpower.<br />Not sure which plan fits your
-                        school? Book a 30-minute CSL readiness call — we'll help you decide
+                        To select which pathway best suits your school…<br />
+                        Book a 30-min readiness call with ENpower
                     </p>
-                    <button class="fsl-cta-button">
-                        Connect With Us
+                    <button class="fsl-cta-button" onclick="openFslForm()">
+                        Book Now
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd"
                                 d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
@@ -2090,12 +2233,52 @@
                 <!-- Right Grid: Image -->
                 <div class="fsl-cta-right">
                     <div class="fsl-cta-image-wrapper">
-                        <img src="assets/Group 47.png" alt="Students in classroom" class="fsl-cta-image">
+                        <img src="assets/fsl/CTA-fsl.jpeg" alt="Students in classroom" class="fsl-cta-image">
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- FSL Form Popup -->
+    <div class="fsl-form-overlay" id="fslFormOverlay" onclick="if(event.target===this) closeFslForm()">
+        <div class="fsl-form-popup">
+            <button class="fsl-form-close" onclick="closeFslForm()">&times;</button>
+            <h2 class="fsl-form-heading">Book a Session</h2>
+            <form class="fsl-form" onsubmit="event.preventDefault();">
+                <div class="fsl-form-row">
+                    <div class="fsl-form-group">
+                        <label>Name</label>
+                        <input type="text" placeholder="Your full name" required>
+                    </div>
+                    <div class="fsl-form-group">
+                        <label>School / Institute</label>
+                        <input type="text" placeholder="School or institute name" required>
+                    </div>
+                </div>
+                <div class="fsl-form-row">
+                    <div class="fsl-form-group">
+                        <label>Designation</label>
+                        <select required>
+                            <option value="" disabled selected>Select your role</option>
+                            <option value="Teacher">Teacher</option>
+                            <option value="Principal">Principal</option>
+                            <option value="School Leader">School Leader</option>
+                        </select>
+                    </div>
+                    <div class="fsl-form-group">
+                        <label>Email ID</label>
+                        <input type="email" placeholder="your@email.com" required>
+                    </div>
+                </div>
+                <div class="fsl-form-group">
+                    <label>Contact Number</label>
+                    <input type="tel" placeholder="Your phone number" required>
+                </div>
+                <button type="submit" class="fsl-form-submit">Submit</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Footer will be loaded here -->
     <div id="footer-placeholder"></div>
@@ -2245,6 +2428,21 @@
 
             draw();
         })();
+
+        /* ==========================================================
+           FSL FORM POPUP
+           ========================================================== */
+        function openFslForm() {
+            document.getElementById('fslFormOverlay').classList.add('active');
+        }
+
+        function closeFslForm() {
+            document.getElementById('fslFormOverlay').classList.remove('active');
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeFslForm();
+        });
 
         /* ==========================================================
            GSAP ANIMATIONS FOR HEADER
@@ -2466,22 +2664,22 @@
         (function () {
             const SLIDES = [
                 {
-                    img: 'https://placehold.co/800x600/ede9fe/7c3aed?text=Slide+1',
+                    img: 'assets/fsl/Individual-assessment.png',
                     title: 'Skill Assessment',
                     sub: 'Competency-based growth tracking'
                 },
                 {
-                    img: 'https://placehold.co/800x600/ddd6fe/5b21b6?text=Slide+2',
+                    img: 'assets/fsl/learning-pillars.png',
                     title: 'Collaborative Learning',
                     sub: 'Team projects & peer reflection'
                 },
                 {
-                    img: 'https://placehold.co/800x600/e0e7ff/4338ca?text=Slide+3',
+                    img: 'assets/fsl/score-entery.png',
                     title: 'Future Skills Lab',
                     sub: 'Hands-on STEM & innovation'
                 },
                 {
-                    img: 'https://placehold.co/800x600/f3e8ff/7c3aed?text=Slide+4',
+                    img: 'assets/fsl/profiles-competencies.png',
                     title: 'Knowledge Centre',
                     sub: 'Curated resources for educators'
                 },

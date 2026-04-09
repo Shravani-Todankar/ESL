@@ -8,9 +8,9 @@
 
   <!-- Google Fonts -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -34,7 +34,7 @@
 
     html,
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background: #f6f0fa;
       min-height: 100%;
       /* padding-top: 100px; */
@@ -127,22 +127,23 @@
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 400px;
-      gap: 48px;
+      gap: 90px;
       align-items: center;
-      margin-bottom: 0
+      margin-top: 50px;
     }
 
     .about-title {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 900;
-      font-size: 34px;
-      color: #3d2549;
+      font-size: 3rem;
+      color: #6c32a8;
       line-height: 1.2;
-      margin-bottom: 20px
+      margin-bottom: 20px;
+      text-align: center;
     }
 
     .about-title .ac {
-      color: #6c32a8
+      color: #e5a93e
     }
 
     .about-p {
@@ -168,7 +169,7 @@
     }
 
     .tab-btn {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 800;
       font-size: 12px;
       border: none;
@@ -194,9 +195,11 @@
       justify-content: center;
       gap: 12px;
       box-shadow: 0 16px 48px rgba(124, 58, 237, .18);
-      position: relative;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
       overflow: hidden;
-      animation: fadeSlide .35s ease
     }
 
     .slide-card .orb1 {
@@ -227,7 +230,7 @@
     }
 
     .slide-label {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 900;
       font-size: 20px;
       color: #fff;
@@ -274,7 +277,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       border: none
     }
 
@@ -926,6 +929,7 @@
       position: relative;
       overflow: hidden;
       z-index: 1;
+      margin-top: 40px;
     }
 
     #aboutHeroWaveCanvas {
@@ -1007,26 +1011,94 @@
     }
 
     /* ── About Hero Image ── */
-    .about-hero-image-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      max-width: 1100px;
+    .about-hero-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 5.2rem;
+      font-weight: 800;
+      color: #1a1a1a;
+      text-align: center;
+      letter-spacing: -2px;
+      line-height: 1.3;
+      max-width: 1000px;
       margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      animation: fadeSlide 0.8s ease both;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .about-hero-image {
-      width: 100%;
-      height: 100vh;
-      max-width: 100%;
-      object-fit: contain;
-      animation: fadeSlide 0.8s ease both;
+    .about-hero-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .about-hero-through {
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #1a1a1a;
+      padding-top: 30px;
+    }
+
+    .about-hero-pill {
+      width: 240px;
+      height: 86px;
+      object-fit: cover;
+      border-radius: 999px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .about-hero-pill-1 {
+      animation: aboutPillFloatUp 3s ease-in-out infinite;
+    }
+
+    .about-hero-pill-2 {
+      animation: aboutPillFloatDown 3s ease-in-out infinite;
+    }
+
+    @keyframes aboutPillFloatUp {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-14px) rotate(2deg);
+      }
+    }
+
+    @keyframes aboutPillFloatDown {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(14px) rotate(-2deg);
+      }
     }
 
     @media (max-width: 768px) {
-      .about-hero-image-wrapper {
-        max-width: 95%;
+      .about-hero-heading {
+        font-size: 2.4rem;
+        letter-spacing: -1px;
+      }
+
+      .about-hero-through {
+        font-size: 1.2rem;
+      }
+
+      .about-hero-pill {
+        width: 100px;
+        height: 40px;
       }
     }
 
@@ -1041,6 +1113,22 @@
 
     .team-section-header {
       margin-bottom: 40px;
+    }
+
+    .team-photo-wrap {
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 48px;
+      background: #eae3f0;
+      aspect-ratio: 16 / 7;
+    }
+
+    .team-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .eyebrow-row {
@@ -1091,7 +1179,7 @@
       border: none;
       border-radius: 50px;
       padding: 9px 20px;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 13px;
       font-weight: 800;
       cursor: pointer;
@@ -1157,27 +1245,27 @@
     }
 
     .core-card {
-      background: #fff;
-      border: 1.5px solid #e8ddf2;
-      border-radius: 24px;
+      /* background: #fff; */
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 4px 16px rgba(124, 58, 237, 0.06);
       cursor: pointer;
       transition: all 0.25s ease;
-      height: 350px;
+      text-align: center;
+      height: max-content;
     }
 
     .core-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 48px rgba(124, 58, 237, 0.18);
-      border-color: #b8a4d9;
+      transform: translateY(-4px);
+      /* box-shadow: 0 12px 36px rgba(124, 58, 237, 0.12); */
     }
 
     .core-card__img-wrap {
-      position: relative;
-      height: 250px;
+      width: 100%;
+      aspect-ratio: 1 / 1;
       overflow: hidden;
-      background: #f6f0fa;
+      background: #eae3f0;
+      border-radius: 100%;
+      margin-bottom: 30px;
     }
 
     .core-card__img {
@@ -1189,128 +1277,27 @@
     }
 
     .core-card:hover .core-card__img {
-      transform: scale(1.05);
-    }
-
-    .core-card__overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(78, 36, 180, 0.18) 0%, transparent 60%);
-      pointer-events: none;
+      transform: scale(1.04);
     }
 
     .core-card__body {
-      padding: 16px 18px 20px;
+      padding: 16px 8px 20px;
     }
 
     .core-card__name {
-      font-size: 17.5px;
-      font-weight: 500;
-      color: #3d2549;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1a1a1a;
       margin-bottom: 4px;
       line-height: 1.3;
     }
 
     .core-card__designation {
-      font-size: 13.5px;
+      font-size: 0.82rem;
       font-weight: 500;
-      color: #b8a4d9;
+      color: #999;
       line-height: 1.5;
-      transition: color 0.2s;
-    }
-
-    .core-card:hover .core-card__designation {
-      color: #6c32a8;
-    }
-
-    /* Departments */
-    .dept-section {
-      margin-bottom: 40px;
-    }
-
-    .dept-section:last-child {
-      margin-bottom: 0;
-    }
-
-    .dept-section__heading {
-      font-size: 15px;
-      font-weight: 800;
-      color: #6c32a8;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .dept-section__heading::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, #d4c6e8, transparent);
-    }
-
-    .dept-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 40px;
-    }
-
-    /* Mini card */
-    .mini-card {
-      background: #fff;
-      border: 1.5px solid #e8ddf2;
-      border-radius: 20px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: all 0.22s ease;
-      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.05);
-      height: 300px;
-    }
-
-    .mini-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(124, 58, 237, 0.14);
-      border-color: #b8a4d9;
-    }
-
-    .mini-card__img {
-      width: 100%;
-      height: 210px;
-      object-fit: cover;
-      object-position: top center;
-      background: #f6f0fa;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-
-    .mini-card:hover .mini-card__img {
-      transform: scale(1.04);
-    }
-
-    .mini-card__body {
-      padding: 14px 16px 16px;
-    }
-
-    .mini-card__name {
-      font-size: 13px;
-      font-weight: 800;
-      color: #3d2549;
-      margin-bottom: 3px;
-      line-height: 1.3;
-    }
-
-    .mini-card__designation {
-      font-size: 11px;
-      font-weight: 600;
-      color: #9ca3af;
-      line-height: 1.5;
-      transition: color 0.2s;
-    }
-
-    .mini-card:hover .mini-card__designation {
-      color: #6c32a8;
     }
 
     /* Advisory panel */
@@ -1321,7 +1308,7 @@
     }
 
     .advisory-card {
-      background: linear-gradient(145deg, #3d2549, #6c32a8, #6c32a8);
+      background: linear-gradient(145deg, #6b21a891, #ffc10769);
       border-radius: 24px;
       padding: 32px;
       overflow: hidden;
@@ -1360,20 +1347,19 @@
     .advisory-card__top {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 24px;
       margin-bottom: 18px;
       position: relative;
+      /* flex-direction: column; */
     }
 
-    .advisory-card__img {
-      width: 68px;
-      height: 68px;
+    .advisory-card__img-wrap {
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
-      object-fit: cover;
-      object-position: top center;
-      border: 3px solid rgba(255, 255, 255, 0.25);
+      background: #eae3f0;
       flex-shrink: 0;
-      animation: float 3s ease-in-out infinite;
+      border: 3px solid rgba(255, 255, 255, 0.25);
     }
 
     .advisory-card__chip {
@@ -1381,20 +1367,21 @@
       width: fit-content;
       background: rgba(255, 255, 255, 0.12);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      color: rgba(255, 255, 255, 0.9);
+      color: #1a1a1a;
       border-radius: 50px;
       padding: 3px 12px;
       font-size: 10px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-bottom: 8px;
+      margin-bottom: 15px;
     }
 
     .advisory-card__name {
-      font-size: 18px;
+      font-family: 'Space Grotesk';
+      font-size: 2rem;
       font-weight: 800;
-      color: #fff;
+      color: #1a1a1a;
       line-height: 1.25;
     }
 
@@ -1407,7 +1394,7 @@
     .advisory-card__bio {
       font-size: 13px;
       font-weight: 600;
-      color: rgba(255, 255, 255, 0.82);
+      color: #1a1a1a;
       line-height: 1.8;
       display: -webkit-box;
       -webkit-line-clamp: 3;
@@ -1424,10 +1411,10 @@
     .advisory-card__toggle {
       background: rgba(255, 255, 255, 0.12);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      color: rgba(255, 255, 255, 0.9);
+      color: #6c4c9f;
       border-radius: 10px;
       padding: 6px 14px;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 11px;
       font-weight: 800;
       cursor: pointer;
@@ -1438,6 +1425,12 @@
 
     .advisory-card__toggle:hover {
       background: rgba(255, 255, 255, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .advisory-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -1457,20 +1450,30 @@
     <div class="about-hero-deco about-hero-sparkle about-hero-sparkle-4">✦</div>
     <div class="about-hero-deco about-hero-sparkle about-hero-sparkle-5">✦</div>
 
-    <!-- Hero Image -->
-    <div class="about-hero-image-wrapper">
-      <img src="assets/about.png" alt="About ENpower" class="about-hero-image">
+    <!-- Hero Heading -->
+    <div class="about-hero-heading">
+      <div class="about-hero-row">Transforming education</div>
+      <div class="about-hero-row">
+        <span class="about-hero-through">through</span> <span style="color: #e5a93e;">future skills</span>
+        <img class="about-hero-pill about-hero-pill-1"
+          src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=200&h=80&fit=crop" alt="">
+      </div>
+      <div class="about-hero-row">
+        <img class="about-hero-pill about-hero-pill-2"
+          src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=200&h=80&fit=crop" alt="">
+        <span>& <span style="color: #6c32a8;">innovation</span></span>
+      </div>
     </div>
 
   </div>
 
   <!-- ==== ABOUT US ===== -->
   <div class="section">
+    <h2 class="about-title">
+      About <span class="ac">ENpower</span>
+    </h2>
     <div class="about-grid">
       <div>
-        <!-- <h2 class="about-title">
-          Bridging the Gap Between <span class="ac">Education</span> and the <span class="ac">Future of Work</span>
-        </h2> -->
         <p class="about-p">
           ENpower is an education innovation organization working to bridge the growing gap between what schools
           traditionally teach and what the future of work demands. As careers evolve rapidly, students need more than
@@ -1486,8 +1489,7 @@
       </div>
 
       <div>
-        <div class="tabs" id="tabs"></div>
-        <div id="slide-wrap"></div>
+        <div id="slide-wrap" style="position:relative;height:260px;border-radius:24px;overflow:hidden;"></div>
         <div class="arrows">
           <button class="arrow-btn arrow-prev" onclick="move(-1)">&#8592;</button>
           <button class="arrow-btn arrow-next" onclick="move(1)">&#8594;</button>
@@ -1556,8 +1558,8 @@
   <div class="divider"></div>
   <section class="hs-section">
     <div class="hs-heading-wrapper">
-      <h2 class="hs-heading">A Decade of <span>Impact</span></h2>
-      <p class="hs-sub">2015 — 2025 · Scroll or use arrows to explore</p>
+      <h2 class="hs-heading"> A Journey Of <span>Impact</span></h2>
+      <!-- <p class="hs-sub">2015 — 2025 · Scroll or use arrows to explore</p> -->
     </div>
 
     <div class="hs-scroll-container">
@@ -1589,12 +1591,14 @@
       <h1 class="section-heading"><span>Team</span> <span style="color:#e5a93e;">ENpower</span></h1>
     </div>
 
+    <div class="team-photo-wrap">
+      <img src="assets/about/TEAM.jpg" alt="Team ENpower" class="team-photo">
+    </div>
+
     <div class="main-tabs" id="mainTabs"></div>
 
     <div class="content-area">
       <div class="tab-panel active" id="panel-core"></div>
-      <div class="tab-panel" id="panel-departments"></div>
-      <div class="tab-panel" id="panel-projects"></div>
       <div class="tab-panel" id="panel-advisory"></div>
     </div>
 
@@ -1750,30 +1754,47 @@
   <script>
     /* ---- Slideshow ---- */
     const slides = [
-      { label: "Team", img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop", bg: "linear-gradient(135deg,#6c32a8,#8b4fc7)" },
-      { label: "Students", img: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&h=400&fit=crop", bg: "linear-gradient(135deg,#e5a93e,#6c32a8)" },
-      { label: "Trainers", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop", bg: "linear-gradient(135deg,#6c32a8,#e5a93e)" },
-      { label: "Events", img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=400&fit=crop", bg: "linear-gradient(135deg,#e5a93e,#d4922e)" },
+      { label: "Team", img: "assets/about/TEAM.jpg" },
+      { label: "Students", img: "assets/about/STUDENTS.JPG" },
+      { label: "Trainers", img: "assets/about/THINKING_COACH.JPG" },
+      { label: "Events", img: "assets/about/EVENTS.JPG" },
     ];
     let slideCur = 0;
-    let slideTimer = setInterval(() => move(1), 3000);
+    let slideTimer;
+
+    // Build all slides in DOM once
+    (function initSlideshow() {
+      const wrap = document.getElementById("slide-wrap");
+      slides.forEach((s, i) => {
+        const div = document.createElement("div");
+        div.className = "slide-card";
+        div.style.cssText = "position:absolute;top:0;left:0;width:100%;height:100%;background:none;opacity:" + (i === 0 ? "1" : "0") + ";transition:opacity 0.6s ease;";
+        const img = document.createElement("img");
+        img.src = s.img;
+        img.alt = s.label;
+        img.style.cssText = "position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:inherit;";
+        div.appendChild(img);
+        wrap.appendChild(div);
+      });
+      slideTimer = setInterval(() => move(1), 3000);
+    })();
 
     function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(() => move(1), 3000); }
 
-    function move(dir) { slideCur = (slideCur + dir + slides.length) % slides.length; renderSlide(); resetTimer(); }
-    function goSlide(i) { slideCur = i; renderSlide(); resetTimer(); }
-
-    function renderSlide() {
-      const s = slides[slideCur];
-      document.getElementById("tabs").innerHTML = slides.map((sl, i) =>
-        `<button class="tab-btn ${i === slideCur ? "active" : ""}" onclick="goSlide(${i})">${sl.label}</button>`
-      ).join("");
-      document.getElementById("slide-wrap").innerHTML = `
-    <div class="slide-card" style="background:none;">
-      <img src="${s.img}" alt="${s.label}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:inherit;">
-    </div>`;
+    function move(dir) {
+      const allSlides = document.querySelectorAll("#slide-wrap .slide-card");
+      allSlides[slideCur].style.opacity = "0";
+      slideCur = (slideCur + dir + slides.length) % slides.length;
+      allSlides[slideCur].style.opacity = "1";
+      resetTimer();
     }
-    renderSlide();
+    function goSlide(i) {
+      const allSlides = document.querySelectorAll("#slide-wrap .slide-card");
+      allSlides[slideCur].style.opacity = "0";
+      slideCur = i;
+      allSlides[slideCur].style.opacity = "1";
+      resetTimer();
+    }
 
     /* ---- Timeline — Horizontal Scroll ---- */
     const timeline = [
@@ -2052,53 +2073,6 @@
       { name: 'Riddhima Guruji', designation: 'Category Head – Future Skills Lab', img: IMG.f2 },
     ];
 
-    const departments = [
-      {
-        label: 'Knowledge Centre', members: [
-          { name: 'Tiara Prasad', designation: 'Sr. Manager – Knowledge Centre', img: IMG.f1 },
-          { name: 'Vishal Shetty', designation: 'Sr. Manager – Knowledge Centre', img: IMG.m3 },
-          { name: 'Swarnim Malik', designation: 'Manager, Knowledge Center', img: IMG.m4 },
-          { name: 'Kanhaiya', designation: 'Knowledge Associate', img: IMG.m2 },
-        ]
-      },
-      {
-        label: 'Marketing', members: [
-          { name: 'Samruddhi Naroji', designation: 'Sr. Manager, Marketing & Communications', img: IMG.f3 },
-          { name: 'Rayaan Sian Achrekar', designation: 'Marketing Manager, Operations', img: IMG.m4 },
-          { name: 'Pinky Mehta', designation: 'Executive, Marketing', img: IMG.f4 },
-        ]
-      },
-      {
-        label: 'Operations', members: [
-          { name: 'Prapti Shamkuwar', designation: 'Operations Manager', img: IMG.f2 },
-          { name: 'Vishal Vadhiyar', designation: 'Tech and Digital Manager', img: IMG.m3 },
-          { name: 'Akash Naik', designation: 'Senior Facilitator Manager', img: IMG.m4 },
-          { name: 'Omkar Sitaram Sadadekar', designation: 'STEM Coordinator', img: IMG.m2 },
-        ]
-      },
-      {
-        label: 'Future Skills Lab', members: [
-          { name: 'Vasudha Talwar', designation: 'Project Manager', img: IMG.f1 },
-          { name: 'Sushrut Mahajan', designation: 'School Relationship Manager', img: IMG.m3 },
-          { name: 'Ritu Nandmaher', designation: 'Project Coordinator, Career Darshak', img: IMG.f4 },
-        ]
-      },
-    ];
-
-    const projectTeam = [
-      { name: 'Shyna Gupta', designation: 'Manager, Digital Skills', img: IMG.f1 },
-      { name: 'Shreya Bagde', designation: 'Project Manager', img: IMG.f3 },
-      { name: 'Sayali Waghmare', designation: 'Project Manager', img: IMG.f4 },
-      { name: 'Virajaji Naraganeni', designation: 'Project Manager', img: IMG.f2 },
-      { name: 'Dnyaneshwar Maske', designation: 'Project Manager', img: IMG.m3 },
-      { name: 'Prashant Gaikwad', designation: 'Project Manager', img: IMG.m4 },
-      { name: 'Reshmi A R', designation: 'Program Manager', img: IMG.f1 },
-      { name: 'Prajakta Taiwade', designation: 'Process & Project Manager', img: IMG.f3 },
-      { name: 'Ravi Kumar', designation: 'Project Coordinator', img: IMG.m2 },
-      { name: 'Mohd Imran', designation: 'Project Coordinator', img: IMG.m4 },
-      { name: 'Md. Azharoddin Atahar Kazi', designation: 'Program Coordinator', img: IMG.m3 },
-    ];
-
     const advisoryPanel = [
       { name: 'Dr. Bhalchandra Mungekar', role: 'Mentor', img: IMG.m1, bio: 'Dr. Bhalchandra Mungekar is an author, economist, educationist, social worker, and former Rajya Sabha member. He served as Vice-Chancellor of the University of Mumbai, held prestigious positions in the Planning Commission and Agricultural Price Commission, and chaired the UGC and the Indian Institute of Advanced Study, Shimla.' },
       { name: 'Nikhil Vora', role: 'Strategic Investor', img: IMG.m2, bio: "Nikhil Vora is the Founder & CEO of Sixth Sense Ventures, India's first consumer-focused domestic venture fund. He was formerly Managing Director and Head of Research at IDFC Securities and has advised companies such as Unilever, Aditya Birla Group, Marico, Godrej Group, NIIT, and Navneet Education. In the Asia Money Polls 2012, he was ranked India's No.1 analyst." },
@@ -2107,21 +2081,10 @@
     const coreCard = m => `
   <div class="core-card">
     <div class="core-card__img-wrap">
-      <img src="${getPlaceholder(m.name)}" alt="${m.name}" class="core-card__img" onerror="this.style.display='none'">
-      <div class="core-card__overlay"></div>
     </div>
     <div class="core-card__body">
       <p class="core-card__name">${m.name}</p>
       <p class="core-card__designation">${m.designation}</p>
-    </div>
-  </div>`;
-
-    const miniCard = m => `
-  <div class="mini-card">
-    <img src="${getPlaceholder(m.name)}" alt="${m.name}" class="mini-card__img" onerror="this.style.display='none'">
-    <div class="mini-card__body">
-      <p class="mini-card__name">${m.name}</p>
-      <p class="mini-card__designation">${m.designation}</p>
     </div>
   </div>`;
 
@@ -2130,7 +2093,7 @@
     <div class="advisory-card__circle advisory-card__circle--1"></div>
     <div class="advisory-card__circle advisory-card__circle--2"></div>
     <div class="advisory-card__top">
-      <img src="${getPlaceholder(a.name)}" alt="${a.name}" class="advisory-card__img" onerror="this.style.display='none'">
+      <div class="advisory-card__img-wrap"></div>
       <div>
         <span class="advisory-card__chip">${a.role}</span>
         <h3 class="advisory-card__name">${a.name}</h3>
@@ -2145,24 +2108,14 @@
       '<h2 class="group-heading">Core <span>Team</span></h2>' +
       '<div class="core-grid">' + coreTeam.map(coreCard).join('') + '</div>';
 
-    document.getElementById('panel-departments').innerHTML =
-      '<h2 class="group-heading">Our <span>Departments</span></h2>' +
-      departments.map(d => `<div class="dept-section"><h3 class="dept-section__heading">${d.label}</h3><div class="dept-grid">${d.members.map(miniCard).join('')}</div></div>`).join('');
-
-    document.getElementById('panel-projects').innerHTML =
-      '<h2 class="group-heading">Project <span>Team</span></h2>' +
-      '<div class="dept-grid">' + projectTeam.map(miniCard).join('') + '</div>';
-
     document.getElementById('panel-advisory').innerHTML =
-      '<h2 class="group-heading">Advisory <span>Panel</span></h2>' +
+      '<h2 class="group-heading">Advisory <span>Board</span></h2>' +
       '<div class="advisory-grid">' + advisoryPanel.map(advisoryCard).join('') + '</div>';
 
     const tabsEl = document.getElementById('mainTabs');
     [
       { key: 'core', label: 'Core Team', count: coreTeam.length },
-      { key: 'departments', label: 'Departments', count: departments.reduce((s, d) => s + d.members.length, 0) },
-      { key: 'projects', label: 'Project Team', count: projectTeam.length },
-      { key: 'advisory', label: 'Advisory', count: advisoryPanel.length },
+      { key: 'advisory', label: 'Advisory Board', count: advisoryPanel.length },
     ].forEach(t => {
       const btn = document.createElement('button');
       btn.className = 'main-tab' + (t.key === 'core' ? ' active' : '');

@@ -9,9 +9,9 @@
 
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -35,7 +35,7 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background-color: #f6f0fa;
             overflow-x: hidden;
         }
@@ -54,7 +54,7 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
-            margin-top: 40px;
+            margin-top: 22px;
         }
 
         #taWaveCanvas {
@@ -143,7 +143,7 @@
             justify-content: center;
             gap: 32px;
             text-align: center;
-            /* margin-top: 30px; */
+            margin-top: 22px;
         }
 
         /* ── TA Text block ── */
@@ -160,49 +160,36 @@
             font-size: 80px;
             font-weight: 800;
             font-family: 'Space Grotesk', sans-serif;
-            color: #6c32a8;
+            color: #1a1a1a;
             line-height: 1.1;
             letter-spacing: -2px;
         }
 
-        /* ── TA Row 2: "Evolve for a" text ── */
+        /* ── TA Row 2 ── */
         .ta-row-2 {
             font-size: 80px;
             font-weight: 800;
             font-family: 'Space Grotesk', sans-serif;
-            color: #6c32a8;
+            color: #1a1a1a;
             line-height: 1.1;
             letter-spacing: -2px;
-            margin-top: 10px;
         }
 
-        /* ── TA Row 2b: Orange "Changing Future" text ── */
+        /* ── TA Row 2b ── */
         .ta-row-2b {
             font-size: 80px;
             font-weight: 800;
             font-family: 'Space Grotesk', sans-serif;
-            color: #e5a93e;
+            color: #1a1a1a;
             line-height: 1.1;
             letter-spacing: -2px;
-            margin-top: 10px;
         }
 
-        /* ── TA Row 3: Two-color heading ── */
-        .ta-row-3 {
-            font-size: 30px;
-            font-weight: 800;
-            font-family: 'Space Grotesk', sans-serif;
-            line-height: 1.1;
-            letter-spacing: -1px;
-            margin-top: 40px;
-            text-align: center;
-        }
-
-        .ta-row-3 .purple-text {
+        .purple-text {
             color: #6c32a8;
         }
 
-        .ta-row-3 .orange-text {
+        .orange-text {
             color: #e5a93e;
         }
 
@@ -308,7 +295,7 @@
         /* ── TA Call to Action Section ── */
         .ta-cta-section {
             text-align: center;
-            /* margin-top: 20px; */
+            margin-top: 20px;
             padding: 0 20px;
         }
 
@@ -329,7 +316,7 @@
             color: #ffffff;
             font-size: 15px;
             font-weight: 500;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             padding: 13px 30px;
             border-radius: 15px;
             text-decoration: none;
@@ -391,6 +378,67 @@
             }
         }
 
+        .ta-impact-revamp {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .ta-impact-revamp-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+            margin-bottom: 36px;
+            line-height: 1.2;
+        }
+
+        .ta-impact-revamp-heading .purple-text {
+            color: #6c32a8;
+        }
+
+        .ta-impact-revamp-heading .yellow-text {
+            color: #e5a93e;
+        }
+
+        .ta-impact-revamp-para {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .ta-impact-revamp-divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 32px 0;
+        }
+
+        .ta-divider-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d4c6e8, transparent);
+        }
+
+        .ta-divider-star {
+            color: #e5a93e;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .ta-impact-revamp-heading {
+                font-size: 2rem;
+            }
+
+            .ta-impact-revamp-para {
+                font-size: 0.95rem;
+            }
+        }
+
         .ta-impact-blob {
             position: absolute;
             border-radius: 50%;
@@ -444,8 +492,11 @@
 
         .ta-impact-tab-group {
             background-color: var(--ta-impact-surface-container-low);
-            padding: 0.5rem;
+            padding: 1.5rem;
             border-radius: 1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .ta-impact-tab-row {
@@ -704,11 +755,294 @@
             color: #E5A817;
         }
 
+        .ta-offer-header {
+            text-align: center;
+        }
+
         .ta-offer-header p {
             color: #6c5279;
             font-size: 1.125rem;
             line-height: 1.7;
-            max-width: 42rem;
+            max-width: 55rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ── Program Cards ── */
+        .ta-program-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            padding: 0px 180px;
+        }
+
+        @media (max-width: 768px) {
+            .ta-program-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ta-program-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1.5px solid #e8ddf2;
+            transition: all 0.3s ease;
+            padding: 20px;
+        }
+
+        .ta-program-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(108, 50, 168, 0.12);
+            border-color: #d4c6e8;
+        }
+
+        .ta-program-card__img {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: #eae3f0;
+            border-radius: 15px;
+        }
+
+        .ta-program-card__img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .ta-program-card:hover .ta-program-card__img img {
+            transform: scale(1.05);
+        }
+
+        .ta-program-card__body {
+            padding: 28px 0px 0px;
+        }
+
+        .ta-program-card__title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .ta-program-card__tagline {
+            font-size: 0.92rem;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .ta-program-card__cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 28px;
+            background: #6c32a8;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ta-program-card__cta:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 50, 168, 0.3);
+        }
+
+        .ta-program-card__cta--yellow {
+            background: #e5a93e;
+        }
+
+        .ta-program-card__cta--yellow:hover {
+            background: #d4941f;
+            box-shadow: 0 6px 20px rgba(229, 169, 62, 0.3);
+        }
+
+        /* ── Program Popup ── */
+        .ta-program-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(6px);
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .ta-program-popup-overlay.active {
+            display: flex;
+        }
+
+        .ta-program-popup {
+            background: #fff;
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 680px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: taPopupSlideIn 0.35s ease;
+        }
+
+        @keyframes taPopupSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .ta-program-popup__close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #999;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .ta-program-popup__close:hover {
+            color: #1a1a1a;
+        }
+
+        .ta-program-popup__title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #6c32a8;
+            margin-bottom: 28px;
+            padding-right: 40px;
+            line-height: 1.3;
+        }
+
+        .ta-program-popup__section {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #f0eaf5;
+        }
+
+        .ta-program-popup__section:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .ta-program-popup__section h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #3d2549;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ta-program-popup__section h4 .material-symbols-outlined {
+            font-size: 20px;
+            color: #6c32a8;
+        }
+
+        .ta-program-popup__section p {
+            font-size: 0.92rem;
+            color: #555;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .ta-program-popup__sub {
+            font-weight: 600;
+            color: #3d2549 !important;
+            margin-bottom: 10px !important;
+        }
+
+        .ta-program-popup__section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ta-program-popup__section ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.88rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .ta-program-popup__section ul li .material-symbols-outlined {
+            font-size: 18px;
+            color: #6c32a8;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .ta-program-popup__cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 14px 32px;
+            background: #6c32a8;
+            color: #fff;
+            border: none;
+            border-radius: 100px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .ta-program-popup__cta:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 50, 168, 0.3);
+        }
+
+        .ta-program-popup__cta--yellow {
+            background: #e5a93e;
+        }
+
+        .ta-program-popup__cta--yellow:hover {
+            background: #d4941f;
+            box-shadow: 0 6px 20px rgba(229, 169, 62, 0.3);
+        }
+
+        @media (max-width: 600px) {
+            .ta-program-popup {
+                padding: 28px 20px;
+            }
+
+            .ta-program-popup__title {
+                font-size: 1.25rem;
+            }
         }
 
         .ta-compare-shell {
@@ -1009,7 +1343,7 @@
             font-weight: 400;
             color: #666;
             line-height: 2;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
         }
 
@@ -1017,13 +1351,13 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            padding: 18px 36px;
+            padding: 15px 18px;
             background: #6c32a8;
             color: #ffffff;
             border: none;
             border-radius: 15px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1067,7 +1401,9 @@
         .ta-cta-image-wrapper {
             position: relative;
             width: 100%;
+            border-radius: 24px;
             overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
         .ta-cta-image {
@@ -1191,7 +1527,7 @@
         }
 
         .form-popup-header p {
-            font-family: 'Poppins', sans-serif !important;
+            font-family: 'Montserrat', sans-serif !important;
             font-size: 0.88rem !important;
             color: #666;
             line-height: 1.5 !important;
@@ -1217,7 +1553,7 @@
         }
 
         .form-group label {
-            font-family: 'Poppins', sans-serif !important;
+            font-family: 'Montserrat', sans-serif !important;
             font-size: 0.85rem !important;
             font-weight: 600 !important;
             color: #1a1a1a;
@@ -1233,7 +1569,7 @@
             padding: 0.75rem 1rem;
             border: 2px solid #e0e0e0;
             border-radius: 10px;
-            font-family: 'Poppins', sans-serif !important;
+            font-family: 'Montserrat', sans-serif !important;
             font-size: 0.9rem !important;
             color: #1a1a1a;
             transition: all 0.3s ease;
@@ -1266,7 +1602,7 @@
         }
 
         .form-group .error-message {
-            font-family: 'Poppins', sans-serif !important;
+            font-family: 'Montserrat', sans-serif !important;
             font-size: 0.75rem !important;
             color: #e74c3c;
             margin-top: 0.2rem;
@@ -1284,7 +1620,7 @@
             color: white;
             border: none;
             border-radius: 15px;
-            font-family: 'Poppins', sans-serif !important;
+            font-family: 'Montserrat', sans-serif !important;
             font-size: 0.95rem !important;
             font-weight: 600 !important;
             cursor: pointer;
@@ -1351,42 +1687,37 @@
         <div class="ta-deco ta-sparkle ta-sparkle-4">✦</div>
         <div class="ta-deco ta-sparkle ta-sparkle-5">✦</div>
 
-        <!-- Row 1: Learners Must + pill -->
+        <!-- Row 1: Build Future-Ready -->
         <div class="ta-top-section">
             <div class="ta-text-block">
-                <span class="ta-row-1">Learners Must</span>
+                <span class="ta-row-1">Build <span class="purple-text">Future-Ready</span></span>
+            </div>
+        </div>
+
+        <!-- Row 2: Educators + pill -->
+        <div class="ta-top-section">
+            <div class="ta-text-block">
+                <span class="ta-row-2 purple-text">Educators</span>
             </div>
             <div class="ta-pill ta-pill-right">
-                <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=700&q=80"
-                    alt="Students learning together" />
+                <img src="assets/training-academy/hero1.png" alt="Educators training" />
             </div>
         </div>
 
-        <!-- Row 2: Evolve for a -->
+        <!-- Row 3: Shape Future-Ready -->
         <div class="ta-top-section">
             <div class="ta-text-block">
-                <span class="ta-row-2">Evolve for a</span>
+                <span class="ta-row-2b">Shape <span class="orange-text">Future-Ready</span></span>
             </div>
         </div>
 
-        <!-- Row 2b: pill + Changing Future... -->
+        <!-- Row 4: pill + Schools -->
         <div class="ta-top-section">
             <div class="ta-pill ta-pill-left">
-                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=700&q=80"
-                    alt="Learning environment" />
+                <img src="assets/csl/csl-path.jpeg" alt="Future-ready schools" />
             </div>
             <div class="ta-text-block">
-                <span class="ta-row-2b">Changing Future...</span>
-            </div>
-        </div>
-
-        <!-- Row 3: Educators & Schools Must Lead That Evolution. -->
-        <div class="ta-top-section">
-            <div class="ta-text-block">
-                <span class="ta-row-3">
-                    <span class="purple-text">Educators & Schools</span>
-                    <span class="orange-text"> Must Lead That Evolution.</span>
-                </span>
+                <span class="ta-row-2b"><span class="orange-text">Schools</span></span>
             </div>
         </div>
 
@@ -1395,6 +1726,15 @@
             <p>Bridging the skill gap in education by empowering schools and educator ecosystems with practical,
                 industry-aligned future skills.</p>
         </div> -->
+
+        <!-- Call to Action Section -->
+        <div class="ta-cta-section">
+            <a href="#programs" class="ta-explore-btn"
+                onclick="event.preventDefault(); document.getElementById('programs').scrollIntoView({behavior:'smooth'});">
+                Explore Programs
+                <span class="arrow">→</span>
+            </a>
+        </div>
 
         <!-- Skills Text -->
         <div class="ta-skills-text">
@@ -1409,12 +1749,7 @@
                 <span>Entrepreneurship</span>
                 <span class="dot">•</span>
                 <span>21st-Century Life Skills</span>
-                <span class="dot">•</span>
-                <span>Build institutional capability</span>
-                <span class="dot">•</span>
-                <span>Certify your educators</span>
-                <span class="dot">•</span>
-                <span>Lead future-ready education</span>
+
                 <!-- Duplicate for seamless loop -->
                 <span class="dot">•</span>
                 <span>Design Thinking</span>
@@ -1426,21 +1761,7 @@
                 <span>Entrepreneurship</span>
                 <span class="dot">•</span>
                 <span>21st-Century Life Skills</span>
-                <span class="dot">•</span>
-                <span>Build institutional capability</span>
-                <span class="dot">•</span>
-                <span>Certify your educators</span>
-                <span class="dot">•</span>
-                <span>Lead future-ready education</span>
             </div>
-        </div>
-
-        <!-- Call to Action Section -->
-        <div class="ta-cta-section">
-            <a href="#get-certified" class="ta-explore-btn" onclick="event.preventDefault(); scrollToGetCertified();">
-                Explore Programs
-                <span class="arrow">→</span>
-            </a>
         </div>
 
     </div>
@@ -1452,127 +1773,33 @@
         <div class="ta-impact-blob ta-impact-blob-bottom-left"></div>
 
         <div class="container-xl">
-            <div class="row g-5 align-items-start">
+            <div class="ta-impact-revamp">
 
-                <!-- LEFT COLUMN -->
-                <div class="col-12 col-lg-5 d-flex flex-column gap-4">
+                <h2 class="ta-impact-revamp-heading">
+                    Why <span class="purple-text">Educator Training</span> &
+                    <span class="yellow-text">Certification Matters?</span>
+                </h2>
 
-                    <div class="d-flex flex-column gap-3">
-                        <h2 class="ta-impact-font-headline fw-bold lh-sm"
-                            style="font-size: 3rem; color:#6c32a8; letter-spacing:-0.02em;">
-                            Why <span class="ta-impact-text-gradient">Educator Training</span> &amp;
-                            <span class="ta-impact-text-gradient">Certification</span> Matters?
-                        </h2>
+                <p class="ta-impact-revamp-para">
+                    India has over 10 million teachers, yet less than 20% receive structured professional development
+                    annually. While global systems invest 100+ hours per year in teacher growth, India averages under
+                    20. With rapid policy shifts, AI-ready classrooms, and competency-based learning becoming the norm,
+                    certification-led upskilling is no longer optional.
+                </p>
 
-                        <p
-                            style="color:var(--ta-impact-on-surface-variant); font-size:1rem; line-height:1.7; max-width:38rem;">
-                            India has 10M+ teachers, yet under 20% get annual training. Globally, teachers receive 100+
-                            hours, while India averages below 20. With AI classrooms and policy shifts, upskilling is
-                            essential.
-                        </p>
+                <div class="ta-impact-revamp-divider">
+                    <span class="ta-divider-line"></span>
+                    <span class="ta-divider-star">✦</span>
+                    <span class="ta-divider-line"></span>
+                </div>
 
-                        <div class="ta-impact-bento-card-impact">
-                            <div class="ta-impact-icon-box">
-                                <span class="material-symbols-outlined"
-                                    style="font-size:1.75rem; color:#6c32a8;">hub</span>
-                            </div>
-                            <p
-                                style="color:var(--ta-impact-on-surface-variant); font-size:0.875rem; font-weight:500; font-style:italic; margin:0;">
-                                "Empowered educators build future-ready learners and institutions that invest in
-                                teacher capacity lead sustainable transformation. ENpower partners with schools and
-                                foundations to enable that shift."
-                            </p>
-                        </div>
-                    </div>
+                <p class="ta-impact-revamp-para">
+                    By 2030, India must focus on upskilling educators to meet evolving enrolments and future-skills
+                    mandates.
+                    Empowered educators build future-ready learners and institutions that invest in teacher capacity
+                    lead sustainable transformation. ENpower partners with schools and foundations to enable that shift.
 
-                </div><!-- /left col -->
-
-
-                <!-- RIGHT COLUMN -->
-                <div class="col-12 col-lg-7">
-                    <div class="row g-4">
-
-                        <!-- Vision 2030 Card -->
-                        <div class="col-12">
-                            <div class="ta-impact-bento-card-muted ta-vision-card-animated" style="height: 230px;">
-                                <h4 class="ta-impact-font-headline fw-bold d-flex align-items-center gap-2"
-                                    style="font-size:1.125rem; color:var(--ta-impact-primary);">
-                                    <span class="material-symbols-outlined"
-                                        style="font-size:1.5rem;">rocket_launch</span>
-                                    Vision 2030
-                                </h4>
-                                <div class="mt-3">
-                                    <div class="d-flex align-items-baseline gap-2 mb-3">
-                                        <span class="ta-impact-font-headline fw-bold"
-                                            style="font-size:2.5rem; color:var(--ta-impact-on-surface); line-height:1; letter-spacing:-0.02em;">1
-                                            Crore</span>
-                                        <span
-                                            style="font-size:0.875rem; color:var(--ta-impact-on-surface-variant); font-weight:600;">Skilled
-                                            Educators</span>
-                                    </div>
-                                    <p
-                                        style="font-size:0.875rem; color:var(--ta-impact-on-surface-variant); line-height:1.6; margin-bottom:1rem;">
-                                        Skilled educators needed to meet rising enrolments and future-skills mandates.
-                                    </p>
-                                    <p
-                                        style="font-size:0.875rem; font-weight:500; line-height:1.7; color:var(--ta-impact-on-surface); padding-top:1rem; border-top:1px solid rgba(108,50,168,0.1);">
-                                        Upskilling is no longer optional — certification-led growth is the new baseline.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Tab Section Card -->
-                        <div class="col-12">
-                            <div class="ta-impact-tab-group">
-                                <div class="ta-impact-tab-row">
-
-                                    <button class="ta-impact-tab-btn active" id="ta-impact-tab-principal"
-                                        onclick="taImpactSwitchTab('principal')">
-                                        <span class="material-symbols-outlined" id="ta-impact-icon-principal"
-                                            style="color:var(--ta-impact-primary); font-variation-settings:'FILL' 1;">school</span>
-                                        <div class="text-start">
-                                            <p class="ta-impact-tab-title mb-0">I'm a Principal</p>
-                                            <p class="ta-impact-tab-sub mb-0">Lead Institutional Change</p>
-                                        </div>
-                                    </button>
-
-                                    <button class="ta-impact-tab-btn" id="ta-impact-tab-csr"
-                                        onclick="taImpactSwitchTab('csr')">
-                                        <span class="material-symbols-outlined" id="ta-impact-icon-csr">handshake</span>
-                                        <div class="text-start">
-                                            <p class="ta-impact-tab-title mb-0">I'm a CSR/Foundation</p>
-                                            <p class="ta-impact-tab-sub mb-0">Scale Social Impact</p>
-                                        </div>
-                                    </button>
-                                </div>
-
-                                <div class="ta-impact-tab-content-panel active" id="ta-impact-panel-principal">
-                                    <div class="ta-impact-tab-quote">
-                                        "I want my teachers certified so our school becomes a future-skills leader."
-                                    </div>
-                                </div>
-
-                                <div class="ta-impact-tab-content-panel" id="ta-impact-panel-csr">
-                                    <div class="ta-impact-tab-quote">
-                                        "I want scalable, measurable educator capacity building at the grassroots."
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- CTA -->
-                        <div class="col-12">
-                            <div>
-                                <button class="ta-impact-btn-cta ta-impact-primary-gradient"
-                                    onclick="scrollToGetCertified()">
-                                    Explore Programs →
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div><!-- /right col -->
+                </p>
 
             </div>
         </div>
@@ -1590,294 +1817,229 @@
                 </p>
             </header>
 
-            <!-- Comparison Table -->
-            <div class="ta-compare-shell">
-                <div class="ta-compare-scroll">
-                    <table class="ta-compare-table">
-                        <thead>
-                            <tr>
-                                <th class="ta-thead-label ta-col-label">
-                                    <span>Program</span>
-                                </th>
-                                <th class="ta-thead-prog-a ta-col-a">
-                                    <div class="ta-prog-title">Design Thinking for Educators:<br>Certification Program
-                                    </div>
-                                </th>
-                                <th class="ta-thead-prog-b ta-col-b">
-                                    <div class="ta-prog-title">STEM & Technology Educator Certification Course</div>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th class="ta-row-label">
-                                    Tagline
-                                </th>
-                                <th class="ta-cell-a" style="padding: 0 2rem;">
-                                    <div class="ta-prog-tagline">Transforms the entire learning ecosystem: reimagines
-                                        classrooms, systems, students, stakeholders, and school culture.</div>
-                                </th>
-                                <th class="ta-thead-prog-b1" style="padding: 0 2rem;">
-                                    <div class="ta-prog-tagline">Builds educator confidence to deliver STEM & technology
-                                        through hands-on innovation-led learning.</div>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th class="ta-thead-label"></th>
-                                <th class="ta-cell-a" style="padding: 0; padding-left: 2rem;">
-                                    <button class="ta-btn-certify ta-btn-certify-purple"
-                                        onclick="scrollToGetCertified()">Get Certified →</button>
-                                </th>
-                                <th class="ta-thead-prog-b2" style="padding: 0; padding-left: 2rem;">
-                                    <button class="ta-btn-certify ta-btn-certify-violet"
-                                        onclick="scrollToGetCertified()">Get Certified →</button>
-                                </th>
-                            </tr>
-                        </thead>
+            <!-- Program Cards -->
+            <div class="ta-program-cards">
 
-                        <tbody>
-                            <!-- Duration -->
-                            <tr>
-                                <td class="ta-row-label">Duration</td>
-                                <td class="ta-cell-a">
-                                    <div class="ta-duration-row">
-                                        <span class="material-symbols-outlined">schedule</span>
-                                        <span class="fw-medium">Min: 6-40 hrs</span>
-                                    </div>
-                                </td>
-                                <td class="ta-cell-b">
-                                    <div class="ta-duration-row">
-                                        <span class="material-symbols-outlined">timer</span>
-                                        <span class="fw-medium">Min: 40-80 hrs</span>
-                                    </div>
-                                </td>
-                            </tr>
+                <!-- Card 1: Design Thinking -->
+                <div class="ta-program-card">
+                    <div class="ta-program-card__img">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=700&q=80"
+                            alt="Design Thinking for Educators">
+                    </div>
+                    <div class="ta-program-card__body">
+                        <h3 class="ta-program-card__title">Design Thinking for Educators: Certification Program</h3>
+                        <p class="ta-program-card__tagline">Transforms the entire learning ecosystem: reimagines
+                            classrooms, systems, students, stakeholders, and school culture.</p>
+                        <button class="ta-program-card__cta" onclick="openProgramPopup('dt')">Learn More →</button>
+                    </div>
+                </div>
 
-                            <!-- Focus -->
-                            <tr class="ta-row-tinted">
-                                <td class="ta-row-label">Focus</td>
-                                <td class="ta-cell-a">
-                                    <ul class="ta-bullet-list">
-                                        <li>
-                                            <span class="material-symbols-outlined">design_services</span>
-                                            <span>Apply Design Thinking Across Curriculum & Beyond</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">favorite</span>
-                                            <span>Humanize the Classroom</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">hub</span>
-                                            <span>Reimagine the Learning Ecosystem</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">psychology</span>
-                                            <span>Build Empathy Mindsets Across Stakeholders</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">architecture</span>
-                                            <span>Redefine Traditional & Classroom Structures</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">draw</span>
-                                            <span>Design & Prototype System-Level Solutions</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">autorenew</span>
-                                            <span>Create a Culture of Continuous Innovation</span>
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td class="ta-cell-b">
-                                    <ul class="ta-bullet-list">
-                                        <li>
-                                            <span class="material-symbols-outlined">memory</span>
-                                            <span>Build Foundational STEM & Computational Thinking</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">construction</span>
-                                            <span>Prototype Driven Learning</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">lightbulb</span>
-                                            <span>Foster Creativity, Innovation & Maker Mindset</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">explore</span>
-                                            <span>Enable Real-World Problem Identification & Solution Design</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">group</span>
-                                            <span>Enhance Collaboration, Communication & 21st Century Skills</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">rocket_launch</span>
-                                            <span>Prepare Students for Future Careers & Lifelong Learning</span>
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
+                <!-- Card 2: STEM -->
+                <div class="ta-program-card">
+                    <div class="ta-program-card__img">
+                        <img src="assets/training-academy/Stem-Lab.png" alt="STEM & Technology Educator Certification">
+                    </div>
+                    <div class="ta-program-card__body">
+                        <h3 class="ta-program-card__title">STEM & Technology Educator Certification Course</h3>
+                        <p class="ta-program-card__tagline">Builds educator confidence to deliver STEM & technology
+                            through hands-on innovation-led learning.</p>
+                        <button class="ta-program-card__cta ta-program-card__cta--yellow"
+                            onclick="openProgramPopup('stem')">Learn More →</button>
+                    </div>
+                </div>
 
-                            <!-- Outcomes -->
-                            <tr>
-                                <td class="ta-row-label">Outcomes</td>
-                                <td class="ta-cell-a">
-                                    <p class="ta-outcome-heading">You will be able to:</p>
-                                    <ul class="ta-bullet-list">
-                                        <li>
-                                            <span class="material-symbols-outlined">check_circle</span>
-                                            <span>Design learner-centric learning experiences across curriculum,
-                                                environments, and systems to address engagement gaps and learning
-                                                challenges.</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">check_circle</span>
-                                            <span>Embed experimentation and continuous improvement into school
-                                                culture</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">check_circle</span>
-                                            <span>Build collaboration, ownership, and mindset shifts among teams</span>
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td class="ta-cell-b">
-                                    <p class="ta-outcome-heading">You will be able to:</p>
-                                    <ul class="ta-bullet-list">
-                                        <li>
-                                            <span class="material-symbols-outlined">check_circle</span>
-                                            <span>Apply engineering & design process independently in classroom
-                                                settings, projects and across interdisciplinary kit-based
-                                                activities.</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">check_circle</span>
-                                            <span>Demonstrate functional STEM usage, curiosity & hands-on
-                                                experimentation maker mindset in students through projects, exhibitions,
-                                                and innovative solutions</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">check_circle</span>
-                                            <span>Build creativity, confidence, and a maker mindset in students through
-                                                teamwork, communication, and ethical use of technology in real-world
-                                                contexts.</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">check_circle</span>
-                                            <span>Facilitate problem-based learning using inquiry, design, and iterative
-                                                feedback loops (identify → ideate → test → refine).</span>
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
+            </div>
 
-                            <!-- Support -->
-                            <tr class="ta-row-tinted">
-                                <td class="ta-row-label">Support</td>
-                                <td class="ta-cell-a">
-                                    <ul class="ta-bullet-list">
-                                        <li>
-                                            <span class="material-symbols-outlined">frame_source</span>
-                                            <span>Live workshops & examples with classroom integration support</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">description</span>
-                                            <span>Ready templates & tools</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">menu_book</span>
-                                            <span>Syllabus-aligned ecosystem resources & academic guidance</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">people</span>
-                                            <span>Mentorship & handholding from STEM experts</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">school</span>
-                                            <span>Technical & digital resource support</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">forum</span>
-                                            <span>Structured assessment, feedback & reflection mechanisms</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">support_agent</span>
-                                            <span>Support during implementation</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">rocket_launch</span>
-                                            <span>Ready project frameworks aligned to classroom integration</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">speed</span>
-                                            <span>Continuous support during fast track implementation period</span>
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td class="ta-cell-b">
-                                    <ul class="ta-bullet-list">
-                                        <li>
-                                            <span class="material-symbols-outlined">frame_source</span>
-                                            <span>Dual frameworks & examples with real-world problem-solving
-                                                guides</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">connect_without_contact</span>
-                                            <span>Connect classroom learning to market-based / real-world
-                                                problem-solving, career pathways, and career relevance.</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">groups</span>
-                                            <span>Guide students in identifying solutions, test, ideate, and improve
-                                                with informed iteration.</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">design_services</span>
-                                            <span>Apply deep design and maker led-thinking to find solutions with
-                                                resources & academic guidance</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">people</span>
-                                            <span>Mentorship & handholding from STEM experts</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">school</span>
-                                            <span>Technical & digital resource support</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">forum</span>
-                                            <span>Structured assessment, feedback & reflection mechanisms</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">support_agent</span>
-                                            <span>Outcome-based, demonstration support during implementation</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">rocket_launch</span>
-                                            <span>Ready project frameworks aligned to classroom integration</span>
-                                        </li>
-                                        <li>
-                                            <span class="material-symbols-outlined">speed</span>
-                                            <span>Continuous support during fast track implementation period</span>
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
+            <!-- Program Popup: Design Thinking -->
+            <div class="ta-program-popup-overlay" id="popupDt">
+                <div class="ta-program-popup">
+                    <button class="ta-program-popup__close" onclick="closeProgramPopup('dt')">&times;</button>
+                    <h2 class="ta-program-popup__title">Design Thinking for Educators: Certification Program</h2>
 
-                            <!-- CTA -->
-                            <tr>
-                                <td class="ta-row-label" style="border-right:none;">CTA</td>
-                                <td class="ta-cta-cell ta-cta-cell-a">
-                                    <button class="ta-btn-certify ta-btn-certify-purple" style="margin-top:0;"
-                                        onclick="scrollToGetCertified()">Get Certified →</button>
-                                </td>
-                                <td class="ta-cta-cell ta-cta-cell-b">
-                                    <button class="ta-btn-certify ta-btn-certify-violet" style="margin-top:0;"
-                                        onclick="scrollToGetCertified()">Get Certified →</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="ta-program-popup__section">
+                        <h4><span class="material-symbols-outlined">schedule</span> Duration</h4>
+                        <p>Min: 6–40 hrs</p>
+                    </div>
+
+                    <div class="ta-program-popup__section">
+                        <h4><span class="material-symbols-outlined">center_focus_strong</span> Focus</h4>
+                        <ul>
+                            <li><span class="material-symbols-outlined">design_services</span> Apply Design Thinking
+                                Across Curriculum & Beyond</li>
+                            <li><span class="material-symbols-outlined">favorite</span> Humanize the Classroom</li>
+                            <li><span class="material-symbols-outlined">hub</span> Reimagine the Learning Ecosystem</li>
+                            <li><span class="material-symbols-outlined">psychology</span> Build Empathy Mindsets Across
+                                Stakeholders</li>
+                            <li><span class="material-symbols-outlined">architecture</span> Redefine Traditional &
+                                Classroom Structures</li>
+                            <li><span class="material-symbols-outlined">draw</span> Design & Prototype System-Level
+                                Solutions</li>
+                            <li><span class="material-symbols-outlined">autorenew</span> Create a Culture of Continuous
+                                Innovation</li>
+                        </ul>
+                    </div>
+
+                    <div class="ta-program-popup__section">
+                        <h4><span class="material-symbols-outlined">emoji_events</span> Outcomes</h4>
+                        <p class="ta-program-popup__sub">You will be able to:</p>
+                        <ul>
+                            <li><span class="material-symbols-outlined">check_circle</span> Design learner-centric
+                                learning experiences across curriculum, environments, and systems to address engagement
+                                gaps and learning challenges.</li>
+                            <li><span class="material-symbols-outlined">check_circle</span> Embed experimentation and
+                                continuous improvement into school culture</li>
+                            <li><span class="material-symbols-outlined">check_circle</span> Build collaboration,
+                                ownership, and mindset shifts among teams</li>
+                        </ul>
+                    </div>
+
+                    <div class="ta-program-popup__section">
+                        <h4><span class="material-symbols-outlined">support_agent</span> Support</h4>
+                        <ul>
+                            <li><span class="material-symbols-outlined">frame_source</span> Live workshops & examples
+                                with classroom integration support</li>
+                            <li><span class="material-symbols-outlined">description</span> Ready templates & tools</li>
+                            <li><span class="material-symbols-outlined">menu_book</span> Syllabus-aligned ecosystem
+                                resources & academic guidance</li>
+                            <li><span class="material-symbols-outlined">people</span> Mentorship & handholding from STEM
+                                experts</li>
+                            <li><span class="material-symbols-outlined">school</span> Technical & digital resource
+                                support</li>
+                            <li><span class="material-symbols-outlined">forum</span> Structured assessment, feedback &
+                                reflection mechanisms</li>
+                            <li><span class="material-symbols-outlined">support_agent</span> Support during
+                                implementation</li>
+                            <li><span class="material-symbols-outlined">rocket_launch</span> Ready project frameworks
+                                aligned to classroom integration</li>
+                            <li><span class="material-symbols-outlined">speed</span> Continuous support during fast
+                                track implementation period</li>
+                        </ul>
+                    </div>
+
+                    <button class="ta-program-popup__cta" onclick="closeProgramPopup('dt'); scrollToGetCertified();">Get
+                        Certified →</button>
                 </div>
             </div>
+
+            <!-- Program Popup: STEM -->
+            <div class="ta-program-popup-overlay" id="popupStem">
+                <div class="ta-program-popup">
+                    <button class="ta-program-popup__close" onclick="closeProgramPopup('stem')">&times;</button>
+                    <h2 class="ta-program-popup__title">STEM & Technology Educator Certification Course</h2>
+
+                    <div class="ta-program-popup__section">
+                        <h4><span class="material-symbols-outlined">timer</span> Duration</h4>
+                        <p>Min: 40–80 hrs</p>
+                    </div>
+
+                    <div class="ta-program-popup__section">
+                        <h4><span class="material-symbols-outlined">center_focus_strong</span> Focus</h4>
+                        <ul>
+                            <li><span class="material-symbols-outlined">memory</span> Build Foundational STEM &
+                                Computational Thinking</li>
+                            <li><span class="material-symbols-outlined">construction</span> Prototype Driven Learning
+                            </li>
+                            <li><span class="material-symbols-outlined">lightbulb</span> Foster Creativity, Innovation &
+                                Maker Mindset</li>
+                            <li><span class="material-symbols-outlined">explore</span> Enable Real-World Problem
+                                Identification & Solution Design</li>
+                            <li><span class="material-symbols-outlined">group</span> Enhance Collaboration,
+                                Communication & 21st Century Skills</li>
+                            <li><span class="material-symbols-outlined">rocket_launch</span> Prepare Students for Future
+                                Careers & Lifelong Learning</li>
+                        </ul>
+                    </div>
+
+                    <div class="ta-program-popup__section">
+                        <h4><span class="material-symbols-outlined">emoji_events</span> Outcomes</h4>
+                        <p class="ta-program-popup__sub">You will be able to:</p>
+                        <ul>
+                            <li><span class="material-symbols-outlined">check_circle</span> Apply engineering & design
+                                process independently in classroom settings, projects and across interdisciplinary
+                                kit-based activities.</li>
+                            <li><span class="material-symbols-outlined">check_circle</span> Demonstrate functional STEM
+                                usage, curiosity & hands-on experimentation maker mindset in students through projects,
+                                exhibitions, and innovative solutions</li>
+                            <li><span class="material-symbols-outlined">check_circle</span> Build creativity,
+                                confidence, and a maker mindset in students through teamwork, communication, and ethical
+                                use of technology in real-world contexts.</li>
+                            <li><span class="material-symbols-outlined">check_circle</span> Facilitate problem-based
+                                learning using inquiry, design, and iterative feedback loops (identify → ideate → test →
+                                refine).</li>
+                        </ul>
+                    </div>
+
+                    <div class="ta-program-popup__section">
+                        <h4><span class="material-symbols-outlined">support_agent</span> Support</h4>
+                        <ul>
+                            <li><span class="material-symbols-outlined">frame_source</span> Dual frameworks & examples
+                                with real-world problem-solving guides</li>
+                            <li><span class="material-symbols-outlined">connect_without_contact</span> Connect classroom
+                                learning to market-based / real-world problem-solving, career pathways, and career
+                                relevance.</li>
+                            <li><span class="material-symbols-outlined">groups</span> Guide students in identifying
+                                solutions, test, ideate, and improve with informed iteration.</li>
+                            <li><span class="material-symbols-outlined">design_services</span> Apply deep design and
+                                maker led-thinking to find solutions with resources & academic guidance</li>
+                            <li><span class="material-symbols-outlined">people</span> Mentorship & handholding from STEM
+                                experts</li>
+                            <li><span class="material-symbols-outlined">school</span> Technical & digital resource
+                                support</li>
+                            <li><span class="material-symbols-outlined">forum</span> Structured assessment, feedback &
+                                reflection mechanisms</li>
+                            <li><span class="material-symbols-outlined">support_agent</span> Outcome-based,
+                                demonstration support during implementation</li>
+                            <li><span class="material-symbols-outlined">rocket_launch</span> Ready project frameworks
+                                aligned to classroom integration</li>
+                            <li><span class="material-symbols-outlined">speed</span> Continuous support during fast
+                                track implementation period</li>
+                        </ul>
+                    </div>
+
+                    <button class="ta-program-popup__cta ta-program-popup__cta--yellow"
+                        onclick="closeProgramPopup('stem'); scrollToGetCertified();">Get Certified →</button>
+                </div>
+            </div>
+
+            <!-- Tab Section Card (moved from Impact Section) -->
+            <div class="ta-impact-tab-group mt-5">
+                <div class="ta-impact-tab-row">
+                    <button class="ta-impact-tab-btn active" id="ta-impact-tab-principal"
+                        onclick="taImpactSwitchTab('principal')">
+                        <span class="material-symbols-outlined" id="ta-impact-icon-principal"
+                            style="color:var(--ta-impact-primary); font-variation-settings:'FILL' 1;">school</span>
+                        <div class="text-start">
+                            <p class="ta-impact-tab-title mb-0">I'm a Principal</p>
+                            <p class="ta-impact-tab-sub mb-0">Lead Institutional Change</p>
+                        </div>
+                    </button>
+
+                    <button class="ta-impact-tab-btn" id="ta-impact-tab-csr" onclick="taImpactSwitchTab('csr')">
+                        <span class="material-symbols-outlined" id="ta-impact-icon-csr">handshake</span>
+                        <div class="text-start">
+                            <p class="ta-impact-tab-title mb-0">I'm a CSR/Foundation</p>
+                            <p class="ta-impact-tab-sub mb-0">Scale Social Impact</p>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="ta-impact-tab-content-panel active" id="ta-impact-panel-principal">
+                    <div class="ta-impact-tab-quote">
+                        "I want my teachers certified so our school becomes a future-skills leader."
+                    </div>
+                    <button class="ta-program-card__cta" style="margin-top:16px;"
+                        onclick="scrollToGetCertified()">Explore Programs →</button>
+                </div>
+
+                <div class="ta-impact-tab-content-panel" id="ta-impact-panel-csr">
+                    <div class="ta-impact-tab-quote">
+                        "I want scalable, measurable educator capacity building at the grassroots."
+                    </div>
+                    <button class="ta-program-card__cta" style="margin-top:16px;"
+                        onclick="scrollToGetCertified()">Explore Programs →</button>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -1901,7 +2063,7 @@
                 <!-- Right Grid: Image -->
                 <div class="ta-cta-right">
                     <div class="ta-cta-image-wrapper">
-                        <img src="assets/Group 47.png" alt="Educator Training" class="ta-cta-image">
+                        <img src="assets/fsl/CTA-fsl.jpeg" alt="Educator Training" class="ta-cta-image">
                     </div>
                 </div>
             </div>
@@ -1916,7 +2078,7 @@
         <div class="form-popup-container">
             <button class="form-popup-close" id="closeEducatorPopupBtn">&times;</button>
             <div class="form-popup-header">
-                <h2>Let's Build Educator Capacity Together</h2>
+                <h2>Upskill, Certify, and Lead Future-Ready Education.</h2>
             </div>
             <form id="educatorForm" class="partner-form" novalidate>
                 <!-- Name, Email, Phone Row -->
@@ -1938,27 +2100,29 @@
                     </div>
                 </div>
 
-                <!-- I am & I'm Interested in - Same Row -->
-                <div class="form-row" style="grid-template-columns: 1fr 1fr;">
-                    <!-- I am Dropdown -->
+                <!-- I am Dropdown -->
+                <div class="form-row" style="grid-template-columns: 1fr;">
                     <div class="form-group">
                         <label for="educatorRole">I am: <span class="required">*</span></label>
                         <select id="educatorRole" name="role" required>
                             <option value="" selected disabled>Select your role</option>
-                            <option value="educator">An Educator</option>
+                            <option value="educator">An Educator/Trainer/Facilitator</option>
                             <option value="school-leader">A School Leader</option>
                             <option value="csr">A CSR/Foundation Representative</option>
                         </select>
                         <span class="error-message">Please select your role</span>
                     </div>
+                </div>
 
-                    <!-- I'm Interested in Dropdown -->
+                <!-- I'm Interested in Dropdown -->
+                <div class="form-row" style="grid-template-columns: 1fr;">
                     <div class="form-group">
                         <label for="educatorInterest">I'm Interested in: <span class="required">*</span></label>
                         <select id="educatorInterest" name="interest" required>
                             <option value="" selected disabled>Select a program</option>
-                            <option value="design-thinking">Prog 1</option>
-                            <option value="stem-tech">Prog 2</option>
+                            <option value="design-thinking">Design Thinking for Educators: Certification Program
+                            </option>
+                            <option value="stem-tech">STEM & Technology Educator Certification</option>
                         </select>
                         <span class="error-message">Please select a program</span>
                     </div>
@@ -2204,6 +2368,40 @@
             document.getElementById('ta-impact-panel-principal').classList.toggle('active', tab === 'principal');
             document.getElementById('ta-impact-panel-csr').classList.toggle('active', tab === 'csr');
         }
+
+        /* ==========================================================
+           PROGRAM POPUP
+           ========================================================== */
+        function openProgramPopup(type) {
+            var id = type === 'dt' ? 'popupDt' : 'popupStem';
+            document.getElementById(id).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProgramPopup(type) {
+            var id = type === 'dt' ? 'popupDt' : 'popupStem';
+            document.getElementById(id).classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close popup on overlay click or ESC
+        document.querySelectorAll('.ta-program-popup-overlay').forEach(function (overlay) {
+            overlay.addEventListener('click', function (e) {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.ta-program-popup-overlay.active').forEach(function (overlay) {
+                    overlay.classList.remove('active');
+                });
+                document.body.style.overflow = '';
+            }
+        });
 
         /* ==========================================================
            SCROLL TO GET CERTIFIED SECTION

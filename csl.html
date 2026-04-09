@@ -10,7 +10,7 @@
 
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet" />
 
@@ -34,7 +34,7 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background-color: #f6f0fa;
             overflow-x: hidden;
         }
@@ -53,6 +53,7 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            margin-top: 40px;
         }
 
         #cslWaveCanvas {
@@ -68,6 +69,32 @@
         .csl-hero-section>* {
             position: relative;
             z-index: 2;
+        }
+
+        .csl-hero-explore-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 14px 36px;
+            background: #6c32a8;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 20px rgba(108, 50, 168, 0.25);
+        }
+
+        .csl-hero-explore-btn:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(108, 50, 168, 0.35);
+            color: #fff;
         }
 
         /* ── CSL Sparkle Stars ── */
@@ -178,7 +205,7 @@
             line-height: 1.1;
             letter-spacing: -2px;
             align-self: flex-start;
-            padding-left: 160px;
+            padding-left: 280px;
             margin-top: -6px;
             margin-bottom: 10px;
         }
@@ -239,6 +266,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            object-position: center 18% !important;
         }
 
         /* CSL Right pill (sits beside row1+row2) */
@@ -256,7 +284,7 @@
         /* ── CSL Sub text ── */
         .csl-subtext {
             text-align: center;
-            margin-top: 48px;
+            margin-top: 18px;
         }
 
         .csl-subtext .csl-s1 {
@@ -363,7 +391,7 @@
             color: #ffffff;
             border: none;
             border-radius: 25px;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
@@ -395,9 +423,9 @@
         .csl-cta-image-wrapper {
             position: relative;
             width: 100%;
-            /* border-radius: 24px; */
+            border-radius: 24px;
             overflow: hidden;
-            /* box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); */
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
         .csl-cta-image {
@@ -407,37 +435,26 @@
             object-fit: cover;
         }
 
-        /* ── CSL Cards Section ── */
-        .csl-cards-section {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            background: #f6f0fa;
-            padding: 60px 20px;
-        }
 
-        .csl-cards-container {
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
+        /* ── CSL Cards Info Section ── */
+        .csl-cards-info-section {
+            padding: 80px 20px 60px;
+            background: #f6f0fa;
         }
 
         .csl-cards-header {
             display: flex;
             justify-content: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .csl-cards-heading {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 4vw, 3.2rem);
             font-weight: 700;
             font-family: 'Space Grotesk', sans-serif;
             color: #1c1c1c;
             line-height: 1.2;
-            letter-spacing: -1px;
-            text-align: left;
-            /* max-width: 100px; */
-            /* width: 600px; */
+            text-align: center;
         }
 
         .csl-cards-heading-1 {
@@ -448,80 +465,37 @@
             color: #E5A817;
         }
 
-        .csl-cards-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            align-items: center;
-            position: relative;
+        .csl-cards-info-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .csl-card {
-            width: 100%;
-            max-width: 1200px;
-            display: grid;
-            grid-template-columns: 400px 1fr;
-            gap: 0;
-            background: linear-gradient(135deg, #efdeff 0%, #fffce3 100%);
-            border: 1px solid #8a5cf637;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            padding: 70px;
-            position: sticky;
-            top: 120px;
-        }
-
-        .csl-card:nth-child(1) {
-            top: 120px;
-        }
-
-        .csl-card:nth-child(2) {
-            top: 140px;
-        }
-
-        .csl-card:nth-child(3) {
-            top: 160px;
-        }
-
-        .csl-card:nth-child(4) {
-            top: 180px;
-        }
-
-        .csl-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-        }
-
-        .csl-card-image {
-            width: 100%;
-            max-width: 400px;
-            height: 350px;
-            overflow: hidden;
-            border-radius: 16px;
-        }
-
-        .csl-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .csl-card-content {
-            padding: 0 0 0 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .csl-card-description {
-            font-size: 1.1rem;
+        .csl-cards-info-para {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.05rem;
             font-weight: 400;
-            color: #666;
-            line-height: 1.6;
-            width: 100%;
-            max-width: 500px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .csl-cards-info-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 30px 0;
+        }
+
+        .csl-cards-info-line {
+            width: 80px;
+            height: 1px;
+            background: #ccc;
+        }
+
+        .csl-cards-info-star {
+            color: #6c32a8;
+            font-size: 1rem;
         }
 
         /* CSL Responsive */
@@ -634,55 +608,6 @@
                 justify-content: center;
             }
 
-            /* Cards Section Mobile */
-            .csl-cards-section {
-                padding: 60px 20px;
-                min-height: auto;
-            }
-
-            .csl-cards-header {
-                justify-content: center;
-                margin-bottom: 40px;
-            }
-
-            .csl-cards-heading {
-                font-size: 2rem;
-                width: 100%;
-                text-align: center;
-            }
-
-            .csl-cards-wrapper {
-                gap: 30px;
-            }
-
-            .csl-card {
-                width: 100%;
-                grid-template-columns: 1fr;
-                gap: 0;
-                padding: 30px 20px;
-                position: static !important;
-                top: auto !important;
-            }
-
-            .csl-card:hover {
-                transform: none;
-            }
-
-            .csl-card-image {
-                width: 100%;
-                height: 220px;
-                margin-bottom: 20px;
-            }
-
-            .csl-card-content {
-                padding: 0;
-                align-items: flex-start;
-            }
-
-            .csl-card-description {
-                font-size: 0.95rem;
-                width: 100%;
-            }
 
             /* Bento Section Mobile */
             .csl-bento-section {
@@ -1280,18 +1205,19 @@
             font-weight: 400;
             color: #555;
             line-height: 1.8;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             width: 100%;
             max-width: 550px;
-            margin-top: -50px;
+            /* margin-top: -50px; */
         }
 
         .csl-path-image {
-            width: 100%;
+            width: auto;
             height: 300px;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-left: -58px;
         }
 
         .csl-path-image img {
@@ -1304,58 +1230,87 @@
         .csl-comparison-table {
             width: 100%;
             border-collapse: separate;
-            border-spacing: 0;
-            overflow: hidden;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .csl-comparison-table thead {
-            background: linear-gradient(135deg, #dec1fc 0%, #d1bcff 100%);
+            border-spacing: 0 8px;
+            margin-top: 10px;
         }
 
         .csl-comparison-table thead th {
-            padding: 24px 30px;
-            font-size: 1.4rem;
+            padding: 20px 24px;
+            font-size: 1.05rem;
             font-weight: 700;
             font-family: 'Space Grotesk', sans-serif;
-            color: #1c1c1c;
-            text-align: left;
+            color: #fff;
+            text-align: center;
             border: none;
         }
 
         .csl-comparison-table thead th:first-child {
-            width: 35%;
+            background: transparent;
+            width: 18%;
+        }
+
+        .csl-comparison-table thead th:nth-child(2) {
+            background: #6c32a8;
+            border-radius: 14px 0 0 14px;
+        }
+
+        .csl-comparison-table thead th:nth-child(3) {
+            background: #ffe007;
+            color: #3d2549;
+        }
+
+        .csl-comparison-table thead th:nth-child(4) {
+            background: #6c32a8;
+            border-radius: 0 14px 14px 0;
         }
 
         .csl-comparison-table tbody tr {
-            background: #ffffff;
-            transition: background 0.3s ease;
-        }
-
-        .csl-comparison-table tbody tr:nth-child(even) {
-            background: #f9f9f9;
+            transition: transform 0.3s ease;
         }
 
         .csl-comparison-table tbody tr:hover {
-            background: #f5f3ff;
+            transform: scale(1.01);
         }
 
         .csl-comparison-table tbody td {
-            padding: 20px 30px;
-            font-size: 1rem;
-            color: #333;
-            border-bottom: 1px solid #f0f0f0;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .csl-comparison-table tbody tr:last-child td {
-            border-bottom: none;
+            padding: 16px 22px;
+            font-size: 0.9rem;
+            color: #444;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            line-height: 1.5;
+            background: #fff;
+            border-bottom: 3px solid #f6f0fa;
         }
 
         .csl-comparison-table tbody td:first-child {
-            font-weight: 600;
-            color: #1c1c1c;
+            font-weight: 700;
+            color: #3d2549;
+            text-align: left;
+            background: transparent;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            border-bottom: 3px solid transparent;
+        }
+
+        .csl-comparison-table tbody td:nth-child(2) {
+            border-radius: 12px 0 0 12px;
+            border-left: 3px solid #6c32a820;
+        }
+
+        .csl-comparison-table tbody td:nth-child(3) {
+            background: #fffce3;
+            border-left: 3px solid #e5a93e20;
+            border-right: 3px solid #e5a93e20;
+        }
+
+        .csl-comparison-table tbody td:nth-child(4) {
+            border-radius: 0 12px 12px 0;
+            border-right: 3px solid #6c32a820;
+        }
+
+        .csl-comparison-table tbody tr:hover td:not(:first-child) {
+            box-shadow: 0 4px 15px rgba(108, 50, 168, 0.08);
         }
 
         /* Responsive */
@@ -1377,14 +1332,26 @@
                 height: 250px;
             }
 
+            .csl-comparison-table {
+                border-spacing: 0 5px;
+            }
+
             .csl-comparison-table thead th,
             .csl-comparison-table tbody td {
-                padding: 16px 20px;
-                font-size: 0.9rem;
+                padding: 10px 8px;
+                font-size: 0.7rem;
             }
 
             .csl-comparison-table thead th {
-                font-size: 1.1rem;
+                font-size: 0.72rem;
+            }
+
+            .csl-comparison-table tbody td:nth-child(2) {
+                border-radius: 8px 0 0 8px;
+            }
+
+            .csl-comparison-table tbody td:nth-child(4) {
+                border-radius: 0 8px 8px 0;
             }
         }
 
@@ -1481,6 +1448,143 @@
             }
         }
 
+        /* ── CSL Form Popup ── */
+        .csl-form-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .csl-form-overlay.active {
+            display: flex;
+        }
+
+        .csl-form-popup {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 560px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            animation: cslFormSlideIn 0.3s ease;
+        }
+
+        @keyframes cslFormSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .csl-form-close {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #999;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .csl-form-close:hover {
+            color: #333;
+        }
+
+        .csl-form-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #6c32a8;
+            margin-bottom: 24px;
+        }
+
+        .csl-form-row {
+            display: flex;
+            gap: 16px;
+        }
+
+        .csl-form-row .csl-form-group {
+            flex: 1;
+        }
+
+        .csl-form-group {
+            margin-bottom: 16px;
+        }
+
+        .csl-form-group label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #3d2549;
+            margin-bottom: 6px;
+        }
+
+        .csl-form-group input,
+        .csl-form-group select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid #e0d6ea;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: #333;
+            outline: none;
+            transition: border-color 0.3s ease;
+            background: #fff;
+        }
+
+        .csl-form-group input:focus,
+        .csl-form-group select:focus {
+            border-color: #6c32a8;
+        }
+
+        .csl-form-submit {
+            width: 100%;
+            padding: 14px;
+            background: #6c32a8;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .csl-form-submit:hover {
+            background: #7c3aed;
+        }
+
+        @media (max-width:768px) {
+            .csl-form-row {
+                flex-direction: column;
+                gap: 0
+            }
+
+            .csl-form-popup {
+                padding: 28px 20px
+            }
+        }
+
         /* ── CSL Final CTA Section ── */
         .csl-final-cta-section {
             position: relative;
@@ -1518,7 +1622,7 @@
             font-weight: 400;
             color: #666;
             line-height: 2;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
         }
 
@@ -1599,7 +1703,7 @@
         .csl-upgrade-link {
             font-size: 1.3rem;
             font-weight: 500;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             color: #6c32a8;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -1754,30 +1858,34 @@
         <!-- Top: "From CBSE / Mandate" + right pill -->
         <div class="csl-top-section">
             <div class="csl-text-block">
-                <span class="csl-row-1">From <span class="csl-cbse">CBSE</span></span>
-                <span class="csl-row-2">Mandate</span>
+                <span class="csl-row-1">Simplifying <span class="csl-cbse">Composite</span></span>
+                <span class="csl-row-2">Skills Lab</span>
             </div>
             <div class="csl-pill csl-pill-right">
-                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=700&q=80" alt="placeholder" />
+                <img src="assets/csl/hero1.jpeg" alt="placeholder" />
             </div>
         </div>
 
         <!-- Bottom: left pill + "To Meaningful / Transformation" -->
         <div class="csl-bottom-section">
             <div class="csl-pill csl-pill-left">
-                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" alt="placeholder" />
+                <img src="assets/csl/hero2.jpeg" alt="placeholder" />
             </div>
             <div class="csl-text-block">
-                <span class="csl-row-3">To <span class="csl-meaningful">Meaningful</span></span>
-                <span class="csl-row-4">Transformation</span>
+                <span class="csl-row-3">&amp; <span class="csl-meaningful">Kaushal Bodh</span></span>
+                <span class="csl-row-4">Implementation</span>
             </div>
         </div>
 
         <!-- Sub text -->
         <div class="csl-subtext">
-            <span class="csl-s1">Simplifying Composite Skills Lab &amp; Kaushal Bodh Implementation</span>
+            <!-- <span class="csl-s1">Simplifying Composite Skills Lab &amp; Kaushal Bodh Implementation</span> -->
             <span class="csl-s2">For Grades 6–8 | Fully aligned with NEP 2020</span>
         </div>
+
+        <a href="#csl-final-cta" class="csl-hero-explore-btn"
+            onclick="event.preventDefault(); document.getElementById('csl-final-cta').scrollIntoView({behavior:'smooth'});">Explore
+            →</a>
 
     </div>
 
@@ -1786,7 +1894,7 @@
         <div class="csl-video-container">
             <div class="csl-video-wrapper">
                 <iframe class="csl-video"
-                    src="https://www.youtube.com/embed/i3kHrKy34yM?autoplay=1&mute=1&loop=1&playlist=i3kHrKy34yM&controls=0&showinfo=0&rel=0&modestbranding=1"
+                    src="https://www.youtube.com/embed/DXVh7nTGKHc?autoplay=1&mute=1&loop=1&playlist=DXVh7nTGKHc&controls=0&showinfo=0&rel=0&modestbranding=1"
                     title="CSL Video" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
@@ -1795,11 +1903,10 @@
         </div>
     </div>
 
-    <!-- CSL CTA Section -->
+    <!-- CSL CTA Section
     <section class="csl-cta-section">
         <div class="csl-cta-container">
             <div class="csl-cta-grid">
-                <!-- Left Grid: Heading and Button -->
                 <div class="csl-cta-left">
                     <h2 class="csl-cta-heading">Book a 30-min readiness call</h2>
                     <button class="csl-cta-button">
@@ -1811,8 +1918,6 @@
                         </svg>
                     </button>
                 </div>
-
-                <!-- Right Grid: Image -->
                 <div class="csl-cta-right">
                     <div class="csl-cta-image-wrapper">
                         <img src="assets/Group 47.png" alt="Students in classroom" class="csl-cta-image">
@@ -1821,88 +1926,32 @@
             </div>
         </div>
     </section>
+    -->
 
-    <!-- CSL Cards Section -->
-    <section class="csl-cards-section">
-        <div class="csl-cards-container">
-            <!-- Heading positioned on right -->
-            <div class="csl-cards-header">
-                <h2 class="csl-cards-heading">
-                    <span class="csl-cards-heading-2">What is</span>
-                    <span class="csl-cards-heading-1">ENpower's</span>
-                    <span class="csl-cards-heading-1">Composite Skills</span>
-                    <span class="csl-cards-heading-2">Lab?</span>
-                </h2>
+
+    <!-- CSL Header + Info Section -->
+    <section class="csl-cards-info-section">
+        <div class="csl-cards-header">
+            <h2 class="csl-cards-heading">
+                <span class="csl-cards-heading-2">What is</span>
+                <span class="csl-cards-heading-1">ENpower's</span>
+                <span class="csl-cards-heading-1">Composite Skills</span>
+                <span class="csl-cards-heading-2">Lab?</span>
+            </h2>
+        </div>
+        <div class="csl-cards-info-content">
+            <p class="csl-cards-info-para">Composite Skills Labs go beyond infrastructure. Schools must align
+                infrastructure, curriculum, teacher capacity, timetables, assessment, and showcases while sustaining
+                joyful learning. Traditional STEM models fall short as CSL focuses on problem-solving, design thinking,
+                entrepreneurship, and real-world application.</p>
+            <div class="csl-cards-info-divider">
+                <span class="csl-cards-info-line"></span>
+                <span class="csl-cards-info-star">✦</span>
+                <span class="csl-cards-info-line"></span>
             </div>
-
-            <!-- 4 Horizontal Cards -->
-            <div class="csl-cards-wrapper">
-                <!-- Card 1 -->
-                <div class="csl-card">
-                    <div class="csl-card-image">
-                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&q=80"
-                            alt="Comprehensive Curriculum">
-                    </div>
-                    <div class="csl-card-content">
-                        <p class="csl-card-description">Implementation of Composite Skills Lab is not just
-                            infrastructure. Schools need to synchronise
-                            Infrastructure, Curriculum Frameworks, Teacher
-                            Capacity, Timetable Integration, Assessment &
-                            Documentation, and Annual Showcase (Kaushal
-                            Mela). And doing all this while nurturing the joy of
-                            learning among children is the real challenge</p>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="csl-card">
-                    <div class="csl-card-image">
-                        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&q=80"
-                            alt="Expert Training">
-                    </div>
-                    <div class="csl-card-content">
-                        <p class="csl-card-description">That's where traditional STEM or Skill Programs fail.
-                            CSL is not about compliance or creating mandated
-                            projects. It is about building Problem-solving Ability,
-                            Developing Design Thinking, Encouraging
-                            Entrepreneurial Mindset, and Connecting Skills to
-                            Real-world Contexts</p>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="csl-card">
-                    <div class="csl-card-image">
-                        <img src="https://images.unsplash.com/photo-1516534775068-ba3e7458af70?w=600&q=80"
-                            alt="Hands-on Activities">
-                    </div>
-                    <div class="csl-card-content">
-                        <p class="csl-card-description">ENpower presents a complete, school-wide
-                            implementation model for Grades 6-8, it integrates
-                            CBSE-aligned infrastructure, the Kaushal Bodh
-                            framework, Design Thinking, and Entrepreneurship
-                            into 110+ hours of experiential learning, where
-                            students work on real-world problems (not just
-                            science projects).</p>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="csl-card">
-                    <div class="csl-card-image">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80"
-                            alt="Assessment Tools">
-                    </div>
-                    <div class="csl-card-content">
-                        <p class="csl-card-description">ENpower CSL synchronises curriculum, integration
-                            with school calendar, teacher capacity building,
-                            competency-based assessment, and annual
-                            showcases, making it a connected learning system
-                            that builds problem-solving ability, confidence, and
-                            future readiness among students.</p>
-                    </div>
-                </div>
-            </div>
+            <p class="csl-cards-info-para">ENpower delivers a complete Grades 6–8 model integrating CBSE, Kaushal Bodh,
+                and 110+ hours of experiential learning. It synchronises curriculum, teacher training, assessment, and
+                school calendars into one connected system that builds confident, future-ready learners.</p>
         </div>
     </section>
 
@@ -2102,31 +2151,27 @@
     <section class="csl-projects-section">
         <div class="csl-projects-container">
             <!-- Heading -->
-            <h2 class="csl-projects-heading">3 Projects in <span class="csl-bento-highlight">a
-                    year</span>,<br />covering each form of work</h2>
+            <h2 class="csl-projects-heading">3 <span class="csl-bento-highlight">Kaushal Bodh</span> Projects</h2>
 
             <!-- Images in Column -->
             <div class="csl-projects-wrapper">
                 <div class="csl-project-item">
                     <div class="csl-project-image">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&q=80"
-                            alt="Project 1">
+                        <img src="assets/csl/hydroponics.jpeg" alt="Project 1">
                     </div>
                     <p class="csl-project-image-title">Working With<br /><span class="csl-bento-highlight">Life
                             Forms</span></p>
                 </div>
                 <div class="csl-project-item">
                     <div class="csl-project-image">
-                        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1200&q=80"
-                            alt="Project 2">
+                        <img src="assets/csl/scratch.png" alt="Project 2">
                     </div>
                     <p class="csl-project-image-title">Working With<br /><span class="csl-bento-highlight">Machines &
                             Materials</span></p>
                 </div>
                 <div class="csl-project-item">
                     <div class="csl-project-image">
-                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80"
-                            alt="Project 3">
+                        <img src="assets/csl/divya-sehpaathi.png" alt="Project 3">
                     </div>
                     <p class="csl-project-image-title">Working With<br /><span class="csl-bento-highlight">Human
                             Services</span></p>
@@ -2146,14 +2191,15 @@
             <!-- Content with Image -->
             <div class="csl-path-content-wrapper">
                 <div class="csl-path-text">
-                    Move from CBSE compliance to future-ready learning whenever you are ready. If you are looking to
-                    implement CSL smoothly and meet CBSE requirements with a structured, guided setup - Start with
-                    Foundation & upgrade to Plus when you want to go beyond compliance and build Design Thinking Skills,
-                    Entrepreneurship Mindset, student portfolios, and visible innovation outcomes.
+                    Move beyond CBSE compliance to future-ready learning.<br />
+                    Start with CSL Foundation for a compliance-first rollout. Upgrade to CSL Plus to build design
+                    thinking, entrepreneurship, and real student outcomes.<br />
+                    CSL Plus (ToT) trains your teachers to deliver the program with support from an ENpower Program
+                    Coordinator. CSL Plus (TC) ensures end-to-end delivery by ENpower, where Thinking Coaches lead
+                    classroom execution for consistent outcomes across grades.
                 </div>
                 <div class="csl-path-image">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80"
-                        alt="CSL Implementation">
+                    <img src="assets/csl/csl-path.jpeg" alt="CSL Implementation">
                 </div>
             </div>
 
@@ -2161,57 +2207,54 @@
             <table class="csl-comparison-table">
                 <thead>
                     <tr>
-                        <th></th>
-                        <th>ENpower CSL Foundation</th>
-                        <th>ENpower CSL Plus</th>
+                        <th style="color:#1c1c1c; text-align: left;">Features</th>
+                        <th>CSL Foundation</th>
+                        <th>CSL Plus (ToT)</th>
+                        <th>CSL Plus (TC)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Objective</td>
-                        <td>Compliance with CBSE Mandate</td>
-                        <td>Compliance with CBSE + Entrepreneurship, Design Thinking & Tech Skill Building</td>
+                        <td>Curriculum</td>
+                        <td>Basic Kaushal Bodh</td>
+                        <td>Kaushal Bodh + Design Thinking + Entrepreneurship</td>
+                        <td>Kaushal Bodh + Design Thinking + Entrepreneurship</td>
                     </tr>
                     <tr>
-                        <td>Choice of Kaushal Bodh Projects To Select From</td>
-                        <td>09</td>
-                        <td>18</td>
+                        <td>Grades</td>
+                        <td>6–10</td>
+                        <td>1–10</td>
+                        <td>1–10</td>
                     </tr>
                     <tr>
-                        <td>Program Outcome</td>
-                        <td>Students learn skills via limited number of Kaushal Bodh Projects</td>
-                        <td>Students learn real-life problem-solving through Design Thinking along with Kaushal Bodh
-                            Projects</td>
-                    </tr>
-                    <tr>
-                        <td>Tech Learning</td>
-                        <td>Basic</td>
-                        <td>Electronics + Coding + IoT + AI</td>
-                    </tr>
-                    <tr>
-                        <td>Lab Setup</td>
-                        <td>Equipments only for 9 projects – CSL compliant</td>
-                        <td>Equipments for 18 projects + basic tech elements – CSL compliant</td>
-                    </tr>
-                    <tr>
+                        <td>Delivery Model</td>
                         <td>Teacher Capacity Building</td>
-                        <td>Basic (Virtual)</td>
-                        <td>Intense (Hybrid)</td>
+                        <td>Teacher Capacity Building + Program Coordinator</td>
+                        <td>Program Coordinator + Dedicated Thinking Coach</td>
                     </tr>
                     <tr>
-                        <td>ENpower Thinking Coach Option</td>
-                        <td>Not Applicable</td>
-                        <td>Applicable</td>
+                        <td>Ownership</td>
+                        <td>School-led</td>
+                        <td>Program Coordinator-led</td>
+                        <td>Thinking Coach-led</td>
                     </tr>
                     <tr>
-                        <td>Skill Assessment and Reporting</td>
-                        <td>Competency Reporting – Basic</td>
-                        <td>Personalised Skill Competency Report aligned to HPC</td>
+                        <td>Assessments</td>
+                        <td>Annual reports</td>
+                        <td>Competency-based dashboard</td>
+                        <td>Competency-based dashboard</td>
                     </tr>
                     <tr>
-                        <td>Support for Kaushal Mela</td>
-                        <td>No</td>
-                        <td>Yes</td>
+                        <td>Mentorship</td>
+                        <td>None</td>
+                        <td>None</td>
+                        <td>Via Thinking Coaches</td>
+                    </tr>
+                    <tr>
+                        <td>Branding</td>
+                        <td>None</td>
+                        <td>None</td>
+                        <td>ENpower branding</td>
                     </tr>
                 </tbody>
             </table>
@@ -2219,18 +2262,18 @@
     </section>
 
     <!-- CSL Final CTA Section -->
-    <section class="csl-final-cta-section">
+    <section class="csl-final-cta-section" id="csl-final-cta">
         <div class="csl-final-cta-container">
             <div class="csl-cta-grid">
                 <!-- Left Grid: Heading, Paragraph and Button -->
                 <div class="csl-cta-left">
                     <h2 class="csl-cta-heading-final">Ready to Get Started?</h2>
                     <p class="csl-cta-paragraph">
-                        Select your pathway and book a readiness call with ENpower.<br />Not sure which plan fits your
-                        school? Book a 30-minute CSL readiness call — we'll help you decide
+                        To select which pathway best suits your school…<br />
+                        Book a 30-min readiness call with ENpower
                     </p>
-                    <button class="csl-cta-button">
-                        Connect With Us
+                    <button class="csl-cta-button" onclick="openCslForm()">
+                        Book Now
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd"
                                 d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
@@ -2242,7 +2285,7 @@
                 <!-- Right Grid: Image -->
                 <div class="csl-cta-right">
                     <div class="csl-cta-image-wrapper">
-                        <img src="assets/Group 47.png" alt="Students in classroom" class="csl-cta-image">
+                        <img src="assets/csl/CTA-CSL.jpeg" alt="Students in classroom" class="csl-cta-image">
                     </div>
                 </div>
             </div>
@@ -2299,6 +2342,46 @@
             </div>
         </div>
     </section>
+
+    <!-- CSL Form Popup -->
+    <div class="csl-form-overlay" id="cslFormOverlay" onclick="if(event.target===this) closeCslForm()">
+        <div class="csl-form-popup">
+            <button class="csl-form-close" onclick="closeCslForm()">&times;</button>
+            <h2 class="csl-form-heading">Book a Session</h2>
+            <form class="csl-form" onsubmit="event.preventDefault();">
+                <div class="csl-form-row">
+                    <div class="csl-form-group">
+                        <label>Name</label>
+                        <input type="text" placeholder="Your full name" required>
+                    </div>
+                    <div class="csl-form-group">
+                        <label>School / Institute</label>
+                        <input type="text" placeholder="School or institute name" required>
+                    </div>
+                </div>
+                <div class="csl-form-row">
+                    <div class="csl-form-group">
+                        <label>Designation</label>
+                        <select required>
+                            <option value="" disabled selected>Select your role</option>
+                            <option value="Teacher">Teacher</option>
+                            <option value="Principal">Principal</option>
+                            <option value="School Leader">School Leader</option>
+                        </select>
+                    </div>
+                    <div class="csl-form-group">
+                        <label>Email ID</label>
+                        <input type="email" placeholder="your@email.com" required>
+                    </div>
+                </div>
+                <div class="csl-form-group">
+                    <label>Contact Number</label>
+                    <input type="tel" placeholder="Your phone number" required>
+                </div>
+                <button type="submit" class="csl-form-submit">Submit</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Footer will be loaded here -->
     <div id="footer-placeholder"></div>
@@ -2450,6 +2533,13 @@
         })();
 
         /* ==========================================================
+           CSL FORM POPUP
+           ========================================================== */
+        function openCslForm() { document.getElementById('cslFormOverlay').classList.add('active'); }
+        function closeCslForm() { document.getElementById('cslFormOverlay').classList.remove('active'); }
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeCslForm(); });
+
+        /* ==========================================================
            GSAP ANIMATIONS FOR HEADER
            ========================================================== */
         document.addEventListener('DOMContentLoaded', () => {
@@ -2495,25 +2585,6 @@
                     }
                 });
 
-                // Cards stacking animation with scale
-                const cards = gsap.utils.toArray('.csl-card');
-                cards.forEach((card, index) => {
-                    // Skip the last card (no need to scale it)
-                    if (index < cards.length - 1) {
-                        gsap.to(card, {
-                            scale: 0.95 - (index * 0.02),
-                            opacity: 0.8,
-                            ease: 'none',
-                            scrollTrigger: {
-                                trigger: cards[index + 1],
-                                start: 'top bottom',
-                                end: 'top 120px',
-                                scrub: 1,
-                                invalidateOnRefresh: true
-                            }
-                        });
-                    }
-                });
 
                 // Horizontal scroll animation for process cards
                 const processSection = document.querySelector('.csl-process-section');

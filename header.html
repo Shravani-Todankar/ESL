@@ -34,7 +34,7 @@
     }
 
     .nav-logo img {
-        height: 36px;
+        height: 180px;
         width: auto;
     }
 
@@ -206,7 +206,7 @@
     /* ===== MOBILE RESPONSIVE ===== */
     @media (max-width: 968px) {
         .en-main-nav {
-            padding: 0 1.5rem;
+            padding: 0 1.2rem;
             height: 70px;
         }
 
@@ -215,7 +215,8 @@
         }
 
         .nav-logo img {
-            height: 30px;
+            height: 120px;
+            width: auto;
         }
 
         .mobile-menu-toggle {
@@ -261,6 +262,7 @@
             border-bottom: 1px solid #f0f0f0;
             justify-content: space-between;
             box-sizing: border-box;
+            font-size: 0.9rem;
         }
 
         /* FIX: SVG rotation on mobile dropdown open */
@@ -310,12 +312,56 @@
         .dropdown-item:last-child {
             border-bottom: 1px solid #f0f0f0;
         }
+
+        .nav-cta {
+            margin: 1rem 2rem;
+            padding: 0.7rem 1.5rem;
+            font-size: 0.85rem;
+            width: calc(100% - 4rem);
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .en-main-nav {
+            padding: 0 1rem;
+            height: 60px;
+        }
+
+        .en-main-nav.scrolled {
+            height: 60px;
+        }
+
+        .nav-logo img {
+            height: 100px;
+            width: auto;
+        }
+
+        .nav-links {
+            top: 60px;
+            height: calc(100vh - 60px);
+        }
+
+        .nav-link {
+            padding: 1rem 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        .dropdown-item {
+            padding: 0.8rem 2.5rem;
+            font-size: 0.85rem;
+        }
+
+        .nav-cta {
+            margin: 1rem 1.5rem;
+            width: calc(100% - 3rem);
+        }
     }
 </style>
 
 <nav class="en-main-nav" id="mainNav">
     <a href="#" class="nav-logo">
-        <img src="assets/enpower-logo.svg" alt="ENpower Logo">
+        <img src="assets/ENP-logo.png" alt="ENpower Logo">
     </a>
 
     <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
@@ -325,7 +371,7 @@
     </button>
 
     <ul class="nav-links" id="navLinks">
-        <li><a href="esl-home.html" class="nav-link">Home</a></li>
+        <li><a href="/" class="nav-link">Home</a></li>
         <li class="dropdown-parent">
             <a href="#" class="nav-link dropdown-toggle">
                 Labs
@@ -336,15 +382,15 @@
                 </svg>
             </a>
             <ul class="dropdown-menu">
-                <li><a href="#" class="dropdown-item">Composite Skills Lab</a></li>
-                <li><a href="#" class="dropdown-item">Future Skills Lab</a></li>
-                <li><a href="#" class="dropdown-item">Tech Innovation Lab</a></li>
+                <li><a href="csl.html" class="dropdown-item">Composite Skills Lab</a></li>
+                <li><a href="fsl.html" class="dropdown-item">Future Skills Lab</a></li>
+                <li><a href="til.html" class="dropdown-item">Tech Innovation Lab</a></li>
             </ul>
         </li>
         <li><a href="https://indiafuturetycoon.vercel.app/ift-home.html" class="nav-link">IFT</a></li>
-        <li><a href="#" class="nav-link">Training Academy</a></li>
-        <li><a href="#" class="nav-link">Impact Programs</a></li>
-        <li><a href="#" class="nav-link">About Us</a></li>
+        <li><a href="training-academy.html" class="nav-link">Training Academy</a></li>
+        <li><a href="impact-programs.html" class="nav-link">Impact Programs</a></li>
+        <li><a href="about-us.html" class="nav-link">About Us</a></li>
     </ul>
 </nav>
 

@@ -1061,17 +1061,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             prevBtn.addEventListener('click', () => {
-                if (cinematicIndex > 0) {
-                    cinematicIndex--;
-                    updateCinematicCarousel();
-                }
+                cinematicIndex = cinematicIndex > 0 ? cinematicIndex - 1 : totalCinematicSlides - 1;
+                updateCinematicCarousel();
             });
 
             nextBtn.addEventListener('click', () => {
-                if (cinematicIndex < totalCinematicSlides - 1) {
-                    cinematicIndex++;
-                    updateCinematicCarousel();
-                }
+                cinematicIndex = cinematicIndex < totalCinematicSlides - 1 ? cinematicIndex + 1 : 0;
+                updateCinematicCarousel();
             });
 
             // Play buttons open modal
@@ -1112,8 +1108,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') closeCinematicModal();
-                if (e.key === 'ArrowLeft') { if (cinematicIndex > 0) { cinematicIndex--; updateCinematicCarousel(); } }
-                if (e.key === 'ArrowRight') { if (cinematicIndex < totalCinematicSlides - 1) { cinematicIndex++; updateCinematicCarousel(); } }
+                if (e.key === 'ArrowLeft') { cinematicIndex = cinematicIndex > 0 ? cinematicIndex - 1 : totalCinematicSlides - 1; updateCinematicCarousel(); }
+                if (e.key === 'ArrowRight') { cinematicIndex = cinematicIndex < totalCinematicSlides - 1 ? cinematicIndex + 1 : 0; updateCinematicCarousel(); }
             });
 
             // Re-calculate on resize
@@ -1214,6 +1210,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
         });
+
+        // --- Impact Programs Slideshow ---
+        const ipSlides = document.querySelectorAll('.ip-slide');
+        if (ipSlides.length > 0) {
+            let ipCurrent = 0;
+            setInterval(() => {
+                ipSlides[ipCurrent].classList.remove('active');
+                ipCurrent = (ipCurrent + 1) % ipSlides.length;
+                ipSlides[ipCurrent].classList.add('active');
+            }, 3000);
+        }
 
         // --- New Counter Animation (GSAP) ---
         const counterNumbers = document.querySelectorAll('.new-counter-number');
@@ -1359,11 +1366,11 @@ function initEnpowerPhilosophy() {
 
     // --- Radial Scroll Visualization ---
     const ICON_GIFS = [
-        'assets/donut-icon/self-exploration.svg',
-        'assets/donut-icon/foundation-literacy.svg',
-        'assets/donut-icon/tech-of-the-future.svg',
-        'assets/donut-icon/human-skills.svg',
-        'assets/donut-icon/future-competency.svg'
+        'assets/donut-icon/Self Exploration.svg',
+        'assets/donut-icon/Foundational Literacy.svg',
+        'assets/donut-icon/Tech Of The Future.svg',
+        'assets/donut-icon/Human Skills.svg',
+        'assets/donut-icon/Future Competencies.svg'
     ];
 
     const SEG_DATA = [
@@ -1414,7 +1421,7 @@ function initEnpowerPhilosophy() {
         const bgPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
         bgPath.setAttribute("d", arc(s, e, INNER, OUTER));
         bgPath.setAttribute("fill", seg.color);
-        bgPath.setAttribute("opacity", "0.2");
+        bgPath.setAttribute("opacity", "1");
         segGroup.appendChild(bgPath);
 
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -1425,14 +1432,23 @@ function initEnpowerPhilosophy() {
         path.setAttribute("data-i", i);
         segGroup.appendChild(path);
 
-        const [tx, ty] = pt(OUTER + 34, mid);
+        // Individual label offsets: [radiusOffset, xNudge, yNudge]
+        const labelOffsets = [
+            [38, 0, -8],    // 0: Self Exploration (top-right)
+            [38, 62, 0],    // 1: Foundational Literacy (right)
+            [38, 8, 8],    // 2: Tech Of The Future (bottom-right)
+            [38, -8, 10],   // 3: Human Skills (bottom-left)
+            [38, -12, -8],  // 4: Future Competencies (top-left)
+        ];
+        const [rOff, xNudge, yNudge] = labelOffsets[i] || [34, 0, 0];
+        const [tx, ty] = pt(OUTER + rOff, mid);
         const lbl = document.createElementNS("http://www.w3.org/2000/svg", "text");
-        lbl.setAttribute("x", tx); lbl.setAttribute("y", ty);
+        lbl.setAttribute("x", tx + xNudge); lbl.setAttribute("y", ty + yNudge);
         lbl.setAttribute("fill", seg.color);
         lbl.setAttribute("class", "enpower-seg-label");
         lbl.setAttribute("text-anchor", "middle");
         lbl.setAttribute("dominant-baseline", "middle");
-        lbl.setAttribute("opacity", "0.1");
+        lbl.setAttribute("opacity", "1");
         lbl.setAttribute("data-i", i);
         lbl.textContent = seg.label;
         segGroup.appendChild(lbl);
@@ -1445,10 +1461,10 @@ function initEnpowerPhilosophy() {
         foreignObj.setAttribute("y", iy - iconSize / 2);
         foreignObj.setAttribute("width", iconSize);
         foreignObj.setAttribute("height", iconSize);
-        foreignObj.setAttribute("opacity", "0.1");
+        foreignObj.setAttribute("opacity", "1");
         foreignObj.setAttribute("class", "enpower-seg-icon");
         foreignObj.setAttribute("data-i", i);
-        foreignObj.innerHTML = `<img src="${ICON_GIFS[i]}" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;" />`;
+        foreignObj.innerHTML = `<img src="${ICON_GIFS[i]}" style="width: 100%; height: 100%; object-fit: contain;" />`;
         segGroup.appendChild(foreignObj);
     });
 
@@ -1529,16 +1545,15 @@ function initEnpowerPhilosophy() {
         enpowerCurrent = idx;
 
         segGroup.querySelectorAll('.enpower-seg-arc').forEach((a, i) => {
-            a.style.opacity = i === idx ? '1' : i < idx ? '0.65' : '0.95';
+            a.style.opacity = '1';
             a.style.filter = i === idx ? `drop-shadow(0 3px 12px ${SEG_DATA[i].color}55)` : 'none';
         });
         segGroup.querySelectorAll('.enpower-seg-label').forEach((l, i) => {
-            l.setAttribute('opacity', i === idx ? '1' : i < idx ? '0.45' : '0.18');
+            l.setAttribute('opacity', '1');
             l.setAttribute('font-weight', i === idx ? '700' : '600');
         });
         segGroup.querySelectorAll('.enpower-seg-icon').forEach((ic, i) => {
-            ic.setAttribute('opacity', i === idx ? '1' : i < idx ? '0.5' : '0.3');
-            ic.style.transition = 'opacity 0.55s ease';
+            ic.setAttribute('opacity', '1');
         });
 
         if (idx >= 0 && idx < SEG_DATA.length) {
@@ -1587,4 +1602,23 @@ function initEnpowerPhilosophy() {
 
     ScrollTrigger.refresh();
 }
+
+/* ==========================================================
+   ENGAGEMENTS CARDS - TAP TO FLIP (MOBILE)
+   ========================================================== */
+document.addEventListener('DOMContentLoaded', function () {
+    const engCards = document.querySelectorAll('.eng-card');
+    if (engCards.length === 0) return;
+
+    engCards.forEach(card => {
+        card.addEventListener('click', function () {
+            if (window.innerWidth <= 768) {
+                engCards.forEach(c => {
+                    if (c !== card) c.classList.remove('flipped');
+                });
+                card.classList.toggle('flipped');
+            }
+        });
+    });
+});
 

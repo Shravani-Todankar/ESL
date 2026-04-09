@@ -9,9 +9,9 @@
 
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -35,7 +35,7 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background-color: #f6f0fa;
             overflow-x: hidden;
         }
@@ -219,6 +219,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            object-position: center 28%;
         }
 
         /* IP Hero Right pill (sits beside heading) */
@@ -301,7 +302,7 @@
             color: #ffffff;
             font-size: 15px;
             font-weight: 500;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             padding: 13px 30px;
             border-radius: 15px;
             text-decoration: none;
@@ -443,9 +444,22 @@
         }
 
         /* ── IP Counter Section ── */
+        .ip-counter-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            text-align: center;
+            letter-spacing: -1.5px;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
         .ip-counter-section {
             padding: 6rem 0;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             overflow: hidden;
@@ -632,9 +646,9 @@
         }
 
         .ip-counter-label {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 0.875rem;
-            text-transform: uppercase;
+            text-transform: capitalize;
             letter-spacing: 0.1em;
             color: #6c5279;
             font-weight: 500;
@@ -850,6 +864,198 @@
         }
 
         /* ── IP Gallery Section ── */
+        /* ── IP Gallery Horizontal Scroll ── */
+        .ip-gallery-scroll-section {
+            padding-top: 8rem;
+            padding-bottom: 5rem;
+            overflow: hidden;
+            position: relative;
+            z-index: 10;
+            background: #ffffff;
+        }
+
+        .ip-gallery-scroll-section .container-fluid {
+            overflow: visible;
+        }
+
+        .ip-gallery-hscroll {
+            display: flex;
+            gap: 2rem;
+            will-change: transform;
+            padding: 1rem 0 3rem 0;
+            padding-left: max(5vw, calc((100vw - 1200px) / 2));
+            padding-right: calc((100vw - 400px) / 2);
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .ip-gallery-hscroll {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .ip-gallery-hscroll {
+                padding-left: 5vw;
+                padding-right: 5vw;
+            }
+        }
+
+        .ip-gallery-heading-container {
+            flex-shrink: 0;
+            width: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ip-gallery-heading-container h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            font-size: 3.4rem;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .ip-gallery-heading-container {
+                width: 280px;
+            }
+
+            .ip-gallery-heading-container h2 {
+                font-size: 2.4rem;
+            }
+        }
+
+        .ip-gallery-hcard {
+            width: 400px;
+            height: 550px;
+            flex-shrink: 0;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ip-gallery-hcard:hover {
+            transform: translateY(-5px);
+        }
+
+        .ip-gallery-hcard-image {
+            height: 16rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ip-gallery-hcard-image::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: -5%;
+            width: 110%;
+            height: 32px;
+            background: #fff;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .ip-gallery-hcard-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .ip-gallery-hcard:hover .ip-gallery-hcard-image img {
+            transform: scale(1.05);
+        }
+
+        .ip-gallery-hcard-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ip-gallery-hcard-name {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 2px;
+        }
+
+        .ip-gallery-hcard-grade {
+            color: #6c32a8;
+            font-weight: 500;
+            font-size: 0.85rem;
+            margin-bottom: 0;
+        }
+
+        .ip-gallery-hcard-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: rgba(101, 43, 125, 0.1);
+            color: #6c32a8;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .ip-gallery-hcard-desc {
+            color: #4B5563;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: auto;
+            line-height: 1.6;
+        }
+
+        .ip-gallery-hcard-footer {
+            padding-top: 0.75rem;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .ip-gallery-nav-arrows {
+            position: absolute;
+            top: 2rem;
+            right: 3rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 10;
+        }
+
+        .ip-gallery-nav-arrow {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid #e0e0e0;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .ip-gallery-nav-arrow:hover {
+            border-color: #6c32a8;
+            background: #6c32a8;
+            color: white;
+        }
+
         .ip-gallery-section {
             max-width: 1250px;
             margin: 0 auto;
@@ -1279,7 +1485,7 @@
         }
 
         .ip-testimonial-author-role {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.2em;
@@ -1371,6 +1577,143 @@
         /* ══════════════════════════════════════
            IP FINAL CTA SECTION
            ══════════════════════════════════════ */
+        /* ── CTA Form Popup ── */
+        .ip-cta-form-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(6px);
+            z-index: 99999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .ip-cta-form-modal {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px 36px;
+            height: 490px;
+            max-width: 580px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            animation: ipFormSlideIn 0.3s ease;
+        }
+
+        @keyframes ipFormSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .ip-cta-form-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #999;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .ip-cta-form-close:hover {
+            color: #1a1a1a;
+        }
+
+        .ip-cta-form-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 28px;
+        }
+
+        .ip-cta-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .ip-cta-form .ip-cta-form-submit {
+            grid-column: 1 / -1;
+        }
+
+        .ip-cta-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .ip-cta-form-group label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #3d2549;
+        }
+
+        .ip-cta-form-group input {
+            padding: 12px 16px;
+            border: 1.5px solid #e0d6ea;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s;
+            background: #faf8fc;
+        }
+
+        .ip-cta-form-group input:focus {
+            border-color: #6c32a8;
+            background: #fff;
+        }
+
+        .ip-cta-form-group input::placeholder {
+            color: #b8a9c8;
+        }
+
+        .ip-cta-form-submit {
+            padding: 14px;
+            background: linear-gradient(135deg, #6c32a8, #8a4fc5);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 6px;
+        }
+
+        .ip-cta-form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 50, 168, 0.4);
+        }
+
+        @media (max-width: 580px) {
+            .ip-cta-form-modal {
+                padding: 28px 20px;
+            }
+
+            .ip-cta-form {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .ip-final-cta-section {
             position: relative;
             width: 100%;
@@ -1427,13 +1770,13 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            padding: 18px 36px;
+            padding: 15px 18px;
             background: #6c32a8;
             color: #ffffff;
             border: none;
-            border-radius: 25px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.1rem;
+            border-radius: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1464,7 +1807,9 @@
         .ip-final-cta-image-wrapper {
             position: relative;
             width: 100%;
+            border-radius: 24px;
             overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
         .ip-final-cta-image {
@@ -1509,37 +1854,34 @@
         <!-- Row 1: Future Skills, + pill -->
         <div class="ip-hero-top-section">
             <div class="ip-hero-text-block">
-                <span class="ip-hero-row-1" style="margin-left: -300px;">Grassroot,</span>
+                <span class="ip-hero-row-1" style="margin-left: -300px; color: #1a1a1a;">Grassroot</span>
             </div>
             <div class="ip-hero-pill ip-hero-pill-right">
-                <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=700&q=80"
-                    alt="Students learning together" />
+                <img src="assets/impact-program/hero1.jpeg" alt="Students learning together" />
             </div>
         </div>
 
         <!-- Row 2: Entrepreneurship & -->
         <div class="ip-hero-top-section">
             <div class="ip-hero-text-block">
-                <span class="ip-hero-row-2" style="margin-left: -200px;"><span style="color: #e5a93e;">Entrepreneurship
-                    </span>&amp;</span>
+                <span class="ip-hero-row-2" style="margin-left: -200px; color: #e5a93e;">Entrepreneurship &amp;</span>
             </div>
         </div>
 
         <!-- Row 3: Livelihood Empowerment -->
         <div class="ip-hero-top-section">
             <div class="ip-hero-text-block">
-                <span class="ip-hero-row-2" style="margin-left: 200px;">Livelihood Empowerment</span>
+                <span class="ip-hero-row-2" style="margin-left: 200px; color: #6c32a8;">Livelihood Empowerment</span>
             </div>
         </div>
 
         <!-- Row 4: pill + at Scale -->
         <div class="ip-hero-top-section">
             <div class="ip-hero-pill ip-hero-pill-left" style="margin-left: 300px;">
-                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=700&q=80"
-                    alt="Learning environment" />
+                <img src="assets/impact-program/hero2.jpeg" alt="Learning environment" />
             </div>
             <div class="ip-hero-text-block">
-                <span class="ip-hero-row-2b">at Scale</span>
+                <span class="ip-hero-row-2b" style="color: #1a1a1a;">at Scale</span>
             </div>
         </div>
 
@@ -1557,122 +1899,18 @@
 
         <!-- Call to Action Section -->
         <div class="ip-hero-cta-section">
-            <a href="#programs" class="ip-hero-explore-btn">
-                Explore Partnership
+            <a href="#ip-final-cta" class="ip-hero-explore-btn">
+                Explore Programs
                 <span class="arrow">→</span>
-            </a>
-            <a href="#contact" class="ip-hero-explore-btn">
-                Talk To Us
             </a>
         </div>
 
     </div>
 
-    <!-- Brands Section -->
-    <section class="ip-brands-section" id="ip-brands">
-        <div class="container">
-            <div class="ip-brands-label">
-                brands
-            </div>
-
-            <!-- Row 1: Left to Right (6 logos + duplicate) -->
-            <div class="ip-brands-marquee-container">
-                <div class="ip-brands-marquee-row-ltr">
-                    <!-- Original 6 -->
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/bayer.webp" alt="Bayer" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/hafele.png" alt="Hafele" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/tata-capital.webp" alt="Tata Capital" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/indusind.webp" alt="IndusInd" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/L&T.webp" alt="Larsen & Toubro" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/inoxap.webp" alt="Inoxap" class="ip-brands-logo">
-                    </div>
-                    <!-- Duplicate for seamless scroll -->
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/bayer.webp" alt="Bayer" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/hafele.png" alt="Hafele" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/tata-capital.webp" alt="Tata Capital" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/indusind.webp" alt="IndusInd" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/L&T.webp" alt="Larsen & Toubro" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/inoxap.webp" alt="Inoxap" class="ip-brands-logo">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Row 2: Right to Left (7 logos + duplicate) -->
-            <div class="ip-brands-marquee-container">
-                <div class="ip-brands-marquee-row-rtl">
-                    <!-- Original 7 -->
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/aaramco.webp" alt="Aramco" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/axis-bank.webp" alt="Axis Bank" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/hsbc.webp" alt="HSBC" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/sbf.webp" alt="SBF" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/udaan.webp" alt="Udaan" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/manipal-foundation.webp" alt="Manipal Foundation" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/yuva.webp" alt="Yuva" class="ip-brands-logo">
-                    </div>
-                    <!-- Duplicate for seamless scroll -->
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/aaramco.webp" alt="Aramco" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/axis-bank.webp" alt="Axis Bank" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/hsbc.webp" alt="HSBC" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/sbf.webp" alt="SBF" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/udaan.webp" alt="Udaan" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/manipal-foundation.webp" alt="Manipal Foundation" class="ip-brands-logo">
-                    </div>
-                    <div class="ip-brands-logo-item">
-                        <img src="assets/csr-logo/yuva.webp" alt="Yuva" class="ip-brands-logo">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- IP Counter Section -->
     <section class="ip-counter-section">
+        <h2 class="ip-counter-heading"><span style="color: #6c32a8;">Impact</span> <span style="color: #e5a93e;">You Can
+                Measure</span></h2>
         <!-- Connectivity SVG Layer -->
         <div class="ip-counter-connectivity">
             <svg fill="none" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
@@ -1705,9 +1943,6 @@
                             <span class="ip-counter-plus ip-counter-plus-primary">+</span>
                         </div>
                         <p class="ip-counter-label">Ideas Developed</p>
-                        <p class="ip-counter-desc">Synthesizing raw inspiration into structured architectural
-                            frameworks.</p>
-                        <p class="ip-counter-hidden ip-counter-detail-primary">Phase 1: Conceptualization Complete</p>
                     </div>
                 </div>
 
@@ -1722,9 +1957,6 @@
                             <span class="ip-counter-plus ip-counter-plus-secondary">+</span>
                         </div>
                         <p class="ip-counter-label">Idea Recognized at National Level</p>
-                        <p class="ip-counter-desc">Elite conceptual designs validated by premier regulatory
-                            institutions.</p>
-                        <p class="ip-counter-hidden ip-counter-detail-secondary">Accredited by Global Standards</p>
                     </div>
                 </div>
 
@@ -1739,8 +1971,6 @@
                             <span class="ip-counter-plus ip-counter-plus-tertiary">+</span>
                         </div>
                         <p class="ip-counter-label">Ideas Implemented</p>
-                        <p class="ip-counter-desc">Tangible execution of complex theories into living ecosystems.</p>
-                        <p class="ip-counter-hidden ip-counter-detail-tertiary">Live Infrastructure Status: Active</p>
                     </div>
                 </div>
 
@@ -1755,9 +1985,6 @@
                             <span class="ip-counter-plus ip-counter-plus-primary">+</span>
                         </div>
                         <p class="ip-counter-label">Ideas Funded for Implementation</p>
-                        <p class="ip-counter-desc">Venture capital allocation for high-impact planetary transformation.
-                        </p>
-                        <p class="ip-counter-hidden ip-counter-detail-primary">Series A+ Investment Track</p>
                     </div>
                 </div>
             </div>
@@ -1768,7 +1995,7 @@
     <section class="ip-partner-section">
         <div class="container mb-5">
             <h1 class="display-4 fw-bold mb-4 ip-partner-title">
-                Partner with <span class="ip-partner-gradient">ENpower</span>
+                <span style="color: #6c32a8;">Partner with</span> <span style="color: #e5a93e;">ENpower</span>
             </h1>
             <p class="ip-partner-desc">
                 Choose the intervention that aligns with your vision, or combine multiple pathways for deeper impact.
@@ -1842,192 +2069,321 @@
 
     </section>
 
-    <!-- IP Gallery Section -->
-    <section class="ip-gallery-section">
-        <header class="ip-gallery-header">
-            <h1 class="ip-gallery-title"><span class="ip-gallery-gradient">Idea</span> Gallery</h1>
-        </header>
+    <!-- Brands Section -->
+    <section class="ip-brands-section" id="ip-brands">
+        <div class="container">
+            <div class="ip-brands-label">
+                <span style="color: #6c32a8;">Strategic</span> <span style="color: #e5a93e;">Partners</span>
+            </div>
 
-        <div id="ip-gallery-grid" class="ip-gallery-grid">
-
-            <!-- Card 1 -->
-            <article class="ip-gallery-card">
-                <div class="ip-gallery-img-wrap">
-                    <img alt="Scratch game programming interface" class="ip-gallery-img"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4pR1mn14K25txoZ5mHHQQ0_aNy_64ef9jVLzFICDyUIs50LfTsPbAbMRSjepMOqKF6jBW2b30W-RnmwxLNjolqS0aWG8W6pQmeSoxGYnrgFm_fyYFPiXYyOaTPOQZ_jttUSwoWlG3AvWbPoZ7rovyp9FzBX3QGAe5TN_JQ2sMx6eJKRS1QHgV-w8foFHHOzegs6uARw_9Eot9Zkkh5G0vtnN4CwYUispq2C6xOV1IvuebF-pnqNXwoVThV9MlnX1k4jRXg0A7OQ" />
-                    <span class="ip-gallery-tag">Software</span>
-                </div>
-                <div class="ip-gallery-body">
-                    <h3 class="ip-gallery-name">Shubham Chauhan</h3>
-                    <p class="ip-gallery-desc">YUVA Unstoppable &amp; ENpower's STEM Innovation program has enabled
-                        Shubham Chauhan from Class 7 of Nayka Kumar Shala to build his first game using MIT's SCRATCH
-                        program in just two months.</p>
-                    <div class="ip-gallery-footer">
-                        <span class="ip-gallery-category">Scratch Project</span>
-                        <span class="material-symbols-outlined ip-gallery-arrow">arrow_forward</span>
+            <!-- Row 1: Left to Right (6 logos + duplicate) -->
+            <div class="ip-brands-marquee-container">
+                <div class="ip-brands-marquee-row-ltr">
+                    <!-- Original 6 -->
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/bayer.webp" alt="Bayer" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/hafele.png" alt="Hafele" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/tata-capital.webp" alt="Tata Capital" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/indusind.webp" alt="IndusInd" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/L&T.webp" alt="Larsen & Toubro" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/inoxap.webp" alt="Inoxap" class="ip-brands-logo">
+                    </div>
+                    <!-- Duplicate for seamless scroll -->
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/bayer.webp" alt="Bayer" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/hafele.png" alt="Hafele" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/tata-capital.webp" alt="Tata Capital" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/indusind.webp" alt="IndusInd" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/L&T.webp" alt="Larsen & Toubro" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/inoxap.webp" alt="Inoxap" class="ip-brands-logo">
                     </div>
                 </div>
-            </article>
+            </div>
 
-            <!-- Card 2 -->
-            <article class="ip-gallery-card">
-                <div class="ip-gallery-img-wrap">
-                    <img alt="Mechanical seed sowing prototype" class="ip-gallery-img"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLzUMbVcpwh8WsYPE468l7wbCNrN0FqLCIOmk9FCYif-FNV-FAlrMG3-rH7PELaLtTKA53RQVQxFo5b5KtgJxRtVlNUJGJTb1rbqsc61X5XnhH33lLG_BlJa2FqD1AmL41RtOlcyX7w6agYgS3sGh50iklMYOpAOvKWcfYcJnYuc8MHvpsdh6RIAZc4Zd6RcMQgCzIhqQaWabH5CYZZsbHpYElbXy1WfCn2wB5wT0DaIDA13pZXGy2REXbJwHTXfJs-NzBD4yVVQ" />
-                    <span class="ip-gallery-tag">Sustainability</span>
-                </div>
-                <div class="ip-gallery-body">
-                    <h3 class="ip-gallery-name">Prathamesh &amp; Team</h3>
-                    <p class="ip-gallery-desc">In Dharashiv, ATL students Prathamesh, Prasad &amp; Shivam, supported by
-                        IndusInd Bank's Flagship CSR Initiative, created an Automatic Seed Sowing Machine that completed
-                        successful field trials in soybean farms.</p>
-                    <div class="ip-gallery-footer">
-                        <span class="ip-gallery-category">AgriTech</span>
-                        <span class="material-symbols-outlined ip-gallery-arrow">arrow_forward</span>
+            <!-- Row 2: Right to Left (7 logos + duplicate) -->
+            <div class="ip-brands-marquee-container">
+                <div class="ip-brands-marquee-row-rtl">
+                    <!-- Original 7 -->
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/aaramco.webp" alt="Aramco" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/axis-bank.webp" alt="Axis Bank" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/hsbc.webp" alt="HSBC" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/sbf.webp" alt="SBF" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/udaan.webp" alt="Udaan" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/manipal-foundation.webp" alt="Manipal Foundation"
+                            class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/yuva.webp" alt="Yuva" class="ip-brands-logo">
+                    </div>
+                    <!-- Duplicate for seamless scroll -->
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/aaramco.webp" alt="Aramco" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/axis-bank.webp" alt="Axis Bank" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/hsbc.webp" alt="HSBC" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/sbf.webp" alt="SBF" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/udaan.webp" alt="Udaan" class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/manipal-foundation.webp" alt="Manipal Foundation"
+                            class="ip-brands-logo">
+                    </div>
+                    <div class="ip-brands-logo-item">
+                        <img src="assets/csr-logo/yuva.webp" alt="Yuva" class="ip-brands-logo">
                     </div>
                 </div>
-            </article>
-
-            <!-- Card 3 -->
-            <article class="ip-gallery-card">
-                <div class="ip-gallery-img-wrap">
-                    <img alt="Digital security dashboard" class="ip-gallery-img"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhs4ulc2OCSna8tVJpzHpA2Pm24pqX54ZFnltYqmYABu51vHEWFLt39V5PhDeTkHF7V4J5Wg_NmmoP79a_cTVU324DO6P0a_JIMKCBDhYcLXarw_3bGkrRyGiqc9JWP-rSpERyimiEA86dR6DGdWYIgg48z94AznHf1U7e9unsyyYwst7tg9KYTwVpQK2kS4fSmMN_wQOXnnEariwhhBsP6DCi-ug4RHLHn5h9g0G4RspA0evuIG_ma17ManZT1uPTzAOtRhHjkQ" />
-                    <span class="ip-gallery-tag">Security</span>
-                </div>
-                <div class="ip-gallery-body">
-                    <h3 class="ip-gallery-name">Anubhav Kumar</h3>
-                    <p class="ip-gallery-desc">Anubhav Kumar from Begusarai developed Secura, a fingerprint-ignition
-                        system replacing bike keys, under IndusInd Bank's Flagship CSR initiative. Tested successfully,
-                        the affordable device reduces theft and boosts safety for rural users.</p>
-                    <div class="ip-gallery-footer">
-                        <span class="ip-gallery-category">Cybersecurity</span>
-                        <span class="material-symbols-outlined ip-gallery-arrow">arrow_forward</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 4 -->
-            <article class="ip-gallery-card">
-                <div class="ip-gallery-img-wrap">
-                    <img alt="Electric bicycle conversion kit" class="ip-gallery-img"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY42wCpKXO8zaqpTygT2_hx3mKpajekaCV6YE71cwM5b0jC8JhnxqfVSSCOKMNmPP8Q7Y4LUHR-aHTwhHaRjns4wMhRkdDZUU_XAOaMTGZd5jk-bG5GDFXh5n67cag3BiS3AWdumS8kKux9RxIUuyn8MDiEftK5obxoI0yRr32813P9vSP8_4OGShL9rkwg_YpPo2T5_LDbMZxju9tIgNBPwLokTEyQT5O84VJ_4shcA_t5tsCHdTqlViVphTRptt24YD6njTcfQ" />
-                    <span class="ip-gallery-tag">Robotics</span>
-                </div>
-                <div class="ip-gallery-body">
-                    <h3 class="ip-gallery-name">Atulya Bharti</h3>
-                    <p class="ip-gallery-desc">Atulya Bharti from Begusarai presents her innovation 'Atulya's E-cycle'
-                        to the Hon'ble Prime Minister at the 3rd NEP Anniversary in New Delhi.</p>
-                    <div class="ip-gallery-footer">
-                        <span class="ip-gallery-category">Green Mobility</span>
-                        <span class="material-symbols-outlined ip-gallery-arrow">arrow_forward</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 5 -->
-            <article class="ip-gallery-card">
-                <div class="ip-gallery-img-wrap">
-                    <img alt="Smartphone app interface for safety" class="ip-gallery-img"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFpjO_mJz2UYUM4E1IwhBZlBwkOauU0TXz8ogim2As4xG6IEpDw_WZzDNrto3bAdMvZsXxVR9dhXsp70OEqunpixPio2KNc5y6q73aHr7MCLJVffh-3zis2IJMfVgtb7qcslOZyNetHY2mn0kW2yfBu97X3Esg0DZDkMnMs9L1SaLE5mSiNpkmzprGgwea139tnWbSahknzSojn8PffbgREDWevRh-XvIqYTSS7ICCfWQf17LBEDgla1XqfGzdFguzVBoP-gKbLg" />
-                    <span class="ip-gallery-tag">Software</span>
-                </div>
-                <div class="ip-gallery-body">
-                    <h3 class="ip-gallery-name">Shraddhangini &amp; Saloni</h3>
-                    <p class="ip-gallery-desc">Shraddhangini Jena &amp; Saloni Chaurasiya present 'Women's Safety
-                        Mobile App' at the G20 Summit in Gujarat to Lok Sabha Member Smriti Irani, &amp; Gujarat CM
-                        Bhupendrabhai Patel.</p>
-                    <div class="ip-gallery-footer">
-                        <span class="ip-gallery-category">Social Impact</span>
-                        <span class="material-symbols-outlined ip-gallery-arrow">arrow_forward</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 6 -->
-            <article class="ip-gallery-card">
-                <div class="ip-gallery-img-wrap">
-                    <img alt="Smart walking stick sensor" class="ip-gallery-img"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4nHA5Z3pXlhOCLvK2478LrQKI0TS0Rbg0CxzgQMKsPI7J6MtZovnMNw_G19ZWm_035Fl5D2jnIAoQOSjnYwUKz5Mx_qURPX7zdK1Lxd5_gf03VKUSTuLefKwXuhll5HXQHmUe9mJUT_GeXkDCp-3HUZvVebYkMEdnF8ScgWux115XqqPn1N4vW8sN8ayWDjzBSFaqVfwtO2NYsZ_NpwavSWCTIIsnZYpMCU0iCW4dkpIjOgmK-p_tzss2Fen13hAktUtqWZT65g" />
-                    <span class="ip-gallery-tag">Robotics</span>
-                </div>
-                <div class="ip-gallery-body">
-                    <h3 class="ip-gallery-name">Monica B</h3>
-                    <p class="ip-gallery-desc">Monica B from Karnataka showcases 'A Smart Walking Stick' at the
-                        Bayer-ENpower Innovation Summit in Bangalore.</p>
-                    <div class="ip-gallery-footer">
-                        <span class="ip-gallery-category">Assistive Tech</span>
-                        <span class="material-symbols-outlined ip-gallery-arrow">arrow_forward</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 7 -->
-            <article class="ip-gallery-card">
-                <div class="ip-gallery-img-wrap">
-                    <img alt="Drip irrigation system" class="ip-gallery-img"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1bRHUvms65sj9DSU1PN_-ro7hXnxIHWW-JajAWPCI2e2STEmRMyrTCQQkUaWFB-6Oamibeka7wPz9WX0Yo0TL6gbxUjcKlDCcXVyznAOLUMdT0_VSh56T507cNsMtkCfxlMx_Vtkw13Eyfk6l0rQqQSuHM1xkwgNd-7Ra90DMfb3cpqU0n7AjnJ6Rq-m72-lYSsRQLiQhFo4oCtI12PKSw2Pgm8bKkGWdVztkDbCRarravf5KXKiVybpC0vhO1qZKd0BVC4QIrA" />
-                    <span class="ip-gallery-tag">Sustainability</span>
-                </div>
-                <div class="ip-gallery-body">
-                    <h3 class="ip-gallery-name">Paderu Students</h3>
-                    <p class="ip-gallery-desc">Students from Paderu develop a water-conserving sensor-based irrigation
-                        system in Andhra Pradesh.</p>
-                    <div class="ip-gallery-footer">
-                        <span class="ip-gallery-category">Environment</span>
-                        <span class="material-symbols-outlined ip-gallery-arrow">arrow_forward</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 8 -->
-            <article class="ip-gallery-card">
-                <div class="ip-gallery-img-wrap">
-                    <img alt="Emergency alert system signal" class="ip-gallery-img"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNfac9iGhKS84cy1FMU0QN1P_R-FsNaj1CBDvyncCh5z4FtB2hOb0d4pFaP5yPTV8JlUA9H32c_T77XeGwFEBSERCvqs2bpGtdub34z8dGSFXCr2EM02LW-RxiBC4-ezuuOhDZpb8dt6KGdiI4297KEu_lFNv0FGjr1aqKyC2ZeTmFUBcubjrjTyblj33R2mjcAKJS2sxmnScMXELeN_N44tS6Mz7VRtCatUEteNOE4k_DDwARtcwKl7XYOoJnFzdr6YBAG1DPag" />
-                    <span class="ip-gallery-tag">Software</span>
-                </div>
-                <div class="ip-gallery-body">
-                    <h3 class="ip-gallery-name">Dnyneshwari Pawar</h3>
-                    <p class="ip-gallery-desc">Dnyneshwari Pawar a Zilla Parishad Student developed an 'Automatic
-                        Ambulance Alert System' during the Swajivi Maharashtra Program with the Government of
-                        Maharashtra.</p>
-                    <div class="ip-gallery-footer">
-                        <span class="ip-gallery-category">Public Safety</span>
-                        <span class="material-symbols-outlined ip-gallery-arrow">arrow_forward</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Card 9 -->
-            <article class="ip-gallery-card">
-                <div class="ip-gallery-img-wrap">
-                    <img alt="Chilli powder grinding automation" class="ip-gallery-img"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNT1EXUwf8kn5EIlbCMwEMC1tNlou7wQE1oJMwP_tDBc6S6i1-vLc2sG3R4XqQ9vu6wr99mXlEeXax-Ii_5Ac6_neEbYTHZ36NzDTyiapmfgQnQrQ9cHVIaWslSAdPphBvMeelEbbxycKJI0u_rNhEiEHXr_iUVceNstpn6EFVbNks_nODIH639vjyj4DbRJ0ejXeXXTeTnt-lkkeDwPwvymUZTENQ4bYIWh4HsOIoGiJzv1PA4aJvqQqX2kJmXUP4y-HNX9inDw" />
-                    <span class="ip-gallery-tag">Robotics</span>
-                </div>
-                <div class="ip-gallery-body">
-                    <h3 class="ip-gallery-name">Utkarsha &amp; Pushpak</h3>
-                    <p class="ip-gallery-desc">Utkarsha Golhar &amp; Pushpak Tribhuvan present their profit-making
-                        product Golharwadi Chilli Powder at the Swajivi 2024 Grand Finale Showcase.</p>
-                    <div class="ip-gallery-footer">
-                        <span class="ip-gallery-category">Processing Tech</span>
-                        <span class="material-symbols-outlined ip-gallery-arrow">arrow_forward</span>
-                    </div>
-                </div>
-            </article>
-
+            </div>
         </div>
+    </section>
 
-        <!-- Pagination -->
-        <div class="ip-gallery-pagination">
-            <button id="ip-gallery-prev" class="ip-gallery-pagination-btn">
-                <span class="material-symbols-outlined">chevron_left</span>
+    <!-- IP Gallery Section - Horizontal Scroll -->
+    <section class="ip-gallery-scroll-section" id="ip-gallery-scroll">
+        <!-- Navigation Arrows -->
+        <div class="ip-gallery-nav-arrows">
+            <button class="ip-gallery-nav-arrow" id="ip-gallery-prev">
+                <span class="material-icons">chevron_left</span>
             </button>
-            <div id="ip-gallery-page-numbers" class="ip-gallery-page-numbers"></div>
-            <button id="ip-gallery-next" class="ip-gallery-pagination-btn">
-                <span class="material-symbols-outlined">chevron_right</span>
+            <button class="ip-gallery-nav-arrow" id="ip-gallery-next">
+                <span class="material-icons">chevron_right</span>
             </button>
+        </div>
+        <div class="container-fluid">
+            <div class="ip-gallery-hscroll" id="ip-gallery-hscroll">
+                <!-- Heading -->
+                <div class="ip-gallery-heading-container">
+                    <h2><span style="color: #6c32a8;">Idea</span> <span style="color: #e5a93e;">Gallery</span></h2>
+                </div>
+
+                <!-- Card 1 -->
+                <div class="ip-gallery-hcard">
+                    <div class="ip-gallery-hcard-image">
+                        <img alt="Scratch game programming"
+                            src="assets/impact-program/idea-gallery/shubham-chauhan.jpeg" />
+                    </div>
+                    <div class="ip-gallery-hcard-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="ip-gallery-hcard-name">Shubham Chauhan</h3>
+                                <!-- <p class="ip-gallery-hcard-grade">Class 7, Gujarat</p> -->
+                            </div>
+                            <!-- <span class="ip-gallery-hcard-badge">Scratch Project</span> -->
+                        </div>
+                        <p class="ip-gallery-hcard-desc">"YUVA Unstoppable & ENpower’s STEM Innovation program has
+                            enabled Shubham Chauhan from Class 7 of Nayka Kumar Shala to build his first game using
+                            MIT’s SCRATCH program in just two months."</p>
+                        <div class="ip-gallery-hcard-footer">
+                            <span class="ip-gallery-hcard-badge">Scratch Project</span>
+                            <span class="small text-secondary">Gujarat</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="ip-gallery-hcard">
+                    <div class="ip-gallery-hcard-image">
+                        <img alt="Seed sowing prototype"
+                            src="assets/impact-program/idea-gallery/prathamesh-team.jpeg" />
+                    </div>
+                    <div class="ip-gallery-hcard-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="ip-gallery-hcard-name">Prathamesh &amp; Team</h3>
+                                <!-- <p class="ip-gallery-hcard-grade">Grade 9, Maharashtra</p> -->
+                            </div>
+                            <!-- <span class="ip-gallery-hcard-badge">AgriTech</span> -->
+                        </div>
+                        <p class="ip-gallery-hcard-desc">"In Dharashiv, ATL students Prathamesh Sujit Mule, Prasad
+                            Mahadev Kulkarni & Shivam Aabasaheb Rayban, supported by IndusInd Bank’s Flagship CSR
+                            Initiative, created an Automatic Seed Sowing Machine that completed successful field trials
+                            in soybean farms."</p>
+                        <div class="ip-gallery-hcard-footer">
+                            <span class="ip-gallery-hcard-badge">AgriTech</span>
+                            <span class="small text-secondary">Maharashtra</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="ip-gallery-hcard">
+                    <div class="ip-gallery-hcard-image">
+                        <img alt="Secura - Automobile Safety"
+                            src="assets/impact-program/idea-gallery/anubhav.jpeg" />
+                    </div>
+                    <div class="ip-gallery-hcard-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="ip-gallery-hcard-name">Anubhav Kumar</h3>
+                                <!-- <p class="ip-gallery-hcard-grade">Begusarai, Bihar</p> -->
+                            </div>
+                            <!-- <span class="ip-gallery-hcard-badge">Security</span> -->
+                        </div>
+                        <p class="ip-gallery-hcard-desc">"Anubhav Kumar from Begusarai developed Secura, a
+                            fingerprint-ignition system replacing bike keys, under IndusInd Bank’s Flagship CSR
+                            initiative. Tested successfully, the affordable device reduces theft and boosts safety for
+                            rural users."</p>
+                        <div class="ip-gallery-hcard-footer">
+                            <span class="ip-gallery-hcard-badge">Automobile Safety</span>
+                            <span class="small text-secondary">Bihar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="ip-gallery-hcard">
+                    <div class="ip-gallery-hcard-image">
+                        <img alt="E-cycle Green Mobility"
+                            src="assets/impact-program/idea-gallery/atulya.jpeg" />
+                    </div>
+                    <div class="ip-gallery-hcard-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="ip-gallery-hcard-name">Atulya Bharti</h3>
+                                <!-- <p class="ip-gallery-hcard-grade">Begusarai, Bihar</p> -->
+                            </div>
+                            <!-- <span class="ip-gallery-hcard-badge">Robotics</span> -->
+                        </div>
+                        <p class="ip-gallery-hcard-desc">"Atulya Bharti from Begusarai presents her innovation 'Atulya’s
+                            E-cycle' to the Hon’ble Prime Minister at the 3rd NEP Anniversary in New Delhi."</p>
+                        <div class="ip-gallery-hcard-footer">
+                            <span class="ip-gallery-hcard-badge">Green Mobility</span>
+                            <span class="small text-secondary">Bihar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="ip-gallery-hcard">
+                    <div class="ip-gallery-hcard-image">
+                        <img alt="Women's Safety App"
+                            src="assets/impact-program/idea-gallery/shraddhangini-team.jpeg" />
+                    </div>
+                    <div class="ip-gallery-hcard-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="ip-gallery-hcard-name">Shraddhangini &amp; Team</h3>
+                                <!-- <p class="ip-gallery-hcard-grade">Gujarat</p> -->
+                            </div>
+                            <!-- <span class="ip-gallery-hcard-badge">Software</span> -->
+                        </div>
+                        <p class="ip-gallery-hcard-desc">"Shraddhangini Jena & Saloni Chaurasiya present 'Women’s Safety
+                            Mobile App' at the G20 Summit in Gujarat to Lok Sabha Member Smriti Irani, & Gujarat CM
+                            Bhupendrabhai Patel."</p>
+                        <div class="ip-gallery-hcard-footer">
+                            <span class="ip-gallery-hcard-badge">Women's Safety</span>
+                            <span class="small text-secondary">Gujarat</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="ip-gallery-hcard">
+                    <div class="ip-gallery-hcard-image">
+                        <img alt="Smart Walking Stick"
+                            src="assets/impact-program/idea-gallery/freepik_2741947891.jpeg" />
+                    </div>
+                    <div class="ip-gallery-hcard-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="ip-gallery-hcard-name">Monica B</h3>
+                                <!-- <p class="ip-gallery-hcard-grade">Karnataka</p> -->
+                            </div>
+                            <!-- <span class="ip-gallery-hcard-badge">Robotics</span> -->
+                        </div>
+                        <p class="ip-gallery-hcard-desc">"Monica B from Karnataka showcases 'A Smart Walking Stick' at
+                            the Bayer-ENpower Innovation Summit in Bangalore."</p>
+                        <div class="ip-gallery-hcard-footer">
+                            <span class="ip-gallery-hcard-badge">Inclusive Tech</span>
+                            <span class="small text-secondary">Karnataka</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="ip-gallery-hcard">
+                    <div class="ip-gallery-hcard-image">
+                        <img alt="Irrigation system"
+                            src="assets/impact-program/idea-gallery/dnyneshwari.jpeg" />
+                    </div>
+                    <div class="ip-gallery-hcard-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="ip-gallery-hcard-name">Dnyneshwari Pawar</h3>
+                                <!-- <p class="ip-gallery-hcard-grade">Andhra Pradesh</p> -->
+                            </div>
+                            <!-- <span class="ip-gallery-hcard-badge">Sustainability</span> -->
+                        </div>
+                        <p class="ip-gallery-hcard-desc">"Dnyneshwari Pawar a Zilla Parishad Student developed an
+                            'Automatic Ambulance Alert System' during the Swajivi Maharashtra Program with the
+                            Government of Maharashtra."</p>
+                        <div class="ip-gallery-hcard-footer">
+                            <span class="ip-gallery-hcard-badge">IOT</span>
+                            <span class="small text-secondary">Maharashtra</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="ip-gallery-hcard">
+                    <div class="ip-gallery-hcard-image">
+                        <img alt="Ambulance alert system"
+                            src="assets/impact-program/idea-gallery/utkarsha-team.jpeg" />
+                    </div>
+                    <div class="ip-gallery-hcard-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h3 class="ip-gallery-hcard-name">Utkarsha &amp; Team</h3>
+                                <!-- <p class="ip-gallery-hcard-grade">Maharashtra</p> -->
+                            </div>
+                            <!-- <span class="ip-gallery-hcard-badge">Software</span> -->
+                        </div>
+                        <p class="ip-gallery-hcard-desc">"Utkarsha Golhar & Pushpak Tribhuvan present their
+                            profit-making product Golharwadi Chilli Powder at the Swajivi 2024 Grand Finale Showcase."
+                        </p>
+                        <div class="ip-gallery-hcard-footer">
+                            <span class="ip-gallery-hcard-badge">Ethical Sourcing</span>
+                            <span class="small text-secondary">Maharashtra</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -2041,7 +2397,7 @@
             <div class="ip-testimonial-header">
                 <div class="ip-testimonial-header-content">
                     <h2 class="ip-testimonial-heading">
-                        Empowered <span class="ip-testimonial-highlight">Teachers.</span>
+                        <span style="color: #6c32a8;">Empowered</span> <span style="color: #e5a93e;">Voices</span>
                     </h2>
                 </div>
                 <!-- Navigation Controls -->
@@ -2089,15 +2445,17 @@
     </section>
 
     <!-- ══════ IP FINAL CTA SECTION ═══════ -->
-    <section class="ip-final-cta-section">
+    <section class="ip-final-cta-section" id="ip-final-cta">
         <div class="ip-final-cta-container">
             <div class="ip-final-cta-grid">
                 <!-- Left Grid: Heading, Paragraph and Button -->
                 <div class="ip-final-cta-left">
                     <h3 class="ip-final-cta-paragraph">
-                        Empower young minds to be change drivers of the future
+                        <span style="color: #6c32a8;">Empower</span> <span style="color: #e5a93e;">young minds</span> to
+                        be change drivers of the future
                     </h3>
-                    <button class="ip-final-cta-button">
+                    <button class="ip-final-cta-button"
+                        onclick="document.getElementById('ip-cta-form-overlay').style.display='flex'">
                         Partner With Us
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd"
@@ -2110,15 +2468,81 @@
                 <!-- Right Grid: Image -->
                 <div class="ip-final-cta-right">
                     <div class="ip-final-cta-image-wrapper">
-                        <img src="assets/Group 47.png" alt="Students in classroom" class="ip-final-cta-image">
+                        <img src="assets/til/CTA-TIL.jpeg" alt="Students in classroom" class="ip-final-cta-image">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CTA Form Popup -->
+    <div class="ip-cta-form-overlay" id="ip-cta-form-overlay">
+        <div class="ip-cta-form-modal">
+            <button class="ip-cta-form-close"
+                onclick="document.getElementById('ip-cta-form-overlay').style.display='none'">&times;</button>
+            <h2 class="ip-cta-form-title"><span style="color: #6c32a8;">Partner</span> <span
+                    style="color: #e5a93e;">With Us</span></h2>
+            <form class="ip-cta-form" id="ip-cta-form">
+                <div class="ip-cta-form-group">
+                    <label for="ip-cta-name">Name</label>
+                    <input type="text" id="ip-cta-name" name="name" placeholder="Your full name" required>
+                </div>
+                <div class="ip-cta-form-group">
+                    <label for="ip-cta-email">Email ID</label>
+                    <input type="email" id="ip-cta-email" name="email" placeholder="you@example.com" required>
+                </div>
+                <div class="ip-cta-form-group">
+                    <label for="ip-cta-org">Organization / Foundation</label>
+                    <input type="text" id="ip-cta-org" name="organization" placeholder="Your organization name"
+                        required>
+                </div>
+                <div class="ip-cta-form-group">
+                    <label for="ip-cta-designation">Designation</label>
+                    <input type="text" id="ip-cta-designation" name="designation" placeholder="Your designation"
+                        required>
+                </div>
+                <div class="ip-cta-form-group">
+                    <label for="ip-cta-phone">Contact Number</label>
+                    <input type="tel" id="ip-cta-phone" name="phone" placeholder="+91 XXXXX XXXXX" required>
+                </div>
+                <button type="submit" class="ip-cta-form-submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Footer will be loaded here -->
     <div id="footer-placeholder"></div>
+
+    <script>
+        // CTA Form Popup Controls
+        (function () {
+            const overlay = document.getElementById('ip-cta-form-overlay');
+            if (!overlay) return;
+
+            // Close on outside click
+            overlay.addEventListener('click', function (e) {
+                if (e.target === overlay) overlay.style.display = 'none';
+            });
+
+            // Close on ESC
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && overlay.style.display === 'flex') {
+                    overlay.style.display = 'none';
+                }
+            });
+
+            // Form submit
+            const form = document.getElementById('ip-cta-form');
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    alert('Thank you! We will get back to you soon.');
+                    form.reset();
+                    overlay.style.display = 'none';
+                });
+            }
+        })();
+    </script>
 
     <script>
         /* ==========================================================
@@ -2381,61 +2805,51 @@
     </script>
 
     <script>
-        // IP Gallery Pagination
+        // IP Gallery Horizontal Scroll
         (function () {
-            const CARDS_PER_PAGE = 6;
-            const grid = document.getElementById('ip-gallery-grid');
-            const cards = Array.from(grid.querySelectorAll('.ip-gallery-card'));
-            const totalPages = Math.ceil(cards.length / CARDS_PER_PAGE);
-            let currentPage = 1;
+            const scrollContainer = document.getElementById('ip-gallery-hscroll');
+            if (!scrollContainer) return;
 
-            const prevBtn = document.getElementById('ip-gallery-prev');
-            const nextBtn = document.getElementById('ip-gallery-next');
-            const pageNumbersContainer = document.getElementById('ip-gallery-page-numbers');
+            const cards = scrollContainer.querySelectorAll('.ip-gallery-hcard');
+            const cardWidth = 400 + 32; // card width + gap
 
-            function renderPageNumbers() {
-                pageNumbersContainer.innerHTML = '';
-                for (var i = 1; i <= totalPages; i++) {
-                    var span = document.createElement('span');
-                    span.textContent = i;
-                    span.className = 'ip-gallery-page-num' + (i === currentPage ? ' active' : '');
-                    span.addEventListener('click', (function (page) {
-                        return function () { goToPage(page); };
-                    })(i));
-                    pageNumbersContainer.appendChild(span);
-                }
-            }
+            // GSAP horizontal scroll
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
 
-            function showPage(page) {
-                var start = (page - 1) * CARDS_PER_PAGE;
-                var end = start + CARDS_PER_PAGE;
-                cards.forEach(function (card, index) {
-                    if (index >= start && index < end) {
-                        card.style.display = '';
-                        card.classList.add('ip-gallery-fade-in');
-                        setTimeout(function () { card.classList.remove('ip-gallery-fade-in'); }, 400);
-                    } else {
-                        card.style.display = 'none';
+                const totalScroll = scrollContainer.scrollWidth - window.innerWidth;
+
+                gsap.to(scrollContainer, {
+                    x: () => -(totalScroll),
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: ".ip-gallery-scroll-section",
+                        start: "top top",
+                        end: () => "+=" + totalScroll,
+                        pin: true,
+                        scrub: 1,
+                        invalidateOnRefresh: true,
                     }
                 });
-                prevBtn.style.opacity = page === 1 ? '0.4' : '1';
-                prevBtn.style.pointerEvents = page === 1 ? 'none' : 'auto';
-                nextBtn.style.opacity = page === totalPages ? '0.4' : '1';
-                nextBtn.style.pointerEvents = page === totalPages ? 'none' : 'auto';
-                renderPageNumbers();
             }
 
-            function goToPage(page) {
-                if (page < 1 || page > totalPages) return;
-                currentPage = page;
-                showPage(currentPage);
-                grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Arrow navigation
+            const prevBtn = document.getElementById('ip-gallery-prev');
+            const nextBtn = document.getElementById('ip-gallery-next');
+            let scrollPos = 0;
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function () {
+                    scrollPos = Math.min(scrollPos + cardWidth, scrollContainer.scrollWidth - window.innerWidth);
+                    gsap.to(scrollContainer, { x: -scrollPos, duration: 0.5, ease: "power2.out" });
+                });
             }
-
-            prevBtn.addEventListener('click', function () { goToPage(currentPage - 1); });
-            nextBtn.addEventListener('click', function () { goToPage(currentPage + 1); });
-
-            showPage(1);
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function () {
+                    scrollPos = Math.max(scrollPos - cardWidth, 0);
+                    gsap.to(scrollContainer, { x: -scrollPos, duration: 0.5, ease: "power2.out" });
+                });
+            }
         })();
     </script>
 

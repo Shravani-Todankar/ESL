@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline — Tabs | ENpower</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f6f0fa;
+            color: #1a1a1a;
+        }
+
+        /* ===== TIMELINE TABS SECTION ===== */
+        .tt-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tt-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .tt-heading .purple {
+            color: #6c32a8;
+        }
+
+        .tt-heading .yellow {
+            color: #e5a93e;
+        }
+
+        .tt-subheading {
+            text-align: center;
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 48px;
+            font-weight: 400;
+        }
+
+        /* ===== YEAR TABS ===== */
+        .tt-tabs-wrapper {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .tt-tabs {
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            position: relative;
+            border-bottom: 2px solid #e8ddf2;
+            padding-bottom: 0;
+        }
+
+        .tt-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tt-tab {
+            flex-shrink: 0;
+            padding: 12px 24px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #888;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .tt-tab::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: transparent;
+            border-radius: 3px 3px 0 0;
+            transition: background 0.3s ease;
+        }
+
+        .tt-tab:hover {
+            color: #6c32a8;
+        }
+
+        .tt-tab.active {
+            color: #6c32a8;
+        }
+
+        .tt-tab.active::after {
+            background: #6c32a8;
+        }
+
+        .tt-tab.active[data-color="#e5a93e"] {
+            color: #c48a1a;
+        }
+
+        .tt-tab.active[data-color="#e5a93e"]::after {
+            background: #e5a93e;
+        }
+
+        /* ===== TAB CONTENT PANELS ===== */
+        .tt-panels {
+            position: relative;
+            min-height: 200px;
+        }
+
+        .tt-panel {
+            display: none;
+            animation: ttFadeIn 0.4s ease;
+        }
+
+        .tt-panel.active {
+            display: block;
+        }
+
+        @keyframes ttFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== YEAR HEADER IN PANEL ===== */
+        .tt-year-header {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .tt-year-big {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1;
+            opacity: 0.15;
+        }
+
+        .tt-year-count {
+            font-size: 0.95rem;
+            color: #777;
+            font-weight: 500;
+        }
+
+        .tt-year-count strong {
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+
+        /* ===== EVENT CARDS GRID ===== */
+        .tt-events-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .tt-events-grid.tt-cols-1 {
+            grid-template-columns: 1fr;
+            max-width: 560px;
+        }
+
+        .tt-events-grid.tt-cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .tt-event-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 24px 28px;
+            border-left: 4px solid #6c32a8;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tt-event-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+        }
+
+        .tt-event-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+
+        .tt-event-desc {
+            font-size: 0.88rem;
+            color: #555;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* ===== SCROLL ARROWS FOR TABS ===== */
+        .tt-arrow {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(90deg, #f6f0fa 60%, transparent);
+            border: none;
+            cursor: pointer;
+            z-index: 2;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .tt-arrow.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .tt-arrow-left {
+            left: 0;
+        }
+
+        .tt-arrow-right {
+            right: 0;
+            background: linear-gradient(-90deg, #f6f0fa 60%, transparent);
+        }
+
+        .tt-arrow .material-symbols-outlined {
+            font-size: 28px;
+            color: #6c32a8;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .tt-section {
+                padding: 50px 16px;
+            }
+
+            .tt-heading {
+                font-size: 2rem;
+            }
+
+            .tt-subheading {
+                font-size: 0.95rem;
+                margin-bottom: 32px;
+            }
+
+            .tt-tab {
+                padding: 10px 18px;
+                font-size: 0.95rem;
+            }
+
+            .tt-year-big {
+                font-size: 3rem;
+            }
+
+            .tt-events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tt-events-grid.tt-cols-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .tt-event-card {
+                padding: 18px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tt-heading {
+                font-size: 1.6rem;
+            }
+
+            .tt-tab {
+                padding: 8px 14px;
+                font-size: 0.88rem;
+            }
+
+            .tt-year-big {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="tt-section">
+        <h2 class="tt-heading">A <span class="purple">Decade</span> of <span class="yellow">Impact</span></h2>
+        <p class="tt-subheading">2015 — 2025</p>
+
+        <!-- Year Tabs -->
+        <div class="tt-tabs-wrapper">
+            <button class="tt-arrow tt-arrow-left" id="ttArrowLeft">
+                <span class="material-symbols-outlined">chevron_left</span>
+            </button>
+            <div class="tt-tabs" id="ttTabs"></div>
+            <button class="tt-arrow tt-arrow-right" id="ttArrowRight">
+                <span class="material-symbols-outlined">chevron_right</span>
+            </button>
+        </div>
+
+        <!-- Tab Panels -->
+        <div class="tt-panels" id="ttPanels"></div>
+    </section>
+
+    <script>
+        const timeline = [
+            {
+                year: "2025", color: "#6c32a8", light: "#f6f0fa", events: [
+                    { title: "Alliance with Tata ClassEdge Ltd.", desc: "Tata ClassEdge took an equity stake in ENpower to bring entrepreneurship and future skills to schools across India." },
+                    { title: "L&T–ENpower Young Innovators Program", desc: "Expanded footprint to 90 government schools & set up E-cell across 34 schools where students conducted Kitaab Bazaar — a sales simulation of pitching Amar Chitra Katha Books." },
+                    { title: "YUVA Unstoppable STEM Program", desc: "First time computer users (students) learned coding, physical computing, and app development through project-based innovation." },
+                    { title: "ATL Program", desc: "Running a Tech entrepreneurship program in over 20 Andhra Pradesh government schools." },
+                    { title: "Udaan Tank 2025", desc: "Students transformed ideas into ventures through intensive MVP building and pitching." },
+                    { title: "Udaan STEM Lab", desc: "A new robotics and maker lab enables 120 students to learn coding and innovation through hands-on creation." },
+                    { title: "IndusInd Bank Flagship CSR Initiative", desc: "60+ Ideas groomed for on-field implementation, with real user testing and hands-on mentorship." },
+                ]
+            },
+            {
+                year: "2024", color: "#e5a93e", light: "#fef8eb", events: [
+                    { title: "Manipal Foundation Entrepreneurship Program", desc: "Students identify real problems and build solutions while developing critical thinking and problem-solving skills." },
+                    { title: "Salaam Bombay Foundation", desc: "Underserved students turn passions into entrepreneurial ventures." },
+                    { title: "Udaan Foundation", desc: "Youth developed ventures, prototypes, and go-to-market strategies with mentorship support." },
+                    { title: "L&T–ENpower Young Innovators Program", desc: "Innovation and entrepreneurship learning expanded to 41 new BMC schools." },
+                    { title: "IndusInd Bank Flagship CSR Initiative", desc: "20 new schools onboarded to strengthen holistic and entrepreneurial learning." },
+                    { title: "Aramco–NFTE Innovation Day", desc: "Global students designed solutions for UN SDG 6: Clean Water and Sanitation." },
+                ]
+            },
+            {
+                year: "2023", color: "#6c32a8", light: "#f6f0fa", events: [
+                    { title: "Swajivi Maharashtra Phase II", desc: "Reached 5,064 students across 44 schools in four districts, strengthening entrepreneurship and innovation learning in government schools." },
+                    { title: "New CSR Partnerships", desc: "Collaborated with L&T and Aramco to empower students through technology, innovation, and entrepreneurship programs." },
+                    { title: "Bayer–ENpower ATL Enhancement", desc: "Added 50 all-girls schools, introducing rural students to design thinking, technology, and entrepreneurship." },
+                    { title: "IFT Mentorship Platform", desc: "Revamped platform connects students with industry mentors, culminating in a bootcamp and venture pitch finale." },
+                ]
+            },
+            {
+                year: "2022", color: "#e5a93e", light: "#fef8eb", events: [
+                    { title: "CSR Partnerships", desc: "With FUEL, Bayer, Hafele, and IndusInd Bank, ENpower enabled experiential learning in design thinking, technology, and entrepreneurship." },
+                    { title: "IFT Season #4", desc: "8,526 participants competed as investors selected young social techpreneurs with ideas to reimagine India." },
+                    { title: "Government Partnership", desc: "Launched Swajivi with the Government of Maharashtra and SCERT to introduce entrepreneurship curriculum in government schools." },
+                ]
+            },
+            {
+                year: "2021", color: "#6c32a8", light: "#f6f0fa", events: [
+                    { title: "IFT Season #3", desc: "A virtual competition during COVID-19. Over 7200 students from 595 schools across 252 cities with global partners Microsoft & Snapchat." },
+                ]
+            },
+            {
+                year: "2020", color: "#e5a93e", light: "#fef8eb", events: [
+                    { title: "IFT Season #2", desc: "7000+ participants across 330 schools from 130+ cities. TOP 24 teams in a grand finale with UN GCNI & Atal Innovation Mission." },
+                ]
+            },
+            {
+                year: "2019", color: "#6c32a8", light: "#f6f0fa", events: [
+                    { title: "IFT Season #1", desc: "India's first-ever entrepreneurship search & mentoring platform. 3300+ students across 52 cities. TOP 3 at the UNGCNI National Conference in Mumbai." },
+                ]
+            },
+            {
+                year: "2018", color: "#e5a93e", light: "#fef8eb", events: [
+                    { title: "Expanding Footprint Across Mumbai", desc: "ENpower's entrepreneurship programs scaled up across leading schools in Mumbai." },
+                ]
+            },
+            {
+                year: "2017", color: "#6c32a8", light: "#f6f0fa", events: [
+                    { title: "Launched MYOB", desc: "Launched a structured & experiential entrepreneurship learning model across Gujarat & Maharashtra — Mind Your Own Business." },
+                ]
+            },
+            {
+                year: "2016", color: "#e5a93e", light: "#fef8eb", events: [
+                    { title: "Empowering Schools in Mumbai", desc: "Started empowering schools in Mumbai with structured & experiential entrepreneurship learning programs." },
+                ]
+            },
+            {
+                year: "2015", color: "#6c32a8", light: "#f6f0fa", events: [
+                    { title: "We Started Our Journey!", desc: "Enlearning Skill Development Limited was founded." },
+                ]
+            },
+        ];
+
+        (function () {
+            const tabsContainer = document.getElementById('ttTabs');
+            const panelsContainer = document.getElementById('ttPanels');
+            const arrowLeft = document.getElementById('ttArrowLeft');
+            const arrowRight = document.getElementById('ttArrowRight');
+
+            // Build tabs and panels
+            timeline.forEach(function (item, idx) {
+                // Tab button
+                const tab = document.createElement('button');
+                tab.className = 'tt-tab' + (idx === 0 ? ' active' : '');
+                tab.textContent = item.year;
+                tab.setAttribute('data-index', idx);
+                tab.setAttribute('data-color', item.color);
+                if (idx === 0) {
+                    tab.style.color = item.color;
+                }
+                tabsContainer.appendChild(tab);
+
+                // Panel
+                const panel = document.createElement('div');
+                panel.className = 'tt-panel' + (idx === 0 ? ' active' : '');
+                panel.setAttribute('data-index', idx);
+
+                let colClass = '';
+                if (item.events.length === 1) colClass = ' tt-cols-1';
+                else if (item.events.length === 3) colClass = ' tt-cols-3';
+
+                let eventsHtml = '';
+                item.events.forEach(function (ev) {
+                    eventsHtml +=
+                        '<div class="tt-event-card" style="border-left-color:' + item.color + '">' +
+                        '  <div class="tt-event-title">' + ev.title + '</div>' +
+                        '  <div class="tt-event-desc">' + ev.desc + '</div>' +
+                        '</div>';
+                });
+
+                panel.innerHTML =
+                    '<div class="tt-year-header">' +
+                    '  <div class="tt-year-big" style="color:' + item.color + '">' + item.year + '</div>' +
+                    '  <div class="tt-year-count"><strong>' + item.events.length + '</strong> milestone' + (item.events.length > 1 ? 's' : '') + ' this year</div>' +
+                    '</div>' +
+                    '<div class="tt-events-grid' + colClass + '">' + eventsHtml + '</div>';
+
+                panelsContainer.appendChild(panel);
+            });
+
+            // Tab click handler
+            const allTabs = tabsContainer.querySelectorAll('.tt-tab');
+            const allPanels = panelsContainer.querySelectorAll('.tt-panel');
+
+            allTabs.forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    const idx = parseInt(this.getAttribute('data-index'));
+                    const color = this.getAttribute('data-color');
+
+                    // Deactivate all
+                    allTabs.forEach(function (t) {
+                        t.classList.remove('active');
+                        t.style.color = '';
+                    });
+                    allPanels.forEach(function (p) {
+                        p.classList.remove('active');
+                    });
+
+                    // Activate selected
+                    this.classList.add('active');
+                    this.style.color = color;
+                    allPanels[idx].classList.add('active');
+
+                    // Scroll tab into view
+                    this.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                });
+            });
+
+            // Arrow scroll for tabs
+            function updateArrows() {
+                const el = tabsContainer;
+                arrowLeft.classList.toggle('visible', el.scrollLeft > 10);
+                arrowRight.classList.toggle('visible', el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+            }
+
+            arrowLeft.addEventListener('click', function () {
+                tabsContainer.scrollBy({ left: -200, behavior: 'smooth' });
+            });
+
+            arrowRight.addEventListener('click', function () {
+                tabsContainer.scrollBy({ left: 200, behavior: 'smooth' });
+            });
+
+            tabsContainer.addEventListener('scroll', updateArrows);
+            window.addEventListener('resize', updateArrows);
+            setTimeout(updateArrows, 100);
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                    const currentIdx = parseInt(document.querySelector('.tt-tab.active').getAttribute('data-index'));
+                    let nextIdx;
+                    if (e.key === 'ArrowLeft') {
+                        nextIdx = Math.max(0, currentIdx - 1);
+                    } else {
+                        nextIdx = Math.min(allTabs.length - 1, currentIdx + 1);
+                    }
+                    if (nextIdx !== currentIdx) {
+                        allTabs[nextIdx].click();
+                    }
+                }
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

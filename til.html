@@ -10,7 +10,7 @@
 
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <!-- Bootstrap CSS -->
@@ -33,7 +33,7 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background-color: #f6f0fa;
             overflow-x: hidden;
         }
@@ -145,7 +145,7 @@
             justify-content: center;
             gap: 32px;
             text-align: center;
-            margin-top: 30px;
+            margin-top: 20px;
         }
 
         /* ── TIL Text block ── */
@@ -162,7 +162,7 @@
             display: flex;
             row-gap: 24px;
             flex-direction: column;
-            font-size: 80px;
+            font-size: 75px;
             font-weight: 700;
             font-family: 'Space Grotesk', sans-serif;
             color: #6c32a8;
@@ -173,7 +173,7 @@
         }
 
         .til-row-1 .til-cbse {
-            font-size: 80px;
+            font-size: 75px;
             font-weight: 800;
             font-family: 'Space Grotesk', sans-serif;
             color: #6c32a8;
@@ -183,7 +183,7 @@
 
         /* ── TIL Row 2: "Mandate" — centered ── */
         .til-row-2 {
-            font-size: 80px;
+            font-size: 75px;
             font-weight: 800;
             font-family: 'Space Grotesk', sans-serif;
             color: #e5a93e;
@@ -219,7 +219,7 @@
 
         /* ── TIL Row 3 ── */
         .til-row-3 {
-            font-size: 80px;
+            font-size: 75px;
             font-weight: 700;
             font-family: 'Space Grotesk', sans-serif;
             color: #e5a93e;
@@ -247,30 +247,57 @@
 
         /* TIL Right pill (sits beside row1+row2) */
         .til-pill-right {
-            width: 320px;
+            width: 260px;
             height: 100px;
         }
 
         /* TIL Left pill (sits beside row3+row4) */
         .til-pill-left {
-            width: 320px;
+            width: 260px;
             height: 100px;
         }
 
         /* ── TIL Sub text ── */
         .til-subtext {
             text-align: center;
-            margin-top: 48px;
+            margin-top: 20px;
         }
 
         .til-subtext .til-s1 {
             display: block;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 400;
             color: #1c1c1c;
+            margin-bottom: 10px;
         }
 
-        /* ── TIL Video Section ── */
+        .til-hero-explore-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 14px 36px;
+            background: #6c32a8;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 20px rgba(108, 50, 168, 0.25);
+        }
+
+        .til-hero-explore-btn:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(108, 50, 168, 0.35);
+            color: #fff;
+        }
+
+        /* ── TIL Video Section (commented out) ──
         .til-video-section {
             position: relative;
             width: 100%;
@@ -304,185 +331,233 @@
             aspect-ratio: 16 / 9;
             object-fit: cover;
         }
+        */
 
-        /* ── TIL CTA Section ── */
-        .til-cta-section {
+
+        /* ── TIL Comparison Split Section ── */
+        .til-split-heading-wrap {
+            text-align: center;
+            padding: 80px 20px 50px;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+        }
+
+        .til-split-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .til-split-purple {
+            color: #6c32a8;
+        }
+
+        .til-split-yellow {
+            color: #e5a93e;
+        }
+
+        .til-split-section {
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
             position: relative;
+        }
+
+        .til-split-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 55%;
+            height: 100%;
+            background: linear-gradient(145deg, #e5a93e, #ffeb3b99, #9c27b080, #673ab7);
+            clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+            z-index: 0;
+        }
+
+        .til-split-inner {
+            max-width: 1300px;
             width: 100%;
-            min-height: 100vh;
+            /* min-height: 100vh; */
+            display: flex;
+            flex-direction: row;
+            position: relative;
             z-index: 1;
+        }
+
+        .til-panel-left {
+            flex: 1;
+            padding: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .til-panel-right {
+            flex: 1;
+            /* background-color: #ffffff; */
+            padding: 3.5rem 3.5rem 3.5rem 5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .til-panel-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+            font-weight: 700;
+            color: #1a0a2e;
+            margin-bottom: 1.6rem;
+        }
+
+        .til-panel-heading--right {
+            text-align: right;
+            margin-left: 1rem;
+        }
+
+        /* Left list & cards */
+        .til-left-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+
+        .til-left-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 0.8rem 0.9rem 0.8rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .til-left-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        .til-left-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #7a2ece;
+            min-width: 1.8rem;
+        }
+
+        .til-left-text {
+            flex: 1;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #1a0a2e;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .til-plus-btn {
+            width: 1.9rem;
+            height: 1.9rem;
+            background-color: #2eb84b;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 100px 20px;
+            flex-shrink: 0;
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 300;
+            line-height: 1;
         }
 
-        .til-cta-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            border-radius: 24px;
-            padding: 80px;
-        }
-
-        .til-cta-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .til-cta-left {
+        /* Right list & rows */
+        .til-right-list {
+            list-style: none;
+            padding: 0;
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 0.9rem;
         }
 
-        .til-cta-heading {
-            font-size: 2.5rem;
-            font-weight: 500;
-            font-family: 'Space Grotesk', sans-serif;
-            color: #1c1c1c;
-            line-height: 1.1;
-            letter-spacing: 0px;
-            width: 200px;
-        }
-
-        .til-cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 18px 36px;
-            background: #6c32a8;
-            color: #ffffff;
-            border: none;
-            border-radius: 25px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            align-self: flex-start;
-        }
-
-        .til-cta-button:hover {
-            background: #7C3AED;
-            transform: translateY(-3px);
-        }
-
-        .til-cta-button svg {
-            width: 20px;
-            height: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .til-cta-button:hover svg {
-            transform: translateX(4px);
-        }
-
-        .til-cta-right {
+        .til-right-row {
             display: flex;
             align-items: center;
-            justify-content: flex-end;
+            gap: 0.9rem;
+            padding: 0.8rem;
+            border-radius: 10px;
+            background: #673ab708;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
-        .til-cta-image-wrapper {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
+        .til-right-row:hover {
+            transform: translateY(-3px);
+            background-color: rgba(108, 50, 168, 0.06);
         }
 
-        .til-cta-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
-
-        /* ── TIL Comparison Table Section ── */
-        .til-table-section {
-            position: relative;
-            width: 100%;
-            background: #f6f0fa;
-            padding: 100px 20px;
-        }
-
-        .til-table-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .til-comparison-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            overflow: hidden;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .til-comparison-table thead {
-            background: linear-gradient(135deg, #dec1fc 0%, #d1bcff 100%);
-        }
-
-        .til-comparison-table thead th {
-            padding: 24px 30px;
-            font-size: 1.4rem;
+        .til-minus-circle {
+            width: 1.9rem;
+            height: 1.9rem;
+            background-color: #3d1170;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: white;
+            font-size: 1.3rem;
             font-weight: 700;
+            line-height: 1;
+            margin-left: 40px;
+        }
+
+        .til-right-text {
+            flex: 1;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: #3d2549;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .til-right-num {
             font-family: 'Space Grotesk', sans-serif;
-            color: #1a1a1a;
-            text-align: left;
-            border: none;
-        }
-
-        .til-comparison-table thead th:first-child {
-            width: 25%;
-        }
-
-        .til-comparison-table tbody tr {
-            background: #ffffff;
-            transition: background 0.3s ease;
-        }
-
-        .til-comparison-table tbody tr:nth-child(even) {
-            background: #f9f9f9;
-        }
-
-        .til-comparison-table tbody tr:hover {
-            background: #f5f3ff;
-        }
-
-        .til-comparison-table tbody td {
-            padding: 20px 30px;
-            font-size: 1rem;
-            color: #333;
-            border-bottom: 1px solid #f0f0f0;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .til-comparison-table tbody tr:last-child td {
-            border-bottom: none;
-        }
-
-        .til-comparison-table tbody td:first-child {
-            font-weight: 600;
-            color: #1c1c1c;
-        }
-
-        .til-table-heading {
-            font-size: 2.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            font-family: 'Space Grotesk', sans-serif;
-            color: #6c32a8;
-            text-align: center;
-            margin-bottom: 60px;
-            line-height: 1.2;
+            color: #3d1170;
+            min-width: 1.8rem;
+            text-align: right;
         }
 
-        .til-table-heading .highlight-orange {
-            color: #e5a93e;
+        @media (max-width: 768px) {
+            .til-split-inner {
+                flex-direction: column;
+            }
+
+            .til-split-section::before {
+                width: 100%;
+                clip-path: none;
+            }
+
+            .til-panel-left {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .til-panel-right {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .til-panel-heading--right {
+                text-align: left;
+            }
         }
 
         /* ── TIL Info Section ── */
@@ -516,7 +591,7 @@
         .til-info-description {
             font-size: 1.2rem;
             font-weight: 400;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             color: #333;
             line-height: 1.8;
             max-width: 900px;
@@ -532,7 +607,7 @@
         }
 
         .tia-wrap {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background: #d3d3d317;
             color: #111827;
             display: flex;
@@ -947,6 +1022,8 @@
             padding: 100px 0;
             overflow: hidden;
             padding-top: 0;
+            content-visibility: auto;
+            contain-intrinsic-size: auto 800px;
         }
 
         .til-gallery-header {
@@ -967,7 +1044,7 @@
         .til-gallery-description {
             font-size: 1.1rem;
             font-weight: 400;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             color: #555;
             line-height: 1.7;
             max-width: 800px;
@@ -984,12 +1061,14 @@
             display: flex;
             gap: 30px;
             animation: tilScrollLeft 40s linear infinite;
+            will-change: transform;
         }
 
         .til-marquee-reverse {
             display: flex;
             gap: 30px;
             animation: tilScrollRight 40s linear infinite;
+            will-change: transform;
         }
 
         .til-marquee-item {
@@ -998,12 +1077,14 @@
             height: 250px;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            cursor: pointer;
         }
 
         .til-marquee-item:hover {
-            transform: translateY(-10px);
+            /* transform: translateY(-10px); */
             box-shadow: 0 15px 40px rgba(108, 50, 168, 0.2);
         }
 
@@ -1012,7 +1093,15 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            background: #e8ddf2;
         }
+
+        .til-marquee-item img.til-loaded {
+            opacity: 1;
+        }
+
 
         @keyframes tilScrollLeft {
             0% {
@@ -1086,7 +1175,7 @@
 
         .til-benefits-media {
             width: 500px;
-            height: 220px;
+            height: 270px;
             /* aspect-ratio: 16 / 9; */
             border-radius: 10px;
             overflow: hidden;
@@ -1182,7 +1271,7 @@
         /* TIL Responsive */
         @media (max-width: 768px) {
 
-            /* Video Section Mobile */
+            /* Video Section Mobile (commented out)
             .til-video-section {
                 padding: 40px 20px;
                 min-height: auto;
@@ -1191,61 +1280,8 @@
             .til-video-wrapper {
                 border-radius: 12px;
             }
+            */
 
-            /* CTA Section Mobile */
-            .til-cta-section {
-                padding: 60px 20px;
-                min-height: auto;
-            }
-
-            .til-cta-container {
-                padding: 40px 20px;
-            }
-
-            .til-cta-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .til-cta-heading {
-                font-size: 1.8rem;
-                width: 100%;
-                text-align: center;
-            }
-
-            .til-cta-button {
-                padding: 14px 28px;
-                font-size: 0.95rem;
-                align-self: center;
-            }
-
-            .til-cta-right {
-                justify-content: center;
-            }
-
-            /* Table Section Mobile */
-            .til-table-section {
-                padding: 60px 10px;
-            }
-
-            .til-table-heading {
-                font-size: 1.6rem;
-                margin-bottom: 40px;
-            }
-
-            .til-comparison-table {
-                font-size: 0.85rem;
-            }
-
-            .til-comparison-table thead th {
-                padding: 16px 12px;
-                font-size: 1rem;
-            }
-
-            .til-comparison-table tbody td {
-                padding: 14px 12px;
-                font-size: 0.85rem;
-            }
 
             /* Info Section Mobile */
             .til-info-section {
@@ -1447,6 +1483,143 @@
             animation-delay: 0.80s;
         }
 
+        /* ── TIL Form Popup ── */
+        .til-form-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .til-form-overlay.active {
+            display: flex;
+        }
+
+        .til-form-popup {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 560px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            animation: tilFormSlideIn 0.3s ease;
+        }
+
+        @keyframes tilFormSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .til-form-close {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #999;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .til-form-close:hover {
+            color: #333;
+        }
+
+        .til-form-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #6c32a8;
+            margin-bottom: 24px;
+        }
+
+        .til-form-row {
+            display: flex;
+            gap: 16px;
+        }
+
+        .til-form-row .til-form-group {
+            flex: 1;
+        }
+
+        .til-form-group {
+            margin-bottom: 16px;
+        }
+
+        .til-form-group label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #3d2549;
+            margin-bottom: 6px;
+        }
+
+        .til-form-group input,
+        .til-form-group select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid #e0d6ea;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: #333;
+            outline: none;
+            transition: border-color 0.3s ease;
+            background: #fff;
+        }
+
+        .til-form-group input:focus,
+        .til-form-group select:focus {
+            border-color: #6c32a8;
+        }
+
+        .til-form-submit {
+            width: 100%;
+            padding: 14px;
+            background: #6c32a8;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .til-form-submit:hover {
+            background: #7c3aed;
+        }
+
+        @media (max-width:768px) {
+            .til-form-row {
+                flex-direction: column;
+                gap: 0
+            }
+
+            .til-form-popup {
+                padding: 28px 20px
+            }
+        }
+
         /* ── TIL Final CTA Section ── */
         .til-final-cta-section {
             position: relative;
@@ -1484,14 +1657,80 @@
             font-weight: 400;
             color: #666;
             line-height: 2;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
+        }
+
+        .til-cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .til-cta-left {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .til-cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: #6c32a8;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            width: fit-content;
+        }
+
+        .til-cta-button:hover {
+            background: #5a2890;
+            transform: translateY(-2px);
+        }
+
+        .til-cta-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .til-cta-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .til-cta-image-wrapper {
+            width: 100%;
+            border-radius: 16px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .til-cta-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 16px;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .til-final-cta-container {
                 padding: 40px 20px;
+            }
+
+            .til-cta-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
 
             .til-cta-paragraph {
@@ -1565,7 +1804,7 @@
         .til-upgrade-link {
             font-size: 1.3rem;
             font-weight: 500;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             color: #6c32a8;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -1717,7 +1956,7 @@
                 <span class="til-row-1"><span class="til-cbse">STEM Labs</span></span>
             </div>
             <div class="til-pill til-pill-right">
-                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?w=700&q=80" alt="placeholder" />
+                <img src="assets/til/hero1.jpeg" alt="placeholder" />
             </div>
         </div>
 
@@ -1730,7 +1969,7 @@
         <!-- Bottom: left pill + "To Meaningful / Transformation" -->
         <div class="til-bottom-section">
             <div class="til-pill til-pill-left">
-                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" alt="placeholder" />
+                <img src="assets/til/hero2.jpeg" alt="placeholder" />
             </div>
             <div class="til-text-block">
                 <span class="til-row-3">Innovation Spaces</span>
@@ -1740,17 +1979,21 @@
         <!-- Sub text -->
         <div class="til-subtext">
             <span class="til-s1">Think beyond robotics kits &amp; coding</span>
-            <!-- <span class="til-s2">Think beyond Composite Skills Labs &amp; STEM programs</span> -->
+            <span class="til-s2">For Grades 6-12 | Fully aligned with NEP 2020</span>
         </div>
+
+        <a href="#til-final-cta" class="til-hero-explore-btn"
+            onclick="event.preventDefault(); document.getElementById('til-final-cta').scrollIntoView({behavior:'smooth'});">Explore
+            →</a>
 
     </div>
 
-    <!-- TIL Video Section -->
+    <!-- TIL Video Section (commented out)
     <div class="til-video-section" id="tilVideoSection">
         <div class="til-video-container">
             <div class="til-video-wrapper">
                 <iframe class="til-video"
-                    src="https://www.youtube.com/embed/i3kHrKy34yM?autoplay=1&mute=1&loop=1&playlist=i3kHrKy34yM&controls=0&showinfo=0&rel=0&modestbranding=1"
+                    src="https://www.youtube.com/embed/bO3vud5dHEM?autoplay=1&mute=1&loop=1&playlist=bO3vud5dHEM&controls=0&showinfo=0&rel=0&modestbranding=1"
                     title="TIL Video" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
@@ -1758,105 +2001,104 @@
             </div>
         </div>
     </div>
+    -->
 
-    <!-- TIL CTA Section -->
-    <section class="til-cta-section">
-        <div class="til-cta-container">
-            <div class="til-cta-grid">
-                <!-- Left Grid: Heading and Button -->
-                <div class="til-cta-left">
-                    <h2 class="til-cta-heading">Book a 30-min readiness call</h2>
-                    <button class="til-cta-button">
-                        Contact Us
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                </div>
 
-                <!-- Right Grid: Image -->
-                <div class="til-cta-right">
-                    <div class="til-cta-image-wrapper">
-                        <img src="assets/Group 47.png" alt="Students in classroom" class="til-cta-image">
-                    </div>
-                </div>
+    <!-- TIL Comparison Split Section -->
+    <div class="til-split-heading-wrap">
+        <h2 class="til-split-heading">
+            <span class="til-split-purple">How is a</span>
+            <span class="til-split-yellow">Tech Innovation Lab</span>
+            <span class="til-split-purple">different from a</span>
+            <span class="til-split-yellow">STEM Lab?</span>
+        </h2>
+    </div>
+    <section class="til-split-section">
+        <div class="til-split-inner">
+
+            <!-- LEFT: ENpower's Tech Innovation Lab -->
+            <div class="til-panel-left">
+                <h2 class="til-panel-heading">ENpower's Tech Innovation Lab</h2>
+                <ul class="til-left-list">
+                    <li>
+                        <div class="til-left-card">
+                            <span class="til-left-num">01</span>
+                            <p class="til-left-text">Discover Inner Capabilities</p>
+                            <div class="til-plus-btn">✓</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="til-left-card">
+                            <span class="til-left-num">02</span>
+                            <p class="til-left-text">Empathy-First Approach</p>
+                            <div class="til-plus-btn">✓</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="til-left-card">
+                            <span class="til-left-num">03</span>
+                            <p class="til-left-text">User-led Problem Identification</p>
+                            <div class="til-plus-btn">✓</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="til-left-card">
+                            <span class="til-left-num">04</span>
+                            <p class="til-left-text">Identify &amp; Create Opportunities</p>
+                            <div class="til-plus-btn">✓</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="til-left-card">
+                            <span class="til-left-num">05</span>
+                            <p class="til-left-text">Build Confidence To Create</p>
+                            <div class="til-plus-btn">✓</div>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </div>
-    </section>
 
-    <!-- TIL Comparison Table Section -->
-    <section class="til-table-section">
-        <h2 class="til-table-heading">How is a <span class="highlight-orange">Tech Innovation Lab</span> different from
-            a <span class="highlight-orange">STEM Lab?</span></h2>
-        <div class="til-table-container">
-            <table class="til-comparison-table">
-                <thead>
-                    <tr>
-                        <th>Key Area</th>
-                        <th>Traditional STEM Lab</th>
-                        <th>ENpower Tech Innovation Lab</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Core Focus</td>
-                        <td>Experimenting with scientific concepts (physics, chemistry, biology)</td>
-                        <td>Solving real-world problems using interdisciplinary STEM skills</td>
-                    </tr>
-                    <tr>
-                        <td>Learning Approach</td>
-                        <td>Theory-driven and curriculum-aligned experiments</td>
-                        <td>Inquiry-based, project-driven, and student-led learning</td>
-                    </tr>
-                    <tr>
-                        <td>Student Role</td>
-                        <td>Follow predefined procedures and instructions</td>
-                        <td>Identify problems, research, brainstorm, and innovate solutions</td>
-                    </tr>
-                    <tr>
-                        <td>Technology Use</td>
-                        <td>Basic equipment like microscopes, beakers, and sensors</td>
-                        <td>Advanced tools: 3D printers, robotics kits, coding platforms, IoT, AI/ML</td>
-                    </tr>
-                    <tr>
-                        <td>Problem Identification</td>
-                        <td>Problems are provided by teachers or textbooks</td>
-                        <td>Students identify challenges in their communities or globally</td>
-                    </tr>
-                    <tr>
-                        <td>Project Type</td>
-                        <td>Short-term lab experiments or demonstrations</td>
-                        <td>Long-term, iterative projects with tangible outcomes</td>
-                    </tr>
-                    <tr>
-                        <td>Real-World Context</td>
-                        <td>Limited focus on real-world applicability</td>
-                        <td>Direct connection to SDGs, industry trends, and societal needs</td>
-                    </tr>
-                    <tr>
-                        <td>Design Thinking</td>
-                        <td>Minimal emphasis on design and iteration</td>
-                        <td>Integrated design thinking process (empathize, ideate, prototype, test)</td>
-                    </tr>
-                    <tr>
-                        <td>Entrepreneurial Mindset</td>
-                        <td>Not a core component</td>
-                        <td>Encouraged through innovation challenges, pitching ideas, and business planning</td>
-                    </tr>
-                    <tr>
-                        <td>Prototyping</td>
-                        <td>Rare or non-existent</td>
-                        <td>Central to the learning process with multiple iterations</td>
-                    </tr>
-                    <tr>
-                        <td>Collaboration</td>
-                        <td>Teacher-led and individual-focused</td>
-                        <td>Teamwork and peer learning with diverse skill sets</td>
-                    </tr>
-                </tbody>
-            </table>
+            <!-- RIGHT: Typical STEM Lab Approach -->
+            <div class="til-panel-right">
+                <h2 class="til-panel-heading til-panel-heading--right">Typical STEM Lab Approach</h2>
+                <ul class="til-right-list">
+                    <li>
+                        <div class="til-right-row">
+                            <span class="til-right-num">01</span>
+                            <p class="til-right-text">Chase Excellence Through Knowledge &amp; Skills</p>
+                            <div class="til-minus-circle">&minus;</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="til-right-row">
+                            <span class="til-right-num">02</span>
+                            <p class="til-right-text">Standardized &amp; Instruction-Led Approach</p>
+                            <div class="til-minus-circle">&minus;</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="til-right-row">
+                            <span class="til-right-num">03</span>
+                            <p class="til-right-text">No User Interaction</p>
+                            <div class="til-minus-circle">&minus;</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="til-right-row">
+                            <span class="til-right-num">04</span>
+                            <p class="til-right-text">Limited Exposure To Creation</p>
+                            <div class="til-minus-circle">&minus;</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="til-right-row">
+                            <span class="til-right-num">05</span>
+                            <p class="til-right-text">Skill Showcased Through Projects</p>
+                            <div class="til-minus-circle">&minus;</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -1918,112 +2160,102 @@
             </p>
         </div>
 
-        <!-- First Marquee: Left to Right -->
+        <!-- First Marquee: Left to Right (images 1-11) -->
         <div class="til-marquee-container">
             <div class="til-marquee">
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1581092583537-20d51b2e4b77?w=800&q=80"
-                        alt="Students working on robotics">
+                    <img data-src="assets/til-gallery/til-gallery1.jpg" alt="TIL Gallery 1" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80"
-                        alt="STEM project development">
+                    <img data-src="assets/til-gallery/til-gallery2.jpg" alt="TIL Gallery 2" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1581093458791-9d42e2e7c2e6?w=800&q=80"
-                        alt="Innovation lab workspace">
+                    <img data-src="assets/til-gallery/til-gallery3.jpg" alt="TIL Gallery 3" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
-                        alt="Students coding">
+                    <img data-src="assets/til-gallery/til-gallery4.jpg" alt="TIL Gallery 4" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80"
-                        alt="Team collaboration">
+                    <img data-src="assets/til-gallery/til-gallery5.jpg" alt="TIL Gallery 5" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
-                        alt="Group project work">
-                </div>
-                <!-- Duplicate for seamless loop -->
-                <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1581092583537-20d51b2e4b77?w=800&q=80"
-                        alt="Students working on robotics">
+                    <img data-src="assets/til-gallery/til-gallery6.jpg" alt="TIL Gallery 6" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80"
-                        alt="STEM project development">
+                    <img data-src="assets/til-gallery/til-gallery7.jpg" alt="TIL Gallery 7" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1581093458791-9d42e2e7c2e6?w=800&q=80"
-                        alt="Innovation lab workspace">
+                    <img data-src="assets/til-gallery/til-gallery8.jpg" alt="TIL Gallery 8" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
-                        alt="Students coding">
+                    <img data-src="assets/til-gallery/til-gallery9.jpg" alt="TIL Gallery 9" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80"
-                        alt="Team collaboration">
+                    <img data-src="assets/til-gallery/til-gallery10.jpg" alt="TIL Gallery 10" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
-                        alt="Group project work">
+                    <img data-src="assets/til-gallery/til-gallery11.jpg" alt="TIL Gallery 11" width="300" height="250"
+                        loading="lazy">
                 </div>
             </div>
         </div>
 
-        <!-- Second Marquee: Right to Left -->
+        <!-- Second Marquee: Right to Left (images 12-22) -->
         <div class="til-marquee-container">
             <div class="til-marquee-reverse">
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=800&q=80"
-                        alt="3D printing project">
+                    <img data-src="assets/til-gallery/til-gallery12.jpg" alt="TIL Gallery 12" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80"
-                        alt="Electronics prototyping">
+                    <img data-src="assets/til-gallery/til-gallery13.jpg" alt="TIL Gallery 13" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&q=80"
-                        alt="Student presenting project">
+                    <img data-src="assets/til-gallery/til-gallery14.jpg" alt="TIL Gallery 14" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&q=80"
-                        alt="Innovation workshop">
+                    <img data-src="assets/til-gallery/til-gallery15.jpg" alt="TIL Gallery 15" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
-                        alt="Teamwork and brainstorming">
+                    <img data-src="assets/til-gallery/til-gallery16.jpg" alt="TIL Gallery 16" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80"
-                        alt="Students learning together">
-                </div>
-                <!-- Duplicate for seamless loop -->
-                <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=800&q=80"
-                        alt="3D printing project">
+                    <img data-src="assets/til-gallery/til-gallery17.jpg" alt="TIL Gallery 17" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80"
-                        alt="Electronics prototyping">
+                    <img data-src="assets/til-gallery/til-gallery18.jpg" alt="TIL Gallery 18" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=800&q=80"
-                        alt="Student presenting project">
+                    <img data-src="assets/til-gallery/til-gallery19.jpg" alt="TIL Gallery 19" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&q=80"
-                        alt="Innovation workshop">
+                    <img data-src="assets/til-gallery/til-gallery20.jpg" alt="TIL Gallery 20" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
-                        alt="Teamwork and brainstorming">
+                    <img data-src="assets/til-gallery/til-gallery21.jpg" alt="TIL Gallery 21" width="300" height="250"
+                        loading="lazy">
                 </div>
                 <div class="til-marquee-item">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80"
-                        alt="Students learning together">
+                    <img data-src="assets/til-gallery/til-gallery22.jpg" alt="TIL Gallery 22" width="300" height="250"
+                        loading="lazy">
                 </div>
             </div>
         </div>
@@ -2035,7 +2267,6 @@
 
             <!-- LEFT COLUMN -->
             <div class="til-benefits-panel-left">
-                <!-- <p class="til-benefits-eyebrow">Benefits</p> -->
 
                 <h2 class="til-benefits-title">
                     Upgrade From <span class="til-benefits-title-accent">STEM</span><br />
@@ -2043,14 +2274,12 @@
                 </h2>
 
                 <div class="til-benefits-media">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80"
-                        alt="Tech Innovation Lab">
+                    <img src="assets/til/upgrade-stem.jpeg" alt="Tech Innovation Lab">
                 </div>
             </div>
 
             <!-- RIGHT COLUMN -->
             <div class="til-benefits-panel-right">
-                <!-- <p class="til-benefits-eyebrow">Services</p> -->
 
                 <ul class="til-benefits-services-list" id="tilBenefitsServicesList">
                     <li class="til-benefits-service-row">
@@ -2123,6 +2352,16 @@
                             </svg>
                         </span>
                     </li>
+                    <li class="til-benefits-service-row">
+                        <span class="til-benefits-service-index">08</span>
+                        <span class="til-benefits-service-label">Dedicated ENpower’s Thinking Coach For Support</span>
+                        <span class="til-benefits-check-badge">
+                            <svg viewBox="0 0 11 11" fill="none">
+                                <path d="M2 5.5l2.8 2.8L9 3" stroke="#1D9E75" stroke-width="1.6" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </li>
                 </ul>
             </div>
 
@@ -2159,18 +2398,18 @@
     </section>
 
     <!-- TIL Final CTA Section -->
-    <section class="til-final-cta-section">
+    <section class="til-final-cta-section" id="til-final-cta">
         <div class="til-final-cta-container">
             <div class="til-cta-grid">
                 <!-- Left Grid: Heading, Paragraph and Button -->
                 <div class="til-cta-left">
-                    <h2 class="til-cta-heading-final">Ready to Get Started?</h2>
+                    <h2 class="til-cta-heading-final">Book a 30-min<br />readiness call</h2>
                     <p class="til-cta-paragraph">
                         Book Your Tech Innovation Lab Readiness Call<br />
                         Schedule a 30-minute Call
                     </p>
-                    <button class="til-cta-button">
-                        Contact Us
+                    <button class="til-cta-button" onclick="openTilForm()">
+                        Book Now
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd"
                                 d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
@@ -2182,7 +2421,7 @@
                 <!-- Right Grid: Image -->
                 <div class="til-cta-right">
                     <div class="til-cta-image-wrapper">
-                        <img src="assets/Group 47.png" alt="Students in classroom" class="til-cta-image">
+                        <img src="assets/til/CTA-TIL.jpeg" alt="Students in classroom" class="til-cta-image">
                     </div>
                 </div>
             </div>
@@ -2239,6 +2478,46 @@
             </div>
         </div>
     </section>
+
+    <!-- TIL Form Popup -->
+    <div class="til-form-overlay" id="tilFormOverlay" onclick="if(event.target===this) closeTilForm()">
+        <div class="til-form-popup">
+            <button class="til-form-close" onclick="closeTilForm()">&times;</button>
+            <h2 class="til-form-heading">Book a Session</h2>
+            <form class="til-form" onsubmit="event.preventDefault();">
+                <div class="til-form-row">
+                    <div class="til-form-group">
+                        <label>Name</label>
+                        <input type="text" placeholder="Your full name" required>
+                    </div>
+                    <div class="til-form-group">
+                        <label>School / Institute</label>
+                        <input type="text" placeholder="School or institute name" required>
+                    </div>
+                </div>
+                <div class="til-form-row">
+                    <div class="til-form-group">
+                        <label>Designation</label>
+                        <select required>
+                            <option value="" disabled selected>Select your role</option>
+                            <option value="Teacher">Teacher</option>
+                            <option value="Principal">Principal</option>
+                            <option value="School Leader">School Leader</option>
+                        </select>
+                    </div>
+                    <div class="til-form-group">
+                        <label>Email ID</label>
+                        <input type="email" placeholder="your@email.com" required>
+                    </div>
+                </div>
+                <div class="til-form-group">
+                    <label>Contact Number</label>
+                    <input type="tel" placeholder="Your phone number" required>
+                </div>
+                <button type="submit" class="til-form-submit">Submit</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Footer will be loaded here -->
     <div id="footer-placeholder"></div>
@@ -2381,9 +2660,32 @@
         })();
 
         /* ==========================================================
+           TIL FORM POPUP
+           ========================================================== */
+        function openTilForm() { document.getElementById('tilFormOverlay').classList.add('active'); }
+        function closeTilForm() { document.getElementById('tilFormOverlay').classList.remove('active'); }
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeTilForm(); });
+
+        /* ==========================================================
            GSAP ANIMATIONS FOR HEADER
            ========================================================== */
         document.addEventListener('DOMContentLoaded', () => {
+            // Lazy load gallery images
+            const galleryObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.onload = () => img.classList.add('til-loaded');
+                        galleryObserver.unobserve(img);
+                    }
+                });
+            }, { rootMargin: '300px' });
+
+            document.querySelectorAll('.til-marquee-item img[data-src]').forEach(img => {
+                galleryObserver.observe(img);
+            });
+
             const checkGSAP = setInterval(() => {
                 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
                     clearInterval(checkGSAP);
@@ -2413,18 +2715,18 @@
                     });
                 });
 
-                // Hero section fade out when video section appears
-                gsap.to('.til-hero-section', {
-                    opacity: 0,
-                    ease: 'power2.in',
-                    scrollTrigger: {
-                        trigger: '.til-video-section',
-                        start: 'top bottom',
-                        end: 'top center',
-                        scrub: 1,
-                        invalidateOnRefresh: true
-                    }
-                });
+                // Hero section fade out when video section appears (commented out)
+                // gsap.to('.til-hero-section', {
+                //     opacity: 0,
+                //     ease: 'power2.in',
+                //     scrollTrigger: {
+                //         trigger: '.til-video-section',
+                //         start: 'top bottom',
+                //         end: 'top center',
+                //         scrub: 1,
+                //         invalidateOnRefresh: true
+                //     }
+                // });
             }
         });
 
