@@ -1540,7 +1540,7 @@
             overflow: hidden;
             border: 1.5px solid #ede9fe;
             box-shadow: 0 24px 64px -16px rgba(108, 50, 168, 0.18);
-            aspect-ratio: 4 / 3;
+            aspect-ratio: 19 / 13.8;
             background: #f0eeff;
         }
 
@@ -1561,7 +1561,7 @@
         .fsl-sp-carousel-slide img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             object-position: center center;
             display: block;
         }
@@ -2587,7 +2587,7 @@
                 isTransitioning = true;
                 currentIndex++;
                 updateCarousel();
-            }, 3000);
+            }, 1800);
 
             // Pause autoplay on hover
             track.addEventListener('mouseenter', () => {
@@ -2600,7 +2600,7 @@
                     isTransitioning = true;
                     currentIndex++;
                     updateCarousel();
-                }, 3000);
+                }, 1800);
             });
 
             // Initialize
@@ -2661,22 +2661,22 @@
         (function () {
             const SLIDES = [
                 {
-                    img: 'assets/fsl/assesment.jpg',
+                    img: 'assets/fsl/assessment-mockup.jpg',
                     title: 'Skill Assessment',
                     sub: 'Competency-based growth tracking'
                 },
                 {
-                    img: 'assets/fsl/learning-pillars.jpg',
+                    img: 'assets/fsl/learning-pillars-mockup.jpg',
                     title: 'Learning Pillars',
                     sub: 'Core foundations driving effective student learning'
                 },
                 {
-                    img: 'assets/fsl/score-entry.jpg',
+                    img: 'assets/fsl/score-entry-mockup.jpg',
                     title: 'Student Score Entry',
                     sub: 'Easily record and manage student scores'
                 },
                 {
-                    img: 'assets/fsl/competency.jpg',
+                    img: 'assets/fsl/competency-mockup.jpg',
                     title: 'Competency Profiles',
                     sub: 'Track skills growth and competency development'
                 },

@@ -1232,6 +1232,7 @@
             border-collapse: separate;
             border-spacing: 0 8px;
             margin-top: 10px;
+            table-layout: fixed;
         }
 
         .csl-comparison-table thead th {
@@ -1249,14 +1250,20 @@
             width: 18%;
         }
 
+        .csl-comparison-table thead th:nth-child(2),
+        .csl-comparison-table thead th:nth-child(3),
+        .csl-comparison-table thead th:nth-child(4) {
+            width: 27.33%;
+        }
+
         .csl-comparison-table thead th:nth-child(2) {
             background: #6c32a8;
             border-radius: 14px 0 0 14px;
         }
 
         .csl-comparison-table thead th:nth-child(3) {
-            background: #ffe007;
-            color: #3d2549;
+            background: #6c32a8;
+            color: #fff;
         }
 
         .csl-comparison-table thead th:nth-child(4) {
@@ -1279,7 +1286,7 @@
             font-family: 'Montserrat', sans-serif;
             text-align: center;
             line-height: 1.5;
-            background: #fff;
+            background: #fffce3;
             border-bottom: 3px solid #f6f0fa;
         }
 
@@ -1299,7 +1306,6 @@
         }
 
         .csl-comparison-table tbody td:nth-child(3) {
-            background: #fffce3;
             border-left: 3px solid #e5a93e20;
             border-right: 3px solid #e5a93e20;
         }
