@@ -1115,52 +1115,32 @@ document.addEventListener('DOMContentLoaded', () => {
             // Re-calculate on resize
             window.addEventListener('resize', updateCinematicCarousel);
 
-            // Auto-scroll — only starts when section is visible
-            let autoScrollInterval = null;
-
-            function startAutoScroll() {
-                if (autoScrollInterval) return;
-                autoScrollInterval = setInterval(() => {
-                    if (cinematicIndex < totalCinematicSlides - 1) {
-                        cinematicIndex++;
-                    } else {
-                        cinematicIndex = 0;
-                    }
-                    updateCinematicCarousel();
-                }, 3000);
-            }
-
-            function stopAutoScroll() {
-                clearInterval(autoScrollInterval);
-                autoScrollInterval = null;
-            }
-
-            // Reset to first slide and start auto-scroll when section enters viewport
-            const cinematicSection = document.getElementById('cinematic-series');
-            if (cinematicSection) {
-                const cinematicObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            cinematicIndex = 0;
-                            updateCinematicCarousel();
-                            startAutoScroll();
-                        } else {
-                            stopAutoScroll();
-                        }
-                    });
-                }, { threshold: 0.3 });
-                cinematicObserver.observe(cinematicSection);
-            }
+            // Auto-scroll carousel every 3 seconds
+            let autoScrollInterval = setInterval(() => {
+                if (cinematicIndex < totalCinematicSlides - 1) {
+                    cinematicIndex++;
+                } else {
+                    cinematicIndex = 0; // Loop back to first slide
+                }
+                updateCinematicCarousel();
+            }, 3000);
 
             // Pause auto-scroll on hover
             const carouselContainer = document.querySelector('.right-carousel');
             if (carouselContainer) {
                 carouselContainer.addEventListener('mouseenter', () => {
-                    stopAutoScroll();
+                    clearInterval(autoScrollInterval);
                 });
 
                 carouselContainer.addEventListener('mouseleave', () => {
-                    startAutoScroll();
+                    autoScrollInterval = setInterval(() => {
+                        if (cinematicIndex < totalCinematicSlides - 1) {
+                            cinematicIndex++;
+                        } else {
+                            cinematicIndex = 0;
+                        }
+                        updateCinematicCarousel();
+                    }, 3000);
                 });
             }
 
@@ -1358,6 +1338,270 @@ document.addEventListener('DOMContentLoaded', () => {
     } // This closes the initAnimations function
 }); // This closes the DOMContentLoaded event listener
 
+
+// ===== ENPOWER PHILOSOPHY CARD ANIMATION =====
+// Run after page fully loaded so all ScrollTrigger pins are computed
+window.addEventListener('load', function () {
+    // Small delay to let GSAP finish computing all pinSpacing from stories section
+    setTimeout(initEnpowerPhilosophy, 300);
+});
+
+function initEnpowerPhilosophy() {
+    const section = document.querySelector('.enpower-section');
+    const progressFill = document.querySelector('.enpower-progress-fill');
+    const leftEls = document.querySelectorAll(
+        '.enpower-left-content .tag, .enpower-left-content h2, .enpower-left-content .desc, .enpower-left-content .cta-btn, .enpower-scroll-progress'
+    );
+
+    if (!section || !progressFill) return;
+
+    // --- Left content: fade-in when section enters viewport ---
+    gsap.set(leftEls, { opacity: 0, y: 24 });
+    ScrollTrigger.create({
+        trigger: section,
+        start: 'top 75%',
+        once: true,
+        onEnter: () => gsap.to(leftEls, { opacity: 1, y: 0, duration: .8, stagger: .12, ease: 'power3.out' })
+    });
+
+    // --- Radial Scroll Visualization ---
+    const ICON_GIFS = [
+        'assets/donut-icon/Self Exploration.svg',
+        'assets/donut-icon/Foundational Literacy.svg',
+        'assets/donut-icon/Tech Of The Future.svg',
+        'assets/donut-icon/Human Skills.svg',
+        'assets/donut-icon/Future Competencies.svg'
+    ];
+
+    const SEG_DATA = [
+        {
+            label: "Self Exploration", color: "#632b7d", num: "01", heading: "Self Exploration", tag: "01",
+            bullets: ["Self-discovery, Interest & Values", "Personality Development & Communication", "Connecting to the World"]
+        },
+        {
+            label: "Foundational Literacy", color: "#a33d97", num: "02", heading: "Foundational Literacy", tag: "02",
+            bullets: ["Digital, Media & Data Literacy", "Financial & Economic Literacy", "Environmental & Sustainability Literacy"]
+        },
+        {
+            label: "Tech Of The Future", color: "#facc48", num: "03", heading: "Tech Of The Future", tag: "03",
+            bullets: ["Smart Systems, IoT", "AI, Coding, ML, Robotics", "Design, Emerging Tech"]
+        },
+        {
+            label: "Human Skills", color: "#9a69ad", num: "04", heading: "Human Skills", tag: "04",
+            bullets: ["Critical Thinking & Problem Solving", "Creativity & Innovation", "Collaboration", "Emotional Intelligence (SEL)"]
+        },
+        {
+            label: "Future Competencies", color: "#411e5a", num: "05", heading: "Future Competencies", tag: "05",
+            bullets: ["Design Thinking", "Entrepreneurial Mindset", "Global Citizenship & Cross-cultural Awareness", "Readiness for the 'Future of Work'"]
+        },
+    ];
+
+    const CX = 260, CY = 260;
+    const INNER = 96, OUTER = 226;
+    const GAP = 2;
+    const EACH = (360 - GAP * SEG_DATA.length) / SEG_DATA.length;
+    const OFFSET = -90;
+
+    function pt(r, deg) {
+        const a = deg * Math.PI / 180;
+        return [CX + r * Math.cos(a), CY + r * Math.sin(a)];
+    }
+
+    function arc(s, e, ri, ro) {
+        const [x1, y1] = pt(ro, s), [x2, y2] = pt(ro, e), [x3, y3] = pt(ri, e), [x4, y4] = pt(ri, s);
+        const lg = e - s > 180 ? 1 : 0;
+        return `M${x1} ${y1} A${ro} ${ro} 0 ${lg} 1 ${x2} ${y2} L${x3} ${y3} A${ri} ${ri} 0 ${lg} 0 ${x4} ${y4}Z`;
+    }
+
+    const segGroup = document.getElementById('enpowerSegGroup');
+
+    SEG_DATA.forEach((seg, i) => {
+        const s = OFFSET + i * (EACH + GAP), e = s + EACH, mid = (s + e) / 2;
+
+        const bgPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        bgPath.setAttribute("d", arc(s, e, INNER, OUTER));
+        bgPath.setAttribute("fill", seg.color);
+        bgPath.setAttribute("opacity", "1");
+        segGroup.appendChild(bgPath);
+
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", arc(s, e, INNER, OUTER));
+        path.setAttribute("fill", seg.color);
+        path.setAttribute("opacity", "1");
+        path.setAttribute("class", "enpower-seg-arc");
+        path.setAttribute("data-i", i);
+        segGroup.appendChild(path);
+
+        // Individual label offsets: [radiusOffset, xNudge, yNudge]
+        const labelOffsets = [
+            [38, 0, -8],    // 0: Self Exploration (top-right)
+            [38, 62, 0],    // 1: Foundational Literacy (right)
+            [38, 8, 8],    // 2: Tech Of The Future (bottom-right)
+            [38, -8, 10],   // 3: Human Skills (bottom-left)
+            [38, -12, -8],  // 4: Future Competencies (top-left)
+        ];
+        const [rOff, xNudge, yNudge] = labelOffsets[i] || [34, 0, 0];
+        const [tx, ty] = pt(OUTER + rOff, mid);
+        const lbl = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        lbl.setAttribute("x", tx + xNudge); lbl.setAttribute("y", ty + yNudge);
+        lbl.setAttribute("fill", seg.color);
+        lbl.setAttribute("class", "enpower-seg-label");
+        lbl.setAttribute("text-anchor", "middle");
+        lbl.setAttribute("dominant-baseline", "middle");
+        lbl.setAttribute("opacity", "1");
+        lbl.setAttribute("data-i", i);
+        lbl.textContent = seg.label;
+        segGroup.appendChild(lbl);
+
+        const midR = (INNER + OUTER) / 2;
+        const [ix, iy] = pt(midR, mid);
+        const iconSize = 65;
+        const foreignObj = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject");
+        foreignObj.setAttribute("x", ix - iconSize / 2);
+        foreignObj.setAttribute("y", iy - iconSize / 2);
+        foreignObj.setAttribute("width", iconSize);
+        foreignObj.setAttribute("height", iconSize);
+        foreignObj.setAttribute("opacity", "1");
+        foreignObj.setAttribute("class", "enpower-seg-icon");
+        foreignObj.setAttribute("data-i", i);
+        foreignObj.innerHTML = `<img src="${ICON_GIFS[i]}" style="width: 100%; height: 100%; object-fit: contain;" />`;
+        segGroup.appendChild(foreignObj);
+    });
+
+    function cardPos(idx) {
+        const s = OFFSET + idx * (EACH + GAP), mid = s + EACH / 2;
+
+        const cardW = 185, cardH = 150;
+        const containerW = 500, containerH = 500;
+
+        // Calculate position at arc outer edge
+        const angleRad = mid * Math.PI / 180;
+        const cos = Math.cos(angleRad);
+        const sin = Math.sin(angleRad);
+
+        // Position card outside arcs but ensure it stays away from center
+        // Center is at 260,260 with radius ~88px
+        // We need cards to be outside center + some margin
+        const centerRadius = 100; // Safe distance from center (88px + margin)
+        const cardPlacementRadius = Math.max(OUTER + 10, centerRadius + Math.max(cardW, cardH) / 2);
+
+        const [arcX, arcY] = pt(cardPlacementRadius, mid);
+
+        let left, top;
+        const offset = 8;
+
+        // Position card based on quadrant
+        if (cos > 0) {
+            left = arcX + offset;
+        } else {
+            left = arcX - cardW - offset;
+        }
+
+        if (sin > 0) {
+            top = arcY + offset;
+        } else {
+            top = arcY - cardH - offset;
+        }
+
+        // Constrain within container, but prioritize staying away from center
+        const edgePadding = 5;
+        left = Math.max(edgePadding, Math.min(left, containerW - cardW - edgePadding));
+        top = Math.max(edgePadding, Math.min(top, containerH - cardH - edgePadding));
+
+        // Final check: ensure card doesn't overlap with center circle
+        // If card is too close to center, push it to container edge
+        const cardCenterX = left + cardW / 2;
+        const cardCenterY = top + cardH / 2;
+        const distFromCenter = Math.sqrt(Math.pow(cardCenterX - CX, 2) + Math.pow(cardCenterY - CY, 2));
+
+        if (distFromCenter < centerRadius + Math.max(cardW, cardH) / 2) {
+            // Push card to appropriate edge based on angle
+            if (Math.abs(cos) > Math.abs(sin)) {
+                // Horizontal positioning dominates
+                if (cos > 0) {
+                    left = containerW - cardW - edgePadding;
+                } else {
+                    left = edgePadding;
+                }
+            } else {
+                // Vertical positioning dominates
+                if (sin > 0) {
+                    top = containerH - cardH - edgePadding;
+                } else {
+                    top = edgePadding;
+                }
+            }
+        }
+
+        return { left, top };
+    }
+
+    let enpowerCurrent = -1;
+    const infoCard = document.getElementById('enpowerInfoCard');
+    const ctNum = document.getElementById('enpowerCtNum');
+
+    function activateEnpowerSegment(idx) {
+        if (idx === enpowerCurrent) return;
+        enpowerCurrent = idx;
+
+        segGroup.querySelectorAll('.enpower-seg-arc').forEach((a, i) => {
+            a.style.opacity = '1';
+            a.style.filter = i === idx ? `drop-shadow(0 3px 12px ${SEG_DATA[i].color}55)` : 'none';
+        });
+        segGroup.querySelectorAll('.enpower-seg-label').forEach((l, i) => {
+            l.setAttribute('opacity', '1');
+            l.setAttribute('font-weight', i === idx ? '700' : '600');
+        });
+        segGroup.querySelectorAll('.enpower-seg-icon').forEach((ic, i) => {
+            ic.setAttribute('opacity', '1');
+        });
+
+        if (idx >= 0 && idx < SEG_DATA.length) {
+            const seg = SEG_DATA[idx];
+            ctNum.textContent = `Skill Pillar #${seg.num}`;
+            ctNum.style.fill = seg.color;
+
+            const pos = cardPos(idx);
+            infoCard.style.setProperty('--card-color', seg.color);
+            infoCard.style.left = pos.left + 'px';
+            infoCard.style.top = pos.top + 'px';
+            infoCard.innerHTML = `
+                        <div class="enpower-card-tag">${seg.tag}</div>
+                        <h4>${seg.heading}</h4>
+                        <ul>${seg.bullets.map(b => `<li>${b}</li>`).join('')}</ul>`;
+            infoCard.classList.add('visible');
+        } else {
+            infoCard.classList.remove('visible');
+            ctNum.textContent = 'Skill Pillar';
+            ctNum.style.fill = '#1a1a2e';
+        }
+    }
+
+    // --- Pin section and animate radial on scroll ---
+    const N = SEG_DATA.length;
+    ScrollTrigger.create({
+        trigger: section,
+        start: 'top top',
+        end: () => '+=' + (window.innerHeight * 1.5),
+        pin: true,
+        pinSpacing: true,
+        scrub: 0.6,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+            const progress = self.progress;
+            gsap.set(progressFill, { width: (progress * 100) + '%' });
+
+            if (progress < 0) {
+                activateEnpowerSegment(-1);
+                return;
+            }
+            const idx = Math.min(Math.floor(progress / (1 / N)), N - 1);
+            activateEnpowerSegment(idx);
+        }
+    });
+
+    ScrollTrigger.refresh();
+}
 
 /* ==========================================================
    ENGAGEMENTS CARDS - TAP TO FLIP (MOBILE)

@@ -32,7 +32,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 
     <!-- styles -->
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index1.css">
 </head>
 
 <body>
@@ -85,7 +85,7 @@
                 <span class="heading-line">
                     Nurturing a
                     <span class="capsule capsule-sm" data-float-offset="0">
-                        <img src="assets/home/hero1.jpg" alt="Students working on hydroponics">
+                        <img src="assets/home/First.JPG" alt="Students working on hydroponics">
                     </span>
                 </span>
 
@@ -93,14 +93,14 @@
                 <span class="heading-line">
                     Generation of
                     <span class="capsule capsule-md" data-float-offset="1.2">
-                        <img src="assets/home/hero2.png" alt="Indian students group activity">
+                        <img src="assets/home/second.png" alt="Indian students group activity">
                     </span>
                 </span>
 
                 <!-- Line 3 -->
                 <span class="heading-line">
                     <span class="capsule capsule-lg" data-float-offset="0.6">
-                        <img src="assets/home/hero3.png" alt="Students collaborating">
+                        <img src="assets/home/third.png" alt="Students collaborating">
                     </span>
                     <span class="highlight">Future</span>
                 </span>
@@ -109,7 +109,7 @@
                 <span class="heading-line">
                     <span class="highlight">Creators</span>
                     <span class="capsule capsule-xl" data-float-offset="1.8">
-                        <img src="assets/home/hero4.jpg" alt="Student group collaboration">
+                        <img src="assets/home/4th image.png" alt="Student group collaboration">
                     </span>
                 </span>
             </h1>
@@ -449,8 +449,33 @@
                 </div>
 
                 <div class="enpower-right-cards">
-                    <img src="assets/home/enpower-philosophy.png" alt="ENpower Philosophy"
-                        class="enpower-philosophy-img">
+                    <div class="enpower-radial-wrap" id="enpowerRadialWrap">
+                        <svg id="enpower-radial-svg" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="enpowerCGrad" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#ffffff" />
+                                    <stop offset="100%" stop-color="#f0ede6" />
+                                </radialGradient>
+                                <filter id="enpowerSoftShadow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feDropShadow dx="0" dy="3" stdDeviation="8" flood-color="rgba(0,0,0,0.12)" />
+                                </filter>
+                            </defs>
+                            <g id="enpowerSegGroup"></g>
+                            <!-- Center -->
+                            <circle cx="260" cy="260" r="82" class="enpower-center-bg" fill="url(#enpowerCGrad)"
+                                filter="url(#enpowerSoftShadow)" />
+                            <circle cx="260" cy="260" r="88" class="enpower-center-ring" />
+                            <text x="260" y="260" class="enpower-ct-num" id="enpowerCtNum">Skill Pillar</text>
+                        </svg>
+                        <div class="enpower-info-card" id="enpowerInfoCard"></div>
+                    </div>
+                </div>
+
+                <div class="enpower-scroll-progress">
+                    <div class="enpower-progress-track">
+                        <div class="enpower-progress-fill"></div>
+                    </div>
+                    <span class="enpower-progress-label">Scroll to explore</span>
                 </div>
             </div>
         </div>
@@ -479,20 +504,20 @@
                     </div>
                     <h3 class="card-title">Infrastructure</h3>
                     <p class="card-description">
-                        Hands-on experiential labs enabling innovation, prototyping &<br />problem-solving
+                        Experiential learning labs
                     </p>
                 </div>
 
                 <!-- Card 2 - Regular Brown -->
                 <div class="premium-feature-card card-brown">
                     <div class="card-deco-circle"></div>
-                    <img class="card-hover-img" src="assets/home/curriculum.jpg" alt="Curriculum">
+                    <img class="card-hover-img" src="assets/home/Curriculum.png" alt="Curriculum">
                     <div class="card-date">
                         <div class="date-number">02</div>
                     </div>
                     <h3 class="card-title">Curriculum & Pedagogy</h3>
                     <p class="card-description">
-                        Challenge-based curriculum driving real-world learning and critical thinking
+                        Challenge-based learning
                     </p>
                 </div>
 
@@ -505,7 +530,7 @@
                     </div>
                     <h3 class="card-title">Skill Passport</h3>
                     <p class="card-description">
-                        Competency-based assessments tracking skills, growth, and achievements
+                        Competency-based assessments
                     </p>
                 </div>
 
@@ -518,7 +543,7 @@
                     </div>
                     <h3 class="card-title">Teacher Capacity Building</h3>
                     <p class="card-description">
-                        Continuous teacher training with tools, mentorship, and classroom support
+                        Teacher training & support
                     </p>
                 </div>
 
@@ -531,7 +556,7 @@
                     </div>
                     <h3 class="card-title">Recognition Platform</h3>
                     <p class="card-description">
-                        National platform to showcase ideas, ventures, and student innovations
+                        National-level idea-to-venture platform
                     </p>
                 </div>
 
@@ -555,7 +580,8 @@
                 <div class="eng-card eng-card-wide">
                     <div class="eng-card-inner">
                         <div class="eng-card-front">
-                            <img src="assets/home/FSL.jpg" class="eng-bg" alt="Students in Lab">
+                            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=1200&h=600&fit=crop&q=80"
+                                class="eng-bg" alt="Students in Lab">
                             <div class="overlay-side"></div>
                             <div class="eng-content">
                                 <div class="eng-icon"><span class="material-icons">architecture</span></div>
@@ -586,7 +612,8 @@
                 <div class="eng-card">
                     <div class="eng-card-inner">
                         <div class="eng-card-front">
-                            <img src="assets/home/CSL.jpg" class="eng-bg" alt="Student collaboration">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=1000&fit=crop&q=80"
+                                class="eng-bg" alt="Student collaboration">
                             <div class="overlay-dark"></div>
                             <div class="eng-content">
                                 <div class="eng-icon"><span class="material-icons">extension</span></div>
@@ -615,7 +642,8 @@
                 <div class="eng-card">
                     <div class="eng-card-inner">
                         <div class="eng-card-front">
-                            <img src="assets/home/TIL.jpg" class="eng-bg" alt="Tech Innovation">
+                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=600&fit=crop&q=80"
+                                class="eng-bg" alt="Tech Innovation">
                             <div class="overlay-purple"></div>
                             <div class="eng-content">
                                 <div class="eng-icon"><span class="material-icons">psychology</span></div>
@@ -644,7 +672,8 @@
                 <div class="eng-card">
                     <div class="eng-card-inner">
                         <div class="eng-card-front">
-                            <img src="assets/home/TTA.jpg" class="eng-bg" alt="Future Tycoons">
+                            <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&h=600&fit=crop&q=80"
+                                class="eng-bg" alt="Future Tycoons">
                             <div class="overlay-purple"></div>
                             <div class="eng-content">
                                 <div class="eng-icon"><span class="material-icons">emoji_events</span></div>
@@ -960,10 +989,11 @@
                             </div>
                             <div class="ip-top-right">
                                 <div class="ip-slideshow">
-                                    <img class="ip-slide active" src="assets/home/IP1.jpg" alt="Impact 1">
-                                    <img class="ip-slide" src="assets/home/IP2.jpg" alt="Impact 2">
-                                    <img class="ip-slide" src="assets/home/IP3.jpg" alt="Impact 3">
-                                    <img class="ip-slide" src="assets/home/IP4.jpg" alt="Impact 4">
+                                    <img class="ip-slide active" src="assets/til-gallery/til-gallery10.jpg"
+                                        alt="Impact 1">
+                                    <img class="ip-slide" src="assets/til-gallery/til-gallery3.jpg" alt="Impact 2">
+                                    <img class="ip-slide" src="assets/til-gallery/til-gallery12.jpg" alt="Impact 3">
+                                    <img class="ip-slide" src="assets/til-gallery/til-gallery5.jpg" alt="Impact 4">
                                 </div>
                             </div>
                         </div>
@@ -1263,7 +1293,7 @@
             <div class="container">
                 <div class="alliance-wrapper-with-image">
                     <div class="alliance-image-container">
-                        <img src="assets/home/tce 1.png" alt="Tata ClassEdge Partnership" class="alliance-image">
+                        <img src="assets/home/tce.jpeg" alt="Tata ClassEdge Partnership" class="alliance-image">
                     </div>
                     <div class="alliance-glass-panel alliance-glass-content">
                         <div class="alliance-bg-accent"></div>
@@ -1454,7 +1484,7 @@
     <div id="footer-placeholder"></div>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="index.js"></script>
+    <script src="index1.js"></script>
 </body>
 
 </html>

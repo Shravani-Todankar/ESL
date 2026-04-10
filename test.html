@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision & Mission — Design Options</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL@20..48,100..700,0..1" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f6f0fa;
+            color: #1a1a1a;
+        }
+
+        .option-label {
+            text-align: center;
+            padding: 60px 20px 20px;
+        }
+
+        .option-label h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #6c32a8;
+        }
+
+        .option-label p {
+            font-size: 1rem;
+            color: #888;
+            margin-top: 8px;
+        }
+
+        .divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #6c32a8, #e5a93e);
+            border-radius: 4px;
+            margin: 40px auto;
+        }
+
+        /* =============================================
+           OPTION 1: INTERACTIVE HOVER PANELS
+           ============================================= */
+        .hp-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px 80px;
+        }
+
+        .hp-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .hp-heading h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #3d2549;
+        }
+
+        .hp-heading h2 span { color: #e5a93e; }
+
+        .hp-container {
+            display: flex;
+            gap: 16px;
+            height: 380px;
+            perspective: 1000px;
+        }
+
+        .hp-panel {
+            position: relative;
+            flex: 1;
+            border-radius: 24px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s;
+            border: 2px solid transparent;
+        }
+
+        .hp-panel-vision { background: linear-gradient(145deg, #f3e8ff, #ede5f5, #fefce8); }
+        .hp-panel-mission { background: linear-gradient(145deg, #ffffff, #faf5ff, #fffef5); }
+
+        .hp-container:hover .hp-panel:hover { flex: 1.8; border-color: #6c32a820; }
+        .hp-container:hover .hp-panel:not(:hover) { flex: 0.6; }
+
+        .hp-panel::before {
+            content: '';
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            opacity: 0.15;
+            transition: transform 0.6s, opacity 0.6s;
+            z-index: 0;
+        }
+
+        .hp-panel-vision::before { background: #6c32a8; top: -80px; right: -80px; }
+        .hp-panel-mission::before { background: #e5a93e; bottom: -80px; left: -80px; }
+        .hp-panel:hover::before { transform: scale(1.4); opacity: 0.2; }
+
+        .hp-content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px 36px;
+        }
+
+        .hp-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: transform 0.4s;
+        }
+
+        .hp-panel-vision .hp-icon { background: linear-gradient(135deg, #6c32a8, #8b5cf6); color: white; box-shadow: 0 8px 24px rgba(108, 50, 168, 0.25); }
+        .hp-panel-mission .hp-icon { background: linear-gradient(135deg, #e5a93e, #f5c542); color: #3d2549; box-shadow: 0 8px 24px rgba(229, 169, 62, 0.25); }
+        .hp-panel:hover .hp-icon { transform: scale(1.1) rotate(-3deg); }
+        .hp-icon .material-symbols-outlined { font-size: 28px; }
+
+        .hp-chip {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+            opacity: 0.6;
+            transition: opacity 0.4s;
+        }
+
+        .hp-panel:hover .hp-chip { opacity: 1; }
+        .hp-panel-vision .hp-chip { color: #6c32a8; }
+        .hp-panel-mission .hp-chip { color: #b8860b; }
+
+        .hp-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #3d2549;
+            line-height: 1.35;
+        }
+
+        .hp-title mark {
+            background: linear-gradient(120deg, #e5a93e40, #e5a93e60);
+            color: inherit;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .hp-arrow {
+            position: absolute;
+            bottom: 28px;
+            right: 28px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(108, 50, 168, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.4s, background 0.4s;
+            z-index: 1;
+        }
+
+        .hp-arrow .material-symbols-outlined { font-size: 20px; color: #6c32a8; transition: transform 0.4s; }
+        .hp-panel:hover .hp-arrow { background: rgba(108, 50, 168, 0.15); transform: scale(1.1); }
+        .hp-panel:hover .hp-arrow .material-symbols-outlined { transform: rotate(45deg); }
+
+        /* =============================================
+           OPTION 2: TABBED GLASSMORPHISM PANEL
+           ============================================= */
+        .gp-section {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 60px 20px 80px;
+        }
+
+        .gp-heading { text-align: center; margin-bottom: 50px; }
+
+        .gp-heading h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #3d2549;
+        }
+
+        .gp-heading h2 span { color: #e5a93e; }
+
+        .gp-toggle-wrap { display: flex; justify-content: center; margin-bottom: 40px; }
+
+        .gp-toggle {
+            display: flex;
+            background: #e8ddf2;
+            border-radius: 60px;
+            padding: 5px;
+            position: relative;
+        }
+
+        .gp-toggle-btn {
+            padding: 12px 32px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: none;
+            background: none;
+            cursor: pointer;
+            color: #888;
+            position: relative;
+            z-index: 2;
+            transition: color 0.4s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .gp-toggle-btn.active { color: #fff; }
+        .gp-toggle-btn .material-symbols-outlined { font-size: 18px; }
+
+        .gp-toggle-slider {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            height: calc(100% - 10px);
+            width: calc(50% - 5px);
+            background: linear-gradient(135deg, #6c32a8, #8b5cf6);
+            border-radius: 55px;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), background 0.5s;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(108, 50, 168, 0.35);
+        }
+
+        .gp-toggle-slider.mission-active {
+            transform: translateX(100%);
+            background: linear-gradient(135deg, #d4960a, #e5a93e);
+            box-shadow: 0 4px 15px rgba(229, 169, 62, 0.35);
+        }
+
+        .gp-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1.5px solid rgba(255, 255, 255, 0.7);
+            border-radius: 28px;
+            padding: 50px;
+            min-height: 300px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(108, 50, 168, 0.08);
+            transition: box-shadow 0.4s;
+        }
+
+        .gp-card:hover { box-shadow: 0 24px 70px rgba(108, 50, 168, 0.14); }
+
+        .gp-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 0;
+        }
+
+        .gp-blob-1 { width: 250px; height: 250px; background: #6c32a8; top: -80px; right: -60px; }
+        .gp-blob-2 { width: 200px; height: 200px; background: #e5a93e; bottom: -60px; left: -50px; opacity: 0.2; }
+        .gp-card.mission-view .gp-blob-1 { background: #e5a93e; top: -60px; right: -40px; }
+        .gp-card.mission-view .gp-blob-2 { background: #6c32a8; bottom: -80px; left: -60px; opacity: 0.25; }
+
+        .gp-panel {
+            position: relative;
+            z-index: 1;
+            display: none;
+            animation: gpFadeIn 0.6s ease forwards;
+        }
+
+        .gp-panel.active { display: block; }
+
+        @keyframes gpFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gp-icon-wrap {
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 28px;
+            transition: transform 0.4s;
+        }
+
+        .gp-card:hover .gp-icon-wrap { transform: scale(1.08) rotate(-3deg); }
+        .gp-icon-vision { background: linear-gradient(135deg, #6c32a8, #8b5cf6); color: white; box-shadow: 0 8px 28px rgba(108, 50, 168, 0.3); }
+        .gp-icon-mission { background: linear-gradient(135deg, #d4960a, #e5a93e); color: #3d2549; box-shadow: 0 8px 28px rgba(229, 169, 62, 0.3); }
+        .gp-icon-wrap .material-symbols-outlined { font-size: 30px; }
+
+        .gp-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            color: #999;
+        }
+
+        .gp-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.35;
+            color: #3d2549;
+        }
+
+        .gp-title mark {
+            background: linear-gradient(120deg, #e5a93e30, #e5a93e50);
+            color: inherit;
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        .gp-title .accent { color: #6c32a8; font-weight: 700; }
+
+        .gp-quote {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 6rem;
+            font-family: Georgia, serif;
+            color: rgba(108, 50, 168, 0.06);
+            line-height: 1;
+            z-index: 0;
+            pointer-events: none;
+            transition: color 0.5s;
+        }
+
+        .gp-card.mission-view .gp-quote { color: rgba(229, 169, 62, 0.08); }
+
+        /* =============================================
+           OPTION 3: SCROLL-TRIGGERED TEXT REVEAL
+           ============================================= */
+        .tr-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px 80px;
+        }
+
+        .tr-heading { text-align: center; margin-bottom: 60px; }
+
+        .tr-heading h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #3d2549;
+        }
+
+        .tr-heading h2 span { color: #e5a93e; }
+
+        .tr-block {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .tr-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tr-label .material-symbols-outlined { font-size: 18px; color: #6c32a8; }
+
+        .tr-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            line-height: 1.4;
+            color: #3d2549;
+        }
+
+        .tr-text .tr-word {
+            display: inline-block;
+            opacity: 0.12;
+            transition: opacity 0.5s, color 0.5s;
+        }
+
+        .tr-text .tr-word.revealed {
+            opacity: 1;
+        }
+
+        .tr-text .tr-word.highlight {
+            color: #6c32a8;
+        }
+
+        .tr-text .tr-word.highlight-yellow {
+            background: linear-gradient(120deg, #e5a93e30, #e5a93e50);
+            padding: 0 6px;
+            border-radius: 6px;
+        }
+
+        .tr-line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #6c32a8, #e5a93e);
+            border-radius: 3px;
+            margin: 40px auto;
+        }
+
+        /* =============================================
+           OPTION 4: STACKED CARD PEEL
+           ============================================= */
+        .sp-section {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 60px 20px 80px;
+        }
+
+        .sp-heading { text-align: center; margin-bottom: 50px; }
+
+        .sp-heading h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #3d2549;
+        }
+
+        .sp-heading h2 span { color: #e5a93e; }
+
+        .sp-stack {
+            position: relative;
+            height: 360px;
+            perspective: 1200px;
+            cursor: pointer;
+        }
+
+        .sp-card {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 28px;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.8s;
+            backface-visibility: hidden;
+        }
+
+        .sp-card-vision {
+            background: linear-gradient(160deg, #6c32a8, #8b5cf6);
+            color: white;
+            z-index: 2;
+            box-shadow: 0 20px 60px rgba(108, 50, 168, 0.3);
+            transform-origin: top center;
+        }
+
+        .sp-card-mission {
+            background: linear-gradient(160deg, #fffef5, #fff9e6);
+            color: #3d2549;
+            z-index: 1;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .sp-stack.peeled .sp-card-vision {
+            transform: rotateX(-70deg) translateY(-30px) scale(0.9);
+            box-shadow: 0 40px 80px rgba(108, 50, 168, 0.15);
+            opacity: 0.4;
+        }
+
+        .sp-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .sp-card-vision .sp-icon { background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); }
+        .sp-card-mission .sp-icon { background: linear-gradient(135deg, #e5a93e, #f5c542); color: #3d2549; box-shadow: 0 8px 24px rgba(229, 169, 62, 0.3); }
+        .sp-icon .material-symbols-outlined { font-size: 28px; }
+
+        .sp-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .sp-card-vision .sp-label { color: rgba(255, 255, 255, 0.5); }
+        .sp-card-mission .sp-label { color: #b8860b; }
+
+        .sp-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .sp-card-vision .sp-title mark {
+            background: rgba(229, 169, 62, 0.3);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .sp-card-mission .sp-title .accent { color: #6c32a8; font-weight: 700; }
+
+        .sp-hint {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        /* =============================================
+           OPTION 5: MORPHING CARD
+           ============================================= */
+        .mc-section {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 60px 20px 80px;
+        }
+
+        .mc-heading { text-align: center; margin-bottom: 50px; }
+
+        .mc-heading h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #3d2549;
+        }
+
+        .mc-heading h2 span { color: #e5a93e; }
+
+        .mc-card {
+            position: relative;
+            border-radius: 28px;
+            padding: 55px 50px;
+            min-height: 320px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: background 1.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 1.2s;
+        }
+
+        .mc-card.vision-state {
+            background: linear-gradient(160deg, #6c32a8, #7c3aed, #6c32a8);
+            box-shadow: 0 20px 60px rgba(108, 50, 168, 0.25);
+        }
+
+        .mc-card.mission-state {
+            background: linear-gradient(160deg, #fffef5, #fff9e6, #fefce8);
+            box-shadow: 0 20px 60px rgba(229, 169, 62, 0.15);
+        }
+
+        .mc-ring {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255, 255, 255, 0.1);
+            top: 50%;
+            right: -80px;
+            transform: translateY(-50%);
+            transition: border-color 1.2s, width 1.2s, height 1.2s;
+        }
+
+        .mc-card.mission-state .mc-ring {
+            border-color: rgba(229, 169, 62, 0.15);
+            width: 350px;
+            height: 350px;
+        }
+
+        .mc-ring::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            top: 20%;
+            left: -6px;
+            transition: background 1.2s;
+        }
+
+        .mc-card.vision-state .mc-ring::after { background: #e5a93e; }
+        .mc-card.mission-state .mc-ring::after { background: #6c32a8; }
+
+        .mc-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .mc-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            transition: background 1s, box-shadow 1s, color 1s;
+        }
+
+        .mc-card.vision-state .mc-icon {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            backdrop-filter: blur(10px);
+            box-shadow: none;
+        }
+
+        .mc-card.mission-state .mc-icon {
+            background: linear-gradient(135deg, #e5a93e, #f5c542);
+            color: #3d2549;
+            box-shadow: 0 8px 24px rgba(229, 169, 62, 0.3);
+        }
+
+        .mc-icon .material-symbols-outlined { font-size: 28px; transition: content 0.5s; }
+
+        .mc-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            transition: color 1s;
+        }
+
+        .mc-card.vision-state .mc-label { color: rgba(255, 255, 255, 0.5); }
+        .mc-card.mission-state .mc-label { color: #b8860b; }
+
+        .mc-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 700;
+            line-height: 1.35;
+            transition: color 1s;
+            min-height: 100px;
+        }
+
+        .mc-card.vision-state .mc-title { color: #fff; }
+        .mc-card.mission-state .mc-title { color: #3d2549; }
+
+        .mc-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .mc-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ccc;
+            transition: background 0.4s, transform 0.4s;
+            cursor: pointer;
+        }
+
+        .mc-dot.active-v { background: #6c32a8; transform: scale(1.3); }
+        .mc-dot.active-m { background: #e5a93e; transform: scale(1.3); }
+
+        /* =============================================
+           OPTION 6: VERTICAL ACCORDION
+           ============================================= */
+        .va-section {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 60px 20px 80px;
+        }
+
+        .va-heading { text-align: center; margin-bottom: 50px; }
+
+        .va-heading h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #3d2549;
+        }
+
+        .va-heading h2 span { color: #e5a93e; }
+
+        .va-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .va-bar {
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .va-bar-vision {
+            background: linear-gradient(135deg, #6c32a8, #8b5cf6);
+        }
+
+        .va-bar-mission {
+            background: linear-gradient(135deg, #fff9e6, #fffef5);
+            border: 1.5px solid #e5a93e30;
+        }
+
+        .va-bar-header {
+            padding: 22px 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .va-bar-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .va-bar-vision .va-bar-icon { background: rgba(255, 255, 255, 0.2); color: white; }
+        .va-bar-mission .va-bar-icon { background: linear-gradient(135deg, #e5a93e, #f5c542); color: #3d2549; }
+        .va-bar-icon .material-symbols-outlined { font-size: 22px; }
+
+        .va-bar-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            flex: 1;
+        }
+
+        .va-bar-vision .va-bar-label { color: white; }
+        .va-bar-mission .va-bar-label { color: #3d2549; }
+
+        .va-bar-arrow {
+            font-size: 20px;
+            transition: transform 0.4s;
+        }
+
+        .va-bar-vision .va-bar-arrow { color: rgba(255, 255, 255, 0.5); }
+        .va-bar-mission .va-bar-arrow { color: #b8860b; }
+
+        .va-bar.open .va-bar-arrow { transform: rotate(180deg); }
+
+        .va-bar-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), padding 0.6s;
+            padding: 0 32px;
+        }
+
+        .va-bar.open .va-bar-body {
+            max-height: 300px;
+            padding: 0 32px 30px;
+        }
+
+        .va-bar-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .va-bar-vision .va-bar-title { color: white; }
+        .va-bar-mission .va-bar-title { color: #3d2549; }
+        .va-bar-vision .va-bar-title mark { background: rgba(229, 169, 62, 0.3); color: white; padding: 2px 8px; border-radius: 4px; }
+        .va-bar-mission .va-bar-title .accent { color: #6c32a8; font-weight: 700; }
+
+        /* =============================================
+           OPTION 7: FLOATING ORB REVEAL
+           ============================================= */
+        .orb-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px 100px;
+        }
+
+        .orb-heading { text-align: center; margin-bottom: 50px; }
+
+        .orb-heading h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #3d2549;
+        }
+
+        .orb-heading h2 span { color: #e5a93e; }
+
+        .orb-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .orb-circle {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #6c32a8, #e5a93e, #6c32a8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: orbSpin 6s linear infinite;
+            box-shadow: 0 0 60px rgba(108, 50, 168, 0.25), 0 0 120px rgba(229, 169, 62, 0.1);
+            cursor: pointer;
+            transition: transform 0.4s;
+        }
+
+        .orb-circle:hover { transform: scale(1.08); }
+
+        @keyframes orbSpin {
+            to { transform: rotate(360deg); }
+        }
+
+        .orb-circle:hover {
+            animation-play-state: paused;
+        }
+
+        .orb-inner {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #f6f0fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orb-inner .material-symbols-outlined {
+            font-size: 40px;
+            color: #6c32a8;
+        }
+
+        .orb-btns {
+            display: flex;
+            gap: 16px;
+        }
+
+        .orb-btn {
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.4s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .orb-btn .material-symbols-outlined { font-size: 18px; }
+
+        .orb-btn-vision {
+            background: #6c32a8;
+            color: white;
+        }
+
+        .orb-btn-vision:hover { background: #7c3aed; box-shadow: 0 8px 24px rgba(108, 50, 168, 0.3); }
+
+        .orb-btn-mission {
+            background: white;
+            color: #3d2549;
+            border-color: #e5a93e;
+        }
+
+        .orb-btn-mission:hover { background: #e5a93e; color: #3d2549; box-shadow: 0 8px 24px rgba(229, 169, 62, 0.3); }
+
+        .orb-reveal {
+            width: 100%;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s;
+            opacity: 0;
+        }
+
+        .orb-reveal.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+
+        .orb-reveal-card {
+            border-radius: 24px;
+            padding: 44px;
+            text-align: center;
+        }
+
+        .orb-reveal-card.vision-card-orb {
+            background: linear-gradient(160deg, #6c32a8, #8b5cf6);
+            box-shadow: 0 20px 60px rgba(108, 50, 168, 0.2);
+        }
+
+        .orb-reveal-card.mission-card-orb {
+            background: linear-gradient(160deg, #fffef5, #fff9e6);
+            border: 1.5px solid #e5a93e30;
+            box-shadow: 0 20px 60px rgba(229, 169, 62, 0.1);
+        }
+
+        .orb-reveal-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .vision-card-orb .orb-reveal-label { color: rgba(255, 255, 255, 0.5); }
+        .mission-card-orb .orb-reveal-label { color: #b8860b; }
+
+        .orb-reveal-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .vision-card-orb .orb-reveal-title { color: white; }
+        .vision-card-orb .orb-reveal-title mark { background: rgba(229, 169, 62, 0.3); color: white; padding: 2px 8px; border-radius: 4px; }
+        .mission-card-orb .orb-reveal-title { color: #3d2549; }
+        .mission-card-orb .orb-reveal-title .accent { color: #6c32a8; font-weight: 700; }
+
+        /* =============================================
+           OPTION 8: FLIP CUBE (3D)
+           ============================================= */
+        .fc-section {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 60px 20px 80px;
+        }
+
+        .fc-heading { text-align: center; margin-bottom: 50px; }
+
+        .fc-heading h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #3d2549;
+        }
+
+        .fc-heading h2 span { color: #e5a93e; }
+
+        .fc-scene {
+            perspective: 1000px;
+            height: 360px;
+            cursor: pointer;
+        }
+
+        .fc-cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fc-cube.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .fc-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 28px;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .fc-front {
+            background: linear-gradient(160deg, #6c32a8, #8b5cf6);
+            color: white;
+            box-shadow: 0 20px 60px rgba(108, 50, 168, 0.25);
+        }
+
+        .fc-back {
+            background: linear-gradient(160deg, #fffef5, #fff9e6);
+            color: #3d2549;
+            transform: rotateY(180deg);
+            border: 1.5px solid #e5a93e20;
+            box-shadow: 0 20px 60px rgba(229, 169, 62, 0.12);
+        }
+
+        .fc-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .fc-front .fc-icon { background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); color: white; }
+        .fc-back .fc-icon { background: linear-gradient(135deg, #e5a93e, #f5c542); color: #3d2549; box-shadow: 0 8px 24px rgba(229, 169, 62, 0.3); }
+        .fc-icon .material-symbols-outlined { font-size: 28px; }
+
+        .fc-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .fc-front .fc-label { color: rgba(255, 255, 255, 0.5); }
+        .fc-back .fc-label { color: #b8860b; }
+
+        .fc-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .fc-front .fc-title { color: white; }
+        .fc-front .fc-title mark { background: rgba(229, 169, 62, 0.3); color: white; padding: 2px 8px; border-radius: 4px; }
+        .fc-back .fc-title { color: #3d2549; }
+        .fc-back .fc-title .accent { color: #6c32a8; font-weight: 700; }
+
+        .fc-flip-hint {
+            position: absolute;
+            bottom: 24px;
+            right: 28px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .fc-front .fc-flip-hint { color: rgba(255, 255, 255, 0.4); }
+        .fc-back .fc-flip-hint { color: #b8860b80; }
+        .fc-flip-hint .material-symbols-outlined { font-size: 16px; }
+
+        /* =============================================
+           RESPONSIVE
+           ============================================= */
+        @media (max-width: 768px) {
+            .option-label h1 { font-size: 2rem; }
+
+            .hp-container { flex-direction: column; height: auto; }
+            .hp-panel { min-height: 200px; }
+            .hp-container:hover .hp-panel:hover, .hp-container:hover .hp-panel:not(:hover) { flex: 1; }
+            .hp-title { font-size: 1.3rem; }
+            .hp-arrow { display: none; }
+
+            .gp-card { padding: 32px 24px; min-height: auto; }
+            .gp-title { font-size: 1.4rem; }
+            .gp-toggle-btn { padding: 10px 22px; font-size: 0.8rem; }
+            .gp-quote { font-size: 4rem; top: 16px; right: 20px; }
+
+            .tr-text { font-size: 1.6rem; }
+
+            .sp-stack { height: 320px; }
+            .sp-card { padding: 36px 28px; }
+            .sp-title { font-size: 1.3rem; }
+
+            .mc-card { padding: 36px 28px; }
+            .mc-title { font-size: 1.4rem; min-height: 80px; }
+
+            .va-bar-title { font-size: 1.3rem; }
+
+            .orb-circle { width: 140px; height: 140px; }
+            .orb-inner { width: 115px; height: 115px; }
+            .orb-reveal-card { padding: 32px 24px; }
+            .orb-reveal-title { font-size: 1.3rem; }
+
+            .fc-scene { height: 320px; }
+            .fc-face { padding: 36px 28px; }
+            .fc-title { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==========================================
+         OPTION 1: INTERACTIVE HOVER PANELS
+         ========================================== -->
+    <div class="option-label">
+        <h1>Option 1</h1>
+        <p>Interactive Hover Panels</p>
+    </div>
+
+    <section class="hp-section">
+        <div class="hp-heading">
+            <h2>Our <span>Purpose</span></h2>
+        </div>
+        <div class="hp-container">
+            <div class="hp-panel hp-panel-vision">
+                <div class="hp-content">
+                    <div class="hp-icon"><span class="material-symbols-outlined">visibility</span></div>
+                    <div class="hp-chip">Our Vision</div>
+                    <h3 class="hp-title">Nurturing a generation of <mark>'change agents'</mark> who strive to better their lives and the world around them.</h3>
+                </div>
+                <div class="hp-arrow"><span class="material-symbols-outlined">arrow_outward</span></div>
+            </div>
+            <div class="hp-panel hp-panel-mission">
+                <div class="hp-content">
+                    <div class="hp-icon"><span class="material-symbols-outlined">track_changes</span></div>
+                    <div class="hp-chip">Mission</div>
+                    <h3 class="hp-title">Nurturing <span style="color:#6c32a8;font-weight:700">1 million school children</span> with an entrepreneurial mindset by <span style="color:#6c32a8;font-weight:700">2030.</span></h3>
+                </div>
+                <div class="hp-arrow"><span class="material-symbols-outlined">arrow_outward</span></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ==========================================
+         OPTION 2: TABBED GLASSMORPHISM PANEL
+         ========================================== -->
+    <div class="option-label">
+        <h1>Option 2</h1>
+        <p>Tabbed Glassmorphism Panel</p>
+    </div>
+
+    <section class="gp-section">
+        <div class="gp-heading">
+            <h2>Our <span>Purpose</span></h2>
+        </div>
+        <div class="gp-toggle-wrap">
+            <div class="gp-toggle">
+                <button class="gp-toggle-btn active" data-tab="vision" id="gpBtnVision">
+                    <span class="material-symbols-outlined">visibility</span> Vision
+                </button>
+                <button class="gp-toggle-btn" data-tab="mission" id="gpBtnMission">
+                    <span class="material-symbols-outlined">track_changes</span> Mission
+                </button>
+                <div class="gp-toggle-slider" id="gpSlider"></div>
+            </div>
+        </div>
+        <div class="gp-card" id="gpCard">
+            <div class="gp-blob gp-blob-1"></div>
+            <div class="gp-blob gp-blob-2"></div>
+            <span class="gp-quote">"</span>
+            <div class="gp-panel active" id="gpVision">
+                <div class="gp-icon-wrap gp-icon-vision"><span class="material-symbols-outlined">visibility</span></div>
+                <div class="gp-label">Our Vision</div>
+                <h3 class="gp-title">Nurturing a generation of <mark>'change agents'</mark> who strive to better their lives and the world around them.</h3>
+            </div>
+            <div class="gp-panel" id="gpMission">
+                <div class="gp-icon-wrap gp-icon-mission"><span class="material-symbols-outlined">track_changes</span></div>
+                <div class="gp-label">Mission</div>
+                <h3 class="gp-title">Nurturing <span class="accent">1 million school children</span> with an entrepreneurial mindset by <span class="accent">2030.</span></h3>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ==========================================
+         OPTION 3: SCROLL-TRIGGERED TEXT REVEAL
+         ========================================== -->
+    <div class="option-label">
+        <h1>Option 3</h1>
+        <p>Scroll-Triggered Text Reveal</p>
+    </div>
+
+    <section class="tr-section">
+        <div class="tr-heading">
+            <h2>Our <span>Purpose</span></h2>
+        </div>
+        <div class="tr-block" id="trVision">
+            <div class="tr-label"><span class="material-symbols-outlined">visibility</span> Our Vision</div>
+            <p class="tr-text" data-highlight="change agents"></p>
+        </div>
+        <div class="tr-line"></div>
+        <div class="tr-block" id="trMission">
+            <div class="tr-label"><span class="material-symbols-outlined">track_changes</span> Mission</div>
+            <p class="tr-text" data-highlight="1 million school children,2030."></p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ==========================================
+         OPTION 4: STACKED CARD PEEL
+         ========================================== -->
+    <div class="option-label">
+        <h1>Option 4</h1>
+        <p>Stacked Card Peel</p>
+    </div>
+
+    <section class="sp-section">
+        <div class="sp-heading">
+            <h2>Our <span>Purpose</span></h2>
+        </div>
+        <div class="sp-stack" id="spStack">
+            <div class="sp-card sp-card-mission">
+                <div class="sp-icon"><span class="material-symbols-outlined">track_changes</span></div>
+                <div class="sp-label">Mission</div>
+                <h3 class="sp-title">Nurturing <span class="accent">1 million school children</span> with an entrepreneurial mindset by <span class="accent">2030.</span></h3>
+            </div>
+            <div class="sp-card sp-card-vision">
+                <div class="sp-icon"><span class="material-symbols-outlined">visibility</span></div>
+                <div class="sp-label">Our Vision</div>
+                <h3 class="sp-title">Nurturing a generation of <mark>'change agents'</mark> who strive to better their lives and the world around them.</h3>
+            </div>
+        </div>
+        <p class="sp-hint">Click to peel</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ==========================================
+         OPTION 5: MORPHING CARD
+         ========================================== -->
+    <div class="option-label">
+        <h1>Option 5</h1>
+        <p>Morphing Card (Auto-transitions)</p>
+    </div>
+
+    <section class="mc-section">
+        <div class="mc-heading">
+            <h2>Our <span>Purpose</span></h2>
+        </div>
+        <div class="mc-card vision-state" id="mcCard">
+            <div class="mc-ring"></div>
+            <div class="mc-content">
+                <div class="mc-icon" id="mcIcon"><span class="material-symbols-outlined" id="mcIconText">visibility</span></div>
+                <div class="mc-label" id="mcLabel">Our Vision</div>
+                <h3 class="mc-title" id="mcTitle"></h3>
+            </div>
+        </div>
+        <div class="mc-dots">
+            <div class="mc-dot active-v" id="mcDot0"></div>
+            <div class="mc-dot" id="mcDot1"></div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ==========================================
+         OPTION 6: VERTICAL ACCORDION
+         ========================================== -->
+    <div class="option-label">
+        <h1>Option 6</h1>
+        <p>Vertical Accordion</p>
+    </div>
+
+    <section class="va-section">
+        <div class="va-heading">
+            <h2>Our <span>Purpose</span></h2>
+        </div>
+        <div class="va-container">
+            <div class="va-bar va-bar-vision open" data-va="vision">
+                <div class="va-bar-header">
+                    <div class="va-bar-icon"><span class="material-symbols-outlined">visibility</span></div>
+                    <span class="va-bar-label">Our Vision</span>
+                    <span class="va-bar-arrow material-symbols-outlined">expand_more</span>
+                </div>
+                <div class="va-bar-body">
+                    <h3 class="va-bar-title">Nurturing a generation of <mark>'change agents'</mark> who strive to better their lives and the world around them.</h3>
+                </div>
+            </div>
+            <div class="va-bar va-bar-mission" data-va="mission">
+                <div class="va-bar-header">
+                    <div class="va-bar-icon"><span class="material-symbols-outlined">track_changes</span></div>
+                    <span class="va-bar-label">Mission</span>
+                    <span class="va-bar-arrow material-symbols-outlined">expand_more</span>
+                </div>
+                <div class="va-bar-body">
+                    <h3 class="va-bar-title">Nurturing <span class="accent">1 million school children</span> with an entrepreneurial mindset by <span class="accent">2030.</span></h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ==========================================
+         OPTION 7: FLOATING ORB REVEAL
+         ========================================== -->
+    <div class="option-label">
+        <h1>Option 7</h1>
+        <p>Floating Orb Reveal</p>
+    </div>
+
+    <section class="orb-section">
+        <div class="orb-heading">
+            <h2>Our <span>Purpose</span></h2>
+        </div>
+        <div class="orb-wrap">
+            <div class="orb-circle">
+                <div class="orb-inner">
+                    <span class="material-symbols-outlined">auto_awesome</span>
+                </div>
+            </div>
+            <div class="orb-btns">
+                <button class="orb-btn orb-btn-vision" id="orbBtnV">
+                    <span class="material-symbols-outlined">visibility</span> Vision
+                </button>
+                <button class="orb-btn orb-btn-mission" id="orbBtnM">
+                    <span class="material-symbols-outlined">track_changes</span> Mission
+                </button>
+            </div>
+            <div class="orb-reveal" id="orbReveal">
+                <div class="orb-reveal-card" id="orbRevealCard">
+                    <div class="orb-reveal-label" id="orbRevealLabel"></div>
+                    <h3 class="orb-reveal-title" id="orbRevealTitle"></h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ==========================================
+         OPTION 8: FLIP CUBE (3D)
+         ========================================== -->
+    <div class="option-label">
+        <h1>Option 8</h1>
+        <p>3D Flip Cube</p>
+    </div>
+
+    <section class="fc-section">
+        <div class="fc-heading">
+            <h2>Our <span>Purpose</span></h2>
+        </div>
+        <div class="fc-scene" id="fcScene">
+            <div class="fc-cube" id="fcCube">
+                <div class="fc-face fc-front">
+                    <div class="fc-icon"><span class="material-symbols-outlined">visibility</span></div>
+                    <div class="fc-label">Our Vision</div>
+                    <h3 class="fc-title">Nurturing a generation of <mark>'change agents'</mark> who strive to better their lives and the world around them.</h3>
+                    <div class="fc-flip-hint"><span>Click to flip</span> <span class="material-symbols-outlined">flip</span></div>
+                </div>
+                <div class="fc-face fc-back">
+                    <div class="fc-icon"><span class="material-symbols-outlined">track_changes</span></div>
+                    <div class="fc-label">Mission</div>
+                    <h3 class="fc-title">Nurturing <span class="accent">1 million school children</span> with an entrepreneurial mindset by <span class="accent">2030.</span></h3>
+                    <div class="fc-flip-hint"><span>Click to flip</span> <span class="material-symbols-outlined">flip</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="height: 80px;"></div>
+
+    <!-- ==========================================
+         ALL SCRIPTS
+         ========================================== -->
+    <script>
+        // === Option 2: Tabbed Glassmorphism ===
+        (function () {
+            const btnV = document.getElementById('gpBtnVision');
+            const btnM = document.getElementById('gpBtnMission');
+            const slider = document.getElementById('gpSlider');
+            const card = document.getElementById('gpCard');
+            const panelV = document.getElementById('gpVision');
+            const panelM = document.getElementById('gpMission');
+
+            function switchTo(tab) {
+                const isVision = tab === 'vision';
+                btnV.classList.toggle('active', isVision);
+                btnM.classList.toggle('active', !isVision);
+                slider.classList.toggle('mission-active', !isVision);
+                card.classList.toggle('mission-view', !isVision);
+                const show = isVision ? panelV : panelM;
+                const hide = isVision ? panelM : panelV;
+                show.classList.add('active');
+                show.style.animation = 'none';
+                show.offsetHeight;
+                show.style.animation = '';
+                hide.classList.remove('active');
+            }
+
+            btnV.addEventListener('click', () => switchTo('vision'));
+            btnM.addEventListener('click', () => switchTo('mission'));
+        })();
+
+        // === Option 3: Scroll-Triggered Text Reveal ===
+        (function () {
+            const visionText = "Nurturing a generation of 'change agents' who strive to better their lives and the world around them.";
+            const missionText = "Nurturing 1 million school children with an entrepreneurial mindset by 2030.";
+
+            function buildWords(container, text, highlights) {
+                const p = container.querySelector('.tr-text');
+                const hList = highlights.split(',').map(h => h.trim().toLowerCase());
+                text.split(' ').forEach(word => {
+                    const span = document.createElement('span');
+                    span.className = 'tr-word';
+                    span.textContent = word + ' ';
+                    const clean = word.replace(/[''.,]/g, '').toLowerCase();
+                    for (const h of hList) {
+                        if (h.includes(clean) && clean.length > 2) {
+                            span.classList.add('highlight');
+                            break;
+                        }
+                    }
+                    p.appendChild(span);
+                });
+            }
+
+            buildWords(document.getElementById('trVision'), visionText, "change,agents");
+            buildWords(document.getElementById('trMission'), missionText, "1,million,school,children,2030");
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const words = entry.target.querySelectorAll('.tr-word');
+                        words.forEach((w, i) => {
+                            setTimeout(() => w.classList.add('revealed'), i * 80);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            document.querySelectorAll('.tr-block').forEach(b => observer.observe(b));
+        })();
+
+        // === Option 4: Stacked Card Peel ===
+        (function () {
+            const stack = document.getElementById('spStack');
+            stack.addEventListener('click', () => stack.classList.toggle('peeled'));
+        })();
+
+        // === Option 5: Morphing Card ===
+        (function () {
+            const card = document.getElementById('mcCard');
+            const icon = document.getElementById('mcIconText');
+            const label = document.getElementById('mcLabel');
+            const title = document.getElementById('mcTitle');
+            const dot0 = document.getElementById('mcDot0');
+            const dot1 = document.getElementById('mcDot1');
+
+            const states = [
+                {
+                    cls: 'vision-state',
+                    icon: 'visibility',
+                    label: 'Our Vision',
+                    title: "Nurturing a generation of <mark>'change agents'</mark> who strive to better their lives and the world around them."
+                },
+                {
+                    cls: 'mission-state',
+                    icon: 'track_changes',
+                    label: 'Mission',
+                    title: 'Nurturing <span class="accent" style="color:#6c32a8;font-weight:700">1 million school children</span> with an entrepreneurial mindset by <span class="accent" style="color:#6c32a8;font-weight:700">2030.</span>'
+                }
+            ];
+
+            let cur = 0;
+            function morph(idx) {
+                cur = idx;
+                const s = states[cur];
+                card.className = 'mc-card ' + s.cls;
+                icon.textContent = s.icon;
+                label.textContent = s.label;
+                title.innerHTML = s.title;
+                dot0.className = 'mc-dot' + (cur === 0 ? ' active-v' : '');
+                dot1.className = 'mc-dot' + (cur === 1 ? ' active-m' : '');
+            }
+
+            morph(0);
+            setInterval(() => morph((cur + 1) % 2), 4500);
+
+            dot0.addEventListener('click', () => morph(0));
+            dot1.addEventListener('click', () => morph(1));
+        })();
+
+        // === Option 6: Vertical Accordion ===
+        (function () {
+            document.querySelectorAll('.va-bar').forEach(bar => {
+                bar.querySelector('.va-bar-header').addEventListener('click', () => {
+                    const wasOpen = bar.classList.contains('open');
+                    document.querySelectorAll('.va-bar').forEach(b => b.classList.remove('open'));
+                    if (!wasOpen) bar.classList.add('open');
+                });
+            });
+        })();
+
+        // === Option 7: Floating Orb Reveal ===
+        (function () {
+            const reveal = document.getElementById('orbReveal');
+            const revealCard = document.getElementById('orbRevealCard');
+            const revealLabel = document.getElementById('orbRevealLabel');
+            const revealTitle = document.getElementById('orbRevealTitle');
+            let currentOrb = null;
+
+            function showOrb(type) {
+                if (currentOrb === type) {
+                    reveal.classList.remove('open');
+                    currentOrb = null;
+                    return;
+                }
+                currentOrb = type;
+                reveal.classList.remove('open');
+
+                setTimeout(() => {
+                    if (type === 'vision') {
+                        revealCard.className = 'orb-reveal-card vision-card-orb';
+                        revealLabel.textContent = 'Our Vision';
+                        revealTitle.innerHTML = "Nurturing a generation of <mark>'change agents'</mark> who strive to better their lives and the world around them.";
+                    } else {
+                        revealCard.className = 'orb-reveal-card mission-card-orb';
+                        revealLabel.textContent = 'Mission';
+                        revealTitle.innerHTML = 'Nurturing <span class="accent">1 million school children</span> with an entrepreneurial mindset by <span class="accent">2030.</span>';
+                    }
+                    reveal.classList.add('open');
+                }, 100);
+            }
+
+            document.getElementById('orbBtnV').addEventListener('click', () => showOrb('vision'));
+            document.getElementById('orbBtnM').addEventListener('click', () => showOrb('mission'));
+        })();
+
+        // === Option 8: Flip Cube ===
+        (function () {
+            const cube = document.getElementById('fcCube');
+            const scene = document.getElementById('fcScene');
+            let flipped = false;
+
+            scene.addEventListener('click', () => {
+                flipped = !flipped;
+                cube.classList.toggle('flipped', flipped);
+            });
+
+            // Auto-flip every 5s
+            setInterval(() => {
+                flipped = !flipped;
+                cube.classList.toggle('flipped', flipped);
+            }, 5000);
+        })();
+    </script>
+
+</body>
+
+</html>
