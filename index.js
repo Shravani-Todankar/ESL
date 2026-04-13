@@ -13,6 +13,73 @@ fetch('header.html')
         if (mainNav && typeof gsap !== 'undefined') {
             gsap.to(mainNav, { opacity: 1, y: 0, duration: 0.8, delay: 0.2 });
         }
+
+        // Initialize header JS (innerHTML doesn't execute <script> tags)
+        const nav = document.getElementById('mainNav');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        // Scroll effect
+        window.addEventListener('scroll', () => {
+            if (nav) {
+                if (window.scrollY > 50) nav.classList.add('scrolled');
+                else nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        if (mobileMenuToggle && navLinks) {
+            mobileMenuToggle.addEventListener('click', function (e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Mobile dropdown toggle
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 968) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const parent = toggle.closest('.dropdown-parent');
+                    document.querySelectorAll('.dropdown-parent').forEach(p => {
+                        if (p !== parent) p.classList.remove('dropdown-active');
+                    });
+                    parent.classList.toggle('dropdown-active');
+                }
+            });
+        });
+
+        // Close menu on nav link click
+        document.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 968 && mobileMenuToggle && navLinks) {
+                    mobileMenuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Close menu on dropdown item click
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 968 && mobileMenuToggle && navLinks) {
+                    mobileMenuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.querySelectorAll('.dropdown-parent').forEach(p => p.classList.remove('dropdown-active'));
+                }
+            });
+        });
+
+        // Close menu on outside click
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 968 && nav && !nav.contains(e.target) && navLinks && mobileMenuToggle) {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.querySelectorAll('.dropdown-parent').forEach(p => p.classList.remove('dropdown-active'));
+            }
+        });
     })
     .catch(error => console.error('Error loading header:', error));
 

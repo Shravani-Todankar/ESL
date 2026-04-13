@@ -183,12 +183,20 @@
     }
 
     .mobile-menu-toggle span {
-        width: 28px;
         height: 3px;
         background: #1a1a1a;
         border-radius: 3px;
         transition: all 0.3s ease;
         display: block;
+    }
+
+    .mobile-menu-toggle span:nth-child(1),
+    .mobile-menu-toggle span:nth-child(3) {
+        width: 28px;
+    }
+
+    .mobile-menu-toggle span:nth-child(2) {
+        width: 20px;
     }
 
     .mobile-menu-toggle.active span:nth-child(1) {
@@ -221,6 +229,7 @@
 
         .mobile-menu-toggle {
             display: flex;
+            align-items: flex-end;
         }
 
         /* FIX: Mobile nav links panel */
@@ -230,7 +239,7 @@
             left: 0;
             width: 100%;
             height: calc(100vh - 70px);
-            background: #ffffff;
+            background: #f5f0fa;
             flex-direction: column;
             align-items: flex-start;
             gap: 0;
