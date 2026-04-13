@@ -4424,6 +4424,7 @@ footer p {
 .card-purple .card-description {
     color: rgba(61, 40, 96, 0.8);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.94rem !important;
 }
 
 .card-purple:hover {
@@ -4870,15 +4871,15 @@ footer p {
     }
 
     .premium-features-grid {
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 16px;
-        grid-auto-rows: auto;
     }
 
     .premium-feature-card {
         padding: 24px 20px;
         border-radius: 18px;
-        min-height: auto;
+        min-height: 220px;
     }
 
     /* All cards single row on mobile */
