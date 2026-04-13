@@ -1565,7 +1565,218 @@
             transform: translateY(0);
         }
 
-        /* Mobile Responsive */
+        /* ══════════════════════════════════════════════════════════
+           MOBILE RESPONSIVE
+           ══════════════════════════════════════════════════════════ */
+        @media (max-width: 768px) {
+            /* ── Hero Section ── */
+            .ta-hero-section {
+                min-height: 70vh;
+                padding: 40px 16px;
+                margin-top: 10px;
+            }
+
+            .ta-row-1,
+            .ta-row-2,
+            .ta-row-2b {
+                font-size: 2.2rem;
+                letter-spacing: -1px;
+            }
+
+            .ta-top-section {
+                gap: 16px;
+                margin-top: 12px;
+            }
+
+            .ta-pill-right,
+            .ta-pill-left {
+                width: 140px;
+                height: 50px;
+            }
+
+            .ta-sparkle {
+                font-size: 1.2rem;
+            }
+
+            .ta-sparkle-1 { font-size: 1rem; }
+            .ta-sparkle-2 { font-size: 0.7rem; }
+            .ta-sparkle-3 { font-size: 0.9rem; }
+            .ta-sparkle-4 { font-size: 0.7rem; }
+            .ta-sparkle-5 { font-size: 0.6rem; }
+
+            .ta-description p {
+                font-size: 14px;
+            }
+
+            .ta-cta-section {
+                margin-top: 16px;
+            }
+
+            .ta-explore-btn {
+                font-size: 13px;
+                padding: 10px 24px;
+            }
+
+            .ta-skills-marquee span {
+                font-size: 14px;
+            }
+
+            /* ── Impact Section ── */
+            .ta-impact-section {
+                padding: 3rem 1rem;
+            }
+
+            .ta-impact-revamp-heading {
+                font-size: 1.6rem;
+            }
+
+            .ta-impact-revamp-para {
+                font-size: 0.88rem;
+            }
+
+            .ta-impact-bento-card {
+                height: auto;
+                min-height: unset;
+                padding: 1.5rem;
+            }
+
+            .ta-impact-bento-card-muted {
+                padding: 1.5rem;
+            }
+
+            .ta-impact-bento-card-impact {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                padding: 1.2rem;
+            }
+
+            .ta-impact-icon-box {
+                width: 3rem;
+                height: 3rem;
+            }
+
+            .ta-impact-ghost-icon {
+                font-size: 5rem !important;
+            }
+
+            /* ── Offer Section ── */
+            .ta-offer-section {
+                padding: 3rem 1rem;
+            }
+
+            .ta-offer-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .ta-offer-header p {
+                font-size: 0.95rem;
+            }
+
+            .ta-program-cards {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 0;
+            }
+
+            .ta-program-card__title {
+                font-size: 1.1rem;
+            }
+
+            .ta-program-card__tagline {
+                font-size: 0.85rem;
+            }
+
+            .ta-program-card__img {
+                height: 180px;
+            }
+
+            /* ── Comparison Table ── */
+            .ta-compare-shell {
+                border-radius: 1rem;
+                padding: 0.5rem;
+            }
+
+            .ta-compare-table {
+                min-width: 650px;
+            }
+
+            .ta-thead-label span {
+                font-size: 1.5rem;
+            }
+
+            .ta-prog-title {
+                font-size: 1.1rem;
+            }
+
+            .ta-row-label {
+                padding: 1rem;
+                font-size: 0.95rem;
+            }
+
+            .ta-cell-a,
+            .ta-cell-b {
+                padding: 1rem;
+            }
+
+            .ta-thead-label,
+            .ta-thead-prog-a,
+            .ta-thead-prog-b,
+            .ta-thead-prog-b1,
+            .ta-thead-prog-b2 {
+                padding: 1rem;
+            }
+
+            .ta-btn-certify {
+                width: 80%;
+                font-size: 0.95rem;
+                padding: 0.8rem 1rem;
+            }
+
+            /* ── Final CTA ── */
+            .ta-final-cta-section {
+                min-height: auto;
+                padding: 60px 16px;
+            }
+
+            .ta-cta-left {
+                align-items: center;
+                text-align: center;
+            }
+
+            .ta-cta-paragraph {
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ta-row-1,
+            .ta-row-2,
+            .ta-row-2b {
+                font-size: 1.8rem;
+            }
+
+            .ta-pill-right,
+            .ta-pill-left {
+                width: 110px;
+                height: 40px;
+            }
+
+            .ta-impact-revamp-heading {
+                font-size: 1.4rem;
+            }
+
+            .ta-offer-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .ta-cta-heading-final {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* Mobile Responsive - Form */
         @media (max-width: 768px) {
             .form-popup-container {
                 padding: 2rem 1.5rem;
