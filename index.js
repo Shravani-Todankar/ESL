@@ -477,7 +477,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const storiesTimeline = gsap.timeline({
                 scrollTrigger: {
                     trigger: storiesSection,
-                    start: "top top",
+                    start: window.innerWidth <= 768 ? "center center" : "top top",
                     end: () => `+=${getMaxScroll()}`, // Exact scroll length - no extra spacing
                     pin: true,
                     pinSpacing: true,
@@ -500,7 +500,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (storyPrev && storyNext) {
                 let currentScroll = 0;
-                const cardWidth = 400 + 32;
+                const cardWidth = (storyCards[0] ? storyCards[0].offsetWidth : 400) + 32;
 
                 storyNext.addEventListener('click', () => {
                     currentScroll -= cardWidth;

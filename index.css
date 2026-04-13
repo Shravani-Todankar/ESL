@@ -1008,20 +1008,22 @@ body {
     }
 
     .stories-heading-container {
-        width: 250px;
+        width: 350px;
     }
 
     .stories-heading-container h2 {
-        font-size: 2rem !important;
+        font-size: 3rem !important;
     }
 
     .story-card {
-        width: 280px;
-        height: 420px;
+        /* width: 75vw;
+        max-width: 280px; */
+        height: auto;
     }
 
     .story-image {
-        height: 12rem;
+        height: auto;
+        aspect-ratio: 4/3;
     }
 
     .stories-nav-arrows {
@@ -1075,6 +1077,7 @@ body {
     .horizontal-scroll-section {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
+        gap: 1rem;
     }
 }
 
@@ -1232,6 +1235,7 @@ body {
     position: relative;
     border-radius: 1.5rem;
     background: transparent;
+    -webkit-perspective: 1000px;
     perspective: 1000px;
     cursor: pointer;
 }
@@ -1243,15 +1247,18 @@ body {
     min-height: 400px;
     text-align: left;
     transition: transform 0.8s;
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
 
 .eng-card:hover .eng-card-inner {
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
 /* Bottom to top flip for wide card */
 .eng-card-wide:hover .eng-card-inner {
+    -webkit-transform: rotateX(180deg);
     transform: rotateX(180deg);
 }
 
@@ -1262,6 +1269,7 @@ body {
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
     border-radius: 1.5rem;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -1270,12 +1278,14 @@ body {
 .eng-card-front {
     background: #1a1a1a;
     color: white;
+    z-index: 2;
 }
 
 .eng-card-back {
     border: 1px solid #6c32a841;
     background: linear-gradient(135deg, #efdeff 0%, #fffce3 100%);
     color: #1a1a1a;
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
     display: flex;
     align-items: center;
@@ -1285,6 +1295,7 @@ body {
 
 /* Bottom to top flip back side for wide card */
 .eng-card-wide .eng-card-back {
+    -webkit-transform: rotateX(180deg);
     transform: rotateX(180deg);
 }
 
@@ -1610,7 +1621,7 @@ a.eng-back-btn.eng-back-btn-fsl {
     }
 
     .overlay-side {
-        background: linear-gradient(to top, rgba(107, 33, 168, 0.95) 0%, rgba(107, 33, 168, 0.4) 60%, transparent 100%);
+        background: linear-gradient(to top, rgb(107 33 168 / 41%) 0%, rgb(107 33 168 / 17%) 60%, transparent 100%);
     }
 
     .eng-card-back {
@@ -1632,7 +1643,7 @@ a.eng-back-btn.eng-back-btn-fsl {
     }
 
     .eng-back-content h3.eng-back-content-fsl-head {
-        font-size: 1.15rem !important;
+        font-size: 1.12rem !important;
     }
 
     .eng-back-content p.eng-back-content-fsl-para {
@@ -1748,7 +1759,7 @@ a.eng-back-btn.eng-back-btn-fsl {
     }
 
     .ip-headline {
-        font-size: 1.8rem !important;
+        font-size: 1.78rem !important;
         line-height: 1.25;
     }
 
@@ -2152,7 +2163,7 @@ a.eng-back-btn.eng-back-btn-fsl {
     text-align: center;
     margin-bottom: 1.5rem;
     color: #000000;
-    text-transform: uppercase;
+    text-transform: capitalize;
     letter-spacing: 0.05em;
     font-size: 2.5rem;
     font-weight: 600;
@@ -2177,6 +2188,10 @@ a.eng-back-btn.eng-back-btn-fsl {
     .marquee-row-rtl,
     .marquee-row-ltr {
         gap: 2rem;
+    }
+
+    .partners-section .section-label {
+        font-size: 2rem !important;
     }
 }
 
@@ -3160,7 +3175,7 @@ a.eng-back-btn.eng-back-btn-fsl {
     }
 
     .ift-video-wrapper {
-        width: 100%;
+        width: 400px;
         aspect-ratio: 16 / 9;
         border-radius: 14px;
     }
@@ -3465,6 +3480,15 @@ footer p {
 @media (max-width: 768px) {
     .alliance-hero-heading {
         font-size: 2.5rem !important;
+    }
+
+    .alliance-hero-section {
+        height: 40vh;
+    }
+
+    .alliance-tags-wrapper {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -4202,6 +4226,10 @@ footer p {
         grid-template-columns: 1fr;
         gap: 1.2rem;
     }
+
+    .form-submit-btn {
+        width: 40%;
+    }
 }
 
 /* ===== PREMIUM FEATURE CARDS SECTION (TIMELINE ROADMAP DESIGN) ===== */
@@ -4828,7 +4856,7 @@ footer p {
     }
 
     .premium-features-title {
-        font-size: 1.7rem !important;
+        font-size: 2rem !important;
         letter-spacing: -1px;
     }
 
