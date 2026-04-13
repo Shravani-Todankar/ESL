@@ -1118,11 +1118,48 @@
       color: #6c32a8;
     }
 
+    .dept-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 40px 0 16px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 30px 0px;
+    }
+
+    .dept-heading::before,
+    .dept-heading::after {
+      content: '';
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, #e8ddf2, #1f0057a1);
+      border-radius: 2px;
+    }
+
+    .dept-heading::after {
+      background: linear-gradient(90deg, #1f0057a1, #e8ddf2);
+    }
+
+    .dept-star {
+      color: #e5a93e;
+      font-size: 14px;
+    }
+
+    .dept-heading:first-of-type {
+      margin-top: 0;
+    }
+
     /* Core team */
     .core-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 40px;
+      /* justify-items: center; */
     }
 
     .core-card {
@@ -1457,6 +1494,8 @@
 
     <div class="content-area">
       <div class="tab-panel active" id="panel-core"></div>
+      <div class="tab-panel" id="panel-departments"></div>
+      <div class="tab-panel" id="panel-projects"></div>
       <div class="tab-panel" id="panel-advisory"></div>
     </div>
 
@@ -2018,6 +2057,59 @@
       { name: 'Riddhima Guruji', designation: 'Category Head – Future Skills Lab', img: IMG.f2 },
     ];
 
+    const departments = [
+      {
+        name: 'Knowledge Centre Team',
+        members: [
+          { name: 'Tiara Prasad', designation: 'Sr. Manager - Knowledge Centre' },
+          { name: 'Vishal Shetty', designation: 'Sr. Manager - Knowledge Centre' },
+          { name: 'Swarnim Malik', designation: 'Manager, Knowledge Center' },
+          { name: 'Kanhaiya', designation: 'Knowledge Associate' },
+        ]
+      },
+      {
+        name: 'Marketing Team',
+        members: [
+          { name: 'Samruddhi Naroji', designation: 'Sr. Manager, Marketing & Communications' },
+          { name: 'Rayaan Sian Achrekar', designation: 'Marketing Manager' },
+          { name: 'Pinky Mehta', designation: 'Executive, Marketing' },
+        ]
+      },
+      {
+        name: 'Operations Team',
+        members: [
+          { name: 'Prapti Shamkuwar', designation: 'Operations Manager' },
+          { name: 'Vishal Vadhiyar', designation: 'Tech and Digital Manager' },
+          { name: 'Akash Naik', designation: 'Senior Facilitator Manager' },
+          { name: 'Omkar Sitaram Sadadekar', designation: 'STEM Coordinator' },
+        ]
+      },
+      {
+        name: 'Future Skills Lab Team',
+        members: [
+          { name: 'Vasudha Talwar', designation: 'Project Manager' },
+          { name: 'Sushrut Mahajan', designation: 'School Relationship Manager' },
+          { name: 'Ritu Nandmaher', designation: 'Project Coordinator, Career Darshak' },
+        ]
+      },
+    ];
+
+    const deptMemberCount = departments.reduce((sum, d) => sum + d.members.length, 0);
+
+    const projectTeam = [
+      { name: 'Shyna Gupta', designation: 'Manager, Digital Skills' },
+      { name: 'Shreya Bagde', designation: 'Project Manager' },
+      { name: 'Sayali Waghmare', designation: 'Project Manager' },
+      { name: 'Virajaji Naraganeni', designation: 'Project Manager' },
+      { name: 'Dnyaneshwar Maske', designation: 'Project Manager' },
+      { name: 'Prashant Gaikwad', designation: 'Project Manager' },
+      { name: 'Reshmi A R', designation: 'Program Manager' },
+      { name: 'Prajakta Taiwade', designation: 'Process & Project Manager' },
+      { name: 'Ravi Kumar', designation: 'Project Coordinator' },
+      { name: 'Mohd Imran', designation: 'Project Coordinator' },
+      { name: 'Md. Azharoddin Atahar Kazi', designation: 'Program Coordinator' },
+    ];
+
     const advisoryPanel = [
       { name: 'Dr. Bhalchandra Mungekar', role: 'Mentor', img: IMG.m1, bio: 'Dr. Bhalchandra Mungekar is an author, economist, educationist, social worker, and former Rajya Sabha member. He served as Vice-Chancellor of the University of Mumbai, held prestigious positions in the Planning Commission and Agricultural Price Commission, and chaired the UGC and the Indian Institute of Advanced Study, Shimla.' },
       { name: 'Nikhil Vora', role: 'Strategic Investor', img: IMG.m2, bio: "Nikhil Vora is the Founder & CEO of Sixth Sense Ventures, India's first consumer-focused domestic venture fund. He was formerly Managing Director and Head of Research at IDFC Securities and has advised companies such as Unilever, Aditya Birla Group, Marico, Godrej Group, NIIT, and Navneet Education. In the Asia Money Polls 2012, he was ranked India's No.1 analyst." },
@@ -2053,6 +2145,17 @@
       '<h2 class="group-heading">Core <span>Team</span></h2>' +
       '<div class="core-grid">' + coreTeam.map(coreCard).join('') + '</div>';
 
+    document.getElementById('panel-departments').innerHTML =
+      '<h2 class="group-heading">Our <span>Departments</span></h2>' +
+      departments.map(dept =>
+        '<h3 class="dept-heading"><span class="dept-star">✦</span> ' + dept.name + ' <span class="dept-star">✦</span></h3>' +
+        '<div class="core-grid">' + dept.members.map(coreCard).join('') + '</div>'
+      ).join('');
+
+    document.getElementById('panel-projects').innerHTML =
+      '<h2 class="group-heading">Project <span>Team</span></h2>' +
+      '<div class="core-grid">' + projectTeam.map(coreCard).join('') + '</div>';
+
     document.getElementById('panel-advisory').innerHTML =
       '<h2 class="group-heading">Advisory <span>Board</span></h2>' +
       '<div class="advisory-grid">' + advisoryPanel.map(advisoryCard).join('') + '</div>';
@@ -2060,6 +2163,8 @@
     const tabsEl = document.getElementById('mainTabs');
     [
       { key: 'core', label: 'Core Team', count: coreTeam.length },
+      { key: 'departments', label: 'Departments', count: deptMemberCount },
+      { key: 'projects', label: 'Projects', count: projectTeam.length },
       { key: 'advisory', label: 'Advisory Board', count: advisoryPanel.length },
     ].forEach(t => {
       const btn = document.createElement('button');
