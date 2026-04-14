@@ -1521,10 +1521,10 @@
         }
 
         .fsl-sp-hero-left {
-            text-align: center;
+            text-align: left;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
         }
 
         .fsl-sp-hero-left .fsl-sp-tagline {
@@ -1534,6 +1534,7 @@
             color: #1e1b4b;
             line-height: 1.55;
             margin-bottom: 20px;
+            text-align: left;
         }
 
         .fsl-sp-hero-left p {
@@ -1542,6 +1543,7 @@
             color: #4b5563;
             margin-bottom: 36px;
             font-family: 'Montserrat', sans-serif;
+            text-align: left
         }
 
         .fsl-sp-btn-primary {
@@ -1953,8 +1955,17 @@
                 margin-bottom: 40px;
             }
 
+            .fsl-sp-hero-left {
+                align-items: center;
+            }
+
             .fsl-sp-hero-left .fsl-sp-tagline {
                 font-size: 1.2rem;
+                text-align: center;
+            }
+
+            .fsl-sp-hero-left p {
+                text-align: center;
             }
 
             /* ── Alliance ── */
@@ -1985,6 +1996,7 @@
             .fsl-cta-button {
                 font-size: 0.95rem;
                 padding: 14px 24px;
+                align-self: center;
             }
 
             /* ── Form ── */
@@ -2550,57 +2562,57 @@
             </div>
 
             <div class="fsl-table-scroll-wrapper">
-            <table class="fsl-comparison-table">
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>Future-Skills Lab (FSL)</th>
-                        <th>Future-Skills Makerspace (FSM)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Ideal For</td>
-                        <td>Schools that are ready to differentiate</td>
-                        <td>Future-ready leader schools aiming for the highest impact</td>
-                    </tr>
-                    <tr>
-                        <td>Grades</td>
-                        <td>1–10</td>
-                        <td>1–10</td>
-                    </tr>
-                    <tr>
-                        <td>Physical Space</td>
-                        <td>800–1000 sq. ft.</td>
-                        <td>1200–1500 sq. ft.</td>
-                    </tr>
-                    <tr>
-                        <td>Learning Hours</td>
-                        <td>60–110 hours per year</td>
-                        <td>60–110 hours per year</td>
-                    </tr>
-                    <tr>
-                        <td>Core Offering</td>
-                        <td>17 Skill Pillars, CSL + Design Thinking + Entrepreneurship</td>
-                        <td>All FSL features plus Maker Space & Idea Mentorship</td>
-                    </tr>
-                    <tr>
-                        <td>Tech Integration</td>
-                        <td>Moderate</td>
-                        <td>Extensive</td>
-                    </tr>
-                    <tr>
-                        <td>Competency-based Assessment</td>
-                        <td>Skill Passport</td>
-                        <td>Skill Passport</td>
-                    </tr>
-                    <tr>
-                        <td>Student Experience</td>
-                        <td>Focused on building future-ready competencies and projects</td>
-                        <td>High-degree prototyping, real-world UN SDG alignment, and industry exposure</td>
-                    </tr>
-                </tbody>
-            </table>
+                <table class="fsl-comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Future-Skills Lab (FSL)</th>
+                            <th>Future-Skills Makerspace (FSM)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ideal For</td>
+                            <td>Schools that are ready to differentiate</td>
+                            <td>Future-ready leader schools aiming for the highest impact</td>
+                        </tr>
+                        <tr>
+                            <td>Grades</td>
+                            <td>1–10</td>
+                            <td>1–10</td>
+                        </tr>
+                        <tr>
+                            <td>Physical Space</td>
+                            <td>800–1000 sq. ft.</td>
+                            <td>1200–1500 sq. ft.</td>
+                        </tr>
+                        <tr>
+                            <td>Learning Hours</td>
+                            <td>60–110 hours per year</td>
+                            <td>60–110 hours per year</td>
+                        </tr>
+                        <tr>
+                            <td>Core Offering</td>
+                            <td>17 Skill Pillars, CSL + Design Thinking + Entrepreneurship</td>
+                            <td>All FSL features plus Maker Space & Idea Mentorship</td>
+                        </tr>
+                        <tr>
+                            <td>Tech Integration</td>
+                            <td>Moderate</td>
+                            <td>Extensive</td>
+                        </tr>
+                        <tr>
+                            <td>Competency-based Assessment</td>
+                            <td>Skill Passport</td>
+                            <td>Skill Passport</td>
+                        </tr>
+                        <tr>
+                            <td>Student Experience</td>
+                            <td>Focused on building future-ready competencies and projects</td>
+                            <td>High-degree prototyping, real-world UN SDG alignment, and industry exposure</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
