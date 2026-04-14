@@ -2343,17 +2343,95 @@
         }
 
         /* ── Toast Notification ── */
-        .enp-toast-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); z-index: 100000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
-        .enp-toast-overlay.active { opacity: 1; visibility: visible; }
-        .enp-toast-box { background: #fff; border-radius: 20px; padding: 40px 36px; max-width: 400px; width: 90%; text-align: center; transform: scale(0.8) translateY(20px); transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
-        .enp-toast-overlay.active .enp-toast-box { transform: scale(1) translateY(0); }
-        .enp-toast-icon { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 28px; }
-        .enp-toast-icon.success { background: linear-gradient(135deg, #efdeff 0%, #fffce3 100%); color: #6c32a8; }
-        .enp-toast-icon.error { background: #ffe0e0; color: #d32f2f; }
-        .enp-toast-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 700; color: #3d2549; margin-bottom: 8px; }
-        .enp-toast-msg { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; color: #666; line-height: 1.6; margin-bottom: 24px; }
-        .enp-toast-btn { padding: 12px 36px; border: none; border-radius: 12px; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #6c32a8; color: #fff; }
-        .enp-toast-btn:hover { background: #7c3aed; transform: translateY(-2px); }
+        .enp-toast-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            z-index: 100000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .enp-toast-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .enp-toast-box {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px 36px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            transform: scale(0.8) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .enp-toast-overlay.active .enp-toast-box {
+            transform: scale(1) translateY(0);
+        }
+
+        .enp-toast-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+
+        .enp-toast-icon.success {
+            background: linear-gradient(135deg, #efdeff 0%, #fffce3 100%);
+            color: #6c32a8;
+        }
+
+        .enp-toast-icon.error {
+            background: #ffe0e0;
+            color: #d32f2f;
+        }
+
+        .enp-toast-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #3d2549;
+            margin-bottom: 8px;
+        }
+
+        .enp-toast-msg {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .enp-toast-btn {
+            padding: 12px 36px;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #6c32a8;
+            color: #fff;
+        }
+
+        .enp-toast-btn:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 
@@ -2898,10 +2976,11 @@
 
             <!-- Upgrade Options -->
             <div class="til-upgrade-options">
-                <a href="#" class="til-upgrade-link">Implement <span class="highlight-orange">Composite Skills
+                <a href="csl.html" class="til-upgrade-link">Implement <span class="highlight-orange">Composite Skills
                         Lab</span></a>
                 <span class="til-upgrade-separator">|</span>
-                <a href="#" class="til-upgrade-link">Be a Future Skill Leader With <span class="highlight-orange">Future
+                <a href="fsl.html" class="til-upgrade-link">Be a Future Skill Leader With <span
+                        class="highlight-orange">Future
                         Skills Lab</span></a>
             </div>
         </div>
