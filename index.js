@@ -1,5 +1,18 @@
 
 /* ==========================================================
+   TOAST NOTIFICATION
+   ========================================================== */
+function showToast(type, title, msg) {
+    const toast = document.getElementById('enpToast');
+    document.getElementById('enpToastIcon').className = 'enp-toast-icon ' + type;
+    document.getElementById('enpToastIcon').innerHTML = type === 'success' ? '✓' : '✕';
+    document.getElementById('enpToastTitle').textContent = title;
+    document.getElementById('enpToastMsg').textContent = msg;
+    toast.classList.add('active');
+}
+function closeToast() { document.getElementById('enpToast').classList.remove('active'); }
+
+/* ==========================================================
    LOAD HEADER AND FOOTER
    ========================================================== */
 // Load Header
@@ -334,32 +347,39 @@ document.addEventListener('DOMContentLoaded', function () {
                 isValid = false;
             }
 
-            // If form is valid, submit
+            // If form is valid, submit via EmailJS
             if (isValid) {
-                // Get form data
-                const formData = {
-                    name: nameInput.value,
-                    represent: representSelect.value,
-                    schoolRole: schoolRoleSelect.value || '',
-                    designation: designationInput.value || '',
-                    email: emailInput.value,
-                    contact: contactInput.value
-                };
+                const btn = partnerForm.querySelector('.form-submit-btn');
+                btn.disabled = true;
+                btn.textContent = 'Sending...';
 
-                // Here you can add your form submission logic
-                console.log('Form submitted:', formData);
+                const name = nameInput.value;
+                const represent = representSelect.options[representSelect.selectedIndex].text;
+                const role = schoolRoleSelect.selectedIndex > 0 ? schoolRoleSelect.options[schoolRoleSelect.selectedIndex].text : 'N/A';
+                const desig = designationInput.value || 'N/A';
+                const email = emailInput.value;
+                const contact = contactInput.value;
 
-                // Show success message
-                alert('Thank you for your interest! We will get back to you soon.');
-
-                // Reset form and close popup
-                partnerForm.reset();
-                popup.classList.remove('active');
-                document.body.style.overflow = '';
-
-                // Hide conditional fields
-                schoolRoleGroup.style.display = 'none';
-                designationGroup.style.display = 'none';
+                emailjs.init('ZrIVKL_1zb380bnLM');
+                emailjs.send('service_2u7kfbl', 'template_022e9es', {
+                    subject: 'New Partner Inquiry from ' + name + ' - Homepage',
+                    header: 'New partner inquiry received from Homepage:',
+                    content: 'Name: ' + name + '\nI Represent: ' + represent + '\nRole: ' + role + '\nDesignation: ' + desig + '\nEmail: ' + email + '\nContact: ' + contact
+                }).then(function () {
+                    showToast('success', 'Thank You!', 'Your inquiry has been submitted successfully. We will get back to you soon.');
+                    partnerForm.reset();
+                    popup.classList.remove('active');
+                    document.body.style.overflow = '';
+                    schoolRoleGroup.style.display = 'none';
+                    designationGroup.style.display = 'none';
+                    btn.disabled = false;
+                    btn.textContent = 'Submit';
+                }, function (error) {
+                    showToast('error', 'Oops!', 'Something went wrong. Please try again.');
+                    console.error('EmailJS Error:', error);
+                    btn.disabled = false;
+                    btn.textContent = 'Submit';
+                });
             }
         });
     }

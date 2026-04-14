@@ -1451,9 +1451,20 @@
     </div>
 
     <!-- Footer will be loaded here -->
+    <!-- Toast Notification -->
+    <div class="enp-toast-overlay" id="enpToast">
+        <div class="enp-toast-box">
+            <div class="enp-toast-icon" id="enpToastIcon"></div>
+            <div class="enp-toast-title" id="enpToastTitle"></div>
+            <div class="enp-toast-msg" id="enpToastMsg"></div>
+            <button class="enp-toast-btn" onclick="closeToast()">Okay</button>
+        </div>
+    </div>
+
     <div id="footer-placeholder"></div>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="index.js"></script>
 </body>
 

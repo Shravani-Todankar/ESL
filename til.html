@@ -2341,6 +2341,19 @@
                 font-size: 0.95rem;
             }
         }
+
+        /* ── Toast Notification ── */
+        .enp-toast-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); z-index: 100000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .enp-toast-overlay.active { opacity: 1; visibility: visible; }
+        .enp-toast-box { background: #fff; border-radius: 20px; padding: 40px 36px; max-width: 400px; width: 90%; text-align: center; transform: scale(0.8) translateY(20px); transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+        .enp-toast-overlay.active .enp-toast-box { transform: scale(1) translateY(0); }
+        .enp-toast-icon { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 28px; }
+        .enp-toast-icon.success { background: linear-gradient(135deg, #efdeff 0%, #fffce3 100%); color: #6c32a8; }
+        .enp-toast-icon.error { background: #ffe0e0; color: #d32f2f; }
+        .enp-toast-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 700; color: #3d2549; margin-bottom: 8px; }
+        .enp-toast-msg { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; color: #666; line-height: 1.6; margin-bottom: 24px; }
+        .enp-toast-btn { padding: 12px 36px; border: none; border-radius: 12px; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #6c32a8; color: #fff; }
+        .enp-toast-btn:hover { background: #7c3aed; transform: translateY(-2px); }
     </style>
 </head>
 
@@ -2836,7 +2849,7 @@
                 <!-- Right Grid: Image -->
                 <div class="til-cta-right">
                     <div class="til-cta-image-wrapper">
-                        <img src="assets/til/CTA-TIL.jpeg" alt="Students in classroom" class="til-cta-image">
+                        <img src="assets/til/CTA-TIL.jpg" alt="Students in classroom" class="til-cta-image">
                     </div>
                 </div>
             </div>
@@ -2899,21 +2912,21 @@
         <div class="til-form-popup">
             <button class="til-form-close" onclick="closeTilForm()">&times;</button>
             <h2 class="til-form-heading">Book a Session</h2>
-            <form class="til-form" onsubmit="event.preventDefault();">
+            <form class="til-form" id="tilForm">
                 <div class="til-form-row">
                     <div class="til-form-group">
                         <label>Name</label>
-                        <input type="text" placeholder="Your full name" required>
+                        <input type="text" id="tilName" placeholder="Your full name" required>
                     </div>
                     <div class="til-form-group">
                         <label>School / Institute</label>
-                        <input type="text" placeholder="School or institute name" required>
+                        <input type="text" id="tilSchool" placeholder="School or institute name" required>
                     </div>
                 </div>
                 <div class="til-form-row">
                     <div class="til-form-group">
                         <label>Designation</label>
-                        <select required>
+                        <select id="tilDesignation" required>
                             <option value="" disabled selected>Select your role</option>
                             <option value="Teacher">Teacher</option>
                             <option value="Principal">Principal</option>
@@ -2922,21 +2935,32 @@
                     </div>
                     <div class="til-form-group">
                         <label>Email ID</label>
-                        <input type="email" placeholder="your@email.com" required>
+                        <input type="email" id="tilEmail" placeholder="your@email.com" required>
                     </div>
                 </div>
                 <div class="til-form-group">
                     <label>Contact Number</label>
-                    <input type="tel" placeholder="Your phone number" required>
+                    <input type="tel" id="tilContact" placeholder="Your phone number" required>
                 </div>
                 <button type="submit" class="til-form-submit">Submit</button>
             </form>
         </div>
     </div>
 
+    <!-- Toast Notification -->
+    <div class="enp-toast-overlay" id="enpToast">
+        <div class="enp-toast-box">
+            <div class="enp-toast-icon" id="enpToastIcon"></div>
+            <div class="enp-toast-title" id="enpToastTitle"></div>
+            <div class="enp-toast-msg" id="enpToastMsg"></div>
+            <button class="enp-toast-btn" onclick="closeToast()">Okay</button>
+        </div>
+    </div>
+
     <!-- Footer will be loaded here -->
     <div id="footer-placeholder"></div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
         /* ==========================================================
            LOAD HEADER AND FOOTER
@@ -3138,9 +3162,51 @@
         /* ==========================================================
            TIL FORM POPUP
            ========================================================== */
+        function showToast(type, title, msg) {
+            const toast = document.getElementById('enpToast');
+            document.getElementById('enpToastIcon').className = 'enp-toast-icon ' + type;
+            document.getElementById('enpToastIcon').innerHTML = type === 'success' ? '✓' : '✕';
+            document.getElementById('enpToastTitle').textContent = title;
+            document.getElementById('enpToastMsg').textContent = msg;
+            toast.classList.add('active');
+        }
+        function closeToast() { document.getElementById('enpToast').classList.remove('active'); }
+
+        emailjs.init('ZrIVKL_1zb380bnLM');
+
         function openTilForm() { document.getElementById('tilFormOverlay').classList.add('active'); }
         function closeTilForm() { document.getElementById('tilFormOverlay').classList.remove('active'); }
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeTilForm(); });
+
+        document.getElementById('tilForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = this.querySelector('.til-form-submit');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+
+            const name = document.getElementById('tilName').value;
+            const school = document.getElementById('tilSchool').value;
+            const designation = document.getElementById('tilDesignation').value;
+            const email = document.getElementById('tilEmail').value;
+            const contact = document.getElementById('tilContact').value;
+
+            emailjs.send('service_2u7kfbl', 'template_022e9es', {
+                subject: 'New Lab Inquiry from ' + name + ' - Tech Innovation Labs',
+                header: 'New inquiry received from Tech Innovation Labs page:',
+                content: 'Name: ' + name + '\nSchool/Institute: ' + school + '\nDesignation: ' + designation + '\nEmail: ' + email + '\nContact: ' + contact
+            }).then(function () {
+                showToast('success', 'Thank You!', 'Your inquiry has been submitted successfully. We will get back to you soon.');
+                document.getElementById('tilForm').reset();
+                closeTilForm();
+                btn.disabled = false;
+                btn.textContent = 'Submit';
+            }, function (error) {
+                showToast('error', 'Oops!', 'Something went wrong. Please try again.');
+                console.error('EmailJS Error:', error);
+                btn.disabled = false;
+                btn.textContent = 'Submit';
+            });
+        });
 
         /* ==========================================================
            GSAP ANIMATIONS FOR HEADER

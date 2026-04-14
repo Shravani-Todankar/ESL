@@ -2243,6 +2243,97 @@
                 font-size: 1.2rem;
             }
         }
+
+        /* ── Toast Notification ── */
+        .enp-toast-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            z-index: 100000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .enp-toast-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .enp-toast-box {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px 36px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            transform: scale(0.8) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .enp-toast-overlay.active .enp-toast-box {
+            transform: scale(1) translateY(0);
+        }
+
+        .enp-toast-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+
+        .enp-toast-icon.success {
+            background: linear-gradient(135deg, #efdeff 0%, #fffce3 100%);
+            color: #6c32a8;
+        }
+
+        .enp-toast-icon.error {
+            background: #ffe0e0;
+            color: #d32f2f;
+        }
+
+        .enp-toast-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #3d2549;
+            margin-bottom: 8px;
+        }
+
+        .enp-toast-msg {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .enp-toast-btn {
+            padding: 12px 36px;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #6c32a8;
+            color: #fff;
+        }
+
+        .enp-toast-btn:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 
@@ -2755,21 +2846,21 @@
         <div class="fsl-form-popup">
             <button class="fsl-form-close" onclick="closeFslForm()">&times;</button>
             <h2 class="fsl-form-heading">Book a Session</h2>
-            <form class="fsl-form" onsubmit="event.preventDefault();">
+            <form class="fsl-form" id="fslForm">
                 <div class="fsl-form-row">
                     <div class="fsl-form-group">
                         <label>Name</label>
-                        <input type="text" placeholder="Your full name" required>
+                        <input type="text" id="fslName" placeholder="Your full name" required>
                     </div>
                     <div class="fsl-form-group">
                         <label>School / Institute</label>
-                        <input type="text" placeholder="School or institute name" required>
+                        <input type="text" id="fslSchool" placeholder="School or institute name" required>
                     </div>
                 </div>
                 <div class="fsl-form-row">
                     <div class="fsl-form-group">
                         <label>Designation</label>
-                        <select required>
+                        <select id="fslDesignation" required>
                             <option value="" disabled selected>Select your role</option>
                             <option value="Teacher">Teacher</option>
                             <option value="Principal">Principal</option>
@@ -2778,15 +2869,25 @@
                     </div>
                     <div class="fsl-form-group">
                         <label>Email ID</label>
-                        <input type="email" placeholder="your@email.com" required>
+                        <input type="email" id="fslEmail" placeholder="your@email.com" required>
                     </div>
                 </div>
                 <div class="fsl-form-group">
                     <label>Contact Number</label>
-                    <input type="tel" placeholder="Your phone number" required>
+                    <input type="tel" id="fslContact" placeholder="Your phone number" required>
                 </div>
                 <button type="submit" class="fsl-form-submit">Submit</button>
             </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="enp-toast-overlay" id="enpToast">
+        <div class="enp-toast-box">
+            <div class="enp-toast-icon" id="enpToastIcon"></div>
+            <div class="enp-toast-title" id="enpToastTitle"></div>
+            <div class="enp-toast-msg" id="enpToastMsg"></div>
+            <button class="enp-toast-btn" onclick="closeToast()">Okay</button>
         </div>
     </div>
 
@@ -2795,6 +2896,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <script>
         /* ==========================================================
@@ -3001,8 +3103,29 @@
         })();
 
         /* ==========================================================
+           TOAST NOTIFICATION
+           ========================================================== */
+        function showToast(type, title, msg) {
+            const toast = document.getElementById('enpToast');
+            const icon = document.getElementById('enpToastIcon');
+            const titleEl = document.getElementById('enpToastTitle');
+            const msgEl = document.getElementById('enpToastMsg');
+            icon.className = 'enp-toast-icon ' + type;
+            icon.innerHTML = type === 'success' ? '✓' : '✕';
+            titleEl.textContent = title;
+            msgEl.textContent = msg;
+            toast.classList.add('active');
+        }
+
+        function closeToast() {
+            document.getElementById('enpToast').classList.remove('active');
+        }
+
+        /* ==========================================================
            FSL FORM POPUP
            ========================================================== */
+        emailjs.init('ZrIVKL_1zb380bnLM');
+
         function openFslForm() {
             document.getElementById('fslFormOverlay').classList.add('active');
         }
@@ -3013,6 +3136,36 @@
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeFslForm();
+        });
+
+        document.getElementById('fslForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = this.querySelector('.fsl-form-submit');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+
+            const name = document.getElementById('fslName').value;
+            const school = document.getElementById('fslSchool').value;
+            const designation = document.getElementById('fslDesignation').value;
+            const email = document.getElementById('fslEmail').value;
+            const contact = document.getElementById('fslContact').value;
+
+            emailjs.send('service_2u7kfbl', 'template_022e9es', {
+                subject: 'New Lab Inquiry from ' + name + ' - Future Skills Labs',
+                header: 'New inquiry received from Future Skills Labs page:',
+                content: 'Name: ' + name + '\nSchool/Institute: ' + school + '\nDesignation: ' + designation + '\nEmail: ' + email + '\nContact: ' + contact
+            }).then(function () {
+                showToast('success', 'Thank You!', 'Your inquiry has been submitted successfully. We will get back to you soon.');
+                document.getElementById('fslForm').reset();
+                closeFslForm();
+                btn.disabled = false;
+                btn.textContent = 'Submit';
+            }, function (error) {
+                showToast('error', 'Oops!', 'Something went wrong. Please try again.');
+                console.error('EmailJS Error:', error);
+                btn.disabled = false;
+                btn.textContent = 'Submit';
+            });
         });
 
         /* ==========================================================

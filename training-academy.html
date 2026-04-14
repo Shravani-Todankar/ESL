@@ -1569,6 +1569,7 @@
            MOBILE RESPONSIVE
            ══════════════════════════════════════════════════════════ */
         @media (max-width: 768px) {
+
             /* ── Hero Section ── */
             .ta-hero-section {
                 min-height: 70vh;
@@ -1598,11 +1599,25 @@
                 font-size: 1.2rem;
             }
 
-            .ta-sparkle-1 { font-size: 1rem; }
-            .ta-sparkle-2 { font-size: 0.7rem; }
-            .ta-sparkle-3 { font-size: 0.9rem; }
-            .ta-sparkle-4 { font-size: 0.7rem; }
-            .ta-sparkle-5 { font-size: 0.6rem; }
+            .ta-sparkle-1 {
+                font-size: 1rem;
+            }
+
+            .ta-sparkle-2 {
+                font-size: 0.7rem;
+            }
+
+            .ta-sparkle-3 {
+                font-size: 0.9rem;
+            }
+
+            .ta-sparkle-4 {
+                font-size: 0.7rem;
+            }
+
+            .ta-sparkle-5 {
+                font-size: 0.6rem;
+            }
 
             .ta-description p {
                 font-size: 14px;
@@ -1751,6 +1766,7 @@
         }
 
         @media (max-width: 480px) {
+
             .ta-row-1,
             .ta-row-2,
             .ta-row-2b {
@@ -1808,6 +1824,19 @@
                 width: 100%;
             }
         }
+
+        /* ── Toast Notification ── */
+        .enp-toast-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); z-index: 100000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .enp-toast-overlay.active { opacity: 1; visibility: visible; }
+        .enp-toast-box { background: #fff; border-radius: 20px; padding: 40px 36px; max-width: 400px; width: 90%; text-align: center; transform: scale(0.8) translateY(20px); transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+        .enp-toast-overlay.active .enp-toast-box { transform: scale(1) translateY(0); }
+        .enp-toast-icon { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 28px; }
+        .enp-toast-icon.success { background: linear-gradient(135deg, #efdeff 0%, #fffce3 100%); color: #6c32a8; }
+        .enp-toast-icon.error { background: #ffe0e0; color: #d32f2f; }
+        .enp-toast-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 700; color: #3d2549; margin-bottom: 8px; }
+        .enp-toast-msg { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; color: #666; line-height: 1.6; margin-bottom: 24px; }
+        .enp-toast-btn { padding: 12px 36px; border: none; border-radius: 12px; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; background: #6c32a8; color: #fff; }
+        .enp-toast-btn:hover { background: #7c3aed; transform: translateY(-2px); }
     </style>
 </head>
 
@@ -2149,8 +2178,7 @@
             <div class="ta-cta-grid">
                 <!-- Left Grid: Heading, Paragraph and Button -->
                 <div class="ta-cta-left">
-                    <h2 class="ta-cta-heading-final">Are you an Aspiring Educator, Trainer or Facilitator willing to
-                        upskill?</h2>
+                    <h2 class="ta-cta-heading-final">Become a Certified Future-Ready Educator</h2>
                     <p class="ta-cta-paragraph">
                         Build Design Thinking or STEM skills, get certified, and develop the confidence to lead
                         future-ready education/learners.
@@ -2169,6 +2197,16 @@
             </div>
         </div>
     </section>
+
+    <!-- Toast Notification -->
+    <div class="enp-toast-overlay" id="enpToast">
+        <div class="enp-toast-box">
+            <div class="enp-toast-icon" id="enpToastIcon"></div>
+            <div class="enp-toast-title" id="enpToastTitle"></div>
+            <div class="enp-toast-msg" id="enpToastMsg"></div>
+            <button class="enp-toast-btn" onclick="closeToast()">Okay</button>
+        </div>
+    </div>
 
     <!-- Footer will be loaded here -->
     <div id="footer-placeholder"></div>
@@ -2241,7 +2279,20 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
+        function showToast(type, title, msg) {
+            const toast = document.getElementById('enpToast');
+            document.getElementById('enpToastIcon').className = 'enp-toast-icon ' + type;
+            document.getElementById('enpToastIcon').innerHTML = type === 'success' ? '✓' : '✕';
+            document.getElementById('enpToastTitle').textContent = title;
+            document.getElementById('enpToastMsg').textContent = msg;
+            toast.classList.add('active');
+        }
+        function closeToast() { document.getElementById('enpToast').classList.remove('active'); }
+
+        emailjs.init('ZrIVKL_1zb380bnLM');
+
         /* ==========================================================
            LOAD HEADER AND FOOTER
            ========================================================== */
@@ -2634,11 +2685,35 @@
                     });
 
                     if (isValid) {
-                        // Here you would typically send the form data to your server
-                        console.log('Form submitted successfully');
-                        alert('Thank you for your interest! We will get back to you soon.');
-                        closeEducatorPopup();
-                        educatorForm.reset();
+                        const btn = educatorForm.querySelector('.form-submit-btn');
+                        btn.disabled = true;
+                        btn.textContent = 'Sending...';
+
+                        const name = document.getElementById('educatorName').value;
+                        const email = document.getElementById('educatorEmail').value;
+                        const phone = document.getElementById('educatorPhone').value;
+                        const roleEl = document.getElementById('educatorRole');
+                        const role = roleEl.options[roleEl.selectedIndex].text;
+                        const interestEl = document.getElementById('educatorInterest');
+                        const interest = interestEl.options[interestEl.selectedIndex].text;
+                        const message = document.getElementById('educatorMessage').value;
+
+                        emailjs.send('service_2u7kfbl', 'template_022e9es', {
+                            subject: 'New Training Academy Inquiry from ' + name,
+                            header: 'New inquiry received from Training Academy page:',
+                            content: 'Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\nRole: ' + role + '\nInterest: ' + interest + '\nMessage: ' + message
+                        }).then(function () {
+                            showToast('success', 'Thank You!', 'Your inquiry has been submitted successfully. We will get back to you soon.');
+                            closeEducatorPopup();
+                            educatorForm.reset();
+                            btn.disabled = false;
+                            btn.textContent = 'Get Started →';
+                        }, function (error) {
+                            showToast('error', 'Oops!', 'Something went wrong. Please try again.');
+                            console.error('EmailJS Error:', error);
+                            btn.disabled = false;
+                            btn.textContent = 'Get Started →';
+                        });
                     }
                 });
 
