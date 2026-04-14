@@ -832,19 +832,86 @@
             text-align: justify;
         }
 
+        /* ── FSL Carousel Navigation Arrows ── */
+        .fsl-carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid #6c32a830;
+            background: #ffffffee;
+            color: #6c32a8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .fsl-carousel-arrow:hover {
+            background: #6c32a8;
+            color: #fff;
+            border-color: #6c32a8;
+            box-shadow: 0 6px 24px rgba(108, 50, 168, 0.3);
+        }
+
+        .fsl-carousel-prev {
+            left: -15px;
+        }
+
+        .fsl-carousel-next {
+            right: -15px;
+        }
+
+        /* ── FSL Carousel Grab Cursor ── */
+        .fsl-carousel-track {
+            cursor: grab;
+        }
+
+        .fsl-carousel-track.fsl-grabbing {
+            cursor: grabbing;
+        }
+
+        .fsl-carousel-track.fsl-grabbing * {
+            pointer-events: none;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .fsl-carousel-section {
                 padding: 60px 20px;
             }
 
+            .fsl-carousel-wrapper {
+                overflow: hidden;
+                justify-content: flex-start;
+            }
+
             .fsl-carousel-card {
-                min-width: 320px;
+                min-width: 280px;
+                width: 280px;
                 height: 450px;
             }
 
             .fsl-card-title {
                 font-size: 1.4rem;
+            }
+
+            .fsl-carousel-arrow {
+                width: 40px;
+                height: 40px;
+            }
+
+            .fsl-carousel-prev {
+                left: 4px;
+            }
+
+            .fsl-carousel-next {
+                right: 4px;
             }
         }
 
@@ -1453,6 +1520,13 @@
             margin-bottom: 60px;
         }
 
+        .fsl-sp-hero-left {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .fsl-sp-hero-left .fsl-sp-tagline {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.5rem;
@@ -1741,7 +1815,420 @@
 
         @media(max-width: 560px) {
             .fsl-sp-features-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* ══════════════════════════════════════════════
+           FSL MOBILE RESPONSIVE — 768px
+           ══════════════════════════════════════════════ */
+        @media (max-width: 768px) {
+
+            /* ── Hero ── */
+            .fsl-hero-section {
+                min-height: auto;
+                padding: 100px 16px 50px;
+            }
+
+            .fsl-top-section {
+                margin-top: 10px;
+                gap: 16px;
+            }
+
+            .fsl-bottom-section {
+                gap: 16px;
+            }
+
+            .fsl-row-1 {
+                font-size: 2rem;
+                margin-left: 0;
+                letter-spacing: -0.5px;
+            }
+
+            .fsl-row-2 {
+                font-size: 2.2rem;
+                margin-left: 0;
+                letter-spacing: -0.5px;
+            }
+
+            .fsl-row-3 {
+                font-size: 2.2rem;
+                letter-spacing: -0.5px;
+            }
+
+            .fsl-row-4 {
+                font-size: 2rem;
+                letter-spacing: -0.5px;
+            }
+
+            .fsl-pill-right {
+                position: static;
+                width: 140px;
+                height: 55px;
+            }
+
+            .fsl-pill-left {
+                width: 140px;
+                height: 55px;
+            }
+
+            .fsl-sparkle-1 {
+                font-size: 1.2rem;
+            }
+
+            .fsl-sparkle-2 {
+                font-size: 0.7rem;
+            }
+
+            .fsl-sparkle-3 {
+                font-size: 1rem;
+            }
+
+            .fsl-sparkle-4 {
+                font-size: 0.8rem;
+            }
+
+            .fsl-sparkle-5 {
+                font-size: 0.7rem;
+            }
+
+            .fsl-subtext .fsl-s1 {
+                font-size: 14px;
+            }
+
+            .fsl-hero-explore-btn {
+                padding: 12px 28px;
+                font-size: 0.9rem;
+            }
+
+            /* ── Video ── */
+            .fsl-video-section {
+                padding: 40px 16px;
+                min-height: auto;
+            }
+
+            .fsl-video-wrapper {
+                border-radius: 12px;
+            }
+
+            /* ── Carousel ── */
+            .fsl-carousel-heading {
+                font-size: 2rem;
+                letter-spacing: -1px;
+            }
+
+            .fsl-carousel-desc {
+                font-size: 0.95rem;
+            }
+
+            .fsl-carousel-header {
+                margin-bottom: 30px;
+            }
+
+            /* ── Table ── */
+            .fsl-table-heading {
+                font-size: 2rem;
+                letter-spacing: -1px;
+            }
+
+            .fsl-table-desc {
+                font-size: 0.95rem;
+            }
+
+            .fsl-table-scroll-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .fsl-table-scroll-wrapper .fsl-comparison-table {
+                min-width: 600px;
+            }
+
+            /* ── Skill Passport ── */
+            .fsl-sp-section {
+                padding: 60px 16px;
+            }
+
+            .fsl-sp-header {
+                margin-bottom: 40px;
+            }
+
+            .fsl-sp-hero-left .fsl-sp-tagline {
+                font-size: 1.2rem;
+            }
+
+            /* ── Alliance ── */
+            .fsl-alliance-heading {
+                font-size: 24px;
+            }
+
+            .fsl-alliance-body-text {
+                font-size: 12.5px;
+            }
+
+            /* ── Final CTA ── */
+            .fsl-final-cta-section {
+                min-height: auto;
+                padding: 60px 16px;
+            }
+
+            .fsl-cta-heading-final {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+
+            .fsl-cta-paragraph {
+                font-size: 0.95rem;
+                text-align: center;
+            }
+
+            .fsl-cta-button {
+                font-size: 0.95rem;
+                padding: 14px 24px;
+            }
+
+            /* ── Form ── */
+            .fsl-form-submit {
+                width: 100%;
+            }
+
+            .fsl-cta-grid {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* ══════════════════════════════════════════════
+           FSL MOBILE RESPONSIVE — 480px
+           ══════════════════════════════════════════════ */
+        @media (max-width: 480px) {
+
+            /* ── Hero ── */
+            .fsl-hero-section {
+                padding: 80px 12px 40px;
+            }
+
+            .fsl-row-1,
+            .fsl-row-4 {
+                font-size: 1.6rem;
+            }
+
+            .fsl-row-2,
+            .fsl-row-3 {
+                font-size: 1.8rem;
+            }
+
+            .fsl-pill-right,
+            .fsl-pill-left {
+                width: 110px;
+                height: 45px;
+            }
+
+            .fsl-subtext {
+                margin-top: 30px;
+            }
+
+            .fsl-subtext .fsl-s1 {
+                font-size: 12px;
+            }
+
+            /* ── Video ── */
+            .fsl-video-section {
+                padding: 30px 12px;
+            }
+
+            /* ── Tour ── */
+            .fsl-tour-section {
+                padding: 40px 12px;
+            }
+
+            .fsl-tour-heading {
+                font-size: 1.6rem;
+            }
+
+            .fsl-tour-heading .tour-highlight {
+                font-size: 2.2rem;
+            }
+
+            /* ── Path ── */
+            .fsl-path-section {
+                padding: 40px 12px;
+            }
+
+            .fsl-path-heading {
+                font-size: 1.8rem;
+            }
+
+            .fsl-path-text {
+                font-size: 0.9rem;
+            }
+
+            .fsl-path-image {
+                height: 200px;
+            }
+
+            /* ── Grid1 ── */
+            .fsl-path-section1 {
+                padding: 40px 12px;
+            }
+
+            .fsl-path-heading1 {
+                font-size: 1.8rem;
+                margin-bottom: 30px;
+            }
+
+            .fsl-path-heading1 .matter-highlight1 {
+                font-size: 2.2rem;
+            }
+
+            .fsl-path-text1 {
+                font-size: 0.9rem;
+            }
+
+            .fsl-path-image1 {
+                height: 200px;
+            }
+
+            /* ── Carousel ── */
+            .fsl-carousel-section {
+                padding: 40px 12px;
+            }
+
+            .fsl-carousel-heading {
+                font-size: 1.6rem;
+            }
+
+            .fsl-carousel-desc {
+                font-size: 0.85rem;
+            }
+
+            .fsl-carousel-card {
+                min-width: 280px;
+                width: 280px;
+                height: 420px;
+                padding: 16px;
+            }
+
+            .fsl-card-image {
+                height: 180px;
+            }
+
+            .fsl-card-content {
+                padding: 20px;
+            }
+
+            .fsl-card-title {
+                font-size: 1.15rem;
+            }
+
+            .fsl-carousel-arrow {
+                width: 36px;
+                height: 36px;
+            }
+
+            /* ── Table ── */
+            .fsl-table-section {
+                padding: 40px 12px;
+            }
+
+            .fsl-table-heading {
+                font-size: 1.5rem;
+            }
+
+            .fsl-table-desc {
+                font-size: 0.85rem;
+            }
+
+            .fsl-comparison-table thead th {
+                padding: 12px 8px;
+                font-size: 0.75rem;
+            }
+
+            .fsl-comparison-table tbody td {
+                padding: 10px 8px;
+                font-size: 0.75rem;
+            }
+
+            /* ── Skill Passport ── */
+            .fsl-sp-section {
+                padding: 40px 12px;
+            }
+
+            .fsl-sp-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .fsl-sp-header p {
+                font-size: 14px;
+            }
+
+            .fsl-sp-hero-left .fsl-sp-tagline {
+                font-size: 1.1rem;
+            }
+
+            .fsl-sp-hero-left p {
+                font-size: 13px;
+            }
+
+            .fsl-sp-stats-row {
+                gap: 16px;
+            }
+
+            .fsl-sp-stat-item .fsl-sp-num {
+                font-size: 22px;
+            }
+
+            .fsl-sp-section-title {
+                font-size: 1.2rem;
+                margin-bottom: 24px;
+            }
+
+            .fsl-sp-feat-card {
+                padding: 22px 18px;
+            }
+
+            /* ── Alliance ── */
+            .fsl-alliance-left-panel {
+                padding: 36px 20px;
+            }
+
+            .fsl-alliance-right-panel {
+                padding: 36px 20px 48px;
+            }
+
+            .fsl-alliance-heading {
+                font-size: 22px;
+            }
+
+            .fsl-alliance-body-text {
+                font-size: 12px;
+            }
+
+            /* ── Final CTA ── */
+            .fsl-final-cta-section {
+                padding: 40px 12px;
+            }
+
+            .fsl-final-cta-container {
+                padding: 30px 16px;
+            }
+
+            .fsl-cta-heading-final {
+                font-size: 1.4rem;
+            }
+
+            .fsl-cta-paragraph {
+                font-size: 0.85rem;
+            }
+
+            /* ── Form ── */
+            .fsl-form-popup {
+                padding: 22px 14px;
+            }
+
+            .fsl-form-heading {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -1917,6 +2404,18 @@
             </div>
 
             <div class="fsl-carousel-wrapper">
+                <button class="fsl-carousel-arrow fsl-carousel-prev" id="fslCarouselPrev" aria-label="Previous">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24"
+                        height="24">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                    </svg>
+                </button>
+                <button class="fsl-carousel-arrow fsl-carousel-next" id="fslCarouselNext" aria-label="Next">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24"
+                        height="24">
+                        <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+                    </svg>
+                </button>
                 <div class="fsl-carousel-track" id="fslCarouselTrack">
                     <!-- Card 1 -->
                     <div class="fsl-carousel-card">
@@ -2050,6 +2549,7 @@
                 <p class="fsl-table-desc">Tailored to meet your objectives & grow when you're ready!</p>
             </div>
 
+            <div class="fsl-table-scroll-wrapper">
             <table class="fsl-comparison-table">
                 <thead>
                     <tr>
@@ -2101,6 +2601,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
         </div>
     </section>
 
@@ -2604,6 +3105,8 @@
            ========================================================== */
         document.addEventListener('DOMContentLoaded', () => {
             const track = document.getElementById('fslCarouselTrack');
+            const prevBtn = document.getElementById('fslCarouselPrev');
+            const nextBtn = document.getElementById('fslCarouselNext');
 
             if (!track) return;
 
@@ -2617,7 +3120,11 @@
             });
 
             let currentIndex = 0;
-            const cardWidth = 340 + 20; // card width + gap
+            const gap = 20;
+            function getCardWidth() {
+                const card = track.querySelector('.fsl-carousel-card');
+                return card ? card.offsetWidth + gap : 360;
+            }
             let isTransitioning = false;
 
             function updateCarousel(smooth = true) {
@@ -2626,43 +3133,126 @@
                 } else {
                     track.style.transition = 'none';
                 }
-                const offset = -currentIndex * cardWidth;
+                const cardWidth = getCardWidth();
+                const wrapperWidth = track.parentElement.offsetWidth;
+                const centerOffset = (wrapperWidth - cardWidth + gap) / 2;
+                const offset = -currentIndex * cardWidth + centerOffset;
                 track.style.transform = `translateX(${offset}px)`;
+            }
+
+            function goNext() {
+                if (isTransitioning) return;
+                isTransitioning = true;
+                currentIndex++;
+                updateCarousel();
+            }
+
+            function goPrev() {
+                if (isTransitioning) return;
+                if (currentIndex <= 0) {
+                    // Jump to end of original set instantly, then animate back
+                    currentIndex = totalSlides;
+                    updateCarousel(false);
+                    // Force reflow
+                    track.offsetHeight;
+                    isTransitioning = true;
+                    currentIndex--;
+                    updateCarousel();
+                } else {
+                    isTransitioning = true;
+                    currentIndex--;
+                    updateCarousel();
+                }
             }
 
             function handleTransitionEnd() {
                 // When we reach the cloned set, instantly jump back to the start
                 if (currentIndex >= totalSlides) {
-                    track.style.transition = 'none';
                     currentIndex = 0;
-                    track.style.transform = `translateX(0px)`;
+                    updateCarousel(false);
                 }
                 isTransitioning = false;
             }
 
             track.addEventListener('transitionend', handleTransitionEnd);
 
-            // Auto-play carousel every 3 seconds
-            let autoPlayInterval = setInterval(() => {
-                if (isTransitioning) return;
-                isTransitioning = true;
-                currentIndex++;
-                updateCarousel();
-            }, 1800);
+            // Arrow buttons
+            if (prevBtn) prevBtn.addEventListener('click', () => { resetAutoPlay(); goPrev(); });
+            if (nextBtn) nextBtn.addEventListener('click', () => { resetAutoPlay(); goNext(); });
+
+            // Center first card on load
+            updateCarousel(false);
+
+            // Auto-play carousel
+            function startAutoPlay() {
+                return setInterval(() => { goNext(); }, 3000);
+            }
+
+            let autoPlayInterval = startAutoPlay();
+
+            function resetAutoPlay() {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = startAutoPlay();
+            }
 
             // Pause autoplay on hover
-            track.addEventListener('mouseenter', () => {
-                clearInterval(autoPlayInterval);
-            });
+            track.addEventListener('mouseenter', () => { clearInterval(autoPlayInterval); });
+            track.addEventListener('mouseleave', () => { autoPlayInterval = startAutoPlay(); });
 
-            track.addEventListener('mouseleave', () => {
-                autoPlayInterval = setInterval(() => {
-                    if (isTransitioning) return;
-                    isTransitioning = true;
-                    currentIndex++;
+            // ── Grab / Drag functionality ──
+            let isDragging = false;
+            let startX = 0;
+            let dragOffset = 0;
+            let baseTranslate = 0;
+
+            function getTranslateX() {
+                const style = window.getComputedStyle(track);
+                const matrix = new DOMMatrix(style.transform);
+                return matrix.m41;
+            }
+
+            function onDragStart(x) {
+                if (isTransitioning) return;
+                isDragging = true;
+                startX = x;
+                baseTranslate = getTranslateX();
+                track.style.transition = 'none';
+                track.classList.add('fsl-grabbing');
+                clearInterval(autoPlayInterval);
+            }
+
+            function onDragMove(x) {
+                if (!isDragging) return;
+                dragOffset = x - startX;
+                track.style.transform = `translateX(${baseTranslate + dragOffset}px)`;
+            }
+
+            function onDragEnd() {
+                if (!isDragging) return;
+                isDragging = false;
+                track.classList.remove('fsl-grabbing');
+
+                const threshold = getCardWidth() / 4;
+                if (dragOffset < -threshold) {
+                    goNext();
+                } else if (dragOffset > threshold) {
+                    goPrev();
+                } else {
                     updateCarousel();
-                }, 1800);
-            });
+                }
+                dragOffset = 0;
+                autoPlayInterval = startAutoPlay();
+            }
+
+            // Mouse events
+            track.addEventListener('mousedown', (e) => { e.preventDefault(); onDragStart(e.clientX); });
+            window.addEventListener('mousemove', (e) => { onDragMove(e.clientX); });
+            window.addEventListener('mouseup', onDragEnd);
+
+            // Touch events
+            track.addEventListener('touchstart', (e) => { onDragStart(e.touches[0].clientX); }, { passive: true });
+            track.addEventListener('touchmove', (e) => { onDragMove(e.touches[0].clientX); }, { passive: true });
+            track.addEventListener('touchend', onDragEnd);
 
             // Initialize
             updateCarousel(false);

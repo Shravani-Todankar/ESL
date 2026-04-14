@@ -504,7 +504,7 @@
             /* Hero Section Mobile */
             .csl-hero-section {
                 padding: 100px 20px 60px;
-                min-height: auto;
+                min-height: 70vh;
             }
 
             .csl-row-1,
@@ -517,7 +517,7 @@
             .csl-row-2,
             .csl-row-3 .csl-meaningful,
             .csl-row-4 {
-                font-size: 32px;
+                font-size: 2rem;
             }
 
             .csl-pill-right {
@@ -660,47 +660,6 @@
                 font-size: 1.1rem;
             }
 
-            /* Process Section Mobile */
-            .csl-process-section {
-                min-height: auto;
-            }
-
-            .csl-process-wrapper {
-                min-height: auto;
-                padding: 60px 0;
-            }
-
-            .csl-process-container {
-                flex-direction: column;
-                gap: 30px;
-                padding: 0 20px;
-            }
-
-            .csl-process-heading-wrapper {
-                width: 100%;
-            }
-
-            .csl-process-heading {
-                font-size: 2rem;
-                position: static;
-                transform: none;
-                text-align: center;
-            }
-
-            .csl-process-cards {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .csl-process-card {
-                width: 100%;
-                padding: 30px 25px;
-            }
-
-            .csl-process-card-title {
-                font-size: 1.4rem;
-            }
-
             /* Path Section Mobile */
             .csl-path-section {
                 padding: 60px 20px;
@@ -728,25 +687,7 @@
                 height: 220px;
             }
 
-            /* Table Mobile */
-            .csl-comparison-table {
-                font-size: 0.85rem;
-                border-radius: 12px;
-            }
-
-            .csl-comparison-table thead th {
-                padding: 16px 12px;
-                font-size: 0.95rem;
-            }
-
-            .csl-comparison-table thead th:first-child {
-                width: 40%;
-            }
-
-            .csl-comparison-table tbody td {
-                padding: 14px 12px;
-                font-size: 0.85rem;
-            }
+            /* Table Mobile — handled via scrollable container in additions block */
 
             /* Projects Section Mobile */
             .csl-projects-section {
@@ -1038,31 +979,18 @@
         .csl-process-section {
             position: relative;
             width: 100%;
-            min-height: 100vh;
             background: #f6f0fa;
             overflow: hidden;
         }
 
         .csl-process-wrapper {
-            display: flex;
-            align-items: center;
-            min-height: 100vh;
-            padding: 80px 0;
-        }
-
-        .csl-process-container {
-            width: 100%;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 60px;
+            padding: 80px 40px;
             display: flex;
-            gap: 80px;
+            flex-direction: column;
             align-items: center;
-        }
-
-        .csl-process-heading-wrapper {
-            flex-shrink: 0;
-            width: 450px;
+            padding-bottom: 0px;
         }
 
         .csl-process-heading {
@@ -1072,109 +1000,27 @@
             color: #6c32a8;
             line-height: 1.2;
             letter-spacing: -2px;
-            position: sticky;
-            top: 50%;
-            /* transform: translateY(-50%); */
+            text-align: center;
+            /* margin-bottom: 50px; */
         }
 
-        .csl-process-heading span {
+
+        .csl-process-img {
+            width: 100%;
+            height: auto;
             display: block;
+            border-radius: 20px;
+            margin-top: -55px;
         }
 
-        .csl-process-cards-container {
-            flex: 1;
-            overflow: hidden;
-        }
-
-        .csl-process-cards {
-            display: flex;
-            gap: 30px;
-            will-change: transform;
-        }
-
-        .csl-process-card {
-            display: flex;
-            flex-shrink: 0;
-            width: 320px;
-            /* background: #ffffff; */
-            background: linear-gradient(135deg, #efdeff 0%, #fffce3 100%);
-            border-radius: 24px;
-            padding: 60px 45px;
-            /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); */
-            border: 1px solid rgba(108, 50, 168, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .csl-process-card:hover {
-            /* transform: translateY(-8px); */
-            /* box-shadow: 0 16px 48px rgba(108, 50, 168, 0.15); */
-            border-color: rgba(108, 50, 168, 0.3);
-        }
-
-        .csl-process-card-icon {
-            font-size: 8rem;
-            font-weight: 900;
-            font-family: 'Space Grotesk', sans-serif;
-            color: #ff960030;
-            line-height: 0.8;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 1;
-        }
-
-        .csl-process-card-icon .material-icons {
-            font-size: 32px;
-            color: #6c32a8;
-        }
-
-        .csl-process-card-gif {
-            width: 120px;
-            height: 120px;
-            object-fit: contain;
-            position: absolute;
-            top: 32%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            opacity: 0.8;
-        }
-
-        .csl-process-card-title {
-            align-self: flex-end;
-            font-size: 1.5rem;
-            font-weight: 500;
-            font-family: 'Space Grotesk', sans-serif;
-            color: #1c1c1c;
-            line-height: 1.5;
-            margin: 0;
-            letter-spacing: -0.5px;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .csl-process-container {
-                flex-direction: column;
-                gap: 40px;
-                padding: 0 20px;
-            }
-
-            .csl-process-heading-wrapper {
-                width: 100%;
+            .csl-process-wrapper {
+                padding: 60px 20px;
             }
 
             .csl-process-heading {
-                font-size: 2.5rem;
-                position: static;
-                transform: none;
-            }
-
-            .csl-process-card {
-                width: 280px;
+                font-size: 2rem;
+                /* margin-bottom: 30px; */
             }
         }
 
@@ -1297,7 +1143,7 @@
             font-family: 'Montserrat', sans-serif;
             text-align: center;
             line-height: 1.5;
-            background: #fffce3;
+            background: #ffeb3b0f;
             border-bottom: 3px solid #f6f0fa;
         }
 
@@ -1334,6 +1180,7 @@
         @media (max-width: 768px) {
             .csl-path-heading {
                 font-size: 2.5rem;
+                text-align: center;
             }
 
             .csl-path-content-wrapper {
@@ -1349,27 +1196,7 @@
                 height: 250px;
             }
 
-            .csl-comparison-table {
-                border-spacing: 0 5px;
-            }
-
-            .csl-comparison-table thead th,
-            .csl-comparison-table tbody td {
-                padding: 10px 8px;
-                font-size: 0.7rem;
-            }
-
-            .csl-comparison-table thead th {
-                font-size: 0.72rem;
-            }
-
-            .csl-comparison-table tbody td:nth-child(2) {
-                border-radius: 8px 0 0 8px;
-            }
-
-            .csl-comparison-table tbody td:nth-child(4) {
-                border-radius: 0 8px 8px 0;
-            }
+            /* Table — scrollable, handled in additions block */
         }
 
         /* ── CSL Projects Section ── */
@@ -1378,6 +1205,7 @@
             width: 100%;
             background: #f6f0fa;
             padding: 100px 20px;
+            padding-top: 0px;
         }
 
         .csl-projects-container {
@@ -1854,6 +1682,313 @@
                 display: none;
             }
         }
+
+        /* ══════════════════════════════════════════════
+           CSL MOBILE RESPONSIVE — 768px (additions)
+           ══════════════════════════════════════════════ */
+        @media (max-width: 768px) {
+
+            /* ── Hero ── */
+            .csl-hero-section {
+                margin-top: 0;
+            }
+
+            .csl-top-section,
+            .csl-bottom-section {
+                flex-direction: row;
+                gap: 12px;
+                align-items: center;
+            }
+
+            .csl-text-block {
+                align-items: center;
+                text-align: center;
+                gap: 6px;
+            }
+
+            .csl-row-1 {
+                font-size: 16px;
+            }
+
+            .csl-row-1 .csl-cbse {
+                font-size: 2rem;
+            }
+
+            .csl-row-2 {
+                font-size: 2rem;
+                padding-left: 80px;
+            }
+
+            .csl-row-3 {
+                font-size: 16px;
+            }
+
+            .csl-row-3 .csl-meaningful {
+                font-size: 2rem;
+            }
+
+            .csl-row-4 {
+                font-size: 2rem;
+            }
+
+            .csl-pill-right,
+            .csl-pill-left {
+                width: 100px;
+                height: 40px;
+            }
+
+            .csl-sparkle-1,
+            .csl-sparkle-2,
+            .csl-sparkle-3,
+            .csl-sparkle-4,
+            .csl-sparkle-5 {
+                font-size: 1rem;
+            }
+
+            .csl-hero-explore-btn {
+                padding: 12px 28px;
+                font-size: 0.9rem;
+            }
+
+            /* ── Cards Info ── */
+            .csl-cards-info-section {
+                padding: 50px 16px 40px;
+            }
+
+            .csl-cards-heading {
+                font-size: 1.8rem;
+            }
+
+            .csl-cards-info-para {
+                font-size: 0.92rem;
+            }
+
+            /* ── Bento Image ── */
+            .csl-bento-img {
+                margin-left: 0;
+                margin-top: 0;
+                border-radius: 12px;
+            }
+
+            .csl-bento-heading {
+                font-size: 1.8rem;
+                letter-spacing: -1px;
+            }
+
+            /* ── Process Image ── */
+            .csl-process-img {
+                margin-top: 0;
+                border-radius: 12px;
+            }
+
+            /* ── Path ── */
+            .csl-path-image {
+                margin-left: 0;
+            }
+
+            /* ── Table — Scrollable ── */
+            .csl-comparison-table {
+                min-width: 650px;
+            }
+
+            .csl-table-scroll-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* ── Projects ── */
+            .csl-projects-wrapper {
+                gap: 40px;
+                align-items: center;
+            }
+
+            .csl-project-item {
+                max-width: 320px;
+                width: 100%;
+            }
+
+            .csl-project-image {
+                height: 280px;
+            }
+
+            .csl-projects-heading {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            .csl-project-image-title {
+                font-size: 1.3rem;
+            }
+
+            /* ── Final CTA ── */
+            .csl-final-cta-section {
+                min-height: auto;
+            }
+
+            .csl-cta-heading-final {
+                font-size: 1.6rem;
+            }
+
+            .csl-cta-button {
+                font-size: 0.95rem;
+                padding: 14px 24px;
+            }
+        }
+
+        /* ══════════════════════════════════════════════
+           CSL MOBILE RESPONSIVE — 480px
+           ══════════════════════════════════════════════ */
+        @media (max-width: 480px) {
+
+            /* ── Hero ── */
+            .csl-hero-section {
+                padding: 70px 10px 36px;
+            }
+
+            .csl-row-1,
+            .csl-row-3 {
+                font-size: 20px;
+            }
+
+            .csl-row-1 .csl-cbse,
+            .csl-row-2,
+            .csl-row-3 .csl-meaningful,
+            .csl-row-4 {
+                font-size: 2rem;
+            }
+
+            .csl-pill-right,
+            .csl-pill-left {
+                width: 80px;
+                height: 30px;
+            }
+
+            .csl-subtext .csl-s2 {
+                font-size: 14px;
+            }
+
+            /* ── Video ── */
+            .csl-video-section {
+                padding: 30px 12px;
+            }
+
+            /* ── Cards Info ── */
+            .csl-cards-info-section {
+                padding: 40px 12px 30px;
+            }
+
+            .csl-cards-heading {
+                font-size: 1.5rem;
+            }
+
+            .csl-cards-info-para {
+                font-size: 0.85rem;
+            }
+
+            /* ── Bento ── */
+            .csl-bento-section {
+                padding: 40px 12px 12px;
+            }
+
+            .csl-bento-heading {
+                font-size: 1.5rem;
+            }
+
+            /* ── Process ── */
+            .csl-process-wrapper {
+                padding: 40px 12px;
+            }
+
+            .csl-process-heading {
+                font-size: 1.6rem;
+                letter-spacing: -1px;
+            }
+
+            /* ── Projects ── */
+            .csl-projects-section {
+                padding: 40px 12px;
+            }
+
+            .csl-projects-heading {
+                font-size: 1.6rem;
+                margin-bottom: 24px;
+            }
+
+            .csl-projects-wrapper {
+                gap: 30px;
+            }
+
+            .csl-project-item {
+                max-width: 100%;
+            }
+
+            .csl-project-image {
+                height: 290px;
+            }
+
+            .csl-project-image-title {
+                font-size: 1.1rem;
+            }
+
+            /* ── Path ── */
+            .csl-path-section {
+                padding: 40px 12px;
+            }
+
+            .csl-path-heading {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            .csl-path-text {
+                font-size: 0.88rem;
+            }
+
+            .csl-path-image {
+                height: 200px;
+            }
+
+            /* Table — scrollable, no font shrink needed */
+
+            /* ── Final CTA ── */
+            .csl-final-cta-section {
+                padding: 40px 12px;
+            }
+
+            .csl-final-cta-container {
+                padding: 24px 14px;
+            }
+
+            .csl-cta-heading-final {
+                font-size: 1.4rem;
+            }
+
+            .csl-cta-paragraph {
+                font-size: 0.85rem;
+            }
+
+            /* ── Upgrade ── */
+            .csl-upgrade-section {
+                padding: 40px 12px;
+            }
+
+            .csl-upgrade-heading {
+                font-size: 1.3rem;
+            }
+
+            .csl-upgrade-link {
+                font-size: 0.95rem;
+            }
+
+            /* ── Form ── */
+            .csl-form-popup {
+                padding: 22px 14px;
+            }
+
+            .csl-form-heading {
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
 
@@ -1985,78 +2120,13 @@
     <!-- CSL Implementation Process Section -->
     <section class="csl-process-section">
         <div class="csl-process-wrapper">
-            <div class="csl-process-container">
-                <!-- Left: Sticky Heading -->
-                <div class="csl-process-heading-wrapper">
-                    <h2 class="csl-process-heading">
-                        <span>ENpower's 8 step</span>
-                        <!-- <span>8 step</span> -->
-                        <span class="csl-bento-highlight">implementation</span>
-                        <span>process</span>
-                    </h2>
-                </div>
-
-                <!-- Right: Horizontal Scrolling Cards -->
-                <div class="csl-process-cards-container">
-                    <div class="csl-process-cards">
-                        <!-- Card 1 -->
-                        <div class="csl-process-card">
-                            <div class="csl-process-card-icon">01</div>
-                            <h3 class="csl-process-card-title">School Recce</h3>
-                        </div>
-
-                        <!-- Card 2 -->
-                        <div class="csl-process-card">
-                            <div class="csl-process-card-icon">02</div>
-                            <h3 class="csl-process-card-title">Aligned With NEP & NCF</h3>
-                        </div>
-
-                        <!-- Card 3 -->
-                        <div class="csl-process-card">
-                            <div class="csl-process-card-icon">03</div>
-                            <h3 class="csl-process-card-title">Blending Tech Of The Future, Composite Skill Lab &
-                                Entrepreneurship Mindset</h3>
-                        </div>
-
-                        <!-- Card 4 -->
-                        <div class="csl-process-card">
-                            <div class="csl-process-card-icon">04</div>
-                            <h3 class="csl-process-card-title">To Facilitate Project-Based Learning</h3>
-                        </div>
-
-                        <!-- Card 5 -->
-                        <div class="csl-process-card">
-                            <div class="csl-process-card-icon">05</div>
-                            <h3 class="csl-process-card-title">Competency-Based Assessments</h3>
-                        </div>
-
-                        <!-- Card 6 -->
-                        <div class="csl-process-card">
-                            <div class="csl-process-card-icon">06</div>
-                            <h3 class="csl-process-card-title">Reporting On The Student Dashboard</h3>
-                        </div>
-
-                        <!-- Card 7 -->
-                        <div class="csl-process-card">
-                            <div class="csl-process-card-icon">07</div>
-                            <h3 class="csl-process-card-title">Student Project Showcase At Kaushal Mela</h3>
-                        </div>
-
-                        <!-- Card 8 -->
-                        <div class="csl-process-card">
-                            <div class="csl-process-card-icon">08</div>
-                            <h3 class="csl-process-card-title">National & Global Showcase Opportunities</h3>
-                        </div>
-
-                        <!-- Card 9 -->
-                        <div class="csl-process-card">
-                            <img src="assets/idea.gif" alt="Idea" class="csl-process-card-gif">
-                            <h3 class="csl-process-card-title"
-                                style="font-size: 2rem; font-weight: 900; text-align: center;">Composite Skill Lab</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h2 class="csl-process-heading">ENpower's 8 step <span class="csl-bento-highlight">implementation</span>
+                process</h2>
+            <picture>
+                <source media="(max-width: 768px)" srcset="assets/csl/8step-implementation-mob.png">
+                <img src="assets/csl/8step-implementation.png" alt="ENpower's 8 Step Implementation Process"
+                    class="csl-process-img">
+            </picture>
         </div>
     </section>
 
@@ -2117,60 +2187,62 @@
             </div>
 
             <!-- Comparison Table -->
-            <table class="csl-comparison-table">
-                <thead>
-                    <tr>
-                        <th style="color:#1c1c1c; text-align: left;">Features</th>
-                        <th>CSL Foundation</th>
-                        <th>CSL Plus (ToT)</th>
-                        <th>CSL Plus (TC)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Curriculum</td>
-                        <td>Basic Kaushal Bodh</td>
-                        <td>Kaushal Bodh + Design Thinking + Entrepreneurship</td>
-                        <td>Kaushal Bodh + Design Thinking + Entrepreneurship</td>
-                    </tr>
-                    <tr>
-                        <td>Grades</td>
-                        <td>6–10</td>
-                        <td>1–10</td>
-                        <td>1–10</td>
-                    </tr>
-                    <tr>
-                        <td>Delivery Model</td>
-                        <td>Teacher Capacity Building</td>
-                        <td>Teacher Capacity Building + Program Coordinator</td>
-                        <td>Program Coordinator + Dedicated Thinking Coach</td>
-                    </tr>
-                    <tr>
-                        <td>Ownership</td>
-                        <td>School-led</td>
-                        <td>Program Coordinator-led</td>
-                        <td>Thinking Coach-led</td>
-                    </tr>
-                    <tr>
-                        <td>Assessments</td>
-                        <td>Annual reports</td>
-                        <td>Competency-based dashboard</td>
-                        <td>Competency-based dashboard</td>
-                    </tr>
-                    <tr>
-                        <td>Mentorship</td>
-                        <td>None</td>
-                        <td>None</td>
-                        <td>Via Thinking Coaches</td>
-                    </tr>
-                    <tr>
-                        <td>Branding</td>
-                        <td>None</td>
-                        <td>None</td>
-                        <td>ENpower branding</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="csl-table-scroll-wrapper">
+                <table class="csl-comparison-table">
+                    <thead>
+                        <tr>
+                            <th style="color:#1c1c1c; text-align: left;">Features</th>
+                            <th>CSL Foundation</th>
+                            <th>CSL Plus (ToT)</th>
+                            <th>CSL Plus (TC)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Curriculum</td>
+                            <td>Basic Kaushal Bodh</td>
+                            <td>Kaushal Bodh + Design Thinking + Entrepreneurship</td>
+                            <td>Kaushal Bodh + Design Thinking + Entrepreneurship</td>
+                        </tr>
+                        <tr>
+                            <td>Grades</td>
+                            <td>6–10</td>
+                            <td>1–10</td>
+                            <td>1–10</td>
+                        </tr>
+                        <tr>
+                            <td>Delivery Model</td>
+                            <td>Teacher Capacity Building</td>
+                            <td>Teacher Capacity Building + Program Coordinator</td>
+                            <td>Program Coordinator + Dedicated Thinking Coach</td>
+                        </tr>
+                        <tr>
+                            <td>Ownership</td>
+                            <td>School-led</td>
+                            <td>Program Coordinator-led</td>
+                            <td>Thinking Coach-led</td>
+                        </tr>
+                        <tr>
+                            <td>Assessments</td>
+                            <td>Annual reports</td>
+                            <td>Competency-based dashboard</td>
+                            <td>Competency-based dashboard</td>
+                        </tr>
+                        <tr>
+                            <td>Mentorship</td>
+                            <td>None</td>
+                            <td>None</td>
+                            <td>Via Thinking Coaches</td>
+                        </tr>
+                        <tr>
+                            <td>Branding</td>
+                            <td>None</td>
+                            <td>None</td>
+                            <td>ENpower branding</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 
@@ -2560,34 +2632,6 @@
                 });
 
 
-                // Horizontal scroll animation for process cards
-                const processSection = document.querySelector('.csl-process-section');
-                const processCards = document.querySelector('.csl-process-cards');
-
-                if (processSection && processCards) {
-                    // Calculate the total scroll distance needed
-                    const cardsArray = gsap.utils.toArray('.csl-process-card');
-                    const cardWidth = 320; // Card width from CSS
-                    const gap = 30; // Gap from CSS
-                    const totalWidth = (cardWidth + gap) * cardsArray.length;
-                    const containerWidth = document.querySelector('.csl-process-cards-container').offsetWidth;
-                    const scrollDistance = totalWidth - containerWidth + gap;
-
-                    // Create the horizontal scroll animation
-                    gsap.to(processCards, {
-                        x: -scrollDistance,
-                        ease: 'none',
-                        scrollTrigger: {
-                            trigger: processSection,
-                            start: 'top top',
-                            end: () => `+=${scrollDistance * 2}`, // Adjust scroll distance for smooth effect
-                            scrub: 1,
-                            pin: true,
-                            anticipatePin: 1,
-                            invalidateOnRefresh: true
-                        }
-                    });
-                }
             }
         });
     </script>
