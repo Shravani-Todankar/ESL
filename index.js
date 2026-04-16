@@ -1465,3 +1465,177 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+/* ==========================================================
+   HIRING FORM — Apply Now popup validation
+   ========================================================== */
+(function () {
+    function initHiringForm() {
+        const form = document.getElementById('hi-apply-form');
+        if (!form) {
+            console.warn('[hiring-form] #hi-apply-form NOT found in DOM');
+            return;
+        }
+        console.log('[hiring-form] handler attached');
+
+        const nameInput = document.getElementById('hi-apply-name');
+        const emailInput = document.getElementById('hi-apply-email');
+        const cvInput = document.getElementById('hi-apply-cv');
+        const cvText = document.getElementById('hi-apply-cv-text');
+        const cvArea = form.querySelector('.hi-file-upload-area');
+        const toggle = document.getElementById('hi-apply-modal-toggle');
+
+        const nameError = document.getElementById('hi-apply-name-error');
+        const emailError = document.getElementById('hi-apply-email-error');
+        const cvError = document.getElementById('hi-apply-cv-error');
+
+        const NAME_RE = /^[A-Za-z\s]{2,60}$/;
+        const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const MAX_FILE_SIZE = 5 * 1024 * 1024;
+        const ALLOWED_EXT = ['pdf', 'doc', 'docx'];
+        const DEFAULT_CV_TEXT = 'Drop your PDF/DOC here or click to browse (max 5MB)';
+
+        function setError(el, errEl, msg) {
+            errEl.textContent = msg;
+            errEl.classList.add('show');
+            el.classList.add('hi-invalid');
+        }
+
+        function clearError(el, errEl) {
+            errEl.textContent = '';
+            errEl.classList.remove('show');
+            el.classList.remove('hi-invalid');
+        }
+
+        function validateName() {
+            const v = nameInput.value.trim();
+            if (!v) { setError(nameInput, nameError, 'Full name is required'); return false; }
+            if (!NAME_RE.test(v)) { setError(nameInput, nameError, 'Only letters and spaces (2-60 characters)'); return false; }
+            clearError(nameInput, nameError);
+            return true;
+        }
+
+        function validateEmail() {
+            const v = emailInput.value.trim();
+            if (!v) { setError(emailInput, emailError, 'Email is required'); return false; }
+            if (!EMAIL_RE.test(v)) { setError(emailInput, emailError, 'Please enter a valid email address'); return false; }
+            clearError(emailInput, emailError);
+            return true;
+        }
+
+        function validateCv() {
+            const file = cvInput.files && cvInput.files[0];
+            if (!file) { setError(cvArea, cvError, 'Please upload your CV'); return false; }
+            const ext = (file.name.split('.').pop() || '').toLowerCase();
+            if (!ALLOWED_EXT.includes(ext)) { setError(cvArea, cvError, 'Only PDF, DOC or DOCX allowed'); return false; }
+            if (file.size > MAX_FILE_SIZE) { setError(cvArea, cvError, 'File too large. Maximum size is 5 MB'); return false; }
+            clearError(cvArea, cvError);
+            return true;
+        }
+
+        nameInput.addEventListener('blur', validateName);
+        nameInput.addEventListener('input', function () {
+            nameInput.value = nameInput.value.replace(/[^A-Za-z\s]/g, '');
+            if (nameError.classList.contains('show')) validateName();
+        });
+
+        emailInput.addEventListener('blur', validateEmail);
+        emailInput.addEventListener('input', function () {
+            if (emailError.classList.contains('show')) validateEmail();
+        });
+
+        cvInput.addEventListener('change', function () {
+            const file = cvInput.files && cvInput.files[0];
+            if (file) {
+                cvText.textContent = file.name;
+                cvText.classList.add('hi-file-selected');
+            } else {
+                cvText.textContent = DEFAULT_CV_TEXT;
+                cvText.classList.remove('hi-file-selected');
+            }
+            validateCv();
+        });
+
+        function resetForm() {
+            form.reset();
+            cvText.textContent = DEFAULT_CV_TEXT;
+            cvText.classList.remove('hi-file-selected');
+            [
+                [nameInput, nameError],
+                [emailInput, emailError],
+                [cvArea, cvError]
+            ].forEach(function (pair) { clearError(pair[0], pair[1]); });
+        }
+
+        const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/3aca38132ae32a4354116debb8ee50c7';
+        const submitBtn = form.querySelector('.hi-btn-submit');
+        const submitBtnDefaultText = submitBtn ? submitBtn.textContent.trim() : 'Submit Application';
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            console.log('[hiring-form] submit fired');
+            const checks = [validateName(), validateEmail(), validateCv()];
+            console.log('[hiring-form] validation results:', checks);
+            if (!checks.every(Boolean)) {
+                console.warn('[hiring-form] validation failed — aborting');
+                const firstInvalid = form.querySelector('.hi-invalid');
+                if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+
+            const formData = new FormData(form);
+            formData.append('_subject', 'New Job Application — ENpower Careers');
+            formData.append('_template', 'table');
+            formData.append('_captcha', 'false');
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submitting...';
+            }
+
+            try {
+                console.log('[hiring-form] posting to FormSubmit...');
+                const res = await fetch(FORMSUBMIT_ENDPOINT, {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await res.json().catch(function () { return {}; });
+                console.log('[hiring-form] FormSubmit response:', res.status, data);
+
+                if (res.ok) {
+                    if (typeof showToast === 'function') {
+                        showToast('success', 'Application Received', 'Thanks for applying! Our team will get back to you soon.');
+                    }
+                    resetForm();
+                    if (toggle) toggle.checked = false;
+                } else {
+                    if (typeof showToast === 'function') {
+                        showToast('error', 'Submission Failed', (data && data.message) || 'Something went wrong. Please try again.');
+                    }
+                }
+            } catch (err) {
+                console.error('[hiring-form] network error:', err);
+                if (typeof showToast === 'function') {
+                    showToast('error', 'Network Error', 'Please check your connection and try again.');
+                }
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = submitBtnDefaultText;
+                }
+            }
+        });
+
+        if (toggle) {
+            toggle.addEventListener('change', function () {
+                if (!toggle.checked) resetForm();
+            });
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHiringForm);
+    } else {
+        initHiringForm();
+    }
+})();
+

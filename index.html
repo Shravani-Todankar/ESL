@@ -10,7 +10,7 @@
 
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <!-- Material Icons -->
@@ -1376,6 +1376,108 @@
                         traditional STEM with a complete future-skills ecosystem aligned to NEP 2020.</p>
                 </div>
                 <button class="connect-btn" id="connectBtn">Let's Connect!</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= Hiring Section (We Are Hiring) ================= -->
+    <section class="hi-wrapper">
+        <input type="checkbox" id="hi-apply-modal-toggle" />
+
+        <span class="hi-sparkle hi-sparkle-1">✦</span>
+        <span class="hi-sparkle hi-sparkle-2">✦</span>
+        <span class="hi-sparkle hi-sparkle-3">✦</span>
+        <span class="hi-sparkle hi-sparkle-4">✦</span>
+        <span class="hi-sparkle hi-sparkle-5">✦</span>
+
+        <div class="hi-hero-section">
+            <div class="hi-glass-panel hi-whisper-shadow hi-hero-card">
+                <div class="hi-card-corner hi-corner-tl"></div>
+                <div class="hi-card-corner hi-corner-tr"></div>
+                <div class="hi-card-corner hi-corner-bl"></div>
+                <div class="hi-card-corner hi-corner-br"></div>
+
+                <div class="hi-hiring-badge">
+                    <span class="material-symbols-outlined">work</span>
+                    <span>Be a Part of Our Journey</span>
+                </div>
+
+                <h2 class="hi-hero-title">
+                    Interested in shaping <span class="hi-highlight">future-ready</span> learners with ENpower?
+                </h2>
+
+                <p class="hi-hero-subtitle">
+                    Share your CV with us.
+                </p>
+
+                <label for="hi-apply-modal-toggle" class="hi-btn-gradient hi-apply-label">
+                    Apply Now
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="hi-modal-overlay">
+            <div class="hi-modal-backdrop-custom"></div>
+
+            <div class="hi-glass-panel hi-whisper-shadow hi-modal-content-custom">
+                <div class="hi-modal-header-custom">
+                    <div>
+                        <h3 class="hi-modal-title">Apply to <span class="hi-highlight">ENpower</span></h3>
+                        <p class="hi-modal-subtitle">Start your journey with us</p>
+                    </div>
+                    <label for="hi-apply-modal-toggle" class="hi-modal-close-btn">
+                        <span class="material-symbols-outlined">close</span>
+                    </label>
+                </div>
+
+                <form id="hi-apply-form" novalidate>
+                    <div class="hi-form-group-custom">
+                        <div class="hi-form-group-custom-row">
+                            <label class="hi-form-label-custom" for="hi-apply-name">
+                                Full Name <span class="hi-required">*</span>
+                            </label>
+                            <input type="text" id="hi-apply-name" name="name" class="hi-form-input-custom"
+                                placeholder="Alex Rivers" pattern="[A-Za-z\s]{2,60}" maxlength="60" required
+                                title="Only letters and spaces, 2-60 characters" />
+                            <span class="hi-error-message" id="hi-apply-name-error"></span>
+                        </div>
+
+                        <div class="hi-form-group-custom-row">
+                            <label class="hi-form-label-custom" for="hi-apply-email">
+                                Email Address <span class="hi-required">*</span>
+                            </label>
+                            <input type="email" id="hi-apply-email" name="email" class="hi-form-input-custom"
+                                placeholder="alex@example.com" maxlength="100" required />
+                            <span class="hi-error-message" id="hi-apply-email-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="hi-form-group-custom-cv">
+                        <label class="hi-form-label-custom" for="hi-apply-cv">
+                            Upload CV <span class="hi-required">*</span>
+                        </label>
+                        <div class="hi-file-upload-wrapper">
+                            <input type="file" id="hi-apply-cv" name="cv" class="hi-file-input-hidden"
+                                accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                                required />
+                            <div class="hi-file-upload-area">
+                                <span class="material-symbols-outlined hi-file-upload-icon">cloud_upload</span>
+                                <span class="hi-file-upload-text" id="hi-apply-cv-text">Drop your PDF/DOC here or
+                                    click to browse (max 5MB)</span>
+                            </div>
+                        </div>
+                        <span class="hi-error-message" id="hi-apply-cv-error"></span>
+                    </div>
+
+                    <button type="submit" class="hi-btn-submit">
+                        Submit Application
+                    </button>
+
+                    <p class="hi-privacy-text">
+                        By submitting, you agree to our privacy policy and data processing terms.
+                    </p>
+                </form>
             </div>
         </div>
     </section>

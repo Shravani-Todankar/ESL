@@ -2357,7 +2357,7 @@ a.eng-back-btn.eng-back-btn-fsl {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 45px 60px;
+    padding: 95px 60px;
 }
 
 @media (max-width: 768px) {
@@ -5256,6 +5256,936 @@ footer p {
 .enp-toast-btn:hover {
     background: #7c3aed;
     transform: translateY(-2px);
+}
+
+/* ================= Hiring Section (We Are Hiring) ================= */
+.hi-wrapper {
+    font-family: 'Montserrat', sans-serif;
+    background:
+        linear-gradient(rgba(122, 46, 206, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 46, 206, 0.08) 1px, transparent 1px),
+        linear-gradient(135deg, #efdeff 0%, #fffce3 100%);
+    background-size: 38px 38px, 38px 38px, 100% 100%;
+    color: #3d2549;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hi-sparkle {
+    position: absolute;
+    color: #e5a93e;
+    font-size: 1.8rem;
+    line-height: 1;
+    pointer-events: none;
+    z-index: 1;
+    animation: hi-sparklePulse 2.5s ease-in-out infinite;
+}
+
+.hi-sparkle-1 {
+    top: 10%;
+    left: 8%;
+    font-size: 1.6rem;
+    animation-delay: 0s;
+}
+
+.hi-sparkle-2 {
+    top: 18%;
+    right: 10%;
+    font-size: 2.2rem;
+    color: #6c32a8;
+    animation-delay: 0.6s;
+}
+
+.hi-sparkle-3 {
+    bottom: 14%;
+    left: 12%;
+    font-size: 2rem;
+    color: #6c32a8;
+    animation-delay: 1.2s;
+}
+
+.hi-sparkle-4 {
+    bottom: 8%;
+    right: 7%;
+    font-size: 1.4rem;
+    animation-delay: 0.9s;
+}
+
+.hi-sparkle-5 {
+    top: 50%;
+    left: 4%;
+    font-size: 1.2rem;
+    animation-delay: 1.8s;
+}
+
+@keyframes hi-sparklePulse {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2) rotate(180deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .hi-sparkle-5 {
+        display: none;
+    }
+
+    .hi-sparkle {
+        font-size: 1rem !important;
+    }
+}
+
+.hi-wrapper *,
+.hi-wrapper *::before,
+.hi-wrapper *::after {
+    box-sizing: border-box;
+}
+
+.hi-wrapper h1,
+.hi-wrapper h2,
+.hi-wrapper h3,
+.hi-wrapper .hi-font-headline {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.hi-hero-section {
+    max-width: 1024px;
+    width: 100%;
+    position: relative;
+    padding: 0rem 1rem;
+    text-align: center;
+    border-radius: 2.5rem;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .hi-hero-section {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+
+.hi-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(135deg, #fdebff, #fff3fe, #f9e0ff);
+    opacity: 0.6;
+}
+
+/* .hi-glass-panel {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(194, 162, 206, 0.25);
+} */
+
+/* .hi-whisper-shadow {
+    box-shadow:
+        0 8px 24px rgba(61, 37, 73, 0.08),
+        0 20px 60px rgba(122, 46, 206, 0.12);
+} */
+
+.hi-hero-card {
+    position: relative;
+    border-radius: 2rem;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 896px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+@media (min-width: 768px) {
+    .hi-hero-card {
+        padding: 5rem;
+    }
+}
+
+.hi-card-corner {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-color: rgba(122, 46, 206, 0.3);
+    border-style: solid;
+    border-width: 0;
+    pointer-events: none;
+}
+
+.hi-corner-tl {
+    top: 20px;
+    left: 20px;
+    border-top-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 1rem;
+}
+
+.hi-corner-tr {
+    top: 20px;
+    right: 20px;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-top-right-radius: 1rem;
+}
+
+.hi-corner-bl {
+    bottom: 20px;
+    left: 20px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-bottom-left-radius: 1rem;
+}
+
+.hi-corner-br {
+    bottom: 20px;
+    right: 20px;
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+    border-bottom-right-radius: 1rem;
+}
+
+.hi-hiring-badge {
+    position: relative;
+    margin-bottom: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, rgba(237, 194, 255, 0.5), rgba(189, 135, 255, 0.3), rgba(237, 194, 255, 0.5));
+    background-size: 200% 100%;
+    color: #7e3fa0;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(189, 135, 255, 0.3);
+    animation: hi-shimmer 3s linear infinite;
+    overflow: hidden;
+}
+
+.hi-hiring-badge::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    transform: translateX(-100%);
+    animation: hi-shimmerSlide 3s linear infinite;
+}
+
+@keyframes hi-shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+@keyframes hi-shimmerSlide {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.hi-hiring-badge .material-symbols-outlined {
+    font-size: 1rem;
+    font-variation-settings: 'FILL' 1;
+    position: relative;
+    z-index: 1;
+}
+
+.hi-hiring-badge span:last-child {
+    position: relative;
+    z-index: 1;
+}
+
+.hi-hero-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #3d2549;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    max-width: 900px;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .hi-hero-title {
+        font-size: 3.75rem;
+    }
+}
+
+.hi-hero-title .hi-highlight {
+    color: #6c32a8;
+    position: relative;
+}
+
+.hi-hero-subtitle {
+    font-size: 1.125rem;
+    color: #6c5279;
+    max-width: 576px;
+    margin-bottom: 3rem;
+    font-weight: 500;
+    line-height: 1.625;
+}
+
+@media (min-width: 768px) {
+    .hi-hero-subtitle {
+        font-size: 1.25rem;
+    }
+}
+
+.hi-btn-gradient {
+    position: relative;
+    background: linear-gradient(135deg, #7a2ece 0%, #6c32a8 100%);
+    color: #faefff;
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    box-shadow: 0 20px 25px -5px rgba(122, 46, 206, 0.35);
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hi-btn-gradient::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #7a2ece, #6c32a8);
+    opacity: 0.5;
+    z-index: -1;
+    animation: hi-buttonGlow 2.5s ease-in-out infinite;
+}
+
+.hi-btn-gradient::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 229, 0.3), transparent);
+    animation: hi-shine 3s ease-in-out infinite;
+}
+
+@keyframes hi-buttonGlow {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes hi-shine {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+.hi-btn-gradient:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 35px -5px rgba(122, 46, 206, 0.5);
+    color: #faefff;
+}
+
+.hi-btn-gradient:active {
+    transform: scale(0.95);
+}
+
+.hi-btn-gradient .material-symbols-outlined {
+    transition: transform 0.3s;
+}
+
+.hi-btn-gradient:hover .material-symbols-outlined {
+    transform: translateX(4px);
+}
+
+.hi-btn-submit {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(135deg, #7a2ece 0%, #6c32a8 100%);
+    color: #faefff;
+    padding: 1.25rem;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    box-shadow: 0 10px 15px -3px rgba(122, 46, 206, 0.3);
+    transition: all 0.3s;
+    margin-top: 1rem;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.hi-btn-submit::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: hi-shine 3s ease-in-out infinite;
+}
+
+.hi-btn-submit:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 25px -3px rgba(122, 46, 206, 0.4);
+}
+
+.hi-btn-submit:active {
+    transform: scale(0.95);
+}
+
+.hi-stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 2.5rem;
+}
+
+.hi-stat-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(194, 162, 206, 0.3);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #3d2549;
+    backdrop-filter: blur(10px);
+    transition: transform 0.2s;
+}
+
+.hi-stat-chip:hover {
+    transform: translateY(-2px);
+}
+
+.hi-stat-chip .material-symbols-outlined {
+    font-size: 1rem;
+    color: #7a2ece;
+    font-variation-settings: 'FILL' 1;
+}
+
+#hi-apply-modal-toggle {
+    display: none;
+}
+
+.hi-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: none;
+    align-items: stretch;
+    justify-content: flex-end;
+}
+
+#hi-apply-modal-toggle:checked~.hi-modal-overlay {
+    display: flex;
+    animation: hi-modalFadeIn 0.3s ease-out;
+}
+
+@keyframes hi-modalFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.hi-modal-backdrop-custom {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.hi-modal-content-custom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+    width: 100%;
+    max-width: 580px;
+    height: 100vh;
+    border-radius: 24px 0 0 24px;
+    padding: 2rem;
+    z-index: 10;
+    overflow-y: auto;
+    animation: hi-modalSlideRight 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+    background: #fff;
+}
+
+@keyframes hi-modalSlideRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (min-width: 768px) {
+    .hi-modal-content-custom {
+        padding: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hi-modal-content-custom {
+        max-width: 100%;
+        border-radius: 0;
+        justify-content: center;
+    }
+}
+
+.hi-modal-header-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.hi-modal-title {
+    font-size: 1.875rem;
+    font-weight: 900;
+    color: #3d2549;
+    letter-spacing: -0.025em;
+    margin: 0;
+    background: #1a1a1a;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hi-modal-subtitle {
+    color: #6c5279;
+    font-weight: 500;
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+}
+
+.hi-modal-close-btn {
+    padding: 0.5rem;
+    border-radius: 9999px;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    display: inline-flex;
+}
+
+.hi-modal-close-btn:hover {
+    background: #f3d1ff;
+    transform: rotate(90deg);
+}
+
+.hi-form-group-custom {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.hi-form-group-custom-cv {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.hi-form-group-custom-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hi-form-label-custom {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: rgba(61, 37, 73, 0.7);
+    margin-left: 0.25rem;
+}
+
+.hi-form-input-custom {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: #f8f1ff;
+    border: none;
+    border-bottom: 2px solid rgba(194, 162, 206, 0.2);
+    border-radius: 0.75rem;
+    transition: all 0.3s;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #3d2549;
+}
+
+.hi-form-input-custom::placeholder {
+    color: rgba(108, 82, 121, 0.4);
+}
+
+.hi-form-input-custom:focus {
+    outline: none;
+    border-bottom-color: #7a2ece;
+    box-shadow: 0 4px 12px rgba(122, 46, 206, 0.1);
+}
+
+.hi-required {
+    color: #e11d48;
+    font-weight: 700;
+}
+
+.hi-error-message {
+    display: none;
+    color: #e11d48;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-top: 0.35rem;
+    margin-left: 0.25rem;
+    line-height: 1.3;
+}
+
+.hi-error-message.show {
+    display: block;
+    animation: hi-errorFade 0.25s ease-out;
+}
+
+@keyframes hi-errorFade {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hi-form-input-custom.hi-invalid {
+    border-bottom-color: #e11d48;
+    background: rgba(225, 29, 72, 0.04);
+}
+
+.hi-form-input-custom.hi-invalid:focus {
+    border-bottom-color: #e11d48;
+    box-shadow: 0 4px 12px rgba(225, 29, 72, 0.1);
+}
+
+.hi-file-upload-area.hi-invalid {
+    border-color: #e11d48;
+    background: rgba(225, 29, 72, 0.04);
+}
+
+.hi-file-upload-text.hi-file-selected {
+    color: #7a2ece;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.hi-file-upload-wrapper {
+    position: relative;
+}
+
+.hi-file-input-hidden {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.hi-file-upload-area {
+    width: 100%;
+    padding: 2rem 1.25rem;
+    border: 2px dashed rgba(194, 162, 206, 0.4);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: #ffffff;
+    transition: all 0.3s;
+}
+
+.hi-file-upload-wrapper:hover .hi-file-upload-area {
+    border-color: rgba(122, 46, 206, 0.6);
+    background: rgba(253, 235, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.hi-file-upload-icon {
+    font-size: 1.875rem;
+    color: rgba(122, 46, 206, 0.7);
+    transition: transform 0.3s;
+}
+
+.hi-file-upload-wrapper:hover .hi-file-upload-icon {
+    transform: translateY(-4px);
+}
+
+.hi-file-upload-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6c5279;
+}
+
+.hi-privacy-text {
+    text-align: center;
+    font-size: 0.625rem !important;
+    color: #6c5279;
+    padding: 0 1rem;
+    line-height: 1.625;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.hi-apply-label {
+    cursor: pointer;
+}
+
+.hi-hero-card>*:not(.hi-card-corner) {
+    animation: hi-fadeUp 0.8s ease-out backwards;
+}
+
+.hi-hero-card>*:nth-child(5) {
+    animation-delay: 0.1s;
+}
+
+.hi-hero-card>*:nth-child(6) {
+    animation-delay: 0.2s;
+}
+
+.hi-hero-card>*:nth-child(7) {
+    animation-delay: 0.3s;
+}
+
+.hi-hero-card>*:nth-child(8) {
+    animation-delay: 0.4s;
+}
+
+.hi-hero-card>*:nth-child(9) {
+    animation-delay: 0.5s;
+}
+
+@keyframes hi-fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Hiring Section — Mobile Optimization ===== */
+@media (max-width: 640px) {
+    .hi-wrapper {
+        padding: 3rem 0.75rem;
+        background-size: 28px 28px, 28px 28px, 100% 100%;
+    }
+
+    .hi-hero-section {
+        padding: 0 0.25rem;
+        border-radius: 1.5rem;
+    }
+
+    .hi-hero-card {
+        padding: 2.5rem 1.25rem;
+        border-radius: 1.25rem;
+    }
+
+    .hi-card-corner {
+        width: 36px;
+        height: 36px;
+    }
+
+    .hi-corner-tl,
+    .hi-corner-tr {
+        top: 12px;
+    }
+
+    .hi-corner-bl,
+    .hi-corner-br {
+        bottom: 12px;
+    }
+
+    .hi-corner-tl,
+    .hi-corner-bl {
+        left: 12px;
+    }
+
+    .hi-corner-tr,
+    .hi-corner-br {
+        right: 12px;
+    }
+
+    .hi-hiring-badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 1rem;
+        margin-bottom: 1.25rem;
+        letter-spacing: 0.03em;
+    }
+
+    .hi-hero-title {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    .hi-hero-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+
+    .hi-btn-gradient {
+        font-size: 1rem;
+        padding: 0.875rem 1.5rem;
+        gap: 0.5rem;
+    }
+
+    .hi-btn-gradient .material-symbols-outlined {
+        font-size: 1.125rem;
+    }
+
+    .hi-sparkle-1 {
+        top: 5%;
+        left: 5%;
+    }
+
+    .hi-sparkle-2 {
+        top: 7%;
+        right: 5%;
+    }
+
+    .hi-sparkle-3 {
+        bottom: 7%;
+        left: 6%;
+    }
+
+    .hi-sparkle-4 {
+        bottom: 5%;
+        right: 5%;
+    }
+
+    /* Right Sidebar Modal */
+    .hi-modal-content-custom {
+        padding: 1.5rem 1.25rem;
+        border-radius: 0;
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    .hi-modal-header-custom {
+        margin-bottom: 1.5rem;
+    }
+
+    .hi-modal-title {
+        font-size: 1.5rem;
+    }
+
+    .hi-modal-subtitle {
+        font-size: 0.875rem;
+    }
+
+    /* Stack Name + Email vertically on mobile */
+    .hi-form-group-custom {
+        flex-direction: column;
+        gap: 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .hi-form-input-custom {
+        padding: 0.875rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .hi-form-label-custom {
+        font-size: 0.8125rem;
+    }
+
+    .hi-file-upload-area {
+        padding: 1.5rem 1rem;
+    }
+
+    .hi-file-upload-icon {
+        font-size: 1.5rem;
+    }
+
+    .hi-file-upload-text {
+        font-size: 0.8125rem;
+        text-align: center;
+    }
+
+    .hi-btn-submit {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .hi-privacy-text {
+        font-size: 0.5625rem !important;
+        padding: 0 0.5rem;
+        margin-top: 0.75rem;
+    }
 }
 
 /* ===== END: Resources Section ===== */
