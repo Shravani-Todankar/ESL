@@ -1347,7 +1347,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top center;
+      object-position: center 20%;
       transition: transform 0.35s ease;
     }
 
@@ -1448,6 +1448,14 @@
       background: #eae3f0;
       flex-shrink: 0;
       border: 3px solid rgba(255, 255, 255, 0.25);
+      overflow: hidden;
+    }
+
+    .advisory-card__img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
     }
 
     .advisory-card__chip {
@@ -2313,22 +2321,22 @@
 
     const coreTeam = [
       { name: 'Sushil Mungekar', designation: 'Founder & CEO', img: IMG.m1 },
-      { name: 'Arvind Narayanan', designation: 'Co-Founder', img: IMG.m2 },
+      { name: 'Arvind Narayanan', designation: 'Co-Founder', img: 'assets/about/team/arvind-narayan.jpg' },
       { name: 'Shubhangini Kanhere', designation: 'Chief Marketing Officer', img: IMG.f1 },
-      { name: 'Deepal Vora', designation: 'Head – Operations & Program Management', img: IMG.f2 },
+      { name: 'Deepal Vora', designation: 'Head – Operations & Program Management', img: 'assets/about/team/deepal-vora.jpg' },
       { name: 'Pooja Singhal', designation: 'Head – CSR Projects', img: IMG.f3 },
-      { name: 'Sharwari Kulkarni', designation: 'Head – Knowledge Centre', img: IMG.f4 },
-      { name: 'Riddhima Guruji', designation: 'Category Head – Future Skills Lab', img: IMG.f2 },
+      { name: 'Sharwari Kulkarni', designation: 'Head – Knowledge Centre', img: 'assets/about/team/sharwari-kulkarni.jpg' },
+      { name: 'Riddhima Guruji', designation: 'Category Head – Future Skills Lab', img: 'assets/about/team/riddhima-guruji.jpg' },
     ];
 
     const departments = [
       {
         name: 'Knowledge Centre Team',
         members: [
-          { name: 'Tiara Prasad', designation: 'Sr. Manager - Knowledge Centre' },
-          { name: 'Vishal Shetty', designation: 'Sr. Manager - Knowledge Centre' },
+          { name: 'Tiara Prasad', designation: 'Sr. Manager - Knowledge Centre', img: 'assets/about/team/tiara-prasad.jpg' },
+          { name: 'Vishal Shetty', designation: 'Sr. Manager - Knowledge Centre', img: 'assets/about/team/vishal-shetty.jpg' },
           { name: 'Swarnim Malik', designation: 'Manager, Knowledge Center' },
-          { name: 'Kanhaiya', designation: 'Knowledge Associate' },
+          { name: 'Kanhaiya', designation: 'Knowledge Associate', img: 'assets/about/team/kanhaiya-savitri.jpeg' },
         ]
       },
       {
@@ -2336,24 +2344,24 @@
         members: [
           { name: 'Samruddhi Naroji', designation: 'Sr. Manager, Marketing & Communications' },
           { name: 'Rayaan Sian Achrekar', designation: 'Marketing Manager' },
-          { name: 'Pinky Mehta', designation: 'Executive, Marketing' },
+          { name: 'Pinky Mehta', designation: 'Executive, Marketing', img: 'assets/about/team/pinky-mehta.jpg' },
         ]
       },
       {
         name: 'Operations Team',
         members: [
-          { name: 'Prapti Shamkuwar', designation: 'Operations Manager' },
+          { name: 'Prapti Shamkuwar', designation: 'Operations Manager', img: 'assets/about/team/prapti-shamkuwar.jpg' },
           { name: 'Vishal Vadhiyar', designation: 'Tech and Digital Manager' },
           { name: 'Akash Naik', designation: 'Senior Facilitator Manager' },
-          { name: 'Omkar Sitaram Sadadekar', designation: 'STEM Coordinator' },
+          { name: 'Omkar Sitaram Sadadekar', designation: 'STEM Coordinator', img: 'assets/about/team/omkar-sitaram-sadadekar.png' },
         ]
       },
       {
         name: 'Future Skills Lab Team',
         members: [
-          { name: 'Vasudha Talwar', designation: 'Project Manager' },
-          { name: 'Sushrut Mahajan', designation: 'School Relationship Manager' },
-          { name: 'Ritu Nandmaher', designation: 'Project Coordinator, Career Darshak' },
+          { name: 'Vasudha Talwar', designation: 'Project Manager', img: 'assets/about/team/vasudha-talwar.jpg' },
+          { name: 'Sushrut Mahajan', designation: 'School Relationship Manager', img: 'assets/about/team/sushrut-mahajan.jpeg' },
+          { name: 'Ritu Nandmaher', designation: 'Project Coordinator, Career Darshak', img: 'assets/about/team/ritu-nandmaher.jpg' },
         ]
       },
     ];
@@ -2363,14 +2371,14 @@
     const projectTeam = [
       { name: 'Shyna Gupta', designation: 'Manager, Digital Skills' },
       { name: 'Shreya Bagde', designation: 'Project Manager' },
-      { name: 'Sayali Waghmare', designation: 'Project Manager' },
+      { name: 'Sayali Waghmare', designation: 'Project Manager', img: 'assets/about/team/sayali-waghmare.jpg' },
       { name: 'Virajaji Naraganeni', designation: 'Project Manager' },
-      { name: 'Dnyaneshwar Maske', designation: 'Project Manager' },
-      { name: 'Prashant Gaikwad', designation: 'Project Manager' },
-      { name: 'Reshmi A R', designation: 'Program Manager' },
-      { name: 'Prajakta Taiwade', designation: 'Process & Project Manager' },
-      { name: 'Ravi Kumar', designation: 'Project Coordinator' },
-      { name: 'Mohd Imran', designation: 'Project Coordinator' },
+      { name: 'Dnyaneshwar Maske', designation: 'Project Manager', img: 'assets/about/team/dnyaneshwar-maske.jpeg' },
+      { name: 'Prashant Gaikwad', designation: 'Project Manager', img: 'assets/about/team/prashant-gaikwad .jpg' },
+      { name: 'Reshmi A R', designation: 'Program Manager', img: 'assets/about/team/reshmi-a-r.jpeg' },
+      { name: 'Prajakta Taiwade', designation: 'Process & Project Manager', img: 'assets/about/team/prajakta-taiwade.jpeg' },
+      { name: 'Ravi Kumar', designation: 'Project Coordinator', img: 'assets/about/team/ravi-kumar.png' },
+      { name: 'Mohd Imran', designation: 'Project Coordinator', img: 'assets/about/team/mohd-imran .png' },
       { name: 'Md. Azharoddin Atahar Kazi', designation: 'Program Coordinator' },
     ];
 
@@ -2382,6 +2390,7 @@
     const coreCard = m => `
   <div class="core-card">
     <div class="core-card__img-wrap">
+      <img class="core-card__img" src="${m.img || getPlaceholder(m.name)}" alt="${m.name}" loading="lazy" />
     </div>
     <div class="core-card__body">
       <p class="core-card__name">${m.name}</p>
@@ -2394,7 +2403,7 @@
     <div class="advisory-card__circle advisory-card__circle--1"></div>
     <div class="advisory-card__circle advisory-card__circle--2"></div>
     <div class="advisory-card__top">
-      <div class="advisory-card__img-wrap"></div>
+      <div class="advisory-card__img-wrap"><img src="${a.img || getPlaceholder(a.name)}" alt="${a.name}" loading="lazy" /></div>
       <div>
         <span class="advisory-card__chip">${a.role}</span>
         <h3 class="advisory-card__name">${a.name}</h3>

@@ -1566,7 +1566,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ].forEach(function (pair) { clearError(pair[0], pair[1]); });
         }
 
-        const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/3aca38132ae32a4354116debb8ee50c7';
+        const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/403aa04c4759d1a8a00def2ee2aaf35b';
         const submitBtn = form.querySelector('.hi-btn-submit');
         const submitBtnDefaultText = submitBtn ? submitBtn.textContent.trim() : 'Submit Application';
 
