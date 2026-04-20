@@ -1886,6 +1886,19 @@
             });
           });
         }
+
+        var cbanner = document.getElementById('cookieBanner');
+        if (cbanner && !localStorage.getItem('cookie_consent')) {
+          cbanner.classList.add('show');
+          document.getElementById('cookieAccept').addEventListener('click', function () {
+            localStorage.setItem('cookie_consent', 'accepted');
+            cbanner.classList.remove('show');
+          });
+          document.getElementById('cookieReject').addEventListener('click', function () {
+            localStorage.setItem('cookie_consent', 'rejected');
+            cbanner.classList.remove('show');
+          });
+        }
       })
       .catch(error => console.error('Error loading footer:', error));
 
@@ -2322,9 +2335,9 @@
     const coreTeam = [
       { name: 'Sushil Mungekar', designation: 'Founder & CEO', img: IMG.m1 },
       { name: 'Arvind Narayanan', designation: 'Co-Founder', img: 'assets/about/team/arvind-narayan.jpg' },
-      { name: 'Shubhangini Kanhere', designation: 'Chief Marketing Officer', img: IMG.f1 },
+      { name: 'Shubhangini Kanhere', designation: 'Chief Marketing Officer', img: 'assets/about/team/Shubhangini.jpg' },
       { name: 'Deepal Vora', designation: 'Head – Operations & Program Management', img: 'assets/about/team/deepal-vora.jpg' },
-      { name: 'Pooja Singhal', designation: 'Head – CSR Projects', img: IMG.f3 },
+      { name: 'Pooja Singhal', designation: 'Head – CSR Projects', img: 'assets/about/team/pooja-singhal.jpg' },
       { name: 'Sharwari Kulkarni', designation: 'Head – Knowledge Centre', img: 'assets/about/team/sharwari-kulkarni.jpg' },
       { name: 'Riddhima Guruji', designation: 'Category Head – Future Skills Lab', img: 'assets/about/team/riddhima-guruji.jpg' },
     ];
@@ -2335,7 +2348,7 @@
         members: [
           { name: 'Tiara Prasad', designation: 'Sr. Manager - Knowledge Centre', img: 'assets/about/team/tiara-prasad.jpg' },
           { name: 'Vishal Shetty', designation: 'Sr. Manager - Knowledge Centre', img: 'assets/about/team/vishal-shetty.jpg' },
-          { name: 'Swarnim Malik', designation: 'Manager, Knowledge Center' },
+          { name: 'Swarnim Malik', designation: 'Manager', img: 'assets/about/team/swarnim.jpeg' },
           { name: 'Kanhaiya', designation: 'Knowledge Associate', img: 'assets/about/team/kanhaiya-savitri.jpeg' },
         ]
       },
@@ -2343,16 +2356,16 @@
         name: 'Marketing Team',
         members: [
           { name: 'Samruddhi Naroji', designation: 'Sr. Manager, Marketing & Communications' },
-          { name: 'Rayaan Sian Achrekar', designation: 'Marketing Manager' },
-          { name: 'Pinky Mehta', designation: 'Executive, Marketing', img: 'assets/about/team/pinky-mehta.jpg' },
+          { name: 'Rayaan Sian Achrekar', designation: 'Marketing Manager', img: 'assets/about/team/ray.png' },
+          { name: 'Pinky Mehta', designation: 'Executive Marketing', img: 'assets/about/team/pinky-mehta.jpg' },
         ]
       },
       {
         name: 'Operations Team',
         members: [
           { name: 'Prapti Shamkuwar', designation: 'Operations Manager', img: 'assets/about/team/prapti-shamkuwar.jpg' },
-          { name: 'Vishal Vadhiyar', designation: 'Tech and Digital Manager' },
-          { name: 'Akash Naik', designation: 'Senior Facilitator Manager' },
+          { name: 'Vishal Vadhiyar', designation: 'Tech and Digital Manager', img: 'assets/about/team/vishal-vadhiyar.png' },
+          { name: 'Akash Naik', designation: 'Senior Facilitator Manager', img: 'assets/about/team/akash-naik.jpeg' },
           { name: 'Samruddhi Sancheti', designation: 'Manager - Coach Network', img: 'assets/about/team/samruddhi-sancheti.jpg' },
           { name: 'Omkar Sitaram Sadadekar', designation: 'STEM Coordinator', img: 'assets/about/team/omkar-sitaram-sadadekar.png' },
         ]
@@ -2360,9 +2373,9 @@
       {
         name: 'Future Skills Lab Team',
         members: [
-          { name: 'Vasudha Talwar', designation: 'Project Manager', img: 'assets/about/team/vasudha-talwar.jpg' },
+          { name: 'Vasudha Talwar', designation: 'School Relationship Manager', img: 'assets/about/team/vasudha-talwar.jpg' },
           { name: 'Sushrut Mahajan', designation: 'School Relationship Manager', img: 'assets/about/team/sushrut-mahajan.jpeg' },
-          { name: 'Ritu Nandmaher', designation: 'Project Coordinator, Career Darshak', img: 'assets/about/team/ritu-nandmaher.jpg' },
+          { name: 'Ritu Nandmaher', designation: 'Project Coordinator', img: 'assets/about/team/ritu-nandmaher.jpg' },
         ]
       },
     ];
@@ -2373,14 +2386,14 @@
       { name: 'Shyna Gupta', designation: 'Manager, Digital Skills' },
       { name: 'Shreya Bagde', designation: 'Project Manager' },
       { name: 'Sayali Waghmare', designation: 'Project Manager', img: 'assets/about/team/sayali-waghmare.jpg' },
-      { name: 'Virajaji Naraganeni', designation: 'Project Manager' },
+      { name: 'Virajaji Naraganeni', designation: 'Project Manager', img: 'assets/about/team/virajaji-naraganeni.jpg' },
       { name: 'Dnyaneshwar Maske', designation: 'Project Manager', img: 'assets/about/team/dnyaneshwar-maske.jpeg' },
       { name: 'Prashant Gaikwad', designation: 'Project Manager', img: 'assets/about/team/prashant-gaikwad .jpg' },
       { name: 'Reshmi A R', designation: 'Program Manager', img: 'assets/about/team/reshmi-a-r.jpeg' },
       { name: 'Prajakta Taiwade', designation: 'Process & Project Manager', img: 'assets/about/team/prajakta-taiwade.jpeg' },
       { name: 'Ravi Kumar', designation: 'Project Coordinator', img: 'assets/about/team/ravi-kumar.png' },
       { name: 'Mohd Imran', designation: 'Project Coordinator', img: 'assets/about/team/mohd-imran .png' },
-      { name: 'Md. Azharoddin Atahar Kazi', designation: 'Program Coordinator' },
+      { name: 'Md. Azharoddin Atahar Kazi', designation: 'Program Coordinator', img: 'assets/about/team/Azhar.png' },
       { name: 'Aishwarya K Gowda', designation: 'Project Coordinator', img: 'assets/about/team/aishwarya-gowda.jpg' },
     ];
 

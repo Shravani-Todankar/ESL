@@ -2582,6 +2582,19 @@
                         });
                     });
                 }
+
+                var cbanner = document.getElementById('cookieBanner');
+                if (cbanner && !localStorage.getItem('cookie_consent')) {
+                    cbanner.classList.add('show');
+                    document.getElementById('cookieAccept').addEventListener('click', function () {
+                        localStorage.setItem('cookie_consent', 'accepted');
+                        cbanner.classList.remove('show');
+                    });
+                    document.getElementById('cookieReject').addEventListener('click', function () {
+                        localStorage.setItem('cookie_consent', 'rejected');
+                        cbanner.classList.remove('show');
+                    });
+                }
             })
             .catch(error => console.error('Error loading footer:', error));
 

@@ -209,3 +209,107 @@
 <button id="backToTop" class="back-to-top" aria-label="Back to top">
     <span class="material-icons">arrow_upward</span>
 </button>
+
+<!-- Cookie Consent Banner -->
+<style>
+    .cookie-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #efdeff 0%, #fffce3 100%);
+        color: #1a1a1a;
+        z-index: 99999;
+        padding: 1.2rem 2rem;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        font-family: 'Montserrat', sans-serif;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .cookie-banner.show {
+        display: flex;
+    }
+
+    .cookie-banner p {
+        margin: 0;
+        font-size: 1rem !important;
+        color: #1a1a1a;
+        line-height: 1.5;
+        max-width: 700px;
+    }
+
+    .cookie-banner p a {
+        color: #e5a93e;
+        text-decoration: underline;
+    }
+
+    .cookie-banner p a:hover {
+        color: #facc48;
+    }
+
+    .cookie-btns {
+        display: flex;
+        gap: 0.8rem;
+        flex-shrink: 0;
+    }
+
+    .cookie-btn-accept {
+        padding: 0.55rem 1.5rem;
+        background: #6c32a8;
+        color: #fff;
+        border: none;
+        border-radius: 100px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .cookie-btn-accept:hover {
+        background: #34136d;
+    }
+
+    .cookie-btn-reject {
+        padding: 0.55rem 1.5rem;
+        background: transparent;
+        color: #6c32a8;
+        border: 1.5px solid #6c32a8;
+        border-radius: 100px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .cookie-btn-reject:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 768px) {
+        .cookie-banner {
+            flex-direction: column;
+            text-align: center;
+            padding: 1.2rem 1.5rem;
+            gap: 1rem;
+        }
+
+        .cookie-banner p {
+            font-size: 0.82rem;
+        }
+    }
+</style>
+
+<div class="cookie-banner" id="cookieBanner">
+    <p>We use cookies to enhance your browsing experience. By continuing to use our site, you agree to our
+        <a href="privacy-policy.html">Privacy Policy</a>.
+    </p>
+    <div class="cookie-btns">
+        <button class="cookie-btn-accept" id="cookieAccept">Accept</button>
+        <button class="cookie-btn-reject" id="cookieReject">Reject</button>
+    </div>
+</div>
