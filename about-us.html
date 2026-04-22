@@ -1375,158 +1375,7 @@
       line-height: 1.5;
     }
 
-    /* Advisory panel */
-    .advisory-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .advisory-card {
-      background: linear-gradient(145deg, #6b21a82e, #ffc1071f);
-      border-radius: 24px;
-      padding: 32px;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 16px 48px rgba(124, 58, 237, 0.25);
-      transition: all 0.25s ease;
-    }
-
-    .advisory-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 24px 60px rgba(124, 58, 237, 0.3);
-    }
-
-    .advisory-card__circle {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .advisory-card__circle--1 {
-      top: -60px;
-      right: -60px;
-      width: 200px;
-      height: 200px;
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .advisory-card__circle--2 {
-      bottom: -50px;
-      left: -50px;
-      width: 160px;
-      height: 160px;
-      background: rgba(255, 255, 255, 0.04);
-    }
-
-    .advisory-card__top {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      margin-bottom: 18px;
-      position: relative;
-      /* flex-direction: column; */
-    }
-
     @media (max-width: 768px) {
-      .advisory-card__top {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .advisory-card__chip {
-        position: absolute;
-        top: 20px;
-        right: 10px;
-      }
-    }
-
-    .advisory-card__img-wrap {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      background: #eae3f0;
-      flex-shrink: 0;
-      border: 3px solid rgba(255, 255, 255, 0.25);
-      overflow: hidden;
-    }
-
-    .advisory-card__img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-    }
-
-    .advisory-card__chip {
-      display: block;
-      width: fit-content;
-      background: rgb(156 39 176 / 18%);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #1a1a1a;
-      border-radius: 50px;
-      padding: 3px 12px;
-      font-size: 10px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 15px;
-    }
-
-    .advisory-card__name {
-      font-family: 'Space Grotesk';
-      font-size: 2rem;
-      font-weight: 800;
-      color: #1a1a1a;
-      line-height: 1.25;
-    }
-
-    .advisory-divider {
-      height: 1px;
-      background: rgba(255, 255, 255, 0.15);
-      margin-bottom: 16px;
-    }
-
-    .advisory-card__bio {
-      font-size: 13px;
-      font-weight: 600;
-      color: #1a1a1a;
-      line-height: 1.8;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .advisory-card__bio.expanded {
-      display: block;
-      overflow: visible;
-    }
-
-    .advisory-card__toggle {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #6c4c9f;
-      border-radius: 10px;
-      padding: 6px 14px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      font-weight: 800;
-      cursor: pointer;
-      margin-top: 12px;
-      display: block;
-      transition: all 0.2s;
-    }
-
-    .advisory-card__toggle:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    @media (max-width: 768px) {
-      .advisory-grid {
-        grid-template-columns: 1fr;
-      }
 
       /* About Us section */
       .about-grid {
@@ -1743,8 +1592,7 @@
         <button class="hs-nav-btn" id="hsNext">
           <span class="material-symbols-outlined">arrow_forward</span>
         </button>
-        <button class="hs-skip-btn"
-          onclick="document.getElementById('team-section').scrollIntoView({behavior:'smooth'})">Skip</button>
+        <button class="hs-skip-btn" id="hsSkipBtn">Skip</button>
       </div>
     </div>
   </section>
@@ -2318,6 +2166,16 @@
       // Initial state
       updateProgress(0);
       animateSlide(0);
+
+      // Skip button — scroll past pinned section to team section
+      document.getElementById('hsSkipBtn').addEventListener('click', function () {
+        var st = scrollTween.scrollTrigger;
+        gsap.to(window, {
+          scrollTo: st.end + 650,
+          duration: 1,
+          ease: 'power3.out'
+        });
+      });
     })();
 
     /* ---- Team Section ---- */
@@ -2333,7 +2191,7 @@
     const IMG = { m1: '', m2: '', m3: '', m4: '', f1: '', f2: '', f3: '', f4: '' };
 
     const coreTeam = [
-      { name: 'Sushil Mungekar', designation: 'Founder & CEO', img: IMG.m1 },
+      { name: 'Sushil Mungekar', designation: 'Founder & CEO', img: 'assets/about/team/sushil-mungekar.jpg' },
       { name: 'Arvind Narayanan', designation: 'Co-Founder', img: 'assets/about/team/arvind-narayan.jpg' },
       { name: 'Shubhangini Kanhere', designation: 'Chief Marketing Officer', img: 'assets/about/team/Shubhangini.jpg' },
       { name: 'Deepal Vora', designation: 'Head – Operations & Program Management', img: 'assets/about/team/deepal-vora.jpg' },
@@ -2355,7 +2213,7 @@
       {
         name: 'Marketing Team',
         members: [
-          { name: 'Samruddhi Naroji', designation: 'Sr. Manager, Marketing & Communications' },
+          { name: 'Samruddhi Naroji', designation: 'Sr. Manager, Marketing & Communications', img: 'assets/about/team/samruddhi-naroji.jpeg' },
           { name: 'Rayaan Sian Achrekar', designation: 'Marketing Manager', img: 'assets/about/team/ray.png' },
           { name: 'Pinky Mehta', designation: 'Executive Marketing', img: 'assets/about/team/pinky-mehta.jpg' },
         ]
@@ -2383,7 +2241,7 @@
     const deptMemberCount = departments.reduce((sum, d) => sum + d.members.length, 0);
 
     const projectTeam = [
-      { name: 'Shyna Gupta', designation: 'Manager, Digital Skills' },
+      { name: 'Shyna Gupta', designation: 'Manager, Digital Skills', img: 'assets/about/team/shyna-gupta.jpeg' },
       { name: 'Shreya Bagde', designation: 'Project Manager' },
       { name: 'Sayali Waghmare', designation: 'Project Manager', img: 'assets/about/team/sayali-waghmare.jpg' },
       { name: 'Virajaji Naraganeni', designation: 'Project Manager', img: 'assets/about/team/virajaji-naraganeni.jpg' },
@@ -2398,8 +2256,11 @@
     ];
 
     const advisoryPanel = [
-      { name: 'Dr. Bhalchandra Mungekar', role: 'Mentor', img: IMG.m1, bio: 'Dr. Bhalchandra Mungekar is an author, economist, educationist, social worker, and former Rajya Sabha member. He served as Vice-Chancellor of the University of Mumbai, held prestigious positions in the Planning Commission and Agricultural Price Commission, and chaired the UGC and the Indian Institute of Advanced Study, Shimla.' },
-      { name: 'Nikhil Vora', role: 'Strategic Investor', img: IMG.m2, bio: "Nikhil Vora is the Founder & CEO of Sixth Sense Ventures, India's first consumer-focused domestic venture fund. He was formerly Managing Director and Head of Research at IDFC Securities and has advised companies such as Unilever, Aditya Birla Group, Marico, Godrej Group, NIIT, and Navneet Education. In the Asia Money Polls 2012, he was ranked India's No.1 analyst." },
+      { name: 'Sushil Mungekar', designation: 'Advisory Board', img: 'assets/about/team/sushil-mungekar.jpg' },
+      { name: 'Arvind Narayanan', designation: 'Advisory Board', img: 'assets/about/team/arvind-narayan.jpg' },
+      { name: 'Nikhil Vora', designation: 'Advisory Board', img: 'assets/about/team/nikhil-vora.png' },
+      { name: 'Tarun Bhojwani', designation: 'Advisory Board', img: 'assets/about/team/tarun-bhojwani.png' },
+      { name: 'Arijit De', designation: 'Advisory Board' },
     ];
 
     const coreCard = m => `
@@ -2413,20 +2274,15 @@
     </div>
   </div>`;
 
-    const advisoryCard = (a, i) => `
-  <div class="advisory-card">
-    <div class="advisory-card__circle advisory-card__circle--1"></div>
-    <div class="advisory-card__circle advisory-card__circle--2"></div>
-    <div class="advisory-card__top">
-      <div class="advisory-card__img-wrap"><img src="${a.img || getPlaceholder(a.name)}" alt="${a.name}" loading="lazy" /></div>
-      <div>
-        <span class="advisory-card__chip">${a.role}</span>
-        <h3 class="advisory-card__name">${a.name}</h3>
-      </div>
+    const advisoryCard = (a) => `
+  <div class="core-card">
+    <div class="core-card__img-wrap">
+      <img class="core-card__img" src="${a.img || getPlaceholder(a.name)}" alt="${a.name}" loading="lazy" />
     </div>
-    <div class="advisory-divider"></div>
-    <p class="advisory-card__bio" id="bio-${i}">${a.bio}</p>
-    <button class="advisory-card__toggle" onclick="toggleBio(${i},this)">Read more ↓</button>
+    <div class="core-card__body">
+      <p class="core-card__name">${a.name}</p>
+      <p class="core-card__designation">${a.designation}</p>
+    </div>
   </div>`;
 
     document.getElementById('panel-core').innerHTML =
@@ -2446,7 +2302,7 @@
 
     document.getElementById('panel-advisory').innerHTML =
       '<h2 class="group-heading">Advisory <span>Board</span></h2>' +
-      '<div class="advisory-grid">' + advisoryPanel.map(advisoryCard).join('') + '</div>';
+      '<div class="core-grid">' + advisoryPanel.map(advisoryCard).join('') + '</div>';
 
     const tabsEl = document.getElementById('mainTabs');
     [
@@ -2466,10 +2322,6 @@
       tabsEl.appendChild(btn);
     });
 
-    function toggleBio(i, btn) {
-      const bio = document.getElementById('bio-' + i);
-      btn.textContent = bio.classList.toggle('expanded') ? 'Show less ↑' : 'Read more ↓';
-    }
   </script>
 </body>
 
