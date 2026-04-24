@@ -1582,26 +1582,22 @@ document.addEventListener('DOMContentLoaded', function () {
             ].forEach(function (pair) { clearError(pair[0], pair[1]); });
         }
 
-        const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/403aa04c4759d1a8a00def2ee2aaf35b';
         const submitBtn = form.querySelector('.hi-btn-submit');
         const submitBtnDefaultText = submitBtn ? submitBtn.textContent.trim() : 'Submit Application';
 
         form.addEventListener('submit', async function (e) {
             e.preventDefault();
-            console.log('[hiring-form] submit fired');
             const checks = [validateName(), validateEmail(), validateCv()];
-            console.log('[hiring-form] validation results:', checks);
             if (!checks.every(Boolean)) {
-                console.warn('[hiring-form] validation failed — aborting');
                 const firstInvalid = form.querySelector('.hi-invalid');
                 if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 return;
             }
 
-            const formData = new FormData(form);
-            formData.append('_subject', 'New Job Application — ENpower Careers');
-            formData.append('_template', 'table');
-            formData.append('_captcha', 'false');
+            const formData = new FormData();
+            formData.append('name', nameInput.value.trim());
+            formData.append('email', emailInput.value.trim());
+            formData.append('cv', cvInput.files[0]);
 
             if (submitBtn) {
                 submitBtn.disabled = true;
@@ -1609,15 +1605,13 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             try {
-                console.log('[hiring-form] posting to FormSubmit...');
-                const res = await fetch(FORMSUBMIT_ENDPOINT, {
+                const res = await fetch('/api/apply', {
                     method: 'POST',
                     body: formData
                 });
                 const data = await res.json().catch(function () { return {}; });
-                console.log('[hiring-form] FormSubmit response:', res.status, data);
 
-                if (res.ok) {
+                if (data.success) {
                     if (typeof showToast === 'function') {
                         showToast('success', 'Application Received', 'Thanks for applying! Our team will get back to you soon.');
                     }
@@ -1629,7 +1623,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
             } catch (err) {
-                console.error('[hiring-form] network error:', err);
                 if (typeof showToast === 'function') {
                     showToast('error', 'Network Error', 'Please check your connection and try again.');
                 }
