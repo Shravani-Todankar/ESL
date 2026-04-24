@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Innovation Labs - ENpower</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     <meta name="description"
         content="ENpower's Tech Innovation Labs - Transforming Traditional STEM Learning With Design Thinking & Entrepreneurship.">
 
@@ -3039,7 +3040,6 @@
     <!-- Footer will be loaded here -->
     <div id="footer-placeholder"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
         /* ==========================================================
            LOAD HEADER AND FOOTER
@@ -3264,8 +3264,6 @@
         }
         function closeToast() { document.getElementById('enpToast').classList.remove('active'); }
 
-        emailjs.init('ZrIVKL_1zb380bnLM');
-
         function openTilForm() { document.getElementById('tilFormOverlay').classList.add('active'); }
         function closeTilForm() { document.getElementById('tilFormOverlay').classList.remove('active'); }
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeTilForm(); });
@@ -3282,19 +3280,23 @@
             const email = document.getElementById('tilEmail').value;
             const contact = document.getElementById('tilContact').value;
 
-            emailjs.send('service_2u7kfbl', 'template_022e9es', {
-                subject: 'New Lab Inquiry from ' + name + ' - Tech Innovation Labs',
-                header: 'New inquiry received from Tech Innovation Labs page:',
-                content: 'Name: ' + name + '\nSchool/Institute: ' + school + '\nDesignation: ' + designation + '\nEmail: ' + email + '\nContact: ' + contact
-            }).then(function () {
-                showToast('success', 'Thank You!', 'Your inquiry has been submitted successfully. We will get back to you soon.');
-                document.getElementById('tilForm').reset();
-                closeTilForm();
+            fetch('/api/lab-inquiry', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ lab: 'Tech Innovation Lab', name, school, designation, email, contact })
+            }).then(function (res) { return res.json(); })
+            .then(function (data) {
+                if (data.success) {
+                    showToast('success', 'Thank You!', 'Your inquiry has been submitted successfully. We will get back to you soon.');
+                    document.getElementById('tilForm').reset();
+                    closeTilForm();
+                } else {
+                    showToast('error', 'Oops!', 'Something went wrong. Please try again.');
+                }
                 btn.disabled = false;
                 btn.textContent = 'Submit';
-            }, function (error) {
+            }).catch(function () {
                 showToast('error', 'Oops!', 'Something went wrong. Please try again.');
-                console.error('EmailJS Error:', error);
                 btn.disabled = false;
                 btn.textContent = 'Submit';
             });

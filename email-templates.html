@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ENpower - Email Templates Preview</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f4f0f8; padding: 40px 20px; }
+    h1 { text-align: center; color: #6c32a8; margin-bottom: 40px; font-size: 1.8rem; }
+    .template-wrapper { max-width: 620px; margin: 0 auto 50px; }
+    .template-label { background: #6c32a8; color: #fff; padding: 10px 20px; border-radius: 12px 12px 0 0; font-weight: 700; font-size: 0.9rem; }
+    .email-preview { background: #fff; border: 1px solid #e0d6ea; border-radius: 0 0 12px 12px; padding: 0; overflow: hidden; }
+
+    /* Email inner styles */
+    .email-body { padding: 0; }
+    .email-header { background: linear-gradient(135deg, #efdeff 0%, #fffce3 100%); padding: 30px; text-align: center; }
+    .email-header img { height: 50px; }
+    .email-header h2 { color: #3d2549; font-size: 1.3rem; margin-top: 12px; }
+    .email-content { padding: 30px; }
+    .email-content p { color: #555; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6; }
+    .email-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    .email-table td { padding: 12px 16px; font-size: 0.88rem; border-bottom: 1px solid #f0ecf5; }
+    .email-table td:first-child { font-weight: 700; color: #3d2549; width: 40%; background: #f9f5ff; }
+    .email-table td:last-child { color: #555; }
+    .email-footer { background: #f9f5ff; padding: 20px 30px; text-align: center; border-top: 1px solid #e8e0f0; }
+    .email-footer p { color: #999; font-size: 0.78rem; margin: 0; }
+    .email-footer a { color: #6c32a8; text-decoration: none; }
+    .badge { display: inline-block; background: #e5a93e; color: #fff; padding: 3px 10px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; margin-bottom: 8px; }
+    .attachment-box { background: #f9f5ff; border: 1px dashed #d4c6e8; border-radius: 8px; padding: 14px 18px; display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+    .attachment-box .icon { font-size: 1.4rem; }
+    .attachment-box .file-name { font-size: 0.85rem; color: #6c32a8; font-weight: 600; }
+    .attachment-box .file-size { font-size: 0.75rem; color: #999; }
+  </style>
+</head>
+<body>
+
+<h1>ENpower — Email Templates (5)</h1>
+
+<!-- ============ TEMPLATE 1: LAB INQUIRY ============ -->
+<div class="template-wrapper">
+  <div class="template-label">Template 1 — Lab Inquiry (FSL / CSL / TIL)</div>
+  <div class="email-preview">
+    <div class="email-body">
+      <div class="email-header">
+        <h2>New Lab Inquiry — Future Skills Lab</h2>
+      </div>
+      <div class="email-content">
+        <span class="badge">Lab Inquiry</span>
+        <p>You have received a new inquiry from the ENpower website.</p>
+        <table class="email-table">
+          <tr><td>Name</td><td>Rahul Sharma</td></tr>
+          <tr><td>School / Institute</td><td>DY Patil International School</td></tr>
+          <tr><td>Designation</td><td>Principal</td></tr>
+          <tr><td>Email</td><td>rahul@dypatil.edu</td></tr>
+          <tr><td>Contact Number</td><td>+91 98765 43210</td></tr>
+        </table>
+      </div>
+      <div class="email-footer">
+        <p>ENpower by <a href="#">Enlearning Skill Development Limited</a><br>enpower-school.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TEMPLATE 2: PARTNER INQUIRY ============ -->
+<div class="template-wrapper">
+  <div class="template-label">Template 2 — Partner Inquiry (Index Page)</div>
+  <div class="email-preview">
+    <div class="email-body">
+      <div class="email-header">
+        <h2>New Partner Inquiry</h2>
+      </div>
+      <div class="email-content">
+        <span class="badge">Partner Inquiry</span>
+        <p>You have received a new partnership inquiry from the ENpower website.</p>
+        <table class="email-table">
+          <tr><td>Name</td><td>Priya Mehta</td></tr>
+          <tr><td>I Represent</td><td>School</td></tr>
+          <tr><td>I am a</td><td>Decision Maker</td></tr>
+          <tr><td>Designation</td><td>Director</td></tr>
+          <tr><td>Email</td><td>priya@school.edu</td></tr>
+          <tr><td>Contact Number</td><td>+91 87654 32109</td></tr>
+        </table>
+      </div>
+      <div class="email-footer">
+        <p>ENpower by <a href="#">Enlearning Skill Development Limited</a><br>enpower-school.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TEMPLATE 3: IMPACT PROGRAMS ============ -->
+<div class="template-wrapper">
+  <div class="template-label">Template 3 — Impact Programs Inquiry</div>
+  <div class="email-preview">
+    <div class="email-body">
+      <div class="email-header">
+        <h2>New Impact Programs Inquiry</h2>
+      </div>
+      <div class="email-content">
+        <span class="badge">Impact Programs</span>
+        <p>You have received a new inquiry from the Impact Programs page.</p>
+        <table class="email-table">
+          <tr><td>Name</td><td>Amit Deshmukh</td></tr>
+          <tr><td>Email</td><td>amit@foundation.org</td></tr>
+          <tr><td>Organisation / Foundation</td><td>Tata Trusts</td></tr>
+          <tr><td>Designation</td><td>CSR Manager</td></tr>
+          <tr><td>Contact Number</td><td>+91 76543 21098</td></tr>
+        </table>
+      </div>
+      <div class="email-footer">
+        <p>ENpower by <a href="#">Enlearning Skill Development Limited</a><br>enpower-school.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TEMPLATE 4: TRAINING ACADEMY ============ -->
+<div class="template-wrapper">
+  <div class="template-label">Template 4 — Training Academy Inquiry</div>
+  <div class="email-preview">
+    <div class="email-body">
+      <div class="email-header">
+        <h2>New Training Academy Inquiry</h2>
+      </div>
+      <div class="email-content">
+        <span class="badge">Training Academy</span>
+        <p>You have received a new certification inquiry from the Training Academy page.</p>
+        <table class="email-table">
+          <tr><td>Name</td><td>Sneha Kulkarni</td></tr>
+          <tr><td>Email</td><td>sneha@gmail.com</td></tr>
+          <tr><td>Phone</td><td>+91 65432 10987</td></tr>
+          <tr><td>Role</td><td>Educator</td></tr>
+          <tr><td>Interest</td><td>Design Thinking for Educators</td></tr>
+          <tr><td>Message</td><td>I would like to know more about the certification program and upcoming batches.</td></tr>
+        </table>
+      </div>
+      <div class="email-footer">
+        <p>ENpower by <a href="#">Enlearning Skill Development Limited</a><br>enpower-school.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TEMPLATE 5: APPLY / HIRING ============ -->
+<div class="template-wrapper">
+  <div class="template-label">Template 5 — Job Application (Hiring Form)</div>
+  <div class="email-preview">
+    <div class="email-body">
+      <div class="email-header">
+        <h2>New Job Application</h2>
+      </div>
+      <div class="email-content">
+        <span class="badge">Hiring</span>
+        <p>You have received a new job application from the ENpower website.</p>
+        <table class="email-table">
+          <tr><td>Name</td><td>Vikram Joshi</td></tr>
+          <tr><td>Email</td><td>vikram@gmail.com</td></tr>
+        </table>
+        <div class="attachment-box">
+          <span class="icon">📎</span>
+          <div>
+            <div class="file-name">vikram-joshi-resume.pdf</div>
+            <div class="file-size">1.2 MB</div>
+          </div>
+        </div>
+      </div>
+      <div class="email-footer">
+        <p>ENpower by <a href="#">Enlearning Skill Development Limited</a><br>enpower-school.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

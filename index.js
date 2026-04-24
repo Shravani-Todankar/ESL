@@ -373,23 +373,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 const email = emailInput.value;
                 const contact = contactInput.value;
 
-                emailjs.init('ZrIVKL_1zb380bnLM');
-                emailjs.send('service_2u7kfbl', 'template_022e9es', {
-                    subject: 'New Partner Inquiry from ' + name + ' - Homepage',
-                    header: 'New partner inquiry received from Homepage:',
-                    content: 'Name: ' + name + '\nI Represent: ' + represent + '\nRole: ' + role + '\nDesignation: ' + desig + '\nEmail: ' + email + '\nContact: ' + contact
-                }).then(function () {
-                    showToast('success', 'Thank You!', 'Your inquiry has been submitted successfully. We will get back to you soon.');
-                    partnerForm.reset();
-                    popup.classList.remove('active');
-                    document.body.style.overflow = '';
-                    schoolRoleGroup.style.display = 'none';
-                    designationGroup.style.display = 'none';
+                fetch('/api/partner-inquiry', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: name, represent: represent, iam: role, designation: desig, email: email, contact: contact })
+                }).then(function (res) { return res.json(); })
+                .then(function (data) {
+                    if (data.success) {
+                        showToast('success', 'Thank You!', 'Your inquiry has been submitted successfully. We will get back to you soon.');
+                        partnerForm.reset();
+                        popup.classList.remove('active');
+                        document.body.style.overflow = '';
+                        schoolRoleGroup.style.display = 'none';
+                        designationGroup.style.display = 'none';
+                    } else {
+                        showToast('error', 'Oops!', 'Something went wrong. Please try again.');
+                    }
                     btn.disabled = false;
                     btn.textContent = 'Submit';
-                }, function (error) {
+                }).catch(function () {
                     showToast('error', 'Oops!', 'Something went wrong. Please try again.');
-                    console.error('EmailJS Error:', error);
                     btn.disabled = false;
                     btn.textContent = 'Submit';
                 });

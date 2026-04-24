@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Training Academy - ENpower</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     <meta name="description" content="ENpower's Training Academy - Professional Development for Educators">
 
     <!-- Google Fonts -->
@@ -2356,7 +2357,6 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
         function showToast(type, title, msg) {
             const toast = document.getElementById('enpToast');
@@ -2367,8 +2367,6 @@
             toast.classList.add('active');
         }
         function closeToast() { document.getElementById('enpToast').classList.remove('active'); }
-
-        emailjs.init('ZrIVKL_1zb380bnLM');
 
         /* ==========================================================
            LOAD HEADER AND FOOTER
@@ -2788,19 +2786,23 @@
                         const interest = interestEl.options[interestEl.selectedIndex].text;
                         const message = document.getElementById('educatorMessage').value;
 
-                        emailjs.send('service_2u7kfbl', 'template_022e9es', {
-                            subject: 'New Training Academy Inquiry from ' + name,
-                            header: 'New inquiry received from Training Academy page:',
-                            content: 'Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\nRole: ' + role + '\nInterest: ' + interest + '\nMessage: ' + message
-                        }).then(function () {
-                            showToast('success', 'Thank You!', 'Your inquiry has been submitted successfully. We will get back to you soon.');
-                            closeEducatorPopup();
-                            educatorForm.reset();
+                        fetch('/api/training-inquiry', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name: name, email: email, phone: phone, role: role, interest: interest, message: message })
+                        }).then(function (res) { return res.json(); })
+                        .then(function (data) {
+                            if (data.success) {
+                                showToast('success', 'Thank You!', 'Your inquiry has been submitted successfully. We will get back to you soon.');
+                                closeEducatorPopup();
+                                educatorForm.reset();
+                            } else {
+                                showToast('error', 'Oops!', 'Something went wrong. Please try again.');
+                            }
                             btn.disabled = false;
                             btn.textContent = 'Get Started →';
-                        }, function (error) {
+                        }).catch(function () {
                             showToast('error', 'Oops!', 'Something went wrong. Please try again.');
-                            console.error('EmailJS Error:', error);
                             btn.disabled = false;
                             btn.textContent = 'Get Started →';
                         });

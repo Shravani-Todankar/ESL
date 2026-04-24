@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impact Programs - ENpower</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     <meta name="description" content="ENpower's Impact Programs - Transforming Education Through Scalable Solutions">
 
     <!-- Google Fonts -->
@@ -2885,7 +2886,6 @@
     <!-- Footer will be loaded here -->
     <div id="footer-placeholder"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
         function showToast(type, title, msg) {
             const toast = document.getElementById('enpToast');
@@ -2896,8 +2896,6 @@
             toast.classList.add('active');
         }
         function closeToast() { document.getElementById('enpToast').classList.remove('active'); }
-
-        emailjs.init('ZrIVKL_1zb380bnLM');
 
         // CTA Form Popup Controls
         (function () {
@@ -2931,19 +2929,23 @@
                     const designation = document.getElementById('ip-cta-designation').value;
                     const phone = document.getElementById('ip-cta-phone').value;
 
-                    emailjs.send('service_2u7kfbl', 'template_022e9es', {
-                        subject: 'New Impact Program Inquiry from ' + name,
-                        header: 'New inquiry received from Impact Programs page:',
-                        content: 'Name: ' + name + '\nEmail: ' + email + '\nOrganization/Foundation: ' + org + '\nDesignation: ' + designation + '\nContact: ' + phone
-                    }).then(function () {
-                        showToast('success', 'Thank You!', 'Your inquiry has been submitted successfully. We will get back to you soon.');
-                        form.reset();
-                        overlay.style.display = 'none';
+                    fetch('/api/impact-inquiry', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name: name, email: email, organisation: org, designation: designation, contact: phone })
+                    }).then(function (res) { return res.json(); })
+                    .then(function (data) {
+                        if (data.success) {
+                            showToast('success', 'Thank You!', 'Your inquiry has been submitted successfully. We will get back to you soon.');
+                            form.reset();
+                            overlay.style.display = 'none';
+                        } else {
+                            showToast('error', 'Oops!', 'Something went wrong. Please try again.');
+                        }
                         btn.disabled = false;
                         btn.textContent = 'Submit';
-                    }, function (error) {
+                    }).catch(function () {
                         showToast('error', 'Oops!', 'Something went wrong. Please try again.');
-                        console.error('EmailJS Error:', error);
                         btn.disabled = false;
                         btn.textContent = 'Submit';
                     });
