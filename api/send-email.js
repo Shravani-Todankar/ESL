@@ -107,8 +107,8 @@ function partnerInquiryTemplate(data) {
     ['Name', data.name],
     ['I Represent', data.represent]
   ];
-  if (data.iam) rows.push(['I am a', data.iam]);
-  if (data.designation) rows.push(['Designation', data.designation]);
+  if (data.iam && data.iam !== 'N/A') rows.push(['I am a', data.iam]);
+  if (data.designation && data.designation !== 'N/A') rows.push(['Designation', data.designation]);
   rows.push(['Email', data.email]);
   rows.push(['Contact Number', data.contact]);
 

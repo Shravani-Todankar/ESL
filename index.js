@@ -368,8 +368,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const name = nameInput.value;
                 const represent = representSelect.options[representSelect.selectedIndex].text;
-                const role = schoolRoleSelect.selectedIndex > 0 ? schoolRoleSelect.options[schoolRoleSelect.selectedIndex].text : 'N/A';
-                const desig = designationInput.value || 'N/A';
+                const isSchool = representSelect.value === 'school';
+                const role = isSchool ? schoolRoleSelect.options[schoolRoleSelect.selectedIndex].text : '';
+                const desig = !isSchool ? designationInput.value.trim() : '';
                 const email = emailInput.value;
                 const contact = contactInput.value;
 
