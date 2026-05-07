@@ -2714,14 +2714,30 @@
         document.getElementById('cslForm').addEventListener('submit', function (e) {
             e.preventDefault();
             const btn = this.querySelector('.csl-form-submit');
+
+            const name = document.getElementById('cslName').value.trim();
+            const school = document.getElementById('cslSchool').value.trim();
+            const designation = document.getElementById('cslDesignation').value.trim();
+            const email = document.getElementById('cslEmail').value.trim();
+            const contact = document.getElementById('cslContact').value.trim();
+
+            const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            const phoneOk = /^\d{10}$/.test(contact.replace(/\D/g, ''));
+            if (!name || !school || !designation) {
+                showToast('error', 'Missing fields', 'Please fill in all required fields.');
+                return;
+            }
+            if (!emailOk) {
+                showToast('error', 'Invalid email', 'Please enter a valid email address.');
+                return;
+            }
+            if (!phoneOk) {
+                showToast('error', 'Invalid phone', 'Please enter a valid 10-digit phone number.');
+                return;
+            }
+
             btn.disabled = true;
             btn.textContent = 'Sending...';
-
-            const name = document.getElementById('cslName').value;
-            const school = document.getElementById('cslSchool').value;
-            const designation = document.getElementById('cslDesignation').value;
-            const email = document.getElementById('cslEmail').value;
-            const contact = document.getElementById('cslContact').value;
 
             fetch('/api/lab-inquiry', {
                 method: 'POST',

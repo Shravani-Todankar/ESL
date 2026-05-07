@@ -360,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 isValid = false;
             }
 
-            // If form is valid, submit via EmailJS
+            // If form is valid, submit to backend
             if (isValid) {
                 const btn = partnerForm.querySelector('.form-submit-btn');
                 btn.disabled = true;

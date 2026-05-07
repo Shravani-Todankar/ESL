@@ -3271,14 +3271,30 @@
         document.getElementById('tilForm').addEventListener('submit', function (e) {
             e.preventDefault();
             const btn = this.querySelector('.til-form-submit');
+
+            const name = document.getElementById('tilName').value.trim();
+            const school = document.getElementById('tilSchool').value.trim();
+            const designation = document.getElementById('tilDesignation').value.trim();
+            const email = document.getElementById('tilEmail').value.trim();
+            const contact = document.getElementById('tilContact').value.trim();
+
+            const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            const phoneOk = /^\d{10}$/.test(contact.replace(/\D/g, ''));
+            if (!name || !school || !designation) {
+                showToast('error', 'Missing fields', 'Please fill in all required fields.');
+                return;
+            }
+            if (!emailOk) {
+                showToast('error', 'Invalid email', 'Please enter a valid email address.');
+                return;
+            }
+            if (!phoneOk) {
+                showToast('error', 'Invalid phone', 'Please enter a valid 10-digit phone number.');
+                return;
+            }
+
             btn.disabled = true;
             btn.textContent = 'Sending...';
-
-            const name = document.getElementById('tilName').value;
-            const school = document.getElementById('tilSchool').value;
-            const designation = document.getElementById('tilDesignation').value;
-            const email = document.getElementById('tilEmail').value;
-            const contact = document.getElementById('tilContact').value;
 
             fetch('/api/lab-inquiry', {
                 method: 'POST',

@@ -39,6 +39,17 @@ const upload = multer({
   }
 });
 
+// ====== HTML ESCAPE (XSS prevention in email body) ======
+function esc(value) {
+  if (value === undefined || value === null) return '';
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 // ====== EMAIL TEMPLATES ======
 function emailWrapper(title, badge, content) {
   return `
@@ -50,12 +61,12 @@ function emailWrapper(title, badge, content) {
 
     <!-- Header -->
     <div style="background:linear-gradient(135deg,#efdeff 0%,#fffce3 100%);padding:30px;text-align:center;">
-      <h2 style="color:#3d2549;font-size:1.3rem;margin:0;">${title}</h2>
+      <h2 style="color:#3d2549;font-size:1.3rem;margin:0;">${esc(title)}</h2>
     </div>
 
     <!-- Content -->
     <div style="padding:30px;">
-      <span style="display:inline-block;background:#e5a93e;color:#fff;padding:3px 10px;border-radius:50px;font-size:12px;font-weight:700;margin-bottom:12px;">${badge}</span>
+      <span style="display:inline-block;background:#e5a93e;color:#fff;padding:3px 10px;border-radius:50px;font-size:12px;font-weight:700;margin-bottom:12px;">${esc(badge)}</span>
       ${content}
     </div>
 
@@ -70,8 +81,8 @@ function emailWrapper(title, badge, content) {
 
 function tableRow(label, value) {
   return `<tr>
-    <td style="padding:12px 16px;font-size:14px;border-bottom:1px solid #f0ecf5;font-weight:700;color:#3d2549;width:40%;background:#f9f5ff;">${label}</td>
-    <td style="padding:12px 16px;font-size:14px;border-bottom:1px solid #f0ecf5;color:#555;">${value}</td>
+    <td style="padding:12px 16px;font-size:14px;border-bottom:1px solid #f0ecf5;font-weight:700;color:#3d2549;width:40%;background:#f9f5ff;">${esc(label)}</td>
+    <td style="padding:12px 16px;font-size:14px;border-bottom:1px solid #f0ecf5;color:#555;">${esc(value)}</td>
   </tr>`;
 }
 
@@ -158,7 +169,7 @@ function hiringTemplate(data, fileName) {
   if (fileName) {
     content += '<div style="background:#f9f5ff;border:1px dashed #d4c6e8;border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:10px;">';
     content += '<span style="font-size:1.4rem;">&#128206;</span>';
-    content += '<span style="font-size:14px;color:#6c32a8;font-weight:600;">' + fileName + '</span>';
+    content += '<span style="font-size:14px;color:#6c32a8;font-weight:600;">' + esc(fileName) + '</span>';
     content += '</div>';
   }
   return {
@@ -248,7 +259,20 @@ app.post('/api/training-inquiry', function (req, res) {
 });
 
 // Hiring / Apply (with file upload)
-app.post('/api/apply', upload.single('cv'), function (req, res) {
+// Wrap multer so file-validation / size errors return JSON instead of HTML
+function applyUpload(req, res, next) {
+  upload.single('cv')(req, res, function (err) {
+    if (err) {
+      var msg = 'File upload failed';
+      if (err.code === 'LIMIT_FILE_SIZE') msg = 'File too large (max 5 MB)';
+      else if (err.message) msg = err.message;
+      return res.status(400).json({ success: false, message: msg });
+    }
+    next();
+  });
+}
+
+app.post('/api/apply', applyUpload, function (req, res) {
   var attachments = [];
   var fileName = '';
 
@@ -270,6 +294,15 @@ app.post('/api/apply', upload.single('cv'), function (req, res) {
 // Health check
 app.get('/api/health', function (req, res) {
   res.json({ status: 'ok', service: 'ENpower Email API' });
+});
+
+// ====== GLOBAL ERROR HANDLER ======
+// Catches anything unhandled (e.g. multer errors outside the wrapped route,
+// JSON parse errors). Returns clean JSON so the frontend's res.json() never breaks.
+app.use(function (err, req, res, next) {
+  console.error('Unhandled error:', err);
+  if (res.headersSent) return next(err);
+  res.status(500).json({ success: false, message: 'Server error' });
 });
 
 // ====== START SERVER ======
