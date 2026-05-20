@@ -20,9 +20,189 @@ const INBOX = {
 };
 
 // ====== MIDDLEWARE ======
+app.set('trust proxy', true);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// ====== ANTI-SPAM VALIDATION ======
+var DISPOSABLE_DOMAINS = ['mailinator.com', 'tempmail.com', '10minutemail.com', 'guerrillamail.com', 'throwaway.email', 'yopmail.com', 'trashmail.com', 'fakeinbox.com'];
+var BAD_LOCALS = ['test', 'admin', 'spam', 'abc', 'xyz'];
+var SPAM_NAME_TOKENS = ['test', 'asdf', 'qwerty', 'abcd'];
+
+// Rate limit state (in-memory)
+var ipHits = new Map();   // ip -> [timestamps]
+var emailHits = new Map(); // email -> lastTimestamp
+var IP_WINDOW_MS = 60 * 60 * 1000;       // 1 hour
+var IP_MAX = 3;
+var EMAIL_WINDOW_MS = 24 * 60 * 60 * 1000; // 24h
+
+function cleanupRateLimits(now) {
+  ipHits.forEach(function (arr, ip) {
+    var kept = arr.filter(function (t) { return now - t < IP_WINDOW_MS; });
+    if (kept.length === 0) ipHits.delete(ip);
+    else ipHits.set(ip, kept);
+  });
+  emailHits.forEach(function (t, em) {
+    if (now - t > EMAIL_WINDOW_MS) emailHits.delete(em);
+  });
+}
+
+function validName(v) {
+  if (!v || typeof v !== 'string') return false;
+  var s = v.trim();
+  if (s.length < 2 || s.length > 50) return false;
+  if (!/^[a-zA-Z .']{2,50}$/.test(s)) return false;
+  if (/http|www|\d/i.test(s)) return false;
+  if (/(.)\1{3,}/i.test(s)) return false;
+  var lower = s.toLowerCase();
+  for (var i = 0; i < SPAM_NAME_TOKENS.length; i++) {
+    if (lower.indexOf(SPAM_NAME_TOKENS[i]) !== -1) return false;
+  }
+  return true;
+}
+
+function validEmailFormat(v) {
+  if (!v || typeof v !== 'string') return false;
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+}
+
+function emailSilentReject(v) {
+  var s = v.trim().toLowerCase();
+  var parts = s.split('@');
+  if (parts.length !== 2) return false;
+  var local = parts[0];
+  var domain = parts[1];
+  if (DISPOSABLE_DOMAINS.indexOf(domain) !== -1) return true;
+  if (BAD_LOCALS.indexOf(local) !== -1) return true;
+  return false;
+}
+
+function validPhone(v) {
+  if (!v) return false;
+  var digits = String(v).replace(/\D/g, '');
+  if (digits.length !== 10) return false;
+  if (!/^[6-9]/.test(digits)) return false;
+  if (digits === '1234567890' || digits === '9876543210') return false;
+  if (/^(\d)\1{9}$/.test(digits)) return false;
+  if (/(\d)\1{5,}/.test(digits)) return false;
+  return true;
+}
+
+function freeTextSpam(v) {
+  if (!v || typeof v !== 'string') return false;
+  var s = v.trim();
+  if (/https?:\/\/|www\.|\.com|\.in/i.test(s)) return true;
+  if (/[^a-zA-Z0-9\s]{4,}/.test(s)) return true;
+  if (s.length > 10 && s === s.toUpperCase() && /[A-Z]/.test(s)) return true;
+  return false;
+}
+
+function validateSubmission(req, required, opts) {
+  opts = opts || {};
+  var body = req.body || {};
+  var now = Date.now();
+  cleanupRateLimits(now);
+
+  // 1. Honeypot
+  if (body.website_url) {
+    return { valid: false, silent: true, reason: 'honeypot' };
+  }
+
+  // 2. Required fields
+  for (var i = 0; i < required.length; i++) {
+    var k = required[i];
+    if (!body[k] || String(body[k]).trim() === '') {
+      return { valid: false, silent: false, reason: 'missing:' + k, message: 'Please fill in all required fields.' };
+    }
+  }
+
+  // requireAnyOf (conditional fields)
+  if (opts.requireAnyOf && opts.requireAnyOf.length) {
+    var any = false;
+    for (var j = 0; j < opts.requireAnyOf.length; j++) {
+      var f = opts.requireAnyOf[j];
+      if (body[f] && String(body[f]).trim() !== '' && body[f] !== 'N/A') { any = true; break; }
+    }
+    if (!any) {
+      return { valid: false, silent: false, reason: 'missing:anyOf', message: 'Please fill in all required fields.' };
+    }
+  }
+
+  // 3. Name
+  if (body.name !== undefined) {
+    if (!validName(body.name)) {
+      return { valid: false, silent: true, reason: 'bad_name' };
+    }
+  }
+
+  // 4. Email
+  var emailField = body.email;
+  if (emailField !== undefined) {
+    if (!validEmailFormat(emailField)) {
+      return { valid: false, silent: false, reason: 'bad_email_format', message: 'Please enter a valid email address.' };
+    }
+    if (emailSilentReject(emailField)) {
+      return { valid: false, silent: true, reason: 'disposable_email' };
+    }
+  }
+
+  // 5. Phone (contact or phone field)
+  var phoneVal = body.contact !== undefined ? body.contact : body.phone;
+  if (phoneVal !== undefined && phoneVal !== '') {
+    if (!validPhone(phoneVal)) {
+      // distinguish format vs spam-pattern
+      var digits = String(phoneVal).replace(/\D/g, '');
+      if (digits.length !== 10) {
+        return { valid: false, silent: false, reason: 'bad_phone_format', message: 'Please enter a valid 10-digit phone number.' };
+      }
+      return { valid: false, silent: true, reason: 'spam_phone' };
+    }
+  }
+
+  // 6. Free-text fields
+  var freeFields = ['designation', 'message', 'school', 'organisation', 'organization', 'represent', 'role', 'interest', 'iam'];
+  for (var k2 = 0; k2 < freeFields.length; k2++) {
+    var fv = body[freeFields[k2]];
+    if (fv && freeTextSpam(fv)) {
+      return { valid: false, silent: true, reason: 'spam_text:' + freeFields[k2] };
+    }
+  }
+
+  // 7. Rate limit
+  var ip = req.ip || req.connection.remoteAddress || 'unknown';
+  var ipArr = ipHits.get(ip) || [];
+  if (ipArr.length >= IP_MAX) {
+    return { valid: false, silent: true, reason: 'rate_limit_ip' };
+  }
+  if (emailField) {
+    var emKey = String(emailField).trim().toLowerCase();
+    if (emailHits.has(emKey)) {
+      return { valid: false, silent: true, reason: 'rate_limit_email' };
+    }
+  }
+
+  return {
+    valid: true,
+    track: function () {
+      ipArr.push(now);
+      ipHits.set(ip, ipArr);
+      if (emailField) emailHits.set(String(emailField).trim().toLowerCase(), now);
+    }
+  };
+}
+
+function logSpam(req, reason) {
+  try {
+    console.log(JSON.stringify({
+      ts: new Date().toISOString(),
+      ip: req.ip,
+      reason: reason,
+      endpoint: req.path,
+      payload: req.body
+    }));
+  } catch (e) { /* ignore */ }
+}
 
 // Multer for file upload (hiring form CV)
 const upload = multer({
@@ -217,6 +397,13 @@ function sendEmail(to, subject, htmlBody, attachments) {
 
 // Lab Inquiry (FSL, CSL, TIL)
 app.post('/api/lab-inquiry', function (req, res) {
+  var check = validateSubmission(req, ['name', 'school', 'designation', 'email', 'contact']);
+  if (!check.valid) {
+    logSpam(req, check.reason);
+    if (check.silent) return res.json({ success: true, message: 'Inquiry sent successfully' });
+    return res.status(400).json({ success: false, message: check.message });
+  }
+  check.track();
   var template = labInquiryTemplate(req.body);
   sendEmail(INBOX.general, template.subject, template.html)
     .then(function () { res.json({ success: true, message: 'Inquiry sent successfully' }); })
@@ -225,6 +412,13 @@ app.post('/api/lab-inquiry', function (req, res) {
 
 // Partner Inquiry
 app.post('/api/partner-inquiry', function (req, res) {
+  var check = validateSubmission(req, ['name', 'represent', 'email', 'contact'], { requireAnyOf: ['iam', 'designation'] });
+  if (!check.valid) {
+    logSpam(req, check.reason);
+    if (check.silent) return res.json({ success: true, message: 'Inquiry sent successfully' });
+    return res.status(400).json({ success: false, message: check.message });
+  }
+  check.track();
   var template = partnerInquiryTemplate(req.body);
   sendEmail(INBOX.general, template.subject, template.html)
     .then(function () { res.json({ success: true, message: 'Inquiry sent successfully' }); })
@@ -233,6 +427,14 @@ app.post('/api/partner-inquiry', function (req, res) {
 
 // Impact Programs
 app.post('/api/impact-inquiry', function (req, res) {
+  // frontend sends "organisation"
+  var check = validateSubmission(req, ['name', 'email', 'organisation', 'designation', 'contact']);
+  if (!check.valid) {
+    logSpam(req, check.reason);
+    if (check.silent) return res.json({ success: true, message: 'Inquiry sent successfully' });
+    return res.status(400).json({ success: false, message: check.message });
+  }
+  check.track();
   var template = impactTemplate(req.body);
   sendEmail(INBOX.general, template.subject, template.html)
     .then(function () { res.json({ success: true, message: 'Inquiry sent successfully' }); })
@@ -241,6 +443,13 @@ app.post('/api/impact-inquiry', function (req, res) {
 
 // Training Academy
 app.post('/api/training-inquiry', function (req, res) {
+  var check = validateSubmission(req, ['name', 'email', 'phone', 'role', 'interest']);
+  if (!check.valid) {
+    logSpam(req, check.reason);
+    if (check.silent) return res.json({ success: true, message: 'Inquiry sent successfully' });
+    return res.status(400).json({ success: false, message: check.message });
+  }
+  check.track();
   var template = trainingTemplate(req.body);
   sendEmail(INBOX.general, template.subject, template.html)
     .then(function () { res.json({ success: true, message: 'Inquiry sent successfully' }); })
@@ -249,6 +458,14 @@ app.post('/api/training-inquiry', function (req, res) {
 
 // Hiring / Apply (with file upload)
 app.post('/api/apply', upload.single('cv'), function (req, res) {
+  var check = validateSubmission(req, ['name', 'email']);
+  if (!check.valid) {
+    logSpam(req, check.reason);
+    if (check.silent) return res.json({ success: true, message: 'Application sent successfully' });
+    return res.status(400).json({ success: false, message: check.message });
+  }
+  check.track();
+
   var attachments = [];
   var fileName = '';
 
@@ -276,3 +493,11 @@ app.get('/api/health', function (req, res) {
 app.listen(PORT, function () {
   console.log('ENpower Email API running on port ' + PORT);
 });
+
+// === Test cases (manual curl examples) ===
+// Valid:     curl -X POST localhost:3001/api/lab-inquiry -H 'Content-Type: application/json' -d '{"lab":"FSL","name":"Shravani","school":"DPS","designation":"Principal","email":"s@dps.edu","contact":"9876543211"}'
+// Honeypot:  ...include "website_url":"http://spam.com" — expect 200 success, no email sent (check PM2 logs)
+// Bad email: ...email:"test@mailinator.com" — expect 200 success silently
+// Bad phone: ...contact:"1234567890" — expect 200 success silently
+// Junk name: ...name:"asdfasdf" — expect 200 success silently
+// Format:    ...contact:"abc" — expect 400 with message (visible to legit user mistake)

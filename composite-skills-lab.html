@@ -2437,6 +2437,10 @@
                         <input type="text" id="cslSchool" placeholder="School or institute name" required>
                     </div>
                 </div>
+                <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+                    <label>Leave this field empty:</label>
+                    <input type="text" name="website_url" tabindex="-1" autocomplete="off" value="">
+                </div>
                 <div class="csl-form-row">
                     <div class="csl-form-group">
                         <label>Designation</label>
@@ -2722,11 +2726,12 @@
             const designation = document.getElementById('cslDesignation').value;
             const email = document.getElementById('cslEmail').value;
             const contact = document.getElementById('cslContact').value;
+            const website_url = this.querySelector('input[name="website_url"]').value;
 
             fetch('/api/lab-inquiry', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ lab: 'Composite Skill Lab', name, school, designation, email, contact })
+                body: JSON.stringify({ lab: 'Composite Skill Lab', name, school, designation, email, contact, website_url })
             }).then(function (res) { return res.json(); })
             .then(function (data) {
                 if (data.success) {

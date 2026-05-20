@@ -3003,6 +3003,10 @@
                         <input type="text" id="tilSchool" placeholder="School or institute name" required>
                     </div>
                 </div>
+                <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+                    <label>Leave this field empty:</label>
+                    <input type="text" name="website_url" tabindex="-1" autocomplete="off" value="">
+                </div>
                 <div class="til-form-row">
                     <div class="til-form-group">
                         <label>Designation</label>
@@ -3279,11 +3283,12 @@
             const designation = document.getElementById('tilDesignation').value;
             const email = document.getElementById('tilEmail').value;
             const contact = document.getElementById('tilContact').value;
+            const website_url = this.querySelector('input[name="website_url"]').value;
 
             fetch('/api/lab-inquiry', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ lab: 'Tech Innovation Lab', name, school, designation, email, contact })
+                body: JSON.stringify({ lab: 'Tech Innovation Lab', name, school, designation, email, contact, website_url })
             }).then(function (res) { return res.json(); })
             .then(function (data) {
                 if (data.success) {

@@ -2330,6 +2330,11 @@
                     </div>
                 </div>
 
+                <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+                    <label>Leave this field empty:</label>
+                    <input type="text" name="website_url" tabindex="-1" autocomplete="off" value="">
+                </div>
+
                 <!-- I'm Interested in Dropdown -->
                 <div class="form-row" style="grid-template-columns: 1fr;">
                     <div class="form-group">
@@ -2785,11 +2790,12 @@
                         const interestEl = document.getElementById('educatorInterest');
                         const interest = interestEl.options[interestEl.selectedIndex].text;
                         const message = document.getElementById('educatorMessage').value;
+                        const website_url = educatorForm.querySelector('input[name="website_url"]').value;
 
                         fetch('/api/training-inquiry', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ name: name, email: email, phone: phone, role: role, interest: interest, message: message })
+                            body: JSON.stringify({ name: name, email: email, phone: phone, role: role, interest: interest, message: message, website_url: website_url })
                         }).then(function (res) { return res.json(); })
                         .then(function (data) {
                             if (data.success) {

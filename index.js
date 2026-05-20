@@ -373,11 +373,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 const desig = !isSchool ? designationInput.value.trim() : '';
                 const email = emailInput.value;
                 const contact = contactInput.value;
+                const website_url = partnerForm.querySelector('input[name="website_url"]').value;
 
                 fetch('/api/partner-inquiry', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name: name, represent: represent, iam: role, designation: desig, email: email, contact: contact })
+                    body: JSON.stringify({ name: name, represent: represent, iam: role, designation: desig, email: email, contact: contact, website_url: website_url })
                 }).then(function (res) { return res.json(); })
                 .then(function (data) {
                     if (data.success) {
@@ -1599,6 +1600,7 @@ document.addEventListener('DOMContentLoaded', function () {
             formData.append('name', nameInput.value.trim());
             formData.append('email', emailInput.value.trim());
             formData.append('cv', cvInput.files[0]);
+            formData.append('website_url', form.querySelector('input[name="website_url"]').value);
 
             if (submitBtn) {
                 submitBtn.disabled = true;

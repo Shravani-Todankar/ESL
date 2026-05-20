@@ -2859,6 +2859,10 @@
                     <input type="text" id="ip-cta-org" name="organization" placeholder="Your organization name"
                         required>
                 </div>
+                <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+                    <label>Leave this field empty:</label>
+                    <input type="text" name="website_url" tabindex="-1" autocomplete="off" value="">
+                </div>
                 <div class="ip-cta-form-group">
                     <label for="ip-cta-designation">Designation</label>
                     <input type="text" id="ip-cta-designation" name="designation" placeholder="Your designation"
@@ -2928,11 +2932,12 @@
                     const org = document.getElementById('ip-cta-org').value;
                     const designation = document.getElementById('ip-cta-designation').value;
                     const phone = document.getElementById('ip-cta-phone').value;
+                    const website_url = form.querySelector('input[name="website_url"]').value;
 
                     fetch('/api/impact-inquiry', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ name: name, email: email, organisation: org, designation: designation, contact: phone })
+                        body: JSON.stringify({ name: name, email: email, organisation: org, designation: designation, contact: phone, website_url: website_url })
                     }).then(function (res) { return res.json(); })
                     .then(function (data) {
                         if (data.success) {
