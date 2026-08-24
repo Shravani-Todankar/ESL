@@ -457,6 +457,151 @@
             z-index: 2;
         }
 
+        /* ── IP Image Popup Modal ── */
+        .ip-popup-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(26, 10, 40, 0.75);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+        }
+
+        .ip-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .ip-popup-box {
+            position: relative;
+            max-width: 640px;
+            width: 100%;
+            transform: scale(0.92);
+            transition: transform 0.35s ease;
+        }
+
+        .ip-popup-overlay.active .ip-popup-box {
+            transform: scale(1);
+        }
+
+        .ip-popup-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+        }
+
+        .ip-popup-close {
+            position: absolute;
+            top: -16px;
+            right: -16px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background: #fff;
+            color: #6c32a8;
+            font-size: 22px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .ip-popup-close:hover {
+            transform: rotate(90deg) scale(1.05);
+            background: #f6f0fa;
+        }
+
+        @media (max-width: 768px) {
+            .ip-popup-box {
+                max-width: 92%;
+            }
+
+            .ip-popup-close {
+                top: -14px;
+                right: -8px;
+                width: 36px;
+                height: 36px;
+                font-size: 20px;
+            }
+        }
+
+        /* ── IP Video Section ("We Are The Change") ── */
+        .ip-video-section {
+            position: relative;
+            width: 100%;
+            z-index: 5;
+            padding: 90px 20px 60px;
+            background: #f6f0fa;
+        }
+
+        .ip-video-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .ip-video-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+            color: #6c32a8;
+        }
+
+        .ip-video-subtext {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: #555;
+            max-width: 820px;
+            margin: 0 auto 48px;
+        }
+
+        .ip-video-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .ip-video-frame {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 16 / 9;
+            border: 0;
+        }
+
+        @media (max-width: 768px) {
+            .ip-video-section {
+                padding: 60px 16px 40px;
+            }
+
+            .ip-video-heading {
+                font-size: 2rem;
+            }
+
+            .ip-video-subtext {
+                font-size: 16px;
+                margin-bottom: 32px;
+            }
+        }
+
         .ip-counter-section {
             padding: 6rem 0;
             display: flex;
@@ -2208,6 +2353,14 @@
     <!-- Header will be loaded here -->
     <div id="header-placeholder"></div>
 
+    <!-- IP Image Popup (impact-programs only) -->
+    <div class="ip-popup-overlay" id="ipPopup" role="dialog" aria-modal="true" aria-label="Announcement">
+        <div class="ip-popup-box">
+            <button class="ip-popup-close" id="ipPopupClose" aria-label="Close">&times;</button>
+            <img class="ip-popup-img" src="assets/impact-program/popup.webp" alt="ENpower announcement">
+        </div>
+    </div>
+
     <!-- IP Hero Section -->
     <div class="ip-hero-section">
         <canvas id="ipHeroWaveCanvas"></canvas>
@@ -2274,6 +2427,24 @@
         </div>
 
     </div>
+
+    <!-- IP Video Section — "We Are The Change" -->
+    <section class="ip-video-section">
+        <div class="ip-video-inner">
+            <h2 class="ip-video-heading">We Are The Change</h2>
+            <p class="ip-video-subtext">More than a slogan, this is a powerful belief embraced by thousands of young
+                innovators in ENpower programs. Discover how we help students build the confidence, skills, and mindset
+                to become changemakers.</p>
+            <div class="ip-video-wrapper">
+                <iframe class="ip-video-frame"
+                    src="https://www.youtube.com/embed/XcbrEON6U68?rel=0&modestbranding=1"
+                    title="We Are The Change"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
 
     <!-- IP Counter Section -->
     <section class="ip-counter-section">
@@ -3467,6 +3638,32 @@
 
             updateSlide();
             startAutoPlay();
+        })();
+    </script>
+
+    <!-- IP Image Popup -->
+    <script>
+        (function () {
+            const overlay = document.getElementById('ipPopup');
+            const closeBtn = document.getElementById('ipPopupClose');
+            if (!overlay) return;
+
+            function closePopup() {
+                overlay.classList.remove('active');
+            }
+
+            // Show shortly after load
+            window.addEventListener('load', function () {
+                setTimeout(function () { overlay.classList.add('active'); }, 600);
+            });
+
+            closeBtn.addEventListener('click', closePopup);
+            overlay.addEventListener('click', function (e) {
+                if (e.target === overlay) closePopup();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closePopup();
+            });
         })();
     </script>
 </body>
