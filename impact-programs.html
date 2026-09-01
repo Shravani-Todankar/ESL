@@ -602,6 +602,205 @@
             }
         }
 
+        /* ── IP STEM Commitment Section (masonry gallery + content) ── */
+        .ip-stem-section {
+            position: relative;
+            overflow: hidden;
+            background: #f6f0fa;
+            padding: 90px 40px;
+        }
+
+        .ip-stem-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.05fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* content left, gallery right (reversed vs reference) */
+        .ip-stem-content {
+            order: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .ip-stem-gallery {
+            order: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            height: 640px;
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);
+            mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);
+        }
+
+        .ip-stem-col {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            will-change: transform;
+        }
+
+        .ip-stem-col.up {
+            animation: ipStemUp 32s linear infinite;
+        }
+
+        .ip-stem-col.down {
+            animation: ipStemDown 32s linear infinite;
+        }
+
+        .ip-stem-gallery:hover .ip-stem-col {
+            animation-play-state: paused;
+        }
+
+        @keyframes ipStemUp {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-50%);
+            }
+        }
+
+        @keyframes ipStemDown {
+            from {
+                transform: translateY(-50%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .ip-stem-col figure {
+            margin: 0;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(108, 50, 168, .14);
+        }
+
+        .ip-stem-col img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            transition: transform .6s ease;
+        }
+
+        .ip-stem-col figure:hover img {
+            transform: scale(1.06);
+        }
+
+        .ip-stem-card {
+            background: transparent;
+            border-radius: 28px;
+            padding: 0;
+            box-shadow: none;
+        }
+
+        .ip-stem-eyebrow {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #6c32a8;
+            margin-bottom: 18px;
+        }
+
+        .ip-stem-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 3rem;
+            line-height: 1.12;
+            letter-spacing: -1.5px;
+            color: #241033;
+        }
+
+        .ip-stem-heading b {
+            color: #6c32a8;
+        }
+
+        .ip-stem-sub {
+            font-weight: 300;
+            font-size: 17px;
+            line-height: 1.7;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        .ip-stem-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .ip-stem-statbox {
+            background: linear-gradient(135deg, #efdeff, #fffce3);
+            border: 1px solid #6c32a820;
+            border-radius: 22px;
+            padding: 28px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ip-stem-statbox .num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 3.1rem;
+            line-height: 1;
+            color: #e5a93e;
+        }
+
+        .ip-stem-statbox .lbl {
+            font-weight: 500;
+            font-size: 14px;
+            color: #3d2549;
+            margin-top: 8px;
+        }
+
+        .ip-stem-statbox .ico {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            font-size: 22px;
+            opacity: .35;
+        }
+
+        .ip-stem-reveal {
+            opacity: 0;
+            transform: translateY(36px);
+        }
+
+        @media (max-width: 900px) {
+            .ip-stem-section {
+                padding: 60px 20px;
+            }
+
+            .ip-stem-inner {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .ip-stem-content {
+                order: 2;
+            }
+
+            .ip-stem-gallery {
+                order: 1;
+                height: 440px;
+            }
+
+            .ip-stem-heading {
+                font-size: 2.1rem;
+            }
+        }
+
         .ip-counter-section {
             padding: 6rem 0;
             display: flex;
@@ -2530,6 +2729,62 @@
         </div>
     </section>
 
+    <!-- IP STEM Commitment Section (hidden) -->
+    <section class="ip-stem-section" style="display:none;">
+        <div class="ip-stem-inner">
+
+            <!-- Content (left) -->
+            <div class="ip-stem-content">
+                <div class="ip-stem-card ip-stem-reveal">
+                    <h2 class="ip-stem-heading">Our Commitment To <b>STEM Innovation</b></h2>
+                    <p class="ip-stem-sub">Creating future-ready innovation ecosystems where students learn, build, and
+                        solve real-world challenges through hands-on STEM experiences.</p>
+                </div>
+                <div class="ip-stem-card ip-stem-reveal">
+                    <div class="ip-stem-stats">
+                        <div class="ip-stem-statbox">
+                            <span class="ico">🔬</span>
+                            <div class="num" data-ipstem-count="160">0</div>
+                            <div class="lbl">ATLs Activated &amp; Strengthened</div>
+                        </div>
+                        <div class="ip-stem-statbox">
+                            <span class="ico">⚙️</span>
+                            <div class="num" data-ipstem-count="28">0</div>
+                            <div class="lbl">STEM Labs Up &amp; Running</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Masonry auto-scroll gallery (right) -->
+            <div class="ip-stem-gallery ip-stem-reveal">
+                <div class="ip-stem-col up">
+                    <figure><img src="assets/impact-program/stem/stem1.webp" alt="STEM innovation"></figure>
+                    <figure><img src="assets/impact-program/stem/stem2.webp" alt="STEM innovation"></figure>
+                    <figure><img src="assets/impact-program/stem/stem3.webp" alt="STEM innovation"></figure>
+                    <figure><img src="assets/impact-program/stem/stem4.webp" alt="STEM innovation"></figure>
+                    <figure><img src="assets/impact-program/stem/stem5.webp" alt="STEM innovation"></figure>
+                    <figure><img src="assets/impact-program/stem/stem1.webp" alt="STEM innovation"></figure>
+                    <figure><img src="assets/impact-program/stem/stem2.webp" alt="STEM innovation"></figure>
+                    <figure><img src="assets/impact-program/stem/stem3.webp" alt="STEM innovation"></figure>
+                    <figure><img src="assets/impact-program/stem/stem4.webp" alt="STEM innovation"></figure>
+                    <figure><img src="assets/impact-program/stem/stem5.webp" alt="STEM innovation"></figure>
+                </div>
+                <div class="ip-stem-col down">
+                    <figure><img src="assets/impact-program/stem/stem6.webp" alt="STEM innovation"></figure>
+                    <figure><img src="assets/impact-program/stem/stem7.webp" alt="STEM innovation"></figure>
+                    <figure><img src="assets/impact-program/stem/stem8.webp" alt="STEM innovation"></figure>
+                    <figure><img src="assets/impact-program/stem/stem9.jpg" alt="STEM innovation"></figure>
+                    <figure><img src="assets/impact-program/stem/stem6.webp" alt="STEM innovation"></figure>
+                    <figure><img src="assets/impact-program/stem/stem7.webp" alt="STEM innovation"></figure>
+                    <figure><img src="assets/impact-program/stem/stem8.webp" alt="STEM innovation"></figure>
+                    <figure><img src="assets/impact-program/stem/stem9.jpg" alt="STEM innovation"></figure>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- IP Partner Section -->
     <section class="ip-partner-section">
         <div class="container mb-5">
@@ -3638,6 +3893,33 @@
 
             updateSlide();
             startAutoPlay();
+        })();
+    </script>
+
+    <!-- IP STEM Commitment: reveal + count-up -->
+    <script>
+        (function () {
+            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.to('.ip-stem-reveal', {
+                opacity: 1, y: 0, duration: .8, ease: 'power3.out', stagger: .12,
+                scrollTrigger: { trigger: '.ip-stem-section', start: 'top 72%' }
+            });
+
+            document.querySelectorAll('[data-ipstem-count]').forEach(function (el) {
+                const target = +el.getAttribute('data-ipstem-count');
+                const obj = { v: 0 };
+                ScrollTrigger.create({
+                    trigger: el, start: 'top 90%', once: true,
+                    onEnter: function () {
+                        gsap.to(obj, {
+                            v: target, duration: 1.6, ease: 'power2.out',
+                            onUpdate: function () { el.textContent = Math.round(obj.v) + '+'; }
+                        });
+                    }
+                });
+            });
         })();
     </script>
 
