@@ -648,6 +648,99 @@
             max-width: 550px;
         }
 
+        .fsl-tags {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 40px;
+            padding: 6px 0;
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+        }
+
+        .fsl-tags-track {
+            display: flex;
+            gap: 12px;
+            width: max-content;
+            animation: fslMarquee 30s linear infinite;
+        }
+
+        .fsl-tags:hover .fsl-tags-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes fslMarquee {
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .fsl-tag {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            flex-shrink: 0;
+            gap: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #3d2549;
+            background: #ffffff;
+            border: 1px solid #ece2f5;
+            border-radius: 999px;
+            padding: 9px 18px 9px 9px;
+            box-shadow: 0 4px 14px rgba(108, 50, 168, .06);
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+        }
+
+        .fsl-tag .fsl-tag-ico {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6c32a8, #8b45c9);
+            color: #fff;
+            flex-shrink: 0;
+            transition: transform .35s cubic-bezier(.34, 1.56, .64, 1);
+        }
+
+        .fsl-tag:hover .fsl-tag-ico {
+            transform: rotate(-10deg) scale(1.15);
+        }
+
+        .fsl-tag .fsl-tag-ico .material-icons {
+            font-size: 17px;
+        }
+
+        /* alternate accent = gold */
+        .fsl-tag:nth-child(even) .fsl-tag-ico {
+            background: linear-gradient(135deg, #e5a93e, #f2c66a);
+        }
+
+        .fsl-tag:hover {
+            transform: translateY(-4px);
+            border-color: #6c32a840;
+            box-shadow: 0 14px 30px rgba(108, 50, 168, .18);
+        }
+
+        @media (max-width: 768px) {
+            .fsl-tag {
+                font-size: 0.85rem;
+                padding: 7px 15px 7px 7px;
+            }
+
+            .fsl-tag .fsl-tag-ico {
+                width: 26px;
+                height: 26px;
+            }
+
+            .fsl-tag .fsl-tag-ico .material-icons {
+                font-size: 15px;
+            }
+        }
+
         .fsl-path-image1 {
             width: auto;
             height: 350px;
@@ -2381,7 +2474,7 @@
 
         <!-- Sub text -->
         <div class="fsl-subtext">
-            <span class="fsl-s1">For Grades 1-10 | Fully aligned with NEP 2020</span>
+            <span class="fsl-s1">For Grades 6-10 | Fully aligned with NEP 2020</span>
         </div>
 
         <a href="#fsl-final-cta" class="fsl-hero-explore-btn"
@@ -2491,6 +2584,49 @@
                     spaces, personalised learning goals, competency-based skill assessments, and support from ENpower's
                     Thinking Coaches. ENpower enables every child to grow into confident thinkers, leaders, and job
                     creators.
+                </div>
+            </div>
+
+            <!-- Tags marquee -->
+            <div class="fsl-tags">
+                <div class="fsl-tags-track">
+                    <span class="fsl-tag"><span class="fsl-tag-ico"><span
+                                class="material-icons">school</span></span>Grades 6–10</span>
+                    <span class="fsl-tag"><span class="fsl-tag-ico"><span
+                                class="material-icons">square_foot</span></span>800–1000 sq. ft.</span>
+                    <span class="fsl-tag"><span class="fsl-tag-ico"><span
+                                class="material-icons">schedule</span></span>60–110 Learning Hours Per Year</span>
+                    <span class="fsl-tag"><span class="fsl-tag-ico"><span class="material-icons">layers</span></span>17
+                        Skill Pillars</span>
+                    <span class="fsl-tag"><span class="fsl-tag-ico"><span
+                                class="material-icons">verified</span></span>CSL Compliant</span>
+                    <span class="fsl-tag"><span class="fsl-tag-ico"><span
+                                class="material-icons">lightbulb</span></span>Design Thinking</span>
+                    <span class="fsl-tag"><span class="fsl-tag-ico"><span
+                                class="material-icons">rocket_launch</span></span>Entrepreneurship</span>
+                    <span class="fsl-tag"><span class="fsl-tag-ico"><span
+                                class="material-icons">memory</span></span>Technology</span>
+                    <span class="fsl-tag"><span class="fsl-tag-ico"><span
+                                class="material-icons">fact_check</span></span>Competency-based Assessment</span>
+                    <!-- duplicate for seamless loop -->
+                    <span class="fsl-tag"><span class="fsl-tag-ico"><span
+                                class="material-icons">school</span></span>Grades 6–10</span>
+                    <span class="fsl-tag"><span class="fsl-tag-ico"><span
+                                class="material-icons">square_foot</span></span>800–1000 sq. ft.</span>
+                    <span class="fsl-tag"><span class="fsl-tag-ico"><span
+                                class="material-icons">schedule</span></span>60–110 Learning Hours Per Year</span>
+                    <span class="fsl-tag"><span class="fsl-tag-ico"><span class="material-icons">layers</span></span>17
+                        Skill Pillars</span>
+                    <span class="fsl-tag"><span class="fsl-tag-ico"><span
+                                class="material-icons">verified</span></span>CSL Compliant</span>
+                    <span class="fsl-tag"><span class="fsl-tag-ico"><span
+                                class="material-icons">lightbulb</span></span>Design Thinking</span>
+                    <span class="fsl-tag"><span class="fsl-tag-ico"><span
+                                class="material-icons">rocket_launch</span></span>Entrepreneurship</span>
+                    <span class="fsl-tag"><span class="fsl-tag-ico"><span
+                                class="material-icons">memory</span></span>Technology</span>
+                    <span class="fsl-tag"><span class="fsl-tag-ico"><span
+                                class="material-icons">fact_check</span></span>Competency-based Assessment</span>
                 </div>
             </div>
         </div>
@@ -2643,7 +2779,7 @@
     </section>
 
     <!-- FSL Comparison Table Section -->
-    <section class="fsl-table-section">
+    <section class="fsl-table-section" style="display:none;">
         <div class="fsl-table-container">
             <!-- Heading and Description -->
             <div class="fsl-table-header">
@@ -3611,6 +3747,23 @@
                 <div class="fsl-sp-feat-icon"><span class="material-icons">${f.icon}</span></div>
                 <div class="fsl-sp-feat-title">${f.title}</div>`;
                 grid.appendChild(card);
+            });
+        })();
+    </script>
+
+    <!-- FSL Tags: scroll-triggered stagger reveal -->
+    <script>
+        (function () {
+            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+            gsap.registerPlugin(ScrollTrigger);
+            const marquee = document.querySelector('.fsl-tags');
+            if (!marquee) return;
+            gsap.from(marquee, {
+                opacity: 0,
+                y: 24,
+                duration: .7,
+                ease: 'power3.out',
+                scrollTrigger: { trigger: '.fsl-tags', start: 'top 88%' }
             });
         })();
     </script>
